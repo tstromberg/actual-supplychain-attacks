@@ -1,0 +1,57 @@
+- name: xz
+  title: xz/liblzma backdoor targets SSH via compromised releases.
+  start_date: 2024-02-24 # Malicious versions 5.6.0 released
+  end_date: 2024-03-29 # Public disclosure date
+  license: Multiple (PD, GPL, LGPL) # xz utils uses multiple licenses
+  website: https://tukaani.org/xz/
+  repo: https://git.tukaani.org/xz.git # Official repo; activity also on GitHub mirror
+  attribution_type: new maintainer # Gained maintainership via social engineering; suspected nation-state
+  attribution: Jia Tan (JiaT75)
+  component_type: Library # Primarily liblzma library, also command-line utils
+  lang: C # Backdoor payload language
+  cause: maintainer sabotage # Sophisticated, multi-year effort
+  motive: espionage # Remote access to sshd
+  attack_vector: social engineering / malicious commit # Gained maintainership, injected code via build scripts
+  transitive: false
+  insertion_phase: build # Malicious scripts in release tarball modified build process
+  impact_type: remote code execution / backdoor
+  impact_user_count: 100 # Very low estimate; caught before widespread adoption in stable distros
+  references:
+    - https://www.openwall.com/lists/oss-security/2024/03/29/4 # Initial disclosure
+    - https://gist.github.com/thesamesam/223949d5a074ebc3dce9ee78baad9e27 # Timeline
+    - https://research.swtch.com/xz-timeline # Detailed analysis
+    - https://nvd.nist.gov/vuln/detail/CVE-2024-3094
+    - https://openssf.org/blog/2024/03/30/xz-backdoor-cve-2024-3094/
+  versions: # Release tarballs only, git repo was clean
+    - "5.6.0"
+    - "5.6.1"
+  artifacts: # URLs to malicious release tarballs (archival/research only)
+    - https://web.archive.org/web/20240329153403/https://tukaani.org/xz/xz-5.6.0.tar.gz
+    - https://web.archive.org/web/20240329153403/https://tukaani.org/xz/xz-5.6.1.tar.gz
+    - https://github.com/tukaani-project/xz/releases/tag/v5.6.0 # GitHub release tag pointing to malicious tarball
+    - https://github.com/tukaani-project/xz/releases/tag/v5.6.1 # GitHub release tag pointing to malicious tarball
+  impacted_hashes: # SHA256 of the malicious release tarballs
+    - "6e636819e8147b4a0451667d97a5a96143f8446b95ad6a66a44908a14949551b" # xz-5.6.0.tar.gz
+    - "0fb995a290bb4d40b902f5feb50644cd23571460859388437c5052b5a4b7895f" # xz-5.6.1.tar.gz
+  synopsis: A sophisticated backdoor was inserted into xz-utils release tarballs (versions 5.6.0, 5.6.1) by a maintainer. The backdoor modified liblzma to potentially allow remote code execution in sshd servers linked against the compromised library.
+  compromise_desc: Over several years, an actor using the alias "Jia Tan" gained trust and maintainership status within the xz project through social engineering. They introduced obfuscated malicious code primarily through additions to test files and build scripts included only in the release source code tarballs (versions 5.6.0 and 5.6.1), not the main git repository. These files modified the build process (via `m4` macros and complex shell scripts) to decode and inject a pre-compiled backdoor object file into the `liblzma` library during compilation.
+  impact_desc: The backdoor in the compromised `liblzma` library specifically targeted the OpenSSH server (`sshd`) process when linked against the malicious library (e.g., via systemd integration). The backdoor hooked the `RSA_public_decrypt` function used during public key authentication. It allowed an attacker possessing a specific Ed448 private key to send a crafted payload within the SSH handshake certificate data. If the signature matched the attacker's key, the payload would be executed via `system()` within the sshd process before authentication completed, granting remote code execution. The attack was discovered before the malicious versions were integrated into stable releases of major Linux distributions.
+  example_code: |
+    # Snippet from malicious build-to-host.m4 script in tarball
+    # Shows pattern of extracting/decoding/evaluating payload from test files
+    # Actual payload execution is highly obfuscated.
+
+    if test -f "$srcdir/tests/files/bad-3-corrupt_lzma2.xz"; then
+      # ... (complex decoding using sed/awk from test files) ...
+      # The result of decoding is stored in gl_extracted_payload variable
+      # then evaluated and piped through another awk script for final decryption/injection
+      eval $gl_extracted_payload | LC_ALL=C sed 's/\(.\)/\1\n/g' | \
+      LC_ALL=C awk 'BEGIN{FS="\n";RS="\n";ORS="";m=256; # ... (complex decryption logic) ... ' > liblzma_la-crc64-fast.o || exit 1
+
+      # Link the malicious object file instead of the real one
+      if "$AM_RUN_DEBUG_FALSE"; then :; else \
+      $LIBTOOL --mode=link --tag=CC $CC $CFLAGS $CPPFLAGS $LDFLAGS \
+      -o $output_file liblzma_la-crc64-fast.o $liblzma_la_LIBADD $liblzma_la_DEPENDENCIES; \
+      fi || exit 1
+      # ... (cleanup/further obfuscation) ...
+    fi

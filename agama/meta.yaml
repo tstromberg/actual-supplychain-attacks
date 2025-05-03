@@ -1,0 +1,45 @@
+- name: Agama
+  title: Agama wallet compromised via malicious event-stream dependency.
+  start_date: 2018-11-20 # Approximate date event-stream dep was compromised
+  end_date: 2018-11-26 # Approximate date event-stream issue disclosed
+  license: MIT
+  website: https://github.com/KomodoPlatform/Agama # Original project repo
+  repo: https://github.com/KomodoPlatform/Agama
+  attribution_type: new maintainer # Attacker took over dependency 'flatmap-stream'
+  attribution: right9ctrl
+  component_type: Application # Cryptocurrency Wallet
+  lang: Javascript
+  cause: compromise # Transitive dependency compromise
+  motive: financial gain # Cryptocurrency theft
+  attack_vector: malicious dependency
+  transitive: true
+  insertion_phase: dependency # Malicious code was in event-stream -> flatmap-stream
+  impact_type: cryptocurrency theft / credential theft
+  impact_user_count: 1000 # Estimate, actual number of Agama users impacted unknown
+  references:
+    - https://blog.npmjs.org/post/180565383195/details-about-the-event-stream-incident
+    - https://github.com/dominictarr/event-stream/issues/116
+    - https://medium.com/intrinsic/intrinsic-parity-disclosure-atomic-multi-sig-wallet-has-critical-vulnerability-634484d93a47
+  synopsis: The Agama cryptocurrency wallet included the `event-stream` npm package which contained a malicious sub-dependency (`flatmap-stream`). This sub-dependency targeted crypto wallets like Agama to steal private keys or seed phrases.
+  compromise_desc: The attacker, 'right9ctrl', gained publishing rights to the popular `event-stream` npm package after the original maintainer stepped down. The attacker added a new, seemingly innocuous dependency, `flatmap-stream` (version 0.1.1). This sub-dependency contained obfuscated malicious code designed to activate only within specific target application environments identified by their `package.json` description, including the Agama wallet ("Agama"). Agama, using `event-stream`, inadvertently pulled in this malicious transitive dependency.
+  impact_desc: When users ran affected builds of the Agama wallet application that included `event-stream` v3.3.6, the malicious code within the nested `flatmap-stream` dependency would execute. It attempted to locate and decrypt the wallet's seed phrase or private keys stored locally. If successful, it would encrypt the stolen credentials and exfiltrate them to an attacker-controlled server (e.g., `copayapi.host`), allowing the theft of cryptocurrency funds managed by the wallet.
+  example_code: |
+    // Simplified conceptual code from flatmap-stream/index.js (deobfuscated)
+
+    // Check if running inside a targeted application like Copay or Agama
+    // This involved reading the main application's package.json description
+    var package_json = require('./package.json'); // Accessing parent package.json data
+    if (package_json.description === 'Agama' || package_json.description === 'A Secure Bitcoin Wallet') { // Example targets
+
+      // Load the malicious payload if target matches
+      try {
+          require('./lib/payload'); // Executes the credential stealing logic
+      } catch (e) {}
+    }
+
+    // Inside ./lib/payload (simplified concept):
+    // - Code locates application data stores (e.g., localStorage)
+    // - Searches for patterns matching private keys or BIP39 seed phrases
+    // - Decrypts data if necessary (e.g., using environment vars as keys)
+    // - Encrypts stolen credentials with attacker's public key
+    // - POSTs encrypted credentials to attacker server (e.g., https://copayapi.host/copay/wallet)

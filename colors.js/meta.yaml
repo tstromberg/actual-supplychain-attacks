@@ -1,0 +1,44 @@
+- name: colors.js
+  title: Maintainer sabotaged colors.js/faker.js, breaking apps.
+  start_date: 2022-01-08
+  end_date: 2022-01-09
+  license: MIT
+  website: https://github.com/Marak/colors.js
+  repo: https://github.com/Marak/colors.js
+  attribution_type: original maintainer
+  attribution: Marak Squires
+  component_type: Library
+  lang: Javascript
+  cause: maintainer sabotage
+  motive: protest / financial dissatisfaction
+  attack_vector: malicious publish
+  transitive: false
+  insertion_phase: distribution
+  impact_type: denial of service / infinite loop
+  impact_user_count: 100000 # Conservative estimate based on millions of weekly downloads
+  references:
+    - https://www.bleepingcomputer.com/news/security/dev-corrupts-npm-libs-colors-and-faker-breaking-thousands-of-apps/
+    - https://github.com/Marak/colors.js/issues/285
+    - https://snyk.io/blog/open-source-maintainer-pulls-the-plug-colors-js-faker-js/
+    - https://www.sonatype.com/blog/npm-libraries-colors-and-faker-sabotaged-in-protest-by-their-maintainer-what-to-do-now
+  versions: # Also impacted faker.js v6.6.6
+    - "1.4.1"
+    - "1.4.2"
+    - "1.4.44-liberty-2"
+  commits:
+    - "d840c964830126734b1b69a621518410cfc34954" # Infinite loop commit
+  artifacts:
+    - "https://www.npmjs.com/package/colors/v/1.4.1 (malicious version, now yanked)"
+  synopsis: The maintainer of popular npm libraries colors.js and faker.js intentionally published malicious versions. The colors.js update contained an infinite loop, causing denial-of-service in dependent applications like aws-cdk.
+  compromise_desc: The original maintainer, Marak Squires, intentionally introduced breaking changes and malicious code into new versions of his widely used libraries, `colors.js` and `faker.js`. He published these versions to the npm registry, leveraging his maintainer privileges. This act was seemingly a protest against corporations using his free work without compensation and related to earlier issues with his account access.
+  impact_desc: Applications depending on the affected versions of `colors.js` (specifically 1.4.1, 1.4.2, 1.4.44-liberty-2) experienced infinite loops upon execution, printing gibberish text related to "LIBERTY" and non-ASCII characters, effectively causing a denial of service. The sabotaged `faker.js` version 6.6.6 exhibited similar disruptive behavior. Countless downstream projects relying on these libraries were broken until they pinned dependencies to safe versions or the malicious versions were removed/superseded.
+  example_code: |
+    // Malicious infinite loop added in colors.js v1.4.1
+    // ... (previous code) ...
+    for (let i = 666; i < Infinity; i++) {
+      if (i % 333) {
+        // console.log('testing testing'.zalgo.rainbow)
+      }
+      console.log('ኢየሱስ ክርስቶስ världens frälsare'.zalgo) // Prints zalgo text infinitely
+    }
+    module['exports'] = colors;

@@ -1,0 +1,30 @@
+- name: Transmission
+  title: Transmission Mac installer bundled KeRanger ransomware.
+  start_date: 2016-03-04
+  end_date: 2016-03-05
+  license: GPL-2.0 # Also MIT, GPL-3.0
+  website: https://transmissionbt.com/
+  repo: https://github.com/transmission/transmission
+  attribution_type: unknown
+  component_type: Application
+  lang: Objective-C # Malware language
+  cause: Compromise
+  motive: Financial gain
+  attack_vector: Server compromise
+  transitive: false
+  insertion_phase: distribution
+  impact_type: Ransomware, Data encryption
+  impact_user_count: 6500 # Estimated downloads
+  references:
+    - https://web.archive.org/web/20160310111717/https://transmissionbt.com/keranger/
+    - https://blog.malwarebytes.com/threat-analysis/2016/03/transmission-ransomware/
+    - https://www.paloaltonetworks.com/blog/2016/03/new-os-x-ransomware-keranger-infected-transmission-bittorrent-client-installer/
+    - https://objective-see.org/blog/blog_0x0A.html
+    - https://www.welivesecurity.com/2016/03/07/new-mac-ransomware-appears-keranger-spread-via-transmission-app/
+  versions:
+    - "2.90" # Mac .dmg installer
+  impacted_hashes:
+    - "sha256:01293503c9a7b17f4269099fd30b844338a1508a055c314f4e74b06440a04c43" # Compromised DMG
+  synopsis: Official Transmission v2.90 Mac installer (DMG) replaced with version bundling KeRanger ransomware. Malware encrypted user files after 3-day delay demanding bitcoin ransom.
+  compromise_desc: Attackers compromised the main distribution server for the Transmission BitTorrent client. They replaced the legitimate `Transmission-2.90.dmg` installer file for macOS with a modified version signed with a valid (likely stolen or newly registered) Apple Developer ID certificate. This version included the KeRanger ransomware payload, often disguised as a file like `General.rtf` within the application bundle. The malicious installer was available for download for approximately two days.
+  impact_desc: Users who downloaded and installed the compromised Transmission 2.90 DMG executed the KeRanger ransomware. The malware remained dormant for three days before contacting command-and-control (C2) servers over Tor and initiating the encryption of user files. A ransom note demanding 1 Bitcoin was displayed for file decryption. Apple quickly revoked the signing certificate, and Transmission released updated versions (2.91, 2.92) which included removal routines for the malware.

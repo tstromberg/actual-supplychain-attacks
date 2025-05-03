@@ -1,0 +1,36 @@
+- name: Webmin
+  title: Webmin build server compromised, backdoor inserted.
+  start_date: 2019-08-10
+  end_date: 2019-08-17
+  license: BSD-3-Clause
+  website: https://www.webmin.com/
+  repo: https://github.com/webmin/webmin
+  attribution_type: unknown
+  component_type: Application
+  lang: Perl
+  cause: compromise
+  motive: Remote Code Execution
+  attack_vector: Build server compromise
+  transitive: false
+  insertion_phase: build
+  impact_type: Remote Code Execution
+  references:
+    - https://pentest-tools.com/blog/webmin-remote-code-execution-rce-vulnerability-explained/
+    - https://www.webmin.com/exploit.html
+  versions:
+    - 1.890
+  artifacts:
+    - https://sourceforge.net/projects/webadmin/files/webmin/1.890/
+  synopsis: |
+    An attacker compromised Webmin's build infrastructure. Malicious code, dormant in the source repo, was activated during the build of release 1.890, creating an RCE backdoor.
+  compromise_desc: |
+    The build server used to create official Webmin releases distributed via SourceForge was compromised. The attacker modified the build process to activate a backdoor within the `password_change.cgi` script. This backdoor code had been subtly introduced into the source repository much earlier but was designed to remain inactive unless specific modifications were made during the build/packaging phase.
+  impact_desc: |
+    The backdoor allowed unauthenticated remote code execution. By sending a crafted POST request to `/password_change.cgi` using the expired password feature, an attacker could inject shell commands into the 'old' password field, which were then executed with root privileges on the affected server.
+  example_code: |
+    ```perl
+    # Key line inside acl::unix_crypt function in acl/acl-lib.pl
+    # Activated when $convert is true (set by compromised build script)
+    # Executes the command passed in $pass (originating from the 'old' parameter)
+    return &acl::qx SCRIPT_ROOT."/".&acl::pwd_mkdb($pass)." 2>&1";
+    ```

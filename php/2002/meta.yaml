@@ -1,0 +1,21 @@
+- name: PHP
+  title: PHP.net source code compromised
+  start_date: 2002-05-14
+  end_date: 2002-05-14
+  license: PHP License
+  website: https://www.php.net
+  repo: https://github.com/php/php-src
+  attribution_type: unknown
+  component_type: Application
+  lang: C
+  cause: compromise
+  motive: backdoor
+  attack_vector: server compromise
+  insertion_phase: distribution
+  impact_type: backdoor
+  impact_user_count: 1000
+  references:
+    - https://www.php.net/archive/2002.php#2002-05-14-1
+  synopsis: Attackers compromised the PHP.net source code repositories. A backdoor was inserted into the PHP source code distribution files.
+  compromise_desc: Unknown attackers compromised the PHP.net servers, gaining access to the source code repository. They inserted a backdoor into the PHP distribution that would have allowed remote code execution if it had remained undetected.
+  impact_desc: The compromised code was available for download for approximately 24 hours before detection. PHP developers discovered the breach and quickly secured the servers, issuing a security advisory to users who may have downloaded compromised versions.

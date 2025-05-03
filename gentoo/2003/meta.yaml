@@ -1,0 +1,23 @@
+- name: Gentoo Portage
+  title: Gentoo mirror compromised modifying Portage files.
+  start_date: 2003-11-20
+  end_date: 2003-11-21
+  license: GPL-2.0 (Portage), Various (Packages)
+  website: https://www.gentoo.org/
+  repo: https://gitweb.gentoo.org/repo/gentoo.git
+  attribution_type: unknown
+  component_type: Linux Distribution
+  lang: Shell
+  cause: compromise
+  motive: denial of service
+  attack_vector: Server compromise
+  transitive: false
+  insertion_phase: distribution
+  impact_type: Arbitrary code execution
+  references:
+    - https://www.securityfocus.com/news/7493
+    - https://lwn.net/Articles/59989/
+    - https://www.gentoo.org/news/2003/11/index.xml
+  synopsis: Attacker compromised official Gentoo rsync mirror server. Portage tree files were modified, potentially affecting users syncing packages.
+  compromise_desc: An attacker gained access to an official Gentoo Linux rsync mirror hosted at Georgia Tech (`ftp.gtlib.cc.gatech.edu`). Files within the Portage package manager tree served by this specific mirror were altered by the attacker before the intrusion was detected and the mirror was taken offline for cleanup.
+  impact_desc: Users syncing their local Portage tree (`emerge --sync`) from the compromised mirror could have fetched modified package build scripts (ebuilds) or metadata. Maliciously altered ebuilds could lead to arbitrary code execution on the user's system during package installation or updates, although the specific changes made were not detailed publicly.

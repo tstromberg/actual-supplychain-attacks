@@ -1,0 +1,43 @@
+Provide a history of attacks that targeted an open-source project in 2017, compromising their source code or an artifact published by the open-source project (such as a release tarball, binary, or container image). Don't include typosquatting attacks or security flaws within a project, as they did not attack the open-source project itself. Provide the output in YAML format. Text should be terse to encourage scannability yet readable by information security professionals.
+
+Fields to include:
+
+* name: The name of the open-source project
+* title: a terse 1-sentence title of the attack, mentioning the name of the project, how the project was compromised and the downstream impact. No more than 6 words.
+* start_date: Earliest known date of attack
+* end_date: Last known date of attack
+* license: The license of the open-source project (GPL, Apache 2.0, Unknown)
+* website: Current URL to the open-source project.  If no website exists, do not include the compromise in the results.
+* repo: Current URL to the source code (GitHub, Git, Subversion, CVS, etc) of the open-source project. If no source code repository exists, do not include the compromise in the results.
+* attribution_type: Category of attacker (original maintainer, new maintainer, nation-state, unknown)
+* attribution: Who attacked the open-source project? Could be a name or
+* component_type: What kind of project it was (for example, Library or Application)
+* lang: What language the supply-chain attack was performed in (C, Javascript, shell, awk)
+* cause: The cause of the supply-chain attack (compromise, maintainer sabotage)
+* motive: 1-2 word possible motive for the attack, taking the end-user impact into account (example: financial gain, vandalism, espionage)
+* attack_vector: The attack vector used to compromise the open-source project (1-2 words)
+* transitive: Was it a transitive attack (caused by another supply-chain attack)
+* insertion_phase: What was the phase of the build pipeline was the malicious code inserted into. In order, these phases are:
+  - source: authoritative upstream source code
+  - build: build automation (for example, a Makefile)
+  - dependency: external source code dependency (compromised library)
+  - CI/CD: compromised build environment (for example: leaked GitHub action token or build server compromise)
+  - distribution: official source or binary distribution (for example: PyPI, website, container registry, CDN)
+  - discovery: end-user failure to use the authoritative download location, for example, an unofficial mirror compromise or typosquatting attack
+* impact_type: Up to 3 words to describe the downstream impact of the inserted supply-chain attack on end-users (credential theft, denial of service, backdoor, cryptocurrency theft)
+* impact_user_count: estimated number of users impacted (be conservative). It should be an integer, and download counts should be used where possible.
+* references: Reference URLs to read more about the attack
+* versions: a list of versions of the open-source projects software that were compromised, can be semantic versions, build tags, or commits
+* commits: a list of malicious commit hashes
+* artifacts: URLs containing compromised version of the source code or a compromised commit for further research. For example, an NPM URL, GitHub commit, Pastebin link, mirror, or research article containing the compromised source code or modified binaries.
+* impacted_hashes: SHA256 hashes of artifacts (source, binary, containers) that were impacted
+* synopsis: a terse 2-sentence synopsis of the attack, does not need to repeat what is already stated in the title.
+* compromise_desc: a paragraph description of who likely compromised the source code and how they compromised the project.  Be matter of fact, without unnecessary interpretation.
+* impact_desc: a paragraph description of the end-user impact of the attack.  Be matter of fact, without unnecessary interpretation.
+* example_code: up to 25 lines of the most interesting code inserted as part of the supply-chain attack; code should be exact, without interpretation or simplification.
+
+Interesting OSS supply-chain attacks to consider (if they fall within the requested timeframe) are: xz-utils, PHP, Gentoo, UA-Parser-JS, faker.js, tj-actions, ultralytics, Kong Ingress Controller, proftpd, VSFTPD, Horde, phpMyadmin, Sendmail 8.12.6, the Linux BitKeeper attack, Joomla! Xmap, UnrealIRCD 3.2.8.1,
+
+Do not mention open-source projects that are unknown outside the context of the attack or projects that exist solely on PyPI or NPM.
+
+The output should be a valid YAML file. If the value of a YAML key is effectively "Unknown" or empty, omit the key from the output. Omit YAML comments.

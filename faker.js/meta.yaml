@@ -1,0 +1,40 @@
+- name: Faker.js
+  title: Faker.js sabotaged by original maintainer
+  start_date: 2022-01-04
+  end_date: 2022-01-06
+  license: MIT
+  website: https://github.com/faker-js/faker
+  repo: https://github.com/faker-js/faker
+  attribution_type: original maintainer
+  component_type: Library
+  lang: JavaScript
+  cause: maintainer sabotage
+  motive: protest
+  attack_vector: maintainer access
+  insertion_phase: source
+  impact_type: denial of service
+  impact_user_count: 2500000
+  references:
+    - https://github.com/Marak/faker.js/issues/1046
+    - https://www.bleepingcomputer.com/news/security/dev-corrupts-npm-libs-colors-and-faker-breaking-thousands-of-apps/
+  versions:
+    - 6.6.6
+  synopsis: The original maintainer of Faker.js deliberately released a sabotaged version. The malicious update caused applications to print nonsensical messages and terminate.
+  compromise_desc: Marak Squires, the original maintainer of Faker.js (a popular JavaScript library for generating fake data), deliberately released version 6.6.6 containing code that would break applications using it. This followed his earlier statements about no longer supporting major corporations with free work.
+  impact_desc: The sabotaged version caused applications to continuously output ANSI escape sequences creating an infinite loop of gibberish text in the console. This effectively crashed applications dependent on the library, affecting thousands of projects across the JavaScript ecosystem with an estimated 2.5 million weekly downloads.
+  example_code: |
+    import { ɓ } from './lib/index.js';
+
+    console.log('LIBERTY LIBERTY LIBERTY');
+
+    export default function() {
+      return ɓ('faker');
+    }
+
+    /**
+     * @namespace faker
+     */
+    const faker = {};
+    faker.ɓ = ɓ;
+
+    export { faker };

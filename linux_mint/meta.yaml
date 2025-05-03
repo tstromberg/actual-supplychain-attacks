@@ -1,0 +1,24 @@
+- name: Linux Mint
+  title: Linux Mint ISO compromised backdoor
+  start_date: 2016-02-20
+  end_date: 2016-02-21
+  license: GPL
+  website: https://linuxmint.com/
+  repo: https://github.com/linuxmint
+  attribution_type: unknown
+  component_type: Application
+  lang: PHP
+  cause: compromise
+  motive: backdoor access
+  attack_vector: website hack
+  insertion_phase: distribution
+  impact_type: backdoor
+  impact_user_count: 1000
+  references:
+    - https://blog.linuxmint.com/?p=2994
+    - https://www.zdnet.com/article/linux-mint-website-hacked-malicious-backdoor-version/
+  versions:
+    - Linux Mint 17.3 Cinnamon edition
+  synopsis: Attackers compromised the Linux Mint website and modified download links to point to a malicious ISO. The compromised ISO contained a backdoor connecting to an IRC server in Bulgaria.
+  compromise_desc: Unknown attackers gained access to the Linux Mint website through a WordPress vulnerability and modified the download links to point to a compromised ISO hosted on a Bulgarian server. The attackers also managed to breach the forum database, potentially exposing usernames, email addresses, and encrypted passwords.
+  impact_desc: Users who downloaded the compromised ISO received a version with a backdoor that connected to an IRC server in Bulgaria, potentially allowing attackers remote access to affected systems. The malicious version was available for approximately one day before the compromise was discovered and mitigated.

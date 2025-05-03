@@ -1,0 +1,28 @@
+- name: Transmission
+  title: Transmission Mac installer bundled Keydnap credential stealer.
+  start_date: 2016-08-28
+  end_date: 2016-08-29
+  license: GPL-2.0 # Also MIT, GPL-3.0
+  website: https://transmissionbt.com/
+  repo: https://github.com/transmission/transmission
+  attribution_type: unknown
+  component_type: Application
+  lang: Objective-C # Malware language
+  cause: Compromise
+  motive: Credential theft, Backdoor access
+  attack_vector: Server compromise
+  transitive: false
+  insertion_phase: distribution
+  impact_type: Credential theft, Backdoor
+  references:
+    - https://blog.eset.com/2016/08/30/osxkeydnap-spreads-via-transmission-bittorrent-app-signed-certificate/
+    - https://objective-see.org/blog/blog_0x13.html
+    - https://web.archive.org/web/20160831100939/https://transmissionbt.com/keydnap/
+    - https://arstechnica.com/information-technology/2016/08/transmission-bittorrent-client-for-mac-hit-by-malware-again/
+  versions:
+    - "2.92" # Mac .dmg installer
+  impacted_hashes:
+    - "sha256:7c2a247d5f16a59f675b2e90a034417384f22797a3d273796e1d41663c45d4f4" # Compromised DMG
+  synopsis: Official Transmission v2.92 Mac installer (DMG) again replaced with version bundling malware, this time Keydnap. Keydnap stole keychain passwords and created a backdoor.
+  compromise_desc: For the second time in 2016, attackers compromised the Transmission distribution server. They replaced the official macOS installer `Transmission-2.92.dmg` with a malicious version, again signed with a valid Apple Developer ID certificate. This version contained the Keydnap malware, typically hidden as a file like `License.rtf` within the app bundle. The compromised file was available for less than 24 hours before detection and removal.
+  impact_desc: The Keydnap malware executed upon installation of the compromised Transmission package. It was designed primarily to exfiltrate the contents of the macOS login keychain, stealing stored user credentials (passwords, certificates, keys). Additionally, it established a persistent backdoor by creating a LaunchAgent, communicating with C2 servers over Tor for further instructions and potential remote access. Transmission released version 2.93, and Apple revoked the signing certificate.

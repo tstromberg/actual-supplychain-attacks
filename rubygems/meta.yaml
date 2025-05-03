@@ -1,0 +1,24 @@
+- name: RubyGems.org
+  title: RubyGems platform compromise allows gem replacement.
+  start_date: 2013-01-28 # Approximate compromise start/detection
+  end_date: 2013-02-01 # Mitigation / site taken offline
+  license: MIT # Platform license, Gems vary
+  website: https://rubygems.org/
+  repo: https://github.com/rubygems/rubygems.org
+  attribution_type: unknown
+  component_type: Platform
+  lang: Ruby # Malicious payload language
+  cause: Compromise
+  motive: Unknown
+  attack_vector: Vulnerability exploit # Platform vulnerability
+  transitive: false
+  insertion_phase: distribution
+  impact_type: Potential code execution
+  references:
+    - https://blog.rubygems.org/2013/02/01/gem-replacement.html
+    - https://rubytuesday.io/rubygemsorg-compromised-412590d5d582
+    - https://threatpost.com/rubygems-org-shut-down-after-compromise-020113/77453/
+    - https://news.ycombinator.com/item?id=5139583
+  synopsis: RubyGems.org platform exploited allowing attackers to replace gem files. At least one gem (`gem-empty`) was confirmed replaced before site shutdown.
+  compromise_desc: An attacker exploited an unspecified vulnerability within the RubyGems.org web platform. This vulnerability allowed the attacker to overwrite the `.gem` archive files associated with already published gems on the platform's hosting (Amazon S3). The RubyGems team detected suspicious activity, confirmed that at least one gem (`gem-empty`) had indeed been replaced with a malicious version, and promptly took the entire site offline for investigation, patching, and verification.
+  impact_desc: Users attempting to install a gem whose archive had been replaced by the attacker would unknowingly download and potentially execute the malicious version. The specific payload in the replaced `gem-empty` was reported to attempt exfiltration of Rails configuration files (`config/initializers/*`, `config/*.yml`) to an external paste site (Pastie), but the potential impact could have been arbitrary code execution depending on the gem's usage and the nature of the malicious code.

