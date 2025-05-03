@@ -4,11 +4,13 @@ Data about all known supply-chain attacks against open-source projects throughou
 
 This only includes cases that attacked an open-source project or its official distribution mechanisms. It does not include attacks that involved random USB keys found on the sidewalk, typo-squatting, or other types of social engineering attacks.
 
-## Pwning Count
+## Pwn Count
 
-* 41 OSS projects
-* 44 incidents
+* 46 incidents
+* 43 OSS projects
+
+![OSS supply-chain compromises over time](_research/chart.png)
 
 ## PR's welcome!
 
-This data is incomplete and often inaccurate. PR's welcome!
+The data is incomplete and often inaccurate. PR's welcome!
