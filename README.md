@@ -1,17 +1,16 @@
 # oss-supplychain-attacks
 
-Data about all known supply-chain attacks against open-source projects throughout history: from 2002 to 2025.
+Data about all known supply-chain attacks against open-source projects throughout history. This only includes cases that attacked an open-source project or its official distribution mechanisms (such as source code, offical mirror, container registry).
 
-This only includes cases that attacked an open-source project or its official distribution mechanisms (such as an offical mirror).
-
-We do not include attacks that involved random USB keys found on the sidewalk, typo-squatting, unauthorized distribution mechanisms, or other types of social engineering attacks.
+We do not include attacks that involved random USB keys found on the sidewalk, typo-squatting attacks within random websites, unauthorized distribution mechanisms, or other types of social engineering attacks.
 
 ## Pwn Count
 
-* 54 incidents
-* 51 OSS projects
-
 ![OSS supply-chain compromises over time](_research/chart.png)
+
+* 53 OSS projects
+* 56 incidents
+
 
 ## PR's welcome!
 
