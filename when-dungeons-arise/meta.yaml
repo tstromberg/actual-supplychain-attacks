@@ -1,0 +1,17 @@
+- name: When Dungeons Arise
+  title: When Dungeons Arise mod compromised with Fracturiser malware
+  synopsis: A developer account with publishing rights for the popular 'When Dungeons Arise' Minecraft mod on CurseForge was compromised. Attackers uploaded a malicious JAR file disguised as a legitimate update. This file contained the 'Fracturiser' malware, designed to steal credentials (Discord, Microsoft, Minecraft) and spread to other JAR files on the user's system.
+  start_date: 2023-05-01 # Approximate timeframe malicious files started appearing for various mods
+  end_date: 2023-06-08 # Approximate date of widespread discovery and public warnings
+  attribution_type: Unknown # Attacker(s) compromising accounts
+  component_type: Mod # Minecraft Java Edition Mod
+  lang: Java
+  cause: Stolen credentials # Compromised CurseForge/BukkitDev account
+  motive: Credential theft, Malware propagation
+  insertion_phase: distribution # Malicious JAR uploaded to official mod platform
+  impact_type: Credential theft, Data theft, Malware infection
+  references:
+    - https://support.curseforge.com/en/support/solutions/articles/9000228509-june-2023-infected-mods-detection-tool-and-report # CurseForge Advisory listing affected projects
+    - https://www.bleepingcomputer.com/news/security/dozens-of-popular-minecraft-mods-infected-with-fracturiser-malware/ # News report listing examples
+    - https://www.bitdefender.com/en-au/blog/labs/infected-minecraft-mods-lead-to-multi-stage-multi-platform-infostealer-malware # Technical analysis
+  versions: # Specific versions varied, updates pushed around May/June 2023 were affected
