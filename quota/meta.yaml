@@ -1,0 +1,17 @@
+- name: quota
+  start_date: 1996-04-24
+  end_date: 1996-07-24
+  license: unknown
+  attribution_type: unknown
+  attack_vector: unknown
+  component_type: Tool
+  versions:
+    - 1.0
+  lang: C
+  impacted_users: 2
+  references:
+    - https://seclists.org/bugtraq/1996/Jul/125
+  description: |
+    Yes, this program will mail user on thirdwave named 'tsk' [who
+    doesn't exist], a whole bunch of nasty files [/etc/passwd, NIS database
+    files, etc], and set your .rhosts file so anyone could log in.

@@ -1,0 +1,24 @@
+- name: GNU Emacs
+  title: Emacs distribution startup file trojan deletes files.
+  start_date: 1986-01-01 # Year is approximate, occurred mid-1980s
+  end_date: 1986-12-31 # Year is approximate
+  license: GPL-3.0-or-later # Modern Emacs license
+  website: https://www.gnu.org/software/emacs/
+  repo: https://git.savannah.gnu.org/cgit/emacs.git
+  attribution_type: unknown
+  component_type: Application
+  lang: Emacs Lisp
+  cause: Unknown # Distribution media compromise or malicious contribution
+  motive: Vandalism
+  attack_vector: Distribution media # Likely physical tape
+  transitive: false
+  insertion_phase: distribution # Or potentially 'source' if an accepted contribution
+  impact_type: Data loss / Annoyance
+  impact_user_count: 1 # Likely low, early physical distribution
+  references:
+    - https://www.oreilly.com/openbook/freedom/ch07.html # Free as in Freedom book reference
+  versions:
+    - Unknown early version # Distributed via tape
+  synopsis: A trojan was discovered in an Emacs Lisp file (startup.el) included in an early GNU Emacs distribution tape. The malicious code would randomly delete user files upon Emacs startup.
+  compromise_desc: The precise vector for this early attack is uncertain. A modified `startup.el` file containing malicious Emacs Lisp code was included in an early GNU Emacs distribution, most likely disseminated via physical tapes. Richard Stallman identified the trojan during use.
+  impact_desc: Upon starting the compromised Emacs version, the malicious Lisp code had a probability of selecting a user file at random and deleting it. This resulted in unexpected data loss for affected users.

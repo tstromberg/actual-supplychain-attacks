@@ -2,11 +2,7 @@
   title: Agama wallet compromised via malicious event-stream dependency.
   start_date: 2018-11-20 # Approximate date event-stream dep was compromised
   end_date: 2018-11-26 # Approximate date event-stream issue disclosed
-  license: MIT
-  website: https://github.com/KomodoPlatform/Agama # Original project repo
-  repo: https://github.com/KomodoPlatform/Agama
   attribution_type: new maintainer # Attacker took over dependency 'flatmap-stream'
-  attribution: right9ctrl
   component_type: Application # Cryptocurrency Wallet
   lang: Javascript
   cause: compromise # Transitive dependency compromise

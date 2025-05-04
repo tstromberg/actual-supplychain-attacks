@@ -1,4 +1,4 @@
-Provide a history of attacks that targeted an open-source project in 2017, compromising their source code or an artifact published by the open-source project (such as a release tarball, binary, or container image). Don't include typosquatting attacks or security flaws within a project, as they did not attack the open-source project itself. Provide the output in YAML format. Text should be terse to encourage scannability yet readable by information security professionals.
+Provide a history of attacks that impacted an open-source project, compromising their source code or an artifact published by the open-source project (such as a release tarball, binary, or container image). Don't include typosquatting attacks or security flaws within a project, as they did not attack the open-source project itself. Provide the output in YAML format. Text should be terse to encourage scannability yet readable by information security professionals. Be sure to include any time open-source projects have been known to include a trojan horse or been changed to protestware.
 
 Fields to include:
 
@@ -36,7 +36,7 @@ Fields to include:
 * impact_desc: a paragraph description of the end-user impact of the attack.  Be matter of fact, without unnecessary interpretation.
 * example_code: up to 25 lines of the most interesting code inserted as part of the supply-chain attack; code should be exact, without interpretation or simplification.
 
-Interesting OSS supply-chain attacks to consider (if they fall within the requested timeframe) are: xz-utils, PHP, Gentoo, UA-Parser-JS, faker.js, tj-actions, ultralytics, Kong Ingress Controller, proftpd, VSFTPD, Horde, phpMyadmin, Sendmail 8.12.6, the Linux BitKeeper attack, Joomla! Xmap, UnrealIRCD 3.2.8.1,
+Interesting OSS supply-chain attacks to consider (if they fall within the requested timeframe) are: xz-utils, PHP, Gentoo, UA-Parser-JS, faker.js, tj-actions, ultralytics, Kong Ingress Controller, proftpd, VSFTPD, Horde, phpMyadmin, Sendmail 8.12.6, the Linux BitKeeper attack, Joomla! Xmap, UnrealIRCD 3.2.8.1, wuftpd
 
 Do not mention open-source projects that are unknown outside the context of the attack or projects that exist solely on PyPI or NPM.
 

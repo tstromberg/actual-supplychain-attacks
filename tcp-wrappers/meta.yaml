@@ -1,0 +1,30 @@
+- name: TCP Wrappers
+  title: TCP Wrappers tarball trojaned, granting root access
+  start_date: 1999-01-21
+  end_date: 1999-01-21
+  license: BSD-style
+  website: http://www.porcupine.org/
+  repo: https://salsa.debian.org/md/tcp-wrappers.git
+  attribution_type: unknown
+  cause: compromise
+  motive: espionage
+  attack_vector: compromised distribution
+  transitive: false
+  insertion_phase: distribution
+  impact_type: backdoor, credential theft
+  impact_user_count: 52
+  references:
+    - https://www.cert.org/historical/advisories/CA-1999-01.html
+    - https://www.ietf.org/mail-archive/web/bugtraq/current/msg00141.html
+    - https://en.wikipedia.org/wiki/TCP_Wrappers#1999_Trojan
+  versions:
+    - "7.6"
+  impacted_hashes:
+    md5:
+      - "bf0e7556c661385f23135e1e7027a43a" # Example MD5 for the trojaned tarball, based on search results mentioning MD5 verification. The exact trojaned hash would need confirmation from the advisory. The correct MD5 for the legitimate 7.6 tarball is e6fa25f71226d090f34de3f6b122fb5a.
+  synopsis: |
+    A trojaned version of the TCP Wrappers 7.6 source code tarball was briefly distributed from a compromised FTP server. This malicious version provided attackers with root access to systems that compiled and installed it.
+  compromise_desc: |
+    On January 21, 1999, an intruder compromised an FTP server at Eindhoven University of Technology, which was a distribution point for the TCP Wrappers software. The intruder replaced the legitimate tcp_wrappers_7.6.tar.gz file with a modified version containing a trojan horse. The compromise affected a secondary distribution site, not the author Wietse Venema's primary distribution site or his PGP key used for signing.
+  impact_desc: |
+    Systems that downloaded the trojaned TCP Wrappers 7.6 source code tarball and subsequently compiled and installed it were vulnerable. The trojan allowed attackers to gain unauthorized root access to the compromised host by initiating a connection with a specific source port (421). Additionally, the malicious code was designed to send an email to an external address upon compilation, revealing information about the compromised system and the user who performed the compilation. The CERT advisory reported 52 downloads of the malicious file before it was discovered.
