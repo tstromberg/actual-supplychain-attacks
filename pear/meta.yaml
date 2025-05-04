@@ -1,30 +1,20 @@
-- name: PEAR
-  title: PEAR website compromised replacing go-pear.phar installer.
-  start_date: 2018-07-19 # Estimated compromise start (6 months before discovery)
-  end_date: 2019-01-19 # Discovery date
-  license: PHP License # PEAR Core license
-  website: https://pear.php.net/
-  repo: https://github.com/pear/pearweb_phars # Repo for clean phars
-  attribution_type: unknown
-  component_type: Platform # Package Manager Installer
+- name: pear
+  title: PEAR PHP installer go-pear.phar compromised on server
+  synopsis: The official `go-pear.phar` installer file hosted on the `pear.php.net` server was compromised and replaced with a malicious version. Users downloading and executing this compromised installer could have had their systems backdoored. The compromise lasted approximately six months before discovery.
+  start_date: 2018-06-20 # Estimated start based on file timestamp (may vary)
+  end_date: 2019-01-19
+  attribution_type: Unknown
+  component_type: Library # Package manager/installer
   lang: PHP
-  cause: Compromise
-  motive: Unknown # Potential RCE/credential theft
-  attack_vector: Server compromise
-  transitive: false
-  insertion_phase: distribution
-  impact_type: Potential code execution
+  cause: Server compromise # pear.php.net server hacked
+  motive: Unknown # Potential backdoor/further access
+  insertion_phase: distribution # Official download file replaced
+  impact_type: Potential backdoor, Remote execution
   references:
-    - https://news-web.php.net/php.pear.cvs/11970 # Mailing list discussion
-    - https://twitter.com/pear/status/1086634389465956352 # Announcement
-    - https://securityaffairs.com/80218/hacking/php-pear-site-hacked.html
-    - https://www.rapid7.com/blog/post/2019/01/22/php-extension-and-application-repository-pear-compromise-what-you-need-to-know/
-    - https://github.com/pear/pearweb_phars/releases/tag/v1.10.10 # Clean release info
-    - https://www.mycert.org.my/portal/advisory?id=MA-714.022019
-  versions:
-    - "go-pear.phar" # The installer file available during the compromise period
+    - https://news-web.php.net/php.pear.cvs/11001 # Mailing list announcement
+    - https://thehackernews.com/2019/01/php-pear-package-hack.html
+    - https://www.zdnet.com/article/hacker-backdoors-php-pear-package-manager/
+  artifacts:
+    - url: http://pear.php.net/go-pear.phar # Original URL of the compromised file (now serves clean version)
   impacted_hashes:
-    - "md5:1e26d9dd3110af79a9595f1a77a82de7" # Hash of known compromised phar
-  synopsis: The official PEAR website (pear.php.net) was compromised. The `go-pear.phar` installer file was replaced with a malicious version for ~6 months.
-  compromise_desc: An unknown attacker gained unauthorized access to the web server hosting the official PHP Extension and Application Repository (PEAR) website, `pear.php.net`. They replaced the legitimate `go-pear.phar` file, a PHP archive used to bootstrap the PEAR package manager installation, with a malicious version. This compromised file remained available on the official site for approximately six months before the breach was discovered in January 2019. The PEAR website was taken offline for remediation.
-  impact_desc: Users downloading the `go-pear.phar` installer directly from the compromised `pear.php.net` site during the affected period (roughly mid-2018 to Jan 2019) and executing it would run malicious code. While the specific payload was not publicly detailed by the PEAR team, executing a compromised installer could lead to various impacts, including arbitrary code execution on the user's system or web server, credential theft, or installation of further malware or backdoors. Versions downloaded from GitHub were not affected.
+    - 1e623a48b8991980e93896153651135ab7ab82a0 # SHA1 hash mentioned in announcements (SHA256 preferred but may not be available)

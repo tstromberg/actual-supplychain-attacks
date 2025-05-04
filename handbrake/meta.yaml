@@ -1,29 +1,20 @@
-- name: HandBrake
-  title: HandBrake Mac mirror compromised distributing Proton malware.
-  start_date: 2017-05-02
+- name: handbrake
+  title: HandBrake Mac download mirror distributed Proton RAT
+  synopsis: An official HandBrake download mirror server (download.handbrake.fr) hosting the macOS version was compromised. The HandBrake-1.0.7.dmg file was replaced with a malicious version containing the Proton Remote Access Trojan (RAT). Users downloading the Mac version from this mirror were infected.
+  start_date: 2017-05-02 # Approximate start of compromise window
   end_date: 2017-05-06
-  license: GPL-2.0
-  website: https://handbrake.fr/
-  repo: https://github.com/HandBrake/HandBrake
-  attribution_type: unknown
+  attribution_type: Individual hacker # Or group distributing Proton RAT
   component_type: Application
-  lang: Objective-C # Malware language
-  cause: Compromise
-  motive: Credential theft, Backdoor access
-  attack_vector: Server compromise # Mirror server
-  transitive: false
-  insertion_phase: distribution
-  impact_type: Credential theft, Backdoor, Keystroke logging
+  lang: Binary # Malware was embedded in DMG
+  cause: Server compromise # Mirror server hacked
+  motive: Credential theft # Proton RAT capabilities
+  insertion_phase: distribution # Compromise of official download mirror
+  impact_type: Remote access, Credential theft
   references:
-    - https://forum.handbrake.fr/viewtopic.php?f=33&t=36360 # Official forum post (may require login/archived)
-    - https://blog.malwarebytes.com/threat-analysis/2017/05/handbrake-hacked-mac-malware/
-    - https://objective-see.org/blog/blog_0x1C.html
-    - https://www.bitdefender.com/blog/hotforsecurity/own-a-mac-you-could-be-infected-with-proton-rat-and-not-even-know-it/
+    - https://web.archive.org/web/20170507020635/https://forum.handbrake.fr/viewtopic.php?f=33&t=36361 (Original forum post, archived)
+    - https://arstechnica.com/information-technology/2017/05/handbrake-download-server-hacked-to-distribute-mac-malware/
+    - https://www.intego.com/mac-security-blog/handbrake-downloads-infected-with-new-proton-rat-variant/
   versions:
-    - "1.0.7" # Mac .dmg installer from specific mirror
+    - 1.0.7 # Specific Mac DMG file
   impacted_hashes:
-    - "sha256:514426d1fa6404470b17c63dcd88ab1b79519b34169642953f66d9f513314169" # Compromised DMG
-    - "sha1:0935a43ca90c6c419a49e4f8f1d75d68cd70b274" # Compromised DMG (SHA1 often cited)
-  synopsis: An official HandBrake download mirror compromised, replacing Mac DMG with Proton malware. Malware stole credentials, logged keystrokes, and provided backdoor access.
-  compromise_desc: An attacker compromised one of the official download mirrors (`download.handbrake.fr`) used by the HandBrake video transcoder project. They replaced the legitimate macOS installer file, `HandBrake-1.0.7.dmg`, with a modified version containing the Proton Remote Access Trojan (RAT). This malicious DMG was distributed from the compromised mirror for approximately four days.
-  impact_desc: Users who downloaded and installed HandBrake 1.0.7 for Mac from the affected mirror during the incident window became infected with the Proton RAT. Proton granted the attacker extensive remote control capabilities, including stealing browser and keychain credentials, logging keystrokes, accessing the webcam and microphone, uploading/downloading files, and executing arbitrary commands on the compromised system. The malware established persistence via a LaunchAgent typically named `fr.handbrake.activity_agent.plist`.
+    - 0935a43ca90c6c419a49e4f8f1d75e68cd70cb90b79306ce0cc7af2716aaa377 # SHA256 of the malicious HandBrake-1.0.7.dmg

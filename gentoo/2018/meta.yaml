@@ -1,32 +1,18 @@
-- name: Gentoo Linux
-  title: Gentoo GitHub organization compromised potentially modifying code.
+- name: gentoo
+  title: Gentoo GitHub organization compromise modified ebuilds
+  synopsis: An attacker gained control of Gentoo's GitHub organization administrator account. The attacker modified content, including ebuild package scripts, potentially inserting malicious code. Access was quickly regained and changes reverted.
   start_date: 2018-06-28
-  end_date: 2018-06-28 # Access revoked quickly
-  license: GPL-2.0 # Portage license, varies for packages
-  website: https://www.gentoo.org/
-  repo: https://github.com/gentoo # Organization affected
-  attribution_type: unknown
-  component_type: Linux Distribution
-  lang: Various # Potentially any language in repos
-  cause: Compromise
-  motive: Unknown # Disruption?
-  attack_vector: Credential theft # GitHub password guessed
-  transitive: false
-  insertion_phase: source
-  impact_type: Potential code execution
-  impact_user_count: 0 # Claimed no user impact
+  end_date: 2018-06-28
+  attribution_type: Individual hacker
+  component_type: Distribution # Linux Distribution infrastructure/packages
+  lang: Shell # Ebuilds are shell scripts
+  cause: Stolen credentials # Password guessed via insecure practices
+  motive: Unknown # Vandalism or attempted deeper compromise
+  insertion_phase: source # Modification of source code/package definitions on GitHub
+  impact_type: Potential remote execution # If malicious ebuilds were used
   references:
-    - https://wiki.gentoo.org/wiki/Project:Infrastructure/Incident_reports/2018-06-28_Github
-    - https://lwn.net/Articles/758442/
+    - https://wiki.gentoo.org/wiki/Github/Incident_Report_2018-06-28
     - https://www.bleepingcomputer.com/news/security/gentoo-linux-github-organization-hacked-repositories-possibly-compromised/
-    - https://www.securityweek.com/gentoo-publishes-incident-report-after-github-hack/
-  commits: # Examples of malicious commits made and reverted
-    - "fdd8da2e"
-    - "49464b73"
-    - "afcdc03b"
-    - "e6db0eb4"
-  synopsis: Gentoo Linux GitHub organization account compromised allowing attackers write access. Attacker modified some repository content before access revoked; no impact claimed.
-  compromise_desc: An attacker gained control of an administrator account within the Gentoo GitHub organization, reportedly by guessing a weak password. This granted them write access to Gentoo repositories hosted on GitHub. The attacker removed developer access, invited dummy accounts, and pushed malicious commits to repositories, including attempts to add `rm -rf /*` commands to ebuild files in the Portage tree mirror. Gentoo developers detected the unauthorized activity within about 85 minutes, reverted the malicious changes, and worked with GitHub to secure the organization.
-  impact_desc: The impact was minimal as Gentoo's official package repository remained unaffected. Users who might have pulled directly from the compromised GitHub repositories during the brief attack window could have been exposed to malicious code, including destructive rm -rf commands that could delete files when executed.
-  example_code: |
-    rm -rf /
+    - https://lwn.net/Articles/758203/
+  commits:
+    - User: "risacher" # The compromised account used by the attacker

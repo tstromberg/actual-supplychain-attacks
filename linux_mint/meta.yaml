@@ -1,24 +1,18 @@
-- name: Linux Mint
-  title: Linux Mint ISO compromised backdoor
+- name: linux_mint
+  title: Linux Mint website hack redirects ISO downloads
+  synopsis: The Linux Mint website, specifically its WordPress installation, was compromised. Attackers modified download links on the site for the Linux Mint 17.3 Cinnamon edition ISO. These links redirected users to a server hosting a modified ISO containing the Tsunami backdoor, giving attackers remote control over infected machines.
   start_date: 2016-02-20
   end_date: 2016-02-21
-  license: GPL
-  website: https://linuxmint.com/
-  repo: https://github.com/linuxmint
-  attribution_type: unknown
-  component_type: Application
-  lang: PHP
-  cause: compromise
-  motive: backdoor access
-  attack_vector: website hack
-  insertion_phase: distribution
-  impact_type: backdoor
-  impact_user_count: 1000
+  attribution_type: Individual hacker # Group ('peace') claimed responsibility later for forum db leak, maybe related?
+  component_type: Distribution # Linux Distribution website/ISO
+  lang: Binary # Backdoor in ISO image, likely C/Shell based
+  cause: Exploit # WordPress vulnerability exploited
+  motive: Remote access # Botnet creation or espionage
+  insertion_phase: distribution # Compromise of official download website links
+  impact_type: Backdoor, Remote access
   references:
-    - https://blog.linuxmint.com/?p=2994
-    - https://www.zdnet.com/article/linux-mint-website-hacked-malicious-backdoor-version/
+    - https://blog.linuxmint.com/?p=2994 # Original announcement
+    - https://www.zdnet.com/article/linux-mint-hacked-iso-downloads-replaced-with-backdoored-ones/
+    - https://www.wordfence.com/blog/2016/02/linux-mint-website-hack-leads-malware-infected-isos/
   versions:
-    - Linux Mint 17.3 Cinnamon edition
-  synopsis: Attackers compromised the Linux Mint website and modified download links to point to a malicious ISO. The compromised ISO contained a backdoor connecting to an IRC server in Bulgaria.
-  compromise_desc: Unknown attackers gained access to the Linux Mint website through a WordPress vulnerability and modified the download links to point to a compromised ISO hosted on a Bulgarian server. The attackers also managed to breach the forum database, potentially exposing usernames, email addresses, and encrypted passwords.
-  impact_desc: Users who downloaded the compromised ISO received a version with a backdoor that connected to an IRC server in Bulgaria, potentially allowing attackers remote access to affected systems. The malicious version was available for approximately one day before the compromise was discovered and mitigated.
+    - "17.3 Cinnamon Edition" # Specific ISO targeted

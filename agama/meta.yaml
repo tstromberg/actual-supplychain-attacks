@@ -1,41 +1,21 @@
-- name: Agama
-  title: Agama wallet compromised via malicious event-stream dependency.
-  start_date: 2018-11-20 # Approximate date event-stream dep was compromised
-  end_date: 2018-11-26 # Approximate date event-stream issue disclosed
-  attribution_type: new maintainer # Attacker took over dependency 'flatmap-stream'
+- name: agama
+  title: Agama wallet compromised via malicious dependency backdoor
+  synopsis: The Agama cryptocurrency wallet application inadvertently included a compromised version of the `electron-native-notify` NPM package (v1.1.6) as a dependency in its builds. This resulted in official Agama wallet releases containing a backdoor (reverse shell) inherited from the dependency, potentially allowing attackers remote access and theft of wallet seeds or private keys.
+  start_date: 2018-08-01 # Approximate date malicious dependency published/included in Agama builds
+  end_date: 2018-08-13 # Date Komodo Platform issued warnings and advised updates
+  attribution_type: Unknown # Same attribution as the electron-native-notify compromise
   component_type: Application # Cryptocurrency Wallet
-  lang: Javascript
-  cause: compromise # Transitive dependency compromise
-  motive: financial gain # Cryptocurrency theft
-  attack_vector: malicious dependency
+  lang: Javascript # Wallet primarily JS/Electron; backdoor was JS
+  cause: Dependency compromise # Malicious electron-native-notify included
+  motive: Financial gain # Cryptocurrency theft
   transitive: true
-  insertion_phase: dependency # Malicious code was in event-stream -> flatmap-stream
-  impact_type: cryptocurrency theft / credential theft
-  impact_user_count: 1000 # Estimate, actual number of Agama users impacted unknown
+  insertion_phase: dependency # Compromised dependency pulled during application build
+  impact_type: Backdoor, Remote access, Credential theft # Wallet seeds/keys
   references:
-    - https://blog.npmjs.org/post/180565383195/details-about-the-event-stream-incident
-    - https://github.com/dominictarr/event-stream/issues/116
-    - https://medium.com/intrinsic/intrinsic-parity-disclosure-atomic-multi-sig-wallet-has-critical-vulnerability-634484d93a47
-  synopsis: The Agama cryptocurrency wallet included the `event-stream` npm package which contained a malicious sub-dependency (`flatmap-stream`). This sub-dependency targeted crypto wallets like Agama to steal private keys or seed phrases.
-  compromise_desc: The attacker, 'right9ctrl', gained publishing rights to the popular `event-stream` npm package after the original maintainer stepped down. The attacker added a new, seemingly innocuous dependency, `flatmap-stream` (version 0.1.1). This sub-dependency contained obfuscated malicious code designed to activate only within specific target application environments identified by their `package.json` description, including the Agama wallet ("Agama"). Agama, using `event-stream`, inadvertently pulled in this malicious transitive dependency.
-  impact_desc: When users ran affected builds of the Agama wallet application that included `event-stream` v3.3.6, the malicious code within the nested `flatmap-stream` dependency would execute. It attempted to locate and decrypt the wallet's seed phrase or private keys stored locally. If successful, it would encrypt the stolen credentials and exfiltrate them to an attacker-controlled server (e.g., `copayapi.host`), allowing the theft of cryptocurrency funds managed by the wallet.
-  example_code: |
-    // Simplified conceptual code from flatmap-stream/index.js (deobfuscated)
-
-    // Check if running inside a targeted application like Copay or Agama
-    // This involved reading the main application's package.json description
-    var package_json = require('./package.json'); // Accessing parent package.json data
-    if (package_json.description === 'Agama' || package_json.description === 'A Secure Bitcoin Wallet') { // Example targets
-
-      // Load the malicious payload if target matches
-      try {
-          require('./lib/payload'); // Executes the credential stealing logic
-      } catch (e) {}
-    }
-
-    // Inside ./lib/payload (simplified concept):
-    // - Code locates application data stores (e.g., localStorage)
-    // - Searches for patterns matching private keys or BIP39 seed phrases
-    // - Decrypts data if necessary (e.g., using environment vars as keys)
-    // - Encrypts stolen credentials with attacker's public key
-    // - POSTs encrypted credentials to attacker server (e.g., https://copayapi.host/copay/wallet)
+    - https://blog.npmjs.org/post/176971882940/vulnerability-in-agamas-komodo-wallet # NPM blog post specifically about the Agama impact
+    - https://web.archive.org/web/20180817161006/https://komodoplatform.com/agama-vulnerability-update/ # Archived Komodo Platform vulnerability update on Agama
+    - https://medium.com/intrinsic/compromised-npm-package-electron-native-notify-28c753f6b8c3 # Original report often mentioning Agama as affected
+  versions:
+    - 0.3.3 # Versions confirmed affected by Komodo advisory
+    - 0.3.4 # Versions confirmed affected by Komodo advisory
+    # Potentially other versions built using the compromised dependency during its availability

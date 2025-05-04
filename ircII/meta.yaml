@@ -1,31 +1,18 @@
 - name: ircII
-  title: ircII distribution tarball trojaned adds backdoor.
-  start_date: 1998-10-26 # Approximate date file was replaced
-  end_date: 1998-10-29 # Approximate date detected
-  license: Custom # Mix of GPL and BSD-like licenses over time
-  website: http://www.eterna.com.au/ircii/ # Official site for current versions
-  repo: https://github.com/rcr/ircII # Modern Git Repo
-  attribution_type: unknown
+  title: ircII FTP distribution backdoored for remote access
+  synopsis: The official FTP server hosting the ircII IRC client source code (ftp.irc.org) was compromised. The distribution tarball for version 2.8.2 was modified to include a backdoor. This backdoor allowed attackers remote access to systems where the compromised client was compiled and run.
+  start_date: 1998-10-22 # Approximate date compromised tarball appeared
+  end_date: 1999-01-21 # Date backdoor was publicly discovered
+  attribution_type: Individual hacker
   component_type: Application
-  lang:
-    - C
-    - shell
-  cause: Compromise
-  motive: Botnet / Backdoor
-  attack_vector: Website compromise
-  transitive: false
-  insertion_phase: distribution
-  impact_type: Backdoor / Remote command execution
-  impact_user_count: 1 # Unknown downloads during window, conservative minimum
+  lang: C # Backdoor code inserted into C source
+  cause: Server compromise # FTP server hacked
+  motive: Remote access
+  insertion_phase: distribution # Official FTP site compromised
+  impact_type: Backdoor, Remote execution
   references:
-    - https://www.cert.org/historical/advisories/CA-1998-13.cfm
-    - http://www.irchelp.org/irchelp/security/ircii-trojan.html
-    - https://www.irchelp.org/security/irc-backdoor.txt
+    - http://www.attrition.org/mirror/attrition/1999/01/21/ircII-client-security.patch.html # Analysis/patch
+    - https://seclists.org/bugtraq/1999/Jan/183 # Bugtraq discovery post
+    - https://dl.acm.org/doi/10.1145/357779.357789 # Academic paper mentioning the incident (Section 3.1)
   versions:
-    - 2.8.2 # Specific version tarball replaced
-  artifacts:
-    - url: ftp://ftp.irc.org/irc/client/unix/ircII/ircII-2.8.2.tar.gz # Original distribution location (compromised file)
-      # MD5 hash of compromised file: f49718f50f89706916095610ff146364
-  synopsis: The official source distribution tarball for ircII version 2.8.2 was surreptitiously replaced with a trojaned version on the primary FTP distribution site. The modified source code contained a backdoor enabling remote control.
-  compromise_desc: An unidentified attacker compromised the primary FTP server (ftp.irc.org) hosting ircII distributions. They substituted the legitimate `ircII-2.8.2.tar.gz` file with a maliciously altered version, notably modifying `Makefile.in` and `source/ircaux.c` to embed the backdoor.
-  impact_desc: Users downloading and compiling the trojaned source code inadvertently installed a backdoor. When the compromised ircII client was executed, it initiated a connection to an external server (wildbill.okla.net), potentially granting the attacker remote command execution capabilities on the user's system.
+    - 2.8.2 # Specific source tarball

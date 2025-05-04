@@ -1,0 +1,18 @@
+- name: electron-native-notify
+  title: electron-native-notify NPM package adds remote backdoor
+  synopsis: The 'electron-native-notify' package was compromised to include malicious code. This code opened a reverse shell back to the attacker's server. It was used as a dependency in other applications, such as the Agama cryptocurrency wallet, leading to transitive compromises.
+  start_date: 2018-08-01 # Approximate date malicious version appeared
+  attribution_type: Unknown
+  component_type: Library
+  lang: Javascript
+  cause: Unknown # Likely maintainer account compromise
+  motive: Remote access # Potentially financial gain via crypto theft
+  transitive: true # Impacted Agama wallet
+  insertion_phase: distribution
+  impact_type: Backdoor, Remote access
+  references:
+    - https://github.com/advisories/GHSA-w5q3-5j7g-4685
+    - https://medium.com/intrinsic/compromised-npm-package-electron-native-notify-28c753f6b8c3
+    - https://blog.npmjs.org/post/176584309345/vulnerability-discovered-in-electron-native-notify
+  versions:
+    - 1.1.6

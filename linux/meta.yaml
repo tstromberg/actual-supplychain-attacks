@@ -1,31 +1,18 @@
-- name: Linux Kernel
-  title: Linux Kernel BitKeeper backdoor attempt
+- name: linux
+  title: Linux kernel backdoor insertion attempt via CVS
+  synopsis: An attacker attempted to insert subtle backdoor code into the Linux kernel source tree. The attempt was made via a commit to the BitKeeper/CVS repository used at the time. The code modification appeared legitimate but contained a condition (`wait4()`) designed to grant root privileges based on specific parameters. It was detected and reverted before inclusion in any release.
   start_date: 2003-11-05
   end_date: 2003-11-05
-  license: GPL
-  website: https://www.kernel.org/
-  repo: https://github.com/torvalds/linux
-  attribution_type: unknown
-  component_type: Application
+  attribution_type: Unknown # Speculated Nation-state or skilled hacker
+  component_type: OS # Kernel
   lang: C
-  cause: compromise
-  motive: backdoor
-  attack_vector: CVS gateway
-  insertion_phase: source
-  impact_type: backdoor
-  impact_user_count: 0
+  cause: Server compromise # Access to commit infrastructure (BitKeeper/CVS)
+  motive: Espionage # Hidden root access
+  insertion_phase: source # Attempted modification of authoritative source code
+  impact_type: Potential root compromise # If it hadn't been caught
   references:
-    - https://lwn.net/Articles/57135/
-  synopsis: An attacker attempted to insert a backdoor into the Linux kernel via the BitKeeper to CVS gateway. The backdoor was caught by the automated verification process before it could be incorporated into the kernel.
-  compromise_desc: An unknown attacker tried to insert a backdoor into the Linux kernel by exploiting the BitKeeper to CVS gateway. The attack attempted to add code that would grant root privileges to any program accessing the /dev/null device in a specific way.
-  impact_desc: The backdoor was caught by the automated verification process and was never incorporated into the kernel. No users were affected as the compromised code never made it into any released versions.
-  example_code: |
-    if ((options == (O_RDWR | O_CREAT)) && (inode->i_uid == 0) && (inode->i_mode & S_ISUID)) {
-      struct task_struct *task = current;
-      if (task->uid != 0) {
-        task->uid = 0;
-        task->gid = 0;
-        task->euid = 0;
-        task->egid = 0;
-      }
-    }
+    - https://freedom-to-tinker.com/2013/10/09/history-linux-backdoor-attempt/
+    - https://lwn.net/Articles/57237/
+    - http://phrack.org/issues/62/4.html#article (Phrack analysis)
+  commits:
+    - "Commit involving modifications to `sys_wait4` checking for `__WCLONE | __WALL`" # Description of the malicious change location

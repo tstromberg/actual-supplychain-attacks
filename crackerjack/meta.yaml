@@ -1,9 +1,0 @@
-- name: Crackerjack
-  start_date: unknown
-  end_date: unknown
-  license: ...
-  attribution_type: maintainer
-  component_type: Tool
-  lang: C
-  references:
-    - http://www.ouah.org/backdoors.html

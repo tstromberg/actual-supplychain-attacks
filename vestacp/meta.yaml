@@ -1,0 +1,18 @@
+- name: vestacp
+  title: VestaCP build system compromise inserted remote backdoor
+  synopsis: Attackers compromised infrastructure related to the Vesta Control Panel, allowing them to inject malicious code into update scripts or packages delivered to users. The malicious code executed commands, collected server passwords (including VestaCP admin and FTP passwords), and sent the stolen data to the attackers' server.
+  start_date: 2018-06-01 # Approximate start of compromise
+  end_date: 2018-06-12 # Date issue publicly acknowledged/addressed
+  attribution_type: Cybercriminal gang
+  component_type: Application # Hosting Control Panel
+  lang: Shell # Malicious code in update scripts
+  cause: Server compromise # Build/update infrastructure
+  motive: Credential theft, Remote access
+  insertion_phase: distribution # Compromise of update mechanism/packages
+  impact_type: Credential theft, Remote execution, Backdoor
+  references:
+    - https://web.archive.org/web/20180617164849/https://forum.vestacp.com/viewtopic.php?f=10&t=17478 (Archived forum announcement)
+    - https://www.zdnet.com/article/vestacp-zero-day-and-server-breach-disclosed/
+    - https://blog.sucuri.net/2018/06/vesta-control-panel-compromise.html
+  versions:
+    - All versions receiving updates during the compromise window

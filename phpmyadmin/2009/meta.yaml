@@ -1,23 +1,18 @@
-- name: phpMyAdmin
-  title: phpMyAdmin compromised download mirror
-  start_date: 2009-09-25
-  end_date: 2009-09-25
-  license: GPL
-  website: https://www.phpmyadmin.net/
-  repo: https://github.com/phpmyadmin/phpmyadmin
-  attribution_type: unknown
-  component_type: Application
-  lang: PHP
-  cause: compromise
-  motive: backdoor
-  attack_vector: mirror compromise
-  insertion_phase: distribution
-  impact_type: backdoor
-  impact_user_count: 2000
+- name: phpmyadmin
+  title: phpMyAdmin SourceForge mirror distributes JavaScript malware (2009)
+  synopsis: Downloads of phpMyAdmin obtained from certain compromised SourceForge mirrors contained injected malicious JavaScript code within legitimate files (like js/cross_framing_protection.js). When an administrator used the compromised phpMyAdmin installation, this JavaScript executed in their browser, potentially redirecting them or loading external malicious content. This was separate from a later backdoor incident in 2012.
+  start_date: 2008-12-01 # Approximate date modified packages started appearing based on reports
+  end_date: 2009-01-21 # Date phpMyAdmin formally warned users (PMASA-2009-1)
+  attribution_type: Cybercriminal gang # Likely based on motive
+  component_type: Application # Database management tool
+  lang: Javascript
+  cause: Server compromise # SourceForge mirror infrastructure
+  motive: Malware distribution # Or phishing/traffic theft
+  insertion_phase: distribution # Compromise of official download mirror network
+  impact_type: Malware distribution, Browser compromise
   references:
-    - https://www.phpmyadmin.net/security/PMASA-2009-5/
+    - https://web.archive.org/web/20090202060440/http://www.phpmyadmin.net/home_page/security.php?issue=PMASA-2009-1 # Archived official security announcement (PMASA-2009-1)
+    - https://www.zdnet.com/article/phpmyadmin-warns-of-modified-code-on-mirrors/ # Contemporary news report
+    - https://www.securityfocus.com/archive/1/500347 # Bugtraq mailing list post about the warning
   versions:
-    - 3.2.2
-  synopsis: A download mirror for phpMyAdmin was compromised, with backdoored versions made available for download. The compromised versions contained a backdoor that allowed remote code execution.
-  compromise_desc: Unknown attackers compromised the SourceForge mirror hosting phpMyAdmin and replaced legitimate downloads with backdoored versions. The backdoor was discovered when users reported suspicious behavior in their phpMyAdmin installations.
-  impact_desc: The backdoor allowed attackers to execute arbitrary PHP code on web servers running the compromised version. The phpMyAdmin team quickly issued an advisory warning users to verify the integrity of their downloads and to reinstall from official sources.
+    - 3.1.1 # Downloads corresponding to this version were affected, potentially others around this timeframe
