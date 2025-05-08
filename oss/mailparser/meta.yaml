@@ -1,0 +1,24 @@
+- name: mailparser
+  title: mailparser NPM package compromised downloads executes binary
+  synopsis: The maintainer's NPM account was compromised, allowing an attacker to publish a malicious version (0.1.2) of the popular `mailparser` library. This compromised version contained code added to `mailparser.js` that attempted to download and execute a binary payload (`launch.exe` or `launch`) from an external server (`107.174.140.198`), tailored to the victim's OS (Windows/Linux). The malicious version was removed the same day.
+  start_date: 2019-03-12 # Malicious version 0.1.2 published
+  end_date: 2019-03-12 # Malicious version removed
+  attribution_type: Individual hacker # Actor who compromised NPM account
+  component_type: Library
+  lang: Javascript
+  cause: Stolen credentials # Maintainer NPM account compromised
+  motive: Remote execution # Execution of downloaded payload
+  transitive: false
+  insertion_phase: distribution # Malicious version published to NPM
+  impact_type: Backdoor, Remote execution # Via downloaded binary
+  references:
+    - https://web.archive.org/web/20190315040057/https://blog.npmjs.org/post/183391820335/security-issue-affecting-mailparser-versions # Archived NPM Blog post
+    - https://security.snyk.io/vuln/npm:mailparser:20190312 # Snyk Advisory
+    - https://www.zdnet.com/article/hacker-backdoors-mailparser-npm-library-used-by-thousands-of-apps/ # ZDNet article
+  versions:
+    - 0.1.2
+  artifacts:
+    - https://security.snyk.io/vuln/npm:mailparser:20190312 # Snyk Advisory
+  domain: npmjs.org
+  domain_type: package host
+  artifact_type: Source archive

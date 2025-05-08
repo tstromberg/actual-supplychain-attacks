@@ -1,0 +1,20 @@
+- name: Sky Villages [Forge/Fabric]
+  title: Sky Villages mod compromised with Fracturiser malware
+  synopsis: The CurseForge account associated with the 'Sky Villages' Minecraft mod was compromised. Attackers uploaded a malicious JAR file appearing as a legitimate update for the mod. This file contained the 'Fracturiser' malware, which steals various credentials and attempts to infect other JAR files on the victim's computer.
+  start_date: 2023-05-01 # Approximate timeframe malicious files started appearing for various mods
+  end_date: 2023-06-08 # Approximate date of widespread discovery and public warnings
+  attribution_type: Unknown # Attacker(s) compromising accounts
+  component_type: Mod # Minecraft Java Edition Mod
+  lang: Java
+  cause: Stolen credentials # Compromised CurseForge/BukkitDev account
+  motive: Credential theft, Malware propagation
+  insertion_phase: distribution # Malicious JAR uploaded to official mod platform
+  impact_type: Credential theft, Data theft, Malware infection
+  domain: curseforge.com
+  domain_type: package host
+  artifact_type: Binary archive
+  references:
+    - https://support.curseforge.com/en/support/solutions/articles/9000228509-june-2023-infected-mods-detection-tool-and-report # CurseForge Advisory listing affected projects
+    - https://www.bleepingcomputer.com/news/security/dozens-of-popular-minecraft-mods-infected-with-fracturiser-malware/ # News report listing examples
+    - https://securelist.com/fracturiser-supply-chain-attack-infecting-minecraft-mods/110014/ # Technical analysis
+  versions: # Specific versions varied, updates pushed around May/June 2023 were affected

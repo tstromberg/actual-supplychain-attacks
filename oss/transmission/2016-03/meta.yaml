@@ -1,0 +1,27 @@
+- name: transmission
+  title: Transmission macOS installer distributed KeRanger ransomware
+  repo: https://github.com/transmission/transmission
+  synopsis: The official website for the Transmission BitTorrent client was compromised. Attackers replaced the legitimate macOS installer for version 2.90 with a malicious disk image containing the OSX.KeRanger ransomware. Users downloading and installing this version had their files encrypted.
+  start_date: 2016-03-04
+  end_date: 2016-03-06 # Approximate window file was available
+  attribution_type: Cybercriminal gang
+  component_type: Application
+  lang: Binary # Ransomware embedded in DMG
+  cause: Server compromise # Website/download server hacked
+  motive: Financial gain # Ransomware
+  transitive: false
+  insertion_phase: distribution # Official download file replaced
+  impact_type: Ransomware, Data destruction
+  references:
+    - https://web.archive.org/web/20160307020633/https://forum.transmissionbt.com/viewtopic.php?f=8&t=17671 (Original forum post, archived)
+    - https://www.paloaltonetworks.com/blog/2016/03/new-os-x-ransomware-keranger-infected-transmission-bittorrent-client-installer/
+    - https://securelist.com/osxkeranger-ransomware-infecting-transmission-users/74214/
+  versions:
+    - 2.90 # Specific macOS DMG installer
+  artifacts:
+    - "https://www.paloaltonetworks.com/blog/2016/03/new-os-x-ransomware-keranger-infected-transmission-bittorrent-client-installer/"
+  domain: transmissionbt.com
+  domain_type: project host
+  artifact_type: Disk image
+  impacted_hashes:
+    - "7552f29459368037868f5b7cf09884080831079276a4647682a8aac86e0b95e7"

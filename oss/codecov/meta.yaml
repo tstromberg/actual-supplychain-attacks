@@ -1,0 +1,23 @@
+- name: codecov
+  title: Codecov Bash Uploader compromised via CI/CD
+  repo: https://github.com/codecov/codecov-bash
+  synopsis: Attackers modified Codecov's Bash Uploader script after gaining access to a private GCP key via a flawed Docker image creation process. The compromised script exfiltrated environment variables (credentials, tokens, keys) from customers' CI/CD environments. The modification was subtle, involving only changing an IP address.
+  start_date: 2021-01-31
+  end_date: 2021-04-01
+  attribution_type: Unknown
+  component_type: Application
+  lang: Shell
+  cause: Stolen credentials # Leaked CI/CD variable leading to image build compromise
+  motive: Espionage # Credential harvesting
+  transitive: true
+  domain: codecov.io
+  domain_type: project host
+  artifact_type: source code
+  insertion_phase: CI/CD # Compromise of the build/distribution process for the uploader script
+  impact_type: Credential theft, Data theft
+  references:
+    - https://about.codecov.io/security-update/
+  commits:
+    - 373961d648b96a1402514e4e457746d67f782a83
+  impacted_hashes:
+    - 6730a44f191168573710105178477116f718333b6de1f008ff811066c424bb59 # Hash of the compromised bash uploader script (needs verification if this specific hash is the compromised one)

@@ -1,0 +1,27 @@
+- name: coa
+  title: coa NPM package maintainer hijack distributes malware
+  repo: https://github.com/veged/coa
+  synopsis: Attacker compromised maintainer credentials for the 'coa' command-line argument parser library. Malicious versions were published containing password-stealing malware targeting Windows systems. This impacted downstream projects like 'rc'.
+  start_date: 2021-11-04
+  end_date: 2021-11-04
+  attribution_type: Individual hacker
+  component_type: Library
+  lang: Javascript
+  cause: Stolen credentials
+  motive: Credential theft
+  transitive: false
+  domain: npmjs.org
+  domain_type: package host
+  artifact_type: source archive
+  insertion_phase: distribution
+  impact_type: Credential theft
+  references:
+    - https://github.com/advisories/GHSA-73qr-pfmq-6rp8
+    - https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610 # While not dependency confusion, Birsan often covers related supply chain issues. More direct links preferred.
+  versions:
+    - 2.0.3
+    - 2.0.4
+    - 2.1.1
+    - 2.1.3
+    - 3.0.1
+    - 3.1.3

@@ -1,0 +1,21 @@
+- name: strong_password
+  title: strong_password Ruby gem compromised with backdoor code
+  synopsis: Similar to the 'rest-client' incident around the same time, the 'strong_password' Ruby gem had a malicious version published. This compromised version contained a backdoor designed to steal environment variables and potentially execute code. It's suspected the same actor compromised both gems.
+  start_date: 2019-08-16 # Approximate date malicious version published
+  end_date: 2019-08-21 # Date malicious version discovered/removed
+  attribution_type: Individual hacker # Or group (linked to rest-client)
+  component_type: Library
+  lang: Ruby
+  cause: Stolen credentials # Maintainer account compromise
+  motive: Credential theft, Remote execution
+  insertion_phase: distribution # Malicious version published to RubyGems.org
+  impact_type: Credential theft, Backdoor
+  domain: rubygems.org
+  domain_type: package host
+  artifact_type: Source archive
+  references:
+    - https://github.com/bdurand/strong_password/issues/18 # Discovery issue
+    - https://security.snyk.io/vuln/SNYK-RUBY-STRONGPASSWORD-473313 # Vulnerability DB entry
+    - https://www.zdnet.com/article/two-ruby-libraries-downloaded-1500-times-contain-backdoor-code/
+  versions:
+    - 0.0.7

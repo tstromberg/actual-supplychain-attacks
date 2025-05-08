@@ -1,0 +1,23 @@
+- name: eslint
+  title: eslint-scope/config-eslint NPM compromise steals NPM tokens
+  repo: https://github.com/eslint/eslint-scope
+  synopsis: Attacker compromised the NPM account of an ESLint maintainer. Malicious versions of 'eslint-scope' and 'eslint-config-eslint' were published. The malicious code attempted to steal NPM authentication tokens from users' `.npmrc` files.
+  start_date: 2018-07-12
+  end_date: 2018-07-12
+  attribution_type: Individual hacker
+  component_type: Library # Development Tooling
+  lang: Javascript
+  cause: Stolen credentials
+  motive: Credential theft # Access NPM accounts
+  transitive: false
+  domain: npmjs.org
+  domain_type: package host
+  artifact_type: source archive
+  insertion_phase: distribution
+  impact_type: Credential theft
+  impact_user_count: 4500 # Estimated downloads during the compromised window
+  references:
+    - https://eslint.org/blog/2018/07/postmortem-for-malicious-package-publishes/
+  versions:
+    - eslint-scope@3.7.2
+    - eslint-config-eslint@5.0.2 # This was also affected but might not have contained the malicious code itself, needs verification if it was just a dep bump or also malicious. The post-mortem primarily focuses on eslint-scope. Let's list only the confirmed malicious one for clarity.

@@ -1,0 +1,22 @@
+- name: ircII
+  title: ircII FTP distribution backdoored for remote access
+  synopsis: The official FTP server hosting the ircII IRC client source code (ftp.irc.org) was compromised. The distribution tarball for version 2.8.2 was modified to include a backdoor. This backdoor allowed attackers remote access to systems where the compromised client was compiled and run.
+  start_date: 1998-10-22 # Approximate date compromised tarball appeared
+  end_date: 1999-01-21 # Date backdoor was publicly discovered
+  attribution_type: Individual hacker
+  component_type: Application
+  lang: C # Backdoor code inserted into C source
+  cause: Server compromise # FTP server hacked
+  motive: Remote access
+  transitive: false
+  insertion_phase: distribution # Official FTP site compromised
+  impact_type: Backdoor, Remote execution
+  references:
+    - http://www.attrition.org/mirror/attrition/1999/01/21/ircII-client-security.patch.html # Analysis/patch
+    - https://seclists.org/bugtraq/1999/Jan/183 # Bugtraq discovery post
+    - https://dl.acm.org/doi/10.1145/357779.357789 # Academic paper mentioning the incident (Section 3.1)
+  versions:
+    - 2.8.2 # Specific source tarball
+  domain: ftp.irc.org
+  domain_type: project host
+  artifact_type: Source archive

@@ -1,0 +1,23 @@
+- name: tj-actions_changed-files
+  title: tj-actions GitHub Actions compromised via token leak
+  repo: https://github.com/tj-actions/changed-files
+  synopsis: A maintainer's personal access token (PAT) with repository write access was leaked from a compromised development environment. This potentially allowed attackers to modify the code of several `tj-actions`, including `changed-files`, used in GitHub Actions workflows. Such modifications could exfiltrate secrets or execute malicious code within users\' CI/CD pipelines.
+  start_date: 2025-03-14
+  end_date: 2025-03-14 # Date maintainer confirmed token leak and took action
+  attribution_type: Unknown
+  component_type: Library # CI/CD Component (GitHub Action)
+  lang: Shell
+  cause: Stolen credentials # Leaked maintainer PAT token
+  motive: Credential theft, Remote execution # Potential impact on user workflows
+  transitive: false
+  insertion_phase: CI/CD # Compromise impacting action code/runtime via leaked token
+  impact_type: Credential theft, Remote execution # Potential impact
+  commits:
+    - 0e58ed8671d6b60d0890c21b07f8835ace038e67
+  artifacts:
+    - "https://github.com/tj-actions/changed-files/issues/1107"
+  domain: github.com
+  domain_type: code host
+  artifact_type: Revision control system
+  references:
+    - https://github.com/tj-actions/changed-files/issues/1107 # Maintainer addressing the incident

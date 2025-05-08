@@ -1,0 +1,21 @@
+- name: wuftpd
+  title: wu-ftpd source distribution trojaned with backdoor
+  synopsis: The source code distribution for the popular wu-ftpd FTP server was modified by an attacker to include a backdoor. This trojaned version was then uploaded to the primary distribution site. The backdoor allowed attackers who knew the trigger mechanism to gain root privileges on systems that compiled and ran the compromised server.
+  start_date: 1994-03-28 # Date trojaned version discovered
+  end_date: 1994-03-28 # Quickly identified and replaced
+  attribution_type: Individual hacker
+  component_type: Application # FTP Server
+  lang: C
+  cause: Server compromise # Primary distribution site hacked
+  motive: Remote access # Root backdoor
+  insertion_phase: distribution # Official source tarball replaced
+  impact_type: Backdoor, Root compromise
+  references:
+    - https://ftp.cerias.purdue.edu/pub/tools/unix/netutils/ftp/wu-ftpd/CERT.CA-1994-04 # Original CERT Advisory CA-94:04
+    - https://seclists.org/bugtraq/1994/Mar/83 # Early Bugtraq discussion
+    - https://web.archive.org/web/20120525154803/http://www.nwfusion.com/news/1020stormvul.html # Article mentioning the incident
+  domain: ftp.wustl.edu
+  domain_type: project host
+  artifact_type: Source archive
+  versions:
+    - 2.2 # wu-ftpd-2.2.tar.Z distribution file

@@ -1,0 +1,28 @@
+- name: OpenSSL
+  title: OpenSSL FIPS module included backdoored PRNG.
+  repo: https://github.com/openssl/openssl
+  synopsis: The Dual EC DRBG algorithm, standardized by NIST and allegedly backdoored by the NSA, was included in OpenSSL\'s FIPS Object Module for compliance.[1, 2, 3, 4, 5, 6] However, a critical implementation bug prevented the PRNG from functioning correctly in practice.[1, 2, 3, 4, 6] This accidental flaw rendered the backdoor ineffective within OpenSSL, preventing any known compromise.[1, 4, 6] The code was later removed entirely.[1, 6, 7]
+  start_date: 2011-09-09
+  end_date: 2013-12-01
+  attribution_type: Nation-state
+  component_type: Library
+  lang: C
+  cause: Standards manipulation
+  motive: Espionage
+  transitive: true
+  insertion_phase: source
+  impact_type: None
+  impact_user_count: 0
+  references:
+    - https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2007-6755
+    - https://www.researchgate.net/publication/308734228_Dual_EC_A_Standardized_Back_Doo
+    - https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-checkoway.pdf
+    - https://blog.cryptographyengineering.com/2013/09/18/the-many-flaws-of-dualecdrbg/
+    - https://www.theregister.com/2013/12/20/openssl_crypto_bug_beneficial_sorta/
+  versions:
+    - "2.0.8-fips"
+  artifacts:
+    - "https://blog.cryptographyengineering.com/2013/09/18/the-many-flaws-of-dualecdrbg/"
+  domain: openssl.org
+  domain_type: project host
+  artifact_type: Source archive

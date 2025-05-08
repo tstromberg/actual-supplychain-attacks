@@ -1,0 +1,24 @@
+- name: ultralytics
+  title: Ultralytics PyPI package compromised distributing cryptominer
+  synopsis: Attackers exploited a vulnerability in the project's GitHub Actions CI/CD workflow (combining `pull_request_target` trigger with command injection via unsanitized branch names). This allowed them to execute arbitrary code during the build/publish process and upload malicious versions of the official `ultralytics` package directly to PyPI. These compromised versions contained an XMRig cryptominer. Several malicious versions were published over a few days before being detected and removed.
+  start_date: 2024-12-04 # Date first malicious version (8.3.41) published to PyPI
+  end_date: 2024-12-07 # Date last malicious version (8.3.46) published (discovery/remediation occurred shortly after)
+  attribution_type: Unknown
+  component_type: Library # AI/ML Computer Vision
+  lang: Python # Package is Python; payload was a binary cryptominer
+  cause: CI/CD Exploit # GitHub Actions workflow vulnerability exploited
+  motive: Financial gain # Cryptomining
+  insertion_phase: CI/CD # Malicious code injected during build/publish pipeline, artifact uploaded to PyPI
+  impact_type: Resource hijacking, Cryptomining
+  domain: pypi.org
+  domain_type: package host
+  artifact_type: Source archive
+  references:
+    - https://www.legitsecurity.com/blog/the-ultralytics-supply-chain-attack-how-it-happened-how-to-prevent # Legit Security Blog detailing the attack vector
+    - https://safetycli.com/research/supply-chain-attack-ultralytics-ai # Safety CLI Blog detailing timeline and versions
+    - https://github.com/ultralytics/ultralytics/issues/18029 # GitHub issue discussing the incident
+  versions: # Malicious versions published to PyPI
+    - 8.3.41
+    - 8.3.42
+    - 8.3.45
+    - 8.3.46

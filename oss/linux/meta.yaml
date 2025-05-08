@@ -1,0 +1,25 @@
+- name: linux
+  title: Linux kernel backdoor insertion attempt via CVS
+  synopsis: An attacker attempted to insert subtle backdoor code into the Linux kernel source tree. The attempt was made via a commit to the BitKeeper/CVS repository used at the time. The code modification appeared legitimate but contained a condition (`wait4()`) designed to grant root privileges based on specific parameters. It was detected and reverted before inclusion in any release.
+  start_date: 2003-11-05
+  end_date: 2003-11-05
+  attribution_type: Unknown # Speculated Nation-state or skilled hacker
+  component_type: OS # Kernel
+  lang: C
+  cause: Server compromise # Access to commit infrastructure (BitKeeper/CVS)
+  motive: Espionage # Hidden root access
+  transitive: false
+  insertion_phase: source # Attempted modification of authoritative source code
+  impact_type: Potential root compromise # If it hadn't been caught
+  references:
+    - https://freedom-to-tinker.com/2013/10/09/history-linux-backdoor-attempt/
+    - https://lwn.net/Articles/57237/
+    - http://phrack.org/issues/62/4.html#article
+  domain: bkbits.net
+  domain_type: code host
+  commits:
+    - 1.121
+    - 1.120
+    - 1.119
+    - 1.118
+  artifact_type: Revision control system

@@ -1,0 +1,26 @@
+- name: transmission
+  title: Transmission macOS installer distributed Keydnap backdoor
+  repo: https://github.com/transmission/transmission
+  synopsis: Months after the KeRanger incident, Transmission's website was compromised again. This time, the legitimate macOS installer for version 2.92 was replaced with a malicious version containing the OSX/Keydnap backdoor. Keydnap aimed to steal keychain credentials and establish persistent remote access.
+  start_date: 2016-08-28 # Approximate date malicious file appeared
+  end_date: 2016-08-30 # Approximate date discovered/removed
+  attribution_type: Cybercriminal gang
+  component_type: Application
+  lang: Binary # Backdoor embedded in DMG
+  cause: Server compromise # Website/download server hacked again
+  motive: Credential theft, Remote access
+  transitive: false
+  insertion_phase: distribution # Official download file replaced
+  impact_type: Credential theft, Backdoor, Remote access
+  references:
+    - https://github.com/transmission/transmission/issues/127 # Discussion related to the incident
+    - https://blog.malwarebytes.com/threat-analysis/2016/09/transmission-bittorrent-client-compromised-again/
+    - https://www.welivesecurity.com/2016/08/30/osxkeydnap-spreads-via-transmission-official-website/
+  versions:
+    - 2.92 # Specific macOS DMG installer
+  artifacts:
+    - "https://blog.malwarebytes.com/threat-analysis/2016/09/transmission-bittorrent-client-compromised-again/"
+  domains: [transmissionbt.com]
+  artifact_types: Disk image
+  impacted_hashes:
+    - "f06ac9609c3a8b00a7586840e990153460f8de9526e91a1a6ab733c850d5c83f"

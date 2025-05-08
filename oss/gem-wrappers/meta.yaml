@@ -1,0 +1,21 @@
+- name: gem-wrappers
+  title: gem-wrappers gem backdoored during RubyGems.org platform compromise
+  synopsis: During a platform-level compromise of RubyGems.org (exploiting server vulnerabilities), attackers gained filesystem access and replaced the legitimate `gem-wrappers` gem file (v1.1.0) with a malicious version. This trojaned version contained obfuscated code that acted as a backdoor, allowing remote command execution on systems that installed or updated to the compromised gem during the incident window.
+  start_date: 2013-01-29 # Approximate date platform compromise occurred / malicious gem uploaded
+  end_date: 2013-02-01 # Approximate date compromise discovered / site taken down / gem removed
+  attribution_type: Unknown # Attacker(s) who breached RubyGems.org
+  component_type: Library # Ruby development tool
+  lang: Ruby
+  cause: Server compromise # RubyGems.org platform exploited
+  motive: Remote access # Backdoor functionality
+  transitive: false
+  domain: rubygems.org
+  domain_type: package host
+  artifact_type: source archive
+  insertion_phase: distribution # Malicious gem file replaced on compromised platform server
+  impact_type: Backdoor, Remote execution
+  references:
+    - https://threatpost.com/rubygems-org-compromised-backdoor-found-gem-wrappers-package-020113/77464/ # Threatpost article
+    - https://arstechnica.com/information-technology/2013/02/rubygems-org-hacked-popular-gem-backdoored-with-remote-code-exploit/ # Ars Technica article
+  versions:
+    - 1.1.0 # Specific version replaced on the server

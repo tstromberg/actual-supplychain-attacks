@@ -1,0 +1,27 @@
+- name: gentoo
+  title: Gentoo GitHub hack modified ebuilds
+  repo: https://github.com/gentoo
+  synopsis: An attacker gained control of Gentoo's GitHub organization administrator account. The attacker modified content, including ebuild package scripts, potentially inserting malicious code. Access was quickly regained and changes reverted.
+  start_date: 2018-06-28
+  end_date: 2018-06-28
+  attribution_type: Individual hacker
+  component_type: Distribution # Linux Distribution infrastructure/packages
+  lang: Shell # Ebuilds are shell scripts
+  cause: Stolen credentials # Password guessed via insecure practices
+  motive: Unknown # Vandalism or attempted deeper compromise
+  transitive: false
+  insertion_phase: source # Modification of source code/package definitions on GitHub
+  impact_type: Potential remote execution # If malicious ebuilds were used
+  references:
+    - https://www.gentoo.org/news/2018/06/29/github-incident.html
+    - https://www.zdnet.com/article/gentoo-linux-github-repo-hacked-and-modified/
+    - https://thehackernews.com/2018/06/gentoo-linux-hacking.html
+  versions:
+    - Various ebuilds and scripts hosted on GitHub at the time of compromise
+  commits:
+    - Malicious modifications made via compromised 'risacher' account to ebuilds and other scripts. All changes were reverted.
+  artifacts:
+    - Source code of ebuilds and scripts on GitHub repositories (e.g., gentoo-mirror/gentoo)
+  domain: github.com
+  domain_type: code host
+  artifact_type: Revision control system

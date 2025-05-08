@@ -1,0 +1,29 @@
+- name: bootstrap-sass
+  title: bootstrap-sass gem backdoor enabled RCE.
+  repo: https://github.com/twbs/bootstrap-sass # Official repository for the legitimate gem
+  synopsis: A popular Ruby gem, bootstrap-sass, had a malicious version (3.2.0.3) published on RubyGems.org after a likely maintainer account compromise. The backdoor allowed remote command execution on Rails applications in production environments.
+  start_date: 2019-03-26 # Malicious version 3.2.0.3 published
+  end_date: 2019-03-26 # Malicious version removed same day; clean 3.2.0.4 published 2019-04-03
+  attribution_type: Unknown attacker
+  component_type: library
+  lang: Ruby
+  cause: Stolen credentials # Suspected maintainer account compromise
+  motive: Remote access
+  transitive: false
+  insertion_phase: distribution # Malicious package uploaded to RubyGems.org
+  impact_type: Backdoor, Remote access
+  impact_user_count: 1477 # Reported downloads of the malicious version 3.2.0.3
+  references:
+    - https://www.zdnet.com/article/backdoor-code-found-in-popular-bootstrap-sass-ruby-library/
+    - https://www.ironin.it/blog/malicious-backdoor-code-found-in-the-bootstrap-sass-ruby-gem.html
+    - https://snyk.io/vuln/SNYK-RUBY-BOOTSTRAPSASS-174139 # Snyk advisory, original may be updated
+    - https://cyberscoop.com/bootstrap-sass-infected-snyk-rubygems/
+  versions:
+    - "3.2.0.3" # Malicious version
+  artifacts:
+    - "https://rubygems.org/gems/bootstrap-sass/versions/3.2.0.3" # Link to (yanked) version page
+  domain: rubygems.org
+  domain_type: package host
+  artifact_type: source archive # Gem file
+  impacted_hashes:
+    - "366d6162fe36fc81dadc114558b43c6c8890c8bcc7e90e2949ae6344d0785dc0" # SHA256 for malicious bootstrap-sass 3.2.0.3

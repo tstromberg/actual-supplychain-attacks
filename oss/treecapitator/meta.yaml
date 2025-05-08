@@ -1,0 +1,23 @@
+- name: Treecapitator (Bukkit Plugin)
+  title: Treecapitator Bukkit plugin compromised with Fracturiser malware
+  synopsis: An account with publishing rights on BukkitDev for a popular plugin implementing 'Treecapitator' functionality was compromised. A malicious JAR file containing the 'Fracturiser' malware was uploaded, appearing as an update. This malware aimed to steal user credentials (Discord, Microsoft, Minecraft) and propagate itself by infecting other JAR files.
+  start_date: 2023-05-01 # Approximate timeframe malicious files started appearing for various mods/plugins
+  end_date: 2023-06-08 # Approximate date of widespread discovery and public warnings
+  attribution_type: Unknown # Attacker(s) compromising accounts
+  component_type: Plugin # Minecraft Server Plugin (Bukkit/Spigot etc.)
+  lang: Java
+  cause: Stolen credentials # Compromised CurseForge/BukkitDev account
+  motive: Credential theft, Malware propagation
+  transitive: false
+  insertion_phase: distribution # Malicious JAR uploaded to official plugin platform
+  impact_type: Credential theft, Data theft, Malware infection
+  references:
+    - https://support.curseforge.com/en/support/solutions/articles/9000228509-june-2023-infected-mods-detection-tool-and-report # CurseForge/Bukkit Advisory listing affected projects
+    - https://prismlauncher.org/news/cf-compromised-alert/ # Prism Launcher alert listing examples
+    - https://www.bitdefender.com/en-au/blog/labs/infected-minecraft-mods-lead-to-multi-stage-multi-platform-infostealer-malware # Technical analysis
+  versions: # Specific versions varied, updates pushed around May/June 2023 were affected
+  artifacts:
+    - "https://www.bitdefender.com/en-au/blog/labs/infected-minecraft-mods-lead-to-multi-stage-multi-platform-infostealer-malware"
+  domain: dev.bukkit.org
+  domain_type: package host
+  artifact_type: Binary archive

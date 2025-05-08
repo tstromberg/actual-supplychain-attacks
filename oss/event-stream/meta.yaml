@@ -1,0 +1,28 @@
+- name: event-stream
+  title: event-stream dependency steals Bitcoin wallets.
+  repo: https://github.com/dominictarr/event-stream
+  synopsis: Maintainer access to the popular event-stream npm package was socially engineered. A new malicious dependency, flatmap-stream, was added by the attacker. This dependency specifically targeted the Copay Bitcoin wallet application to steal cryptocurrency private keys.
+  start_date: 2018-09-09
+  end_date: 2018-11-26
+  attribution_type: Individual hacker
+  component_type: library
+  lang: javascript
+  cause: Social engineering
+  motive: Financial gain
+  transitive: true
+  insertion_phase: dependency
+  impact_type: Cryptocurrency theft, Credential theft
+  impact_user_count: 8000000
+  references:
+    - https://github.com/dominictarr/event-stream/issues/116
+    - https://blog.npmjs.org/post/180565383195/details-about-the-event-stream-incident
+    - https://snyk.io/blog/malicious-code-found-in-npm-package-event-stream-and-the-hacker-got-away-with-it/
+    - https://medium.com/intrinsic/i-dont-know-what-to-say-9b9e75580148
+  versions:
+    - "3.3.6"
+  artifacts:
+    - https://www.npmjs.com/package/event-stream/v/3.3.6
+    - https://www.npmjs.com/package/flatmap-stream/v/0.1.1
+  domain: npmjs.org
+  domain_type: package host
+  artifact_type: source archive

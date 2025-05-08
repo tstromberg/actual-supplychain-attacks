@@ -1,0 +1,33 @@
+- name: rest-client
+  title: rest-client gem backdoor steals credentials.
+  repo: https://github.com/rest-client/rest-client
+  synopsis: A maintainer's RubyGems.org account was compromised due to a reused password. Attackers then published malicious versions of the rest-client gem containing a backdoor. This backdoor exfiltrated environment variables and could execute arbitrary remote commands.
+  start_date: 2019-08-14
+  end_date: 2019-08-19
+  attribution_type: Individual hacker
+  component_type: library
+  lang: ruby
+  cause: Stolen credentials
+  motive: Financial gain
+  transitive: false
+  insertion_phase: distribution
+  impact_type: Credential theft, Remote access
+  impact_user_count: 2450
+  references:
+    - https://github.com/rest-client/rest-client/issues/713
+    - https://snyk.io/blog/code-execution-back-door-found-in-rubys-rest-client-library/
+    - https://blog.sonatype.com/anatomy-of-the-rubygems-rest-client-hack-and-getting-creative-with-supply-chain-attacks
+    - https://www.helpnetsecurity.com/2019/08/21/backdoored-ruby-gems/
+  versions:
+    - "1.6.10"
+    - "1.6.11"
+    - "1.6.12"
+    - "1.6.13"
+  artifacts:
+    - https://rubygems.org/gems/rest-client/versions/1.6.10
+    - https://rubygems.org/gems/rest-client/versions/1.6.11
+    - https://rubygems.org/gems/rest-client/versions/1.6.12
+    - https://rubygems.org/gems/rest-client/versions/1.6.13
+  domain: rubygems.org
+  domain_type: package host
+  artifact_type: source archive

@@ -1,0 +1,20 @@
+- name: openssh
+  title: OpenSSH CVS source code backdoor attempt discovered
+  synopsis: Malicious code attempting to create a backdoor was discovered in the OpenBSD CVS repository, affecting OpenSSH code. The backdoor would trigger during challenge-response authentication, potentially allowing remote access. It was inserted by a core developer, allegedly under duress (FBI coercion claim, later doubted). The code was found and removed before any vulnerable release.
+  start_date: 2002-08-31 # Approximate date of insertion
+  end_date: 2002-09-01 # Date of discovery/revert
+  attribution_type: Maintainer # Potentially coerced
+  component_type: Application # Foundational security tool
+  lang: C
+  cause: Developer insertion # Motivation disputed (coercion vs internal)
+  motive: Espionage # Remote access
+  transitive: false
+  insertion_phase: source # Direct commit to CVS repository
+  impact_type: Potential remote access # If released
+  references:
+    - https://undeadly.org/cgi?action=article&sid=20101214115151 # Retrospective mentioning the incident
+    - https://marc.info/?l=openbsd-misc&m=103083205128832&w=2 # Initial discovery/discussion thread
+    - https://www.theregister.com/2002/09/02/back_door_found_in_openbsd/
+  commits:
+    - "Revision 1.100 of ssh/auth2-chall.c" # Location of the backdoored code
+  artifact_type: Revision control system

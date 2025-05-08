@@ -1,0 +1,27 @@
+- name: pytorch
+  title: PyTorch nightly builds compromised via malicious dependency
+  repo: https://github.com/pytorch/pytorch
+  synopsis: PyTorch nightly builds were compromised when a malicious package named `torchtriton` was uploaded to PyPI. The PyTorch build process imported this package due to dependency confusion. The malicious `torchtriton` exfiltrated sensitive information from the build environment and executed code.
+  start_date: 2022-12-25
+  end_date: 2022-12-30
+  attribution_type: Individual hacker
+  component_type: Library # Machine Learning Framework
+  lang: Python
+  cause: Dependency confusion
+  motive: Data theft, Remote execution
+  transitive: true # Malicious code was in the dependency
+  insertion_phase: dependency # Build system pulled malicious dependency from PyPI
+  impact_type: Data theft, Credential theft, Remote execution
+  references:
+    - https://pytorch.org/blog/compromised-pypi-dependency/ # Official announcement
+    - https://www.bleepingcomputer.com/news/security/pytorch-discloses-malicious-dependency-chain-compromise-over-holidays/
+    - https://security.snyk.io/vuln/SNYK-PYTHON-TORCHTRITON-3193313 # Vulnerability database entry
+  versions:
+    - Nightly builds between 2022-12-25 and 2022-12-30
+  artifacts:
+    - url: https://pypi.org/project/torchtriton/ # Malicious package URL (now removed or replaced)
+  domain: pypi.org
+  domain_type: package host
+  artifact_type: Source archive
+  impacted_hashes:
+    - 919118939367690c239923b9748520c261503865094823459177886619378916 # SHA256 of torchtriton-2.0.0.post1.tar.gz

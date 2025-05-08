@@ -1,0 +1,30 @@
+- name: uaparser-js
+  title: ua-parser-js NPM package hijacked distributing malware
+  repo: https://github.com/faisalman/ua-parser-js
+  synopsis: The maintainer's NPM account was compromised, allowing attackers to publish malicious versions of the popular ua-parser-js library. These versions contained malware designed to steal credentials (OS passwords, browser cookies, Discord tokens) and install a cryptominer. The malware targeted both Linux and Windows systems.
+  start_date: 2021-10-22
+  end_date: 2021-10-22 # Malicious versions quickly removed
+  attribution_type: Individual hacker # Or group
+  component_type: Library
+  lang: Javascript # Malicious payload, helper scripts likely shell/batch
+  cause: Stolen credentials # NPM account compromise
+  motive: Credential theft, Financial gain # Cryptomining
+  transitive: false
+  insertion_phase: distribution # Malicious versions published to NPM
+  impact_type: Credential theft, Cryptomining, Remote execution # Malware execution
+  impact_user_count: 8000000 # Approximate weekly downloads
+  references:
+    - https://github.com/advisories/GHSA-pjwm-rvh2-c87w
+    - https://github.com/faisalman/ua-parser-js/issues/536 # Maintainer confirming hijack
+    - https://www.bleepingcomputer.com/news/security/popular-npm-library-ua-parser-js-hijacked-to-install-malware/
+  versions:
+    - 0.7.29
+    - 0.8.0
+    - 1.0.0
+  artifacts:
+    - "https://www.bleepingcomputer.com/news/security/popular-npm-library-ua-parser-js-hijacked-to-install-malware/"
+  domain: npmjs.org
+  domain_type: package host
+  artifact_type: Source archive
+  impacted_hashes:
+    - "bd669280081a82e8f29f0c5a522169f2917fd522ac229b376189e763184307ba" # SHA256 for 0.7.29

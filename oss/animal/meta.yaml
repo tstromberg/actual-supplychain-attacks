@@ -1,0 +1,21 @@
+- name: ANIMAL
+  title: Animal Trojan / Virus
+  start_date: 1975-01-01
+  end_date: 1976-01-01
+  attribution_type: maintainer
+  attribution: John Walker
+  component_type: Game
+  lang: Assembly
+  motive: lulz
+  transitive: false
+  cause: maintainer sabotage
+  artifact_type: source archive
+  insertion_phase: source
+  impact_type: replication
+  impact_user_count: 25
+  domain: fourmilab.ch
+  domain_type: project host
+  references:
+    - https://www.fourmilab.ch/documents/univac/animal.html
+  artifacts:
+    - https://www.fourmilab.ch/documents/univac/animalsrc.html
