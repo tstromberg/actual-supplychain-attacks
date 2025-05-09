@@ -13,11 +13,19 @@
   insertion_phase: CI/CD # Compromise impacting action code/runtime via leaked token
   impact_type: Credential theft, Remote execution # Potential impact
   commits:
-    - 0e58ed8671d6b60d0890c21b07f8835ace038e67
-  artifacts:
-    - "https://github.com/tj-actions/changed-files/issues/1107"
+    - 0e58ed8671d6b60d0890c21b07f8835ace038e67 # Malicious commit containing backdoor code
+  historical_artifacts:
+    - https://github.com/tj-actions/changed-files/tree/0e58ed8671d6b60d0890c21b07f8835ace038e67 # Malicious version state
+    - https://github.com/tj-actions/changed-files/archive/0e58ed8671d6b60d0890c21b07f8835ace038e67.zip # Archive of malicious code
+  current_artifacts:
+    - https://www.wiz.io/blog/github-action-tj-actions-changed-files-supply-chain-attack-cve-2025-30066 # Analysis with screenshots and code samples
+    - https://www.stepsecurity.io/blog/harden-runner-detection-tj-actions-changed-files-action-is-compromised # Technical details with backdoor explanation
   domain: github.com
   domain_type: code host
-  artifact_type: Revision control system
+  artifact_type: revision control system
   references:
-    - https://github.com/tj-actions/changed-files/issues/1107 # Maintainer addressing the incident
+    - https://nvd.nist.gov/vuln/detail/CVE-2025-30066 # NVD Entry for CVE-2025-30066
+    - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-30066 # Mitre Entry for CVE-2025-30066
+    - https://www.cisa.gov/news-events/alerts/2025/03/18/supply-chain-compromise-third-party-tj-actionschanged-files-cve-2025-30066-and-reviewdogaction # CISA Alert
+    - https://www.wiz.io/blog/github-action-tj-actions-changed-files-supply-chain-attack-cve-2025-30066 # Wiz Blog Post
+    - https://www.stepsecurity.io/blog/harden-runner-detection-tj-actions-changed-files-action-is-compromised # StepSecurity Blog Post

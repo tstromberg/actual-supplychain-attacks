@@ -14,15 +14,19 @@
   impact_type: Backdoor, Remote access
   impact_user_count: 1477 # Reported downloads of the malicious version 3.2.0.3
   references:
+    - https://github.com/twbs/bootstrap-sass/issues/1195 # GitHub issue reported by Derek Barnes
     - https://www.zdnet.com/article/backdoor-code-found-in-popular-bootstrap-sass-ruby-library/
-    - https://www.ironin.it/blog/malicious-backdoor-code-found-in-the-bootstrap-sass-ruby-gem.html
+    - https://www.ironin.it/blog/malicious-backdoor-code-found-in-the-bootstrap-sass-ruby-gem.html # Contains technical analysis of the backdoor
     - https://cyberscoop.com/bootstrap-sass-infected-snyk-rubygems/
   versions:
     - "3.2.0.3" # Malicious version
-  artifacts:
+  historical_artifacts:
     - "https://rubygems.org/gems/bootstrap-sass/versions/3.2.0.3" # Link to (yanked) version page
+  current_artifacts:
+    - https://www.ironin.it/blog/malicious-backdoor-code-found-in-the-bootstrap-sass-ruby-gem.html # Blog post containing backdoor code snippet and analysis
   domain: rubygems.org
   domain_type: package host
   artifact_type: source archive # Gem file
-  impacted_hashes:
-    - "366d6162fe36fc81dadc114558b43c6c8890c8bcc7e90e2949ae6344d0785dc0" # SHA256 for malicious bootstrap-sass 3.2.0.3
+  hashes:
+    - "sha256:366d6162fe36fc81dadc114558b43c6c8890c8bcc7e90e2949ae6344d0785dc0" # SHA256 for malicious bootstrap-sass 3.2.0.3
+  clean: true

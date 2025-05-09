@@ -12,11 +12,19 @@
   impact_type: Backdoor, Remote execution
   references:
     - https://www.rapid7.com/db/modules/exploit/unix/irc/unreal_ircd_3281_backdoor/ # Exploit module details
+    - https://lwn.net/Articles/392201/ # Initial report
+    - https://arstechnica.com/information-technology/2010/06/unreal-ircd-backdoored-for-months/ # News reporting
+  historical_artifacts:
+    - ftp://ftp.unrealircd.com/Unreal3.2.8.1.tar.gz # Original compromised download location
+    - http://mirror.unrealircd.org/Unreal3.2.8.1.tar.gz # Mirror of compromised tarball
+  current_artifacts:
+    - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2075 # CVE with technical details
+    - https://www.rapid7.com/db/modules/exploit/unix/irc/unreal_ircd_3281_backdoor/ # Exploit code for research
   domain: unrealircd.org
   domain_type: project host
-  artifact_type: Source archive
+  artifact_type: source archive
   versions:
     - 3.2.8.1 # Specific source tarball Unreal3.2.8.1.tar.gz
-  impacted_hashes:
-    - e5a4f00a16455005a45d969992173911 # MD5 of backdoored Unreal3.2.8.1.tar.gz
-    - 63413f7a8ea69a077a810b588a4b0997 # MD5 of clean Unreal3.2.8.1.tar.gz
+  hashes:
+    - md5:e5a4f00a16455005a45d969992173911 # Backdoored Unreal3.2.8.1.tar.gz
+    - md5:63413f7a8ea69a077a810b588a4b0997 # Clean Unreal3.2.8.1.tar.gz

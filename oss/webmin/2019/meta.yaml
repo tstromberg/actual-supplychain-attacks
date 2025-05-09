@@ -16,7 +16,16 @@
     - https://nvd.nist.gov/vuln/detail/CVE-2019-15107 # Related CVE
   domain: webmin.com
   domain_type: project host
-  artifact_type: Source archive
+  artifact_type: source archive
+  historical_artifacts:
+    - https://sourceforge.net/projects/webadmin/files/webmin/1.920/webmin-1.920.tar.gz/download # Compromised release
+    - https://prdownloads.sourceforge.net/webadmin/webmin-1.890.tar.gz # First compromised version
+  current_artifacts:
+    - https://www.webmin.com/exploit.html # Official explanation with technical details
+    - https://github.com/webmin/webmin/commit/1a1021d869f27e22c36d4b33b50293289faaa914 # Fix commit removing the backdoor
+  hashes:
+    - sha256:049286261fbcd846142014f4a7782ab3243b1a7ae816a57468f5d2f8c2199b0c # Malicious webmin-1.920.tar.gz
+    - md5:7e1d72249a9eec92f9c9dc69dcfbffb3 # webmin-1.890.tar.gz with backdoor
   versions:
     - 1.890 # Backdoor introduced
     - 1.900

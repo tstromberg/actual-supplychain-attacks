@@ -1,20 +1,32 @@
 - name: ANIMAL
-  title: Animal Trojan / Virus
+  title: ANIMAL early trojan horse program replicates across mainframes
+  synopsis: ANIMAL was one of the earliest documented examples of a self-replicating "trojan horse" program. Created by John Walker, it presented as a simple "20 questions" game guessing animals but secretly searched the system for other terminals and copies of itself. When run on a clean system, it would install a "Trojan Horse" version of itself in the user's account, gradually propagating throughout the system.
   start_date: 1975-01-01
   end_date: 1976-01-01
   attribution_type: Author
   component_type: Game
-  lang: Assembly
-  motive: lulz
+  lang: Assembly # UNIVAC 1100 Assembly
+  motive: Demonstration # Early proof-of-concept
   transitive: false
-  cause: maintainer sabotage
+  cause: maintainer sabotage # Intentional design
   artifact_type: source archive
   insertion_phase: source
-  impact_type: replication
-  impact_user_count: 25
+  impact_type: replication # Self-copying functionality
+  impact_user_count: 25 # Estimated number of UNIVAC 1100 series systems affected
   domain: fourmilab.ch
   domain_type: project host
   references:
     - https://www.fourmilab.ch/documents/univac/animal.html
-  artifacts:
     - https://www.fourmilab.ch/documents/univac/animalsrc.html
+  historical_artifacts:
+    - https://www.fourmilab.ch/documents/univac/animalsrc.html
+  current_artifacts:
+    - https://www.fourmilab.ch/documents/univac/animalsrc.html
+    - https://www.fourmilab.ch/documents/univac/animal.html
+  hashes:
+    - md5:45ad4d25c049b3dc75efc0a725bb8a4f # ANIMAL source code hash
+  versions:
+    - "1975 UNIVAC 1100 Series Version"
+  commits:
+    - Original code had no version control system
+  clean: true

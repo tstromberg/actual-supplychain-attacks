@@ -18,11 +18,17 @@
     - https://socradar.io/comm100-installer-abused-in-supply-chain-attack-to-distribute-malware/
   versions:
     - "Comm100LiveChat-Setup-win.exe versions 10.0.7, 10.0.8" # Specific affected versions
-  artifacts:
-    - "Comm100LiveChat-Setup-win.exe" # Malicious installer filename
   domain: comm100.com # Official vendor website
   domain_type: project host
   artifact_type: binary archive # Software installer
-  impacted_hashes:
-    - "6f0fae95f5637710d1464b42ba49f9533443181262f78805d3ff13bea3b8fd45" # SHA256 for version 10.0.7
-    - "ac5c0823d623a7999f0db345611084e0a494770c3d6dd5feeba4199deee82b86" # SHA256 for version 10.0.8
+  historical_artifacts:
+    - "https://s1.comm100.com/livechat/electron/10.0.7/Comm100LiveChat-Setup-win.exe" # Malicious installer v10.0.7
+    - "https://s1.comm100.com/livechat/electron/10.0.8/Comm100LiveChat-Setup-win.exe" # Malicious installer v10.0.8
+    - "https://www.comm100.com/livechat/platform/desktopapp/Comm100LiveChatSetup.exe" # General download path also identified as serving malicious installer
+  current_artifacts:
+    - "https://www.crowdstrike.com/blog/crowdstrike-detects-supply-chain-attack-targeting-comm100-customers/" # Primary analysis by CrowdStrike
+    - "https://www.virustotal.com/gui/file/6f0fae95f5637710d1464b42ba49f9533443181262f78805d3ff13bea3b8fd45" # VirusTotal entry for malicious installer v10.0.7
+    - "https://www.virustotal.com/gui/file/ac5c0823d623a7999f0db345611084e0a494770c3d6dd5feeba4199deee82b86" # VirusTotal entry for malicious installer v10.0.8
+  hashes:
+    - sha256:6f0fae95f5637710d1464b42ba49f9533443181262f78805d3ff13bea3b8fd45 # Comm100LiveChat-Setup-win.exe version 10.0.7
+    - sha256:ac5c0823d623a7999f0db345611084e0a494770c3d6dd5feeba4199deee82b86 # Comm100LiveChat-Setup-win.exe version 10.0.8

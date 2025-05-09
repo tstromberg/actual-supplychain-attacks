@@ -18,8 +18,12 @@
     - https://www.securityhq.com/blog/security-101-compromised-aws-s3-buckets/ # Mentions Twilio incident
   versions:
     - "TaskRouter JS SDK v1.20"
-  artifacts:
-    - "taskrouter.min.js (v1.20)" # Specific file modified on twiliocdn.com
+  historical_artifacts:
+    - "https://media.twiliocdn.com/taskrouter/js/v1.20/taskrouter.min.js" # Compromised file path during the incident
+  current_artifacts:
+    - "https://www.twilio.com/en-us/blog/incident-report-taskrouter-js-sdk-july-2020" # Official Twilio incident report
+    - "https://www.theregister.com/2020/07/21/twilio_javascript_sdk_code_injection/"
+    - "https://www.scworld.com/news/misconfigured-s3-exposes-twilio-users-to-magecart-attack/"
   domain: twiliocdn.com # Official domain hosting the SDK via S3
   domain_type: project host # CDN/Cloud storage acting as distribution
   artifact_type: source archive # JavaScript library file

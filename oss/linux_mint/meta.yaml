@@ -13,10 +13,22 @@
   impact_type: Backdoor, Remote access
   references:
     - https://blog.linuxmint.com/?p=2994 # Original announcement
-    - https://www.zdnet.com/article/linux-mint-hacked-iso-downloads-replaced-with-backdoored-ones/
-    - https://www.wordfence.com/blog/2016/02/linux-mint-website-hack-leads-malware-infected-isos/
+    - https://blog.linuxmint.com/?p=3001 # Follow-up announcement with technical details
+    - https://www.zdnet.com/article/linux-mint-website-hacked-iso-images-compromised/ # Media coverage with details
   versions:
     - "17.3 Cinnamon Edition" # Specific ISO targeted
+  historical_artifacts:
+    - http://5.104.175.212/linuxmint-17.3-cinnamon-64bit-v2.iso # Malicious ISO hosting URL (no longer available)
+    - https://torrents.linuxmint.com/torrents/linuxmint-17.3-cinnamon-64bit.iso.torrent # Original download source
+  current_artifacts:
+    - https://blog.linuxmint.com/?p=3001 # Analysis with backdoor details
+    - https://www.welivesecurity.com/2016/02/21/linux-mint-website-breach-leads-backdoored-download/ # Analysis with screenshots
+  commits:
+    - WordPress modifications targeting download page links, exact details unavailable
   domain: linuxmint.com
   domain_type: project host
-  artifact_type: Disk image
+  artifact_type: binary archive
+  hashes:
+    - sha256:307d8420e51d8a237153a5ea6454422ee9360f552eb7ea8ce5f5fcf6b7d3c917 # Malicious ISO
+    - md5:e71a2aad8b58605e906dbea444dc4787 # Alternative hash for malicious ISO
+  clean: true

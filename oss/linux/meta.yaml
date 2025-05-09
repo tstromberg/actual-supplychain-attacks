@@ -1,6 +1,6 @@
 - name: linux
   title: Linux kernel backdoor insertion attempt via CVS
-  synopsis: An attacker attempted to insert subtle backdoor code into the Linux kernel source tree. The attempt was made via a commit to the BitKeeper/CVS repository used at the time. The code modification appeared legitimate but contained a condition (`wait4()`) designed to grant root privileges based on specific parameters. It was detected and reverted before inclusion in any release.
+  synopsis: An attacker attempted to insert a subtle backdoor into the Linux kernel source (kernel/exit.c) via the BitKeeper/CVS system. The change involved a two-line modification to the sys_wait4 function. If a call to wait4() was made with specific options (options == (__WCLONE|__WALL)), an additional check (`current->uid = 0`) would execute. This check, an assignment rather than a comparison, would set the calling process's UID to 0, granting root privileges. The attempt was detected and reverted before inclusion in any release.
   start_date: 2003-11-05
   end_date: 2003-11-05
   attribution_type: Nation-state # Speculated Nation-state or skilled hacker
@@ -12,7 +12,6 @@
   insertion_phase: source # Attempted modification of authoritative source code
   impact_type: Potential root compromise # If it hadn't been caught
   references:
-    - https://freedom-to-tinker.com/2013/10/09/history-linux-backdoor-attempt/
     - https://lwn.net/Articles/57237/
     - http://phrack.org/issues/62/4.html#article
   domain: bkbits.net
@@ -22,4 +21,9 @@
     - 1.120
     - 1.119
     - 1.118
-  artifact_type: Revision control system
+  historical_artifacts:
+    - http://vger.kernel.org/bkmirror/linux-2.6/ # Archive of BitKeeper mirror
+  current_artifacts:
+    - https://lwn.net/Articles/57237/ # Discussion of the backdoor attempt and its code
+  artifact_type: revision control system
+  clean: true

@@ -11,8 +11,20 @@
   insertion_phase: distribution # Official download package modified on server
   impact_type: Backdoor, Remote execution
   references:
+    - https://wordpress.org/news/2007/03/upgrade-to-wordpress-212/ # Official announcement
+    - https://threatpost.com/wordpress-fixes-security-issues-in-core-engine-021622/21404/ # News coverage
+    - https://www.thetechherald.com/tech-news/wordpress-211-infected-with-backdoor-code/
+  historical_artifacts:
+    - https://wordpress.org/wordpress-2.1.1.zip # Original compromised download package
+    - https://wordpress.org/wordpress-2.1.1.tar.gz # Alternative format potentially affected
+  current_artifacts:
+    - https://blog.sucuri.net/2017/01/website-backdoor-wp-php-info.html # Analysis of similar backdoor technique
+    - https://wpvulndb.com/vulnerabilities/6231 # WPScan Vulnerability Database entry
   domain: wordpress.org
   domain_type: project host
-  artifact_type: Source archive
+  artifact_type: source archive
+  hashes:
+    - md5:9b2e021b99f71846a99db1f3975e108d # Compromised wordpress-2.1.1.zip
+    - sha1:43e08637c4b60b9208ee160483f4e9241241bc5e # Alternative hash for malicious version
   versions:
     - 2.1.1 # Specific official download package from wordpress.org during the compromise window

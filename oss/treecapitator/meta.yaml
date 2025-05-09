@@ -16,8 +16,13 @@
     - https://prismlauncher.org/news/cf-compromised-alert/ # Prism Launcher alert listing examples
     - https://www.bitdefender.com/en-au/blog/labs/infected-minecraft-mods-lead-to-multi-stage-multi-platform-infostealer-malware # Technical analysis
   versions: # Specific versions varied, updates pushed around May/June 2023 were affected
-  artifacts:
-    - "https://www.bitdefender.com/en-au/blog/labs/infected-minecraft-mods-lead-to-multi-stage-multi-platform-infostealer-malware"
+  historical_artifacts:
+    - https://dev.bukkit.org/projects/treecapitator # Original host location for the compromised plugin
+  current_artifacts:
+    - https://github.com/fractureiser-investigation/fractureiser # GitHub repository with samples and analysis
+    - https://www.bitdefender.com/en-au/blog/labs/infected-minecraft-mods-lead-to-multi-stage-multi-platform-infostealer-malware # Analysis with technical details
   domain: dev.bukkit.org
   domain_type: package host
-  artifact_type: Binary archive
+  artifact_type: binary archive
+  hashes:
+    - sha256:5584ac1f8b713d2f6310bd3cde425b775402fbc70e56e5e8d774bec15703ca79 # Malicious JAR hash related to Fracturiser campaign

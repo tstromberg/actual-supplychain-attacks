@@ -1,0 +1,41 @@
+Provide a comprehensive and deep history of supply-chain security attacks that impacted commercial software products, compromising their source code or an artifact published by the company (such as a release tarball, binary, or container image). Don't include typosquatting attacks or security flaws within a product, as they did not attack the product or company behind it.
+
+The results of your research should be in YAML format. Text should be terse to encourage scannability yet readable by information security professionals.
+
+Fields to include:
+
+* name: The name of the product
+* title: a terse 1-sentence title of the attack, mentioning the name of the product, how the product was compromised and the downstream impact. No more than 6 words.
+* repo: location of the source code repository for this product (example kinds: git, cvs, subversion)
+* synopsis: a terse 2 to 4 sentence synopsis of the attack, does not need to repeat what is already stated in the title.
+* start_date: Earliest known date of attack
+* end_date: Last known date of attack
+* attribution_type: 1-2 word attribution of who likely attacked the product (Author, new maintainer, nation-state, individual hacker, cybercriminal gang, etc)
+* component_type: 1-word description of the kind of product that was impacted (for example, library, application, game, ci/cd action, daemon)
+* lang: What language the supply-chain attack was performed in (c, javascript, shell, awk)
+* cause: 1-2 word description of the initial attack vector used to introduce the supply-chain attack (stolen credentials, exploit, maintainer sabotage, social engineering, physical access)
+* motive: 1-2 word likely motive for the attack, taking the end-user impact into account (example: financial gain, vandalism, espionage, unknown)
+* transitive: Was it a transitive attack (caused by another supply-chain attack)
+* insertion_phase: What was the phase of the build pipeline was the malicious code inserted into. In order, these phases are:
+  - source: authoritative upstream source code
+  - build automation: build scripts or instructions (for example, a Makefile that inserted the malicious instructions on the fly)
+  - dependency: external source code dependency (compromised library)
+  - CI/CD: compromised build environment (for example: leaked GitHub action token or build server compromise)
+  - distribution: official source or binary distribution (for example: PyPI, website, container registry, CDN)
+  - discovery: end-user failure to use the authoritative download location, for example, an unofficial mirror compromise or typosquatting attack
+* impact_type: Up to 3 words to describe the downstream impact of the inserted supply-chain attack on end-users (credential theft, denial of service, backdoor, cryptocurrency theft, remote access, data destruction, data theft, ransomware)
+* impact_user_count: estimated number of users impacted (be conservative). It should be an integer, and download counts should be used where possible.
+* references: The best reference URLs to read technical details about the attack.  Research articles or blogs containing code snippets or screenshots of the malicious code are ideal. Aim for 3-5 relevant URLs, double-checking that these URLs are active and real.
+* versions: a list of versions of the software that were compromised. For example: semantic versions or release tags
+* commits: a list of malicious commits - such as git hashes, or revision IDs within a cvs, svn, bitkeeper, or similar revision control system
+* historical_artifacts: the original download locations for the compromised software version. It's OK to be speculative, but prefer mentions from articles that would indicate where people downloaded the malicious software from. Can be a URL (preferred) or in pURL (package URL) format. URLs for historical_artifacts do not have to exist anymore.
+* current_artifacts: places that still contain samples of the compromised software for research purposes. Examples of possible locations: random GitHub repositories of malware samples, mirror sites. Services like Snyk, Socket, unpkg, MalwareBazaar, VirusTotal, or Sonatype may have sample code or code archives. These can be a GitHub commit, gist, cached CDN, diffend. Pages that show the malicious commits or diffs that show the changed files are sufficient. Good examples of usable artifacts for the ua-parser-js attack include:  https://my.diffend.io/npm/ua-parser-js/0.7.28/0.7.29 for ua-parser-js 0.7.29 or  https://www.diffchecker.com/4bgZFxLj/ or https://grumpy.systems/2021/ua-parser-js-compromise/ or https://registry.npmjs.org/ua-parser-js/-/ua-parser-js-0.7.29.tgz or http://registry.npm.taobao.org/ua-parser-js/download/@types/ua-parser-js-0.7.29.tgz or https://socket.dev/blog/inside-node-modules - URLs for current_artifacts should be checked to see if they are still live. If you find a VirusTotal artifact, also check if the artifacts exist on other other more freely available sites such as MalwareBazaar or GitHub.
+* domain: the most authoritative domain that users downloaded the compromised code from. If the upstream source code was compromised at GitHub, use github.com. If the compromise was only at a delivery website such as npmjs.org, pypi.org, or sourceforge.net, use that domain instead. If the attack was not distributed via internet hosts or you are not sure where the software came from, skip this field.
+* domain_type: code host (github), package host (npmjs, sourceforge),
+container host (docker), product host (sendmail.org), or other
+* artifact_type: what was the primary or most authoritative form of artifact that was used to deliver malicious software to end-users? for example: revision control system (git), source archive, binary archive (such as a disk image or single binary), OCI image, or tape
+* hashes: checksums of compromised artifacts (source files, source archives, binaries, containers, sample files). These should be prefixed by the hash algorithm used with a colon separator. For example: sha256:xxx, md5:xxx, sha1:xxx,), if unsure of the hash algorithm, just use the raw hash. This field should not include commit hashes, as there is a separate field (commits) for those.
+
+Do not mention products that are unknown outside the context of the attack or products that exist solely on PyPI or NPM.
+
+The output should be a valid YAML file. If the value of a YAML key is effectively "Unknown" or empty, omit the key from the output. Omit YAML comments. If a list is empty, omit it.

@@ -17,8 +17,17 @@
     - https://gbhackers.com/hackers-exploit-21-apps-to-take-full-control/
   versions:
     - "Multiple versions of 21+ extensions from vendors Tigren, Meetanshi, MGS, potentially Weltpixel" # Specific list extensive, available in security reports
-  artifacts:
-    - "Compromised Magento extension packages (e.g., containing backdoored License.php)"
+  historical_artifacts:
+    - "https://tigren.com/m2/extensions/tigren-ajax-cart.zip"
+    - "https://meetanshi.com/media/downloads/Meetanshi_SocialLogin-2.0.5.zip"
+    - "https://magesolution.com/downloads/MGS_Fbuilder_v2.2.1.zip"
+  current_artifacts:
+    - "https://sansec.io/research/magento-supply-chain-attack-vendor-extensions"
+    - "https://twitter.com/gwillem/status/1519986321786552321"
+    - "https://github.com/gwillem/magento-malware-scanner/blob/master/rules/backend.txt"
+  hashes:
+    - sha256:e8edc2b931eb5b24a6fdc705add5685ab88e268d7c5179cb42c235a8192b10c1 # Backdoored License.php
+    - md5:c8ed5ee17d5c95dbe8a9c3c73dc7043c # Backdoored MGS extension file
   domain: Multiple vendor websites # e.g., tigren.com, meetanshi.com, magesolution.com
   domain_type: project host
   artifact_type: source archive # Extension code packages

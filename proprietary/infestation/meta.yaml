@@ -13,12 +13,15 @@
   impact_user_count: Unknown # Dependent on timing within game's lifecycle
   references:
     - https://www.bankinfosecurity.com/shadowhammer-spreads-across-online-gaming-supply-chain-a-12409 # Discusses BARIUM targeting gaming suppliers
-    - https://www.kaspersky.com/blog/shadowhammer-teaser/25763/ # Kaspersky initial ShadowHammer post
+    - https://securelist.com/operation-shadowhammer/89083/ # Kaspersky full report on ShadowHammer
     - https://www.reddit.com/r/pcgaming/comments/bh22hd/infestation_survivor_stories_backdoored_with/ # Cites Kaspersky research linking the game
   versions:
     - "Unknown specific game executable versions/patches"
-  artifacts:
-    - "Compromised game executable (e.g., Infestation.exe)"
+  historical_artifacts:
+    - "Compromised game executables (e.g., Infestation.exe) distributed via official game patches or downloads, potentially through platforms like Steam or direct publisher websites, prior to 2019."
+  current_artifacts:
+    - "https://securelist.com/operation-shadowhammer/89083/" # Kaspersky report on ShadowHammer, which mentions gaming industry targets
+    - "https://www.bankinfosecurity.com/shadowhammer-spreads-across-online-gaming-supply-chain-a-12409" # Discusses ShadowHammer targeting gaming suppliers
   domain: Unknown # Likely distributed via Steam or original publisher website
   domain_type: package host # Or project host
   artifact_type: binary archive # Game client/patch

@@ -14,14 +14,18 @@
   impact_type: Backdoor, Remote execution
   references:
     - https://www.phpmyadmin.net/news/2012/9/27/sourceforge-mirror-compromised/ # Official advisory
-    - https://thehackernews.com/2012/09/download-phpmyadmin-hacked-backdoor.html
-    - https://blog.sucuri.net/2012/09/backdoor-found-on-one-of-the-phpmyadmin-mirrors.html
+    - https://www.zdnet.com/article/phpmyadmin-update-released-after-security-compromise/ # News coverage
   versions:
     - 3.5.2.2 # Specifically the -all-languages.zip file from one mirror
-  artifacts:
-    - https://www.phpmyadmin.net/news/2012/9/27/sourceforge-mirror-compromised/ # Official advisory
+  historical_artifacts:
+    - https://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/3.5.2.2/phpMyAdmin-3.5.2.2-all-languages.zip/download # Original download URL from compromised mirror
+    - http://ignum-dl.sourceforge.net/project/phpmyadmin/phpMyAdmin/3.5.2.2/phpMyAdmin-3.5.2.2-all-languages.zip # Specific mirror URL
+  current_artifacts:
+    - https://www.phpmyadmin.net/news/2012/9/27/sourceforge-mirror-compromised/ # Advisory with technical details
+    - https://www.zdnet.com/article/phpmyadmin-update-released-after-security-compromise/ # Analysis with description of the backdoor
   domain: sourceforge.net
   domain_type: package host
-  artifact_type: Source archive
-  impacted_hashes:
-    - md5:cee5fa3565412733e42a8e461a2bcb39 # MD5 of the malicious ZIP file mentioned in advisories
+  artifact_type: source archive
+  hashes:
+    - md5:cee5fa3565412733e42a8e461a2bcb39 # Malicious phpMyAdmin-3.5.2.2-all-languages.zip
+  clean: true

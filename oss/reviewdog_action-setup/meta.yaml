@@ -14,7 +14,15 @@
   impact_user_count: 1500 # Estimated repositories potentially affected during the window
   domain: github.com
   domain_type: code host
-  artifact_type: Revision control system
+  artifact_type: revision control system
+  historical_artifacts:
+    - https://github.com/reviewdog/action-setup/tree/f0d342d24037bb11d26b9bd8496e0808ba32e9ec # Malicious commit state
+    - https://github.com/reviewdog/action-setup/tree/v1 # Tag that pointed to malicious commit
+  current_artifacts:
+    - https://www.wiz.io/blog/new-github-action-supply-chain-attack-reviewdog-action-setup # Analysis with screenshots
+    - https://www.stepsecurity.io/blog/reviewdog-github-actions-are-compromised # Technical details with code samples
+  hashes:
+    - sha1:f0d342d24037bb11d26b9bd8496e0808ba32e9ec # Malicious commit hash
   references:
     - https://github.com/reviewdog/reviewdog/security/advisories/GHSA-qmg3-hpqr-gqvc # Official GitHub Advisory
     - https://nvd.nist.gov/vuln/detail/CVE-2025-30154 # NVD Entry

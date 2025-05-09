@@ -14,5 +14,18 @@
   artifact_type: source archive
   insertion_phase: distribution
   impact_type: Backdoor, Remote access
+  references:
+    - https://github.com/advisories/GHSA-j8qr-rvcv-crhv # GitHub Advisory
+    - https://blog.npmjs.org/post/185397814280/plot-to-steal-cryptocurrency-foiled-by-the-npm # NPM Blog Post
+    - https://www.npmjs.com/advisories/927 # NPM Advisory
+    - https://github.com/eslint/eslint-scope/issues/39 # Initial GitHub issue reporting the compromised token
   versions:
     - 1.1.6
+  historical_artifacts:
+    - https://registry.npmjs.org/electron-native-notify/-/electron-native-notify-1.1.6.tgz
+  current_artifacts:
+    - https://blog.npmjs.org/post/185397814280/plot-to-steal-cryptocurrency-foiled-by-the-npm # NPM Blog Post with analysis
+    - https://github.com/advisories/GHSA-j8qr-rvcv-crhv # GitHub Advisory with details
+  hashes:
+    - sha256:07f16d95f3c91dbd2ddf974d4b95d8dcec39b09b8906fa3b35e0a0da78fe8f76 # electron-native-notify 1.1.6
+  clean: true

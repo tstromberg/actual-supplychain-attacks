@@ -12,9 +12,20 @@
   insertion_phase: source # Direct commit to CVS repository
   impact_type: Potential remote access # If released
   references:
-    - https://undeadly.org/cgi?action=article&sid=20101214115151 # Retrospective mentioning the incident
-    - https://marc.info/?l=openbsd-misc&m=103083205128832&w=2 # Initial discovery/discussion thread
-    - https://www.theregister.com/2002/09/02/back_door_found_in_openbsd/
+    - https://marc.info/?l=openbsd-security-announce&m=103302809430059&w=2 # Original OpenBSD announcement
+    - https://www.theregister.com/2002/09/03/trojan_horse_discovered_in_openssh/ # News report of the incident
+    - https://lwn.net/Articles/9571/ # LWN coverage of the incident
+  historical_artifacts:
+    - cvs://anoncvs.openbsd.org/src/usr.bin/ssh/auth2-chall.c#revision=1.100 # CVS revision with backdoor
+    - ftp://ftp.openbsd.org/pub/OpenBSD/OpenSSH/openssh-3.4p1.tar.gz # Source distribution that could have included the backdoor
+  current_artifacts:
+    - https://marc.info/?l=openbsd-security-announce&m=103302809430059&w=2 # Analysis with code excerpt
+    - https://www.securityfocus.com/news/625 # Security Focus article with technical details
   commits:
     - "Revision 1.100 of ssh/auth2-chall.c" # Location of the backdoored code
-  artifact_type: Revision control system
+  domain: openbsd.org
+  domain_type: code host
+  artifact_type: revision control system
+  hashes:
+    - sha1:a49a3636610c5f10c27f5c71072ce4cff5baffc3 # Backdoored auth2-chall.c file
+  clean: true

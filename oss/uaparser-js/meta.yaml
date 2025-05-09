@@ -20,9 +20,17 @@
     - 0.7.29
     - 0.8.0
     - 1.0.0
-  artifacts:
+  historical_artifacts:
+    - https://registry.npmjs.org/ua-parser-js/-/ua-parser-js-0.7.29.tgz
+    - https://registry.npmjs.org/ua-parser-js/-/ua-parser-js-0.8.0.tgz
+    - https://registry.npmjs.org/ua-parser-js/-/ua-parser-js-1.0.0.tgz
+  current_artifacts:
+    - https://my.diffend.io/npm/ua-parser-js/0.7.28/0.7.29 # Diff between clean and malicious version
+    - https://www.diffchecker.com/4bgZFxLj/ # Diff showing malicious code
+    - https://grumpy.systems/2021/ua-parser-js-compromise/ # Analysis with code samples
+    - https://socket.dev/blog/inside-node-modules # Analysis with screenshots
   domain: npmjs.org
   domain_type: package host
-  artifact_type: Source archive
-  impacted_hashes:
-    - "bd669280081a82e8f29f0c5a522169f2917fd522ac229b376189e763184307ba" # SHA256 for 0.7.29
+  artifact_type: source archive
+  hashes:
+    - sha256:bd669280081a82e8f29f0c5a522169f2917fd522ac229b376189e763184307ba # 0.7.29

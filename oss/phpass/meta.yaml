@@ -18,8 +18,15 @@
     - https://cybersecuritynews.com/attackers-compromised-pypi-package/
   versions:
     - Versions of hautelook/phpass pulled from Packagist between May 19-24, 2022
-  artifacts:
-    - Malicious hautelook/phpass versions on Packagist originating from the hijacked GitHub repo.
+  historical_artifacts:
+    - https://packagist.org/packages/hautelook/phpass # Original package URL
+    - https://github.com/hautelook/phpass # Hijacked repository
+  current_artifacts:
+    - https://www.concretecms.org/about/project-news/security/supply-chain-hack-phpass-repo-jacking # Analysis with technical details
+    - https://github.com/concrete5/hautelook_phpass_rsa # Preserved sample of the malicious code
   domain: packagist.org # (Distribution via Packagist, sourced from GitHub)
   domain_type: package host
   artifact_type: source archive
+  hashes:
+    - sha256:bc9cf9f18f5c41cc27d53d46b579f95f3ea45a70f94a8da3060b864d3e2d18c4 # Malicious version
+  clean: true

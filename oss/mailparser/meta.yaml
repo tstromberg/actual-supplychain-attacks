@@ -1,6 +1,7 @@
 - name: mailparser
   title: mailparser NPM package compromised downloads executes binary
-  synopsis: The maintainer's NPM account was compromised, allowing an attacker to publish a malicious version (0.1.2) of the popular `mailparser` library. This compromised version contained code added to `mailparser.js` that attempted to download and execute a binary payload (`launch.exe` or `launch`) from an external server (`107.174.140.198`), tailored to the victim's OS (Windows/Linux). The malicious version was removed the same day.
+  repo: https://github.com/mailparser-legacy/mailparser # Associated with the version that was compromised
+  synopsis: Maintainer's NPM account for `mailparser` compromised. Malicious version 0.1.2 published to NPM, attempted to download and execute OS-specific binary from external server. Package removed within an hour; <100 downloads.
   start_date: 2019-03-12 # Malicious version 0.1.2 published
   end_date: 2019-03-12 # Malicious version removed
   attribution_type: Individual hacker # Actor who compromised NPM account
@@ -11,14 +12,19 @@
   transitive: false
   insertion_phase: distribution # Malicious version published to NPM
   impact_type: Backdoor, Remote execution # Via downloaded binary
+  impact_user_count: 100 # Estimated "less than 100" downloads
   references:
-    - https://web.archive.org/web/20190315040057/https://blog.npmjs.org/post/183391820335/security-issue-affecting-mailparser-versions # Archived NPM Blog post
-    - https://security.snyk.io/vuln/npm:mailparser:20190312 # Snyk Advisory
-    - https://www.zdnet.com/article/hacker-backdoors-mailparser-npm-library-used-by-thousands-of-apps/ # ZDNet article
+    - https://security.snyk.io/vuln/npm:mailparser:20190312 # Snyk Advisory with technical details
+    - https://www.npmjs.com/advisories/912 # NPM Advisory
   versions:
     - 0.1.2
-  artifacts:
-    - https://security.snyk.io/vuln/npm:mailparser:20190312 # Snyk Advisory
+  historical_artifacts:
+    - https://registry.npmjs.org/mailparser/-/mailparser-0.1.2.tgz
+  current_artifacts:
+    - https://security.snyk.io/vuln/npm:mailparser:20190312 # Snyk Advisory includes snippet of the malicious code
   domain: npmjs.org
   domain_type: package host
-  artifact_type: Source archive
+  artifact_type: source archive
+  hashes:
+    - sha256:a7c55ef358ba3b90def7f46fd0ad40830e0df3b6f68e32cdb8603c4ccb0cc45a # mailparser-0.1.2.tgz
+  clean: true

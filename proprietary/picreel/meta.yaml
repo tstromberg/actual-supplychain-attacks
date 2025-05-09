@@ -17,3 +17,8 @@
   domain: picreel.com # (Service provider's domain)
   domain_type: project host
   artifact_type: source archive # (JavaScript file)
+  historical_artifacts:
+    - "Compromised JavaScript files served by Picreel to its clients via picreel.com, active around early 2019."
+  current_artifacts:
+    - "https://medium.com/sanguine-security-labs/popular-analytics-service-picreel-hacked-to-skim-credit-cards-f88b39905502" # Sanguine Labs (Sansec) analysis (Link may be dead)
+    - "https://www.bleepingcomputer.com/news/security/picreel-conversion-platform-hacked-to-steal-credit-cards/" # BleepingComputer report (Link may be dead)

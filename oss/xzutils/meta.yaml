@@ -20,7 +20,18 @@
     - 5.6.1
   domain: github.com
   domain_type: source host
-  artifact_type: Source archive
-  impacted_hashes:
-    # Hashes of specific build artifacts (e.g., compromised liblzma.so) depend on build environment
-    - 64c34a523acb4925cf066c8e9ac66d53b0e7456e14364d12186616abc1e3c7ce # SHA256 of xz-5.6.1.tar.gz (contains malicious components)
+  artifact_type: source archive
+  historical_artifacts:
+    - https://github.com/tukaani-project/xz/releases/download/v5.6.0/xz-5.6.0.tar.gz
+    - https://github.com/tukaani-project/xz/releases/download/v5.6.1/xz-5.6.1.tar.gz
+  current_artifacts:
+    - https://github.com/tukaani-project/xz/tree/release-5.6.1
+    - https://research.swtch.com/xz-backdoor # Analysis with code samples
+    - https://www.openwall.com/lists/oss-security/2024/03/29/4 # Initial disclosure with code analysis
+  commits:
+    - 9c45a8548eda244bd2127e2d2ae1a943c1affb12 # Initial malicious commit adding "cleanup" code
+    - 61af4bc0f8cc25805e459cfa2ff011c80095daa6 # "xz: Fix assert which is often hit in fuzz testing" (concealing malicious code)
+    - 70e9b1960fa77c5e45e9fb60db65a8ef8e0f438e # Malicious m4 macro for configure
+  hashes:
+    - sha256:64c34a523acb4925cf066c8e9ac66d53b0e7456e14364d12186616abc1e3c7ce # xz-5.6.1.tar.gz (contains malicious components)
+    - sha256:ae2c4f079373aca8bcaf96225defedc0db2274686bcbec5f9e2d2ba344569345 # xz-5.6.0.tar.gz

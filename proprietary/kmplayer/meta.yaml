@@ -19,3 +19,8 @@
   domain: kmplayer.com # Official site, but bundling sometimes occurred via third-party download portals too.
   domain_type: project host
   artifact_type: binary archive
+  historical_artifacts:
+    - "KMPlayer installers downloaded from kmplayer.com or various third-party download sites around 2018, reported to bundle adware or PUPs."
+  current_artifacts:
+    - "https://www.ghacks.net/2018/02/05/kmplayer-serves-adware/" # (Link might be dead, but documents the issue)
+    - "https://www.reddit.com/r/software/comments/c1x1lz/kmplayer_now_has_malwarecryptominer/" # User reports of bundled malware/cryptominer

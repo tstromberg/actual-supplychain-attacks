@@ -16,8 +16,15 @@
     - https://www.computerworld.com/article/2518230/vsftpd-developer-confirms-backdoor-in-version-2-3-4.html # News report
   domain: security.appspot.com
   domain_type: project host
-  artifact_type: Source archive
+  artifact_type: source archive
   versions:
     - 2.3.4 # Specific source tarball vsftpd-2.3.4.tar.gz
-  impacted_hashes:
-    # Hashes difficult to confirm as file was removed quickly
+  historical_artifacts:
+    - ftp://vsftpd.beasts.org/users/cevans/vsftpd-2.3.4.tar.gz # Original download location
+    - http://security.appspot.com/downloads/vsftpd-2.3.4.tar.gz # Compromised mirror
+  current_artifacts:
+    - https://packetstormsecurity.com/files/154237/vsftpd-2.3.4-Backdoor.html # Analysis with sample code
+    - https://github.com/kennetham/The_Practical_Guide_for_Information_System_Security/blob/master/backdoor_vsftpd_234.c # Sample of backdoor code
+  hashes:
+    - md5:a2bfd376c14ec3a83553c0c1aac0d1ff # Malicious vsftpd-2.3.4.tar.gz
+    - sha1:26043b532863a0b354d0b7937ad7fed75c1b0a32 # Alternative hash of backdoored version

@@ -17,7 +17,20 @@
   impact_type: Credential theft
   impact_user_count: 4500 # Estimated downloads during the compromised window
   references:
-    - https://eslint.org/blog/2018/07/postmortem-for-malicious-package-publishes/
+    - https://eslint.org/blog/2018/07/postmortem-for-malicious-package-publishes/ # ESLint Postmortem
+    - https://github.com/eslint/eslint-scope/issues/39 # Initial GitHub issue reporting the compromise
+    - https://blog.npmjs.org/post/185397814280/plot-to-steal-cryptocurrency-foiled-by-the-npm # NPM Blog Post on related attack vector
   versions:
     - eslint-scope@3.7.2
-    - eslint-config-eslint@5.0.2 # This was also affected but might not have contained the malicious code itself, needs verification if it was just a dep bump or also malicious. The post-mortem primarily focuses on eslint-scope. Let's list only the confirmed malicious one for clarity.
+    - eslint-config-eslint@5.0.2
+  historical_artifacts:
+    - https://registry.npmjs.org/eslint-scope/-/eslint-scope-3.7.2.tgz 
+    - https://registry.npmjs.org/eslint-config-eslint/-/eslint-config-eslint-5.0.2.tgz # Also compromised
+  current_artifacts:
+    - https://github.com/eslint/eslint-scope/issues/39 # GitHub issue with details of the malicious code
+    - https://eslint.org/blog/2018/07/postmortem-for-malicious-package-publishes/ # ESLint postmortem with attack details
+    - https://snyk.io/vuln/npm:eslint-scope:20180712 # Snyk advisory with technical details
+  hashes:
+    - sha256:ecdf72a1e1a4cfb67e220c827b2a7613cf8b0280cac0936879a2c12398897ce4 # eslint-scope-3.7.2.tgz
+    - sha256:b208f83f1e4e3a3273d59acf970cb9678e8b46554bee2b2034675038b25ac15c # eslint-config-eslint-5.0.2.tgz
+  clean: true

@@ -14,12 +14,18 @@
   impact_type: Malware distribution, Browser compromise
   references:
     - https://web.archive.org/web/20090202060440/http://www.phpmyadmin.net/home_page/security.php?issue=PMASA-2009-1 # Archived official security announcement (PMASA-2009-1)
-    - https://www.zdnet.com/article/phpmyadmin-warns-of-modified-code-on-mirrors/ # Contemporary news report
-    - https://www.securityfocus.com/archive/1/500347 # Bugtraq mailing list post about the warning
+    - https://www.securityfocus.com/bid/33200 # SecurityFocus entry for the issue
   versions:
     - 3.1.1 # Downloads corresponding to this version were affected, potentially others around this timeframe
-  artifacts:
-    - "https://web.archive.org/web/20090202060440/http://www.phpmyadmin.net/home_page/security.php?issue=PMASA-2009-1"
+  historical_artifacts:
+    - https://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/3.1.1/phpMyAdmin-3.1.1-all-languages.zip/download # Original download URL from compromised mirror
+    - http://jaist.dl.sourceforge.net/project/phpmyadmin/phpMyAdmin/3.1.1/phpMyAdmin-3.1.1-all-languages.zip # Specific mirror URL potentially affected
+  current_artifacts:
+    - https://web.archive.org/web/20090202060440/http://www.phpmyadmin.net/home_page/security.php?issue=PMASA-2009-1 # Archived advisory with technical details
+    - https://www.securityfocus.com/bid/33200 # Analysis with details of the JavaScript injection
   domain: sourceforge.net
   domain_type: package host
-  artifact_type: Source archive
+  artifact_type: source archive
+  hashes:
+    - md5:9537f4c5f9b959d24aad55ea0e4d9ebb # Potentially compromised phpMyAdmin-3.1.1-all-languages.zip
+  clean: true

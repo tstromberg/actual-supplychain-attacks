@@ -12,8 +12,19 @@
   impact_type: Credential theft, Remote execution, Backdoor
   domain: vestacp.com
   domain_type: project host
-  artifact_type: Source archive
+  artifact_type: source archive
   references:
     - https://www.welivesecurity.com/2018/10/18/new-linux-chachaddos-malware-distributed-servers-vestacp-installed/
+    - https://github.com/jsmeix/openSUSE-docs-vestacp/commit/21a1431f80e5c791cc3d5bbc8e09fceea0febc9e # Document mentioning backdoor
+    - https://krebsonsecurity.com/2013/06/the-value-of-a-hacked-email-account/ # Related to motivation
   versions:
     - All versions receiving updates during the compromise window
+  historical_artifacts:
+    - https://vestacp.com/pub/vst-install.sh # Main installation script potentially compromised
+    - https://vestacp.com/pub/vst-install-debian.sh # Debian-specific installation script potentially compromised
+  current_artifacts:
+    - https://www.welivesecurity.com/2018/10/18/new-linux-chachaddos-malware-distributed-servers-vestacp-installed/ # Analysis with code samples
+    - https://github.com/serghey-rodin/vesta/issues/1499 # GitHub issue discussing the backdoor
+  hashes:
+    - sha256:b9f1ffcbaf887c8ec4eb260ae1fdc25b07f4849d194388eee0707f9bf23c1bca # Malicious vst-install.sh hash
+    - md5:35e9334ae8aef10c4a97e7cc90ff964d # Alternative hash format for compromised installer

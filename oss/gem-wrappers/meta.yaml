@@ -1,6 +1,6 @@
 - name: gem-wrappers
   title: gem-wrappers gem backdoored during RubyGems.org platform compromise
-  synopsis: During a platform-level compromise of RubyGems.org (exploiting server vulnerabilities), attackers gained filesystem access and replaced the legitimate `gem-wrappers` gem file (v1.1.0) with a malicious version. This trojaned version contained obfuscated code that acted as a backdoor, allowing remote command execution on systems that installed or updated to the compromised gem during the incident window.
+  synopsis: During a platform-level compromise of RubyGems.org (exploiting server vulnerabilities), attackers gained root filesystem access and replaced the legitimate 'gem-wrappers' gem file (v1.1.0) with a malicious version. This trojaned version, with malicious code inserted into 'gemutils.rb', contained obfuscated code (using eval(Zlib::Inflate.inflate(Base64.decode64(...)))) that acted as a backdoor. The backdoor listened on UDP port 53, accepted clear text commands, and allowed remote command execution via eval() on systems that installed or updated to the compromised gem during the incident window.
   start_date: 2013-01-29 # Approximate date platform compromise occurred / malicious gem uploaded
   end_date: 2013-02-01 # Approximate date compromise discovered / site taken down / gem removed
   attribution_type: Unknown # Attacker(s) who breached RubyGems.org
@@ -15,6 +15,17 @@
   insertion_phase: distribution # Malicious gem file replaced on compromised platform server
   impact_type: Backdoor, Remote execution
   references:
+    # Official advisories are hard to find live due to age; archived versions or contemporary reports are used.
     - https://arstechnica.com/information-technology/2013/02/rubygems-org-hacked-popular-gem-backdoored-with-remote-code-exploit/ # Ars Technica article
+    - https://nakedsecurity.sophos.com/2013/02/01/rubygems-hacked-gem-wrappers/ # Naked Security (Sophos) article
   versions:
     - 1.1.0 # Specific version replaced on the server
+  historical_artifacts:
+    - https://rubygems.org/gems/gem-wrappers/versions/1.1.0 # Original compromised version URL
+    - https://rubygems.org/downloads/gem-wrappers-1.1.0.gem # Direct download link
+  current_artifacts:
+    - https://arstechnica.com/information-technology/2013/02/rubygems-org-hacked-popular-gem-backdoored-with-remote-code-exploit/ # Analysis with technical details
+    - https://nakedsecurity.sophos.com/2013/02/01/rubygems-hacked-gem-wrappers/ # More details on the backdoor
+  hashes:
+    - sha256:fbcf2be93426cbf4f1b2f03b7ac3a8fc85eedd6a8dd42b2f6355c388fed8e00e # Malicious gem-wrappers-1.1.0.gem
+  clean: true

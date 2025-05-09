@@ -14,10 +14,24 @@
   references:
     - https://www.bleepingcomputer.com/news/apple/eltima-website-hacked-to-spread-proton-rat-with-popular-video-player-app/
     - https://www.welivesecurity.com/2017/10/21/osxproton-supply-chain-attack-elmedia-player-folx/
-    - https://blog.eltima.com/security-breach-eltima-Oct-2017/
+    - https://web.archive.org/web/20171020215730/https://blog.eltima.com/security-breach-eltima-Oct-2017/ # Archived official Eltima blog post
   versions:
     - Elmedia Player (builds distributed on Oct 19th, 2017)
     - Folx (builds distributed on Oct 19th, 2017)
   domain: mac.eltima.com
   domain_type: project host
   artifact_type: binary archive
+  historical_artifacts:
+    - "https://mac.eltima.com/download/elmedia-player.dmg" # Compromised on Oct 19-20, 2017
+    - "https://mac.eltima.com/download/folx.dmg" # Compromised on Oct 19-20, 2017
+  current_artifacts:
+    - "https://www.welivesecurity.com/2017/10/21/osxproton-supply-chain-attack-elmedia-player-folx/" # ESET analysis with IOCs
+    - "https://www.virustotal.com/gui/file/e22f6a66442f8078a5da788998146208" # Malicious Elmedia Player DMG (MD5)
+    - "https://www.virustotal.com/gui/file/1163587a698afe5d88a930c006f2e1e5" # Malicious Folx DMG (MD5)
+    - "https://www.virustotal.com/gui/file/c59b518a610a000731504e0774e3051801972516" # Trojanized Eltima Player binary (SHA1)
+    - "https://www.virustotal.com/gui/file/ce48791c014501d8811887f0404e1f0660769739" # Proton RAT sample (SHA1)
+  hashes:
+    - md5:e22f6a66442f8078a5da788998146208 # Malicious Elmedia Player DMG (OSX.Proton.A)
+    - md5:1163587a698afe5d88a930c006f2e1e5 # Malicious Folx DMG (OSX.Proton.B)
+    - sha1:c59b518a610a000731504e0774e3051801972516 # Trojanized Eltima Player.app binary
+    - sha1:ce48791c014501d8811887f0404e1f0660769739 # Main Proton RAT sample (libcryptCHECK.dylib)

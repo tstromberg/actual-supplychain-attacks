@@ -10,12 +10,20 @@
   cause: Stolen credentials
   motive: Credential theft
   transitive: false
+  historical_artifacts:
+    - https://registry.npmjs.org/ctx/-/ctx-0.1.2.tgz
+  current_artifacts:
+    - https://socket.dev/npm/package/ctx/versions # Historical version information
+    - https://thehackernews.com/2022/05/pypi-package-ctx-and-php-library-phpass.html # News report covering ctx and phpass
   domain: npmjs.org
   domain_type: package host
   artifact_type: source archive
   insertion_phase: distribution
   impact_type: Credential theft
+  references:
+    - https://thehackernews.com/2022/05/pypi-package-ctx-and-php-library-phpass.html # News report covering ctx and phpass
   versions:
     - 0.1.2
-  impacted_hashes:
-    - 195f077e7e3390951309a5e8fa0f02f16110d41915fc569097e6c90dfb76755e # phpass-0.1.2.tgz
+  hashes:
+    - sha256:195f077e7e3390951309a5e8fa0f02f16110d41915fc569097e6c90dfb76755e # ctx-0.1.2.tgz
+  clean: true

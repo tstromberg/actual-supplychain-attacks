@@ -12,7 +12,14 @@
   impact_type: Credential theft, Data theft, Malware infection
   domain: curseforge.com
   domain_type: package host
-  artifact_type: Binary archive
+  artifact_type: binary archive
+  historical_artifacts:
+    - https://www.curseforge.com/minecraft/mc-mods/when-dungeons-arise # Original hosting location for the compromised mod
+  current_artifacts:
+    - https://github.com/fractureiser-investigation/fractureiser # GitHub repository with samples and analysis
+    - https://www.bitdefender.com/en-au/blog/labs/infected-minecraft-mods-lead-to-multi-stage-multi-platform-infostealer-malware # Analysis with technical details
+  hashes:
+    - sha256:5584ac1f8b713d2f6310bd3cde425b775402fbc70e56e5e8d774bec15703ca79 # Malicious JAR hash related to Fracturiser campaign
   references:
     - https://support.curseforge.com/en/support/solutions/articles/9000228509-june-2023-infected-mods-detection-tool-and-report # CurseForge Advisory listing affected projects
     - https://www.bitdefender.com/en-au/blog/labs/infected-minecraft-mods-lead-to-multi-stage-multi-platform-infostealer-malware # Technical analysis

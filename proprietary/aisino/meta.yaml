@@ -16,9 +16,15 @@
     - https://attack.mitre.org/software/S0493/
   versions:
     - "Multiple versions of Aisino Intelligent Tax software containing GoldenSpy module, active in 2020"
-  artifacts:
-    - "PluginManager.exe" # Part of the tax software that could initiate GoldenSpy download
-    - "svm.exe / svmm.exe" # GoldenSpy executables
+  current_artifacts:
+    - "https://www.trustwave.com/en-us/resources/blogs/spiderlabs-blog/goldenspy-whos-really-pulling-the-strings/"
+    - "https://www.virustotal.com/gui/file/c1d7873a21d28ba995725f958741948f0d750b1e18311341682b56f257025642" # svm.exe (GoldenSpy payload)
+    - "https://www.virustotal.com/gui/file/1536924c856093919f4f697f83225471094e4868131226a996d75a738080b0e6" # svm.exe (GoldenSpy payload variant)
+    - "https://www.virustotal.com/gui/file/5953fc590db6ab347840ccbf10f09a0b1bb48d38309067a1d65c34cb3ce82f4b" # PluginManager.exe (Dropper component)
   domain: i-xinnuo.com # Aisino's software domain (initial download point)
   domain_type: project host
   artifact_type: binary archive # Installer for tax software
+  hashes:
+    - sha256:c1d7873a21d28ba995725f958741948f0d750b1e18311341682b56f257025642 # svm.exe (GoldenSpy main payload)
+    - sha256:1536924c856093919f4f697f83225471094e4868131226a996d75a738080b0e6 # another svm.exe variant (GoldenSpy main payload)
+    - sha256:5953fc590db6ab347840ccbf10f09a0b1bb48d38309067a1d65c34cb3ce82f4b # PluginManager.exe (Dropper component for GoldenSpy)

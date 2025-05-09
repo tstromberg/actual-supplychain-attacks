@@ -22,3 +22,18 @@
   domain: copay.io
   domain_type: project host
   artifact_type: binary archive
+  commits:
+    - 470d7c7395001440f0187550297cf083d52c43a6 # Commit in event-stream that added flatmap-stream dependency
+  historical_artifacts:
+    - pkg:npm/event-stream@3.3.6 # Malicious version of event-stream
+    - pkg:npm/flatmap-stream@0.1.1 # The malicious package itself
+    - "https://registry.npmjs.org/event-stream/-/event-stream-3.3.6.tgz"
+    - "https://registry.npmjs.org/flatmap-stream/-/flatmap-stream-0.1.1.tgz"
+    - "https://github.com/bitpay/copay/releases/tag/v5.0.2" # Affected Copay version
+    - "https://github.com/bitpay/copay/releases/tag/v5.1.0" # Affected Copay version
+  current_artifacts:
+    - "https://github.com/dominictarr/event-stream/issues/116" # Main GitHub issue discussing the compromise
+    - "https://gist.github.com/thejoshwolfe/38f4c4a98208300ab903f81f0a5004d9" # Analysis of the malicious code
+    - "https://my.diffend.io/npm/flatmap-stream/0.1.0/0.1.1" # Diff showing malicious code in flatmap-stream
+  hashes:
+    - sha256:005a6cfb72127d0007798d72700e28df0b5280b9f7e56f355de65a8f9107026e # flatmap-stream/index.min.js (malicious payload)

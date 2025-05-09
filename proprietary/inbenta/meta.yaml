@@ -18,8 +18,13 @@
     - https://datadome.co/learning-center/magecart-attacks/ # Cites Ticketmaster/Inbenta case
   versions:
     - "Specific customized JavaScript provided by Inbenta to Ticketmaster, active Feb-June 2018"
-  artifacts:
-    - "Compromised Inbenta JavaScript file loaded on Ticketmaster payment pages"
   domain: Inbenta Technologies # Vendor whose supplied script was compromised
   domain_type: project host # Service provider
   artifact_type: source archive # JavaScript file/service
+  historical_artifacts:
+    - "A customized JavaScript file provided by Inbenta to Ticketmaster, which was compromised and served on Ticketmaster's payment pages between February and June 2018."
+  current_artifacts:
+    - "https://www.wired.co.uk/article/ticketmaster-hack-inbenta-security-breach" # Details the breach and Inbenta's role
+    - "https://thehackernews.com/2018/06/ticketmaster-data-breach.html" # Reports on the data breach linked to Inbenta
+    - "https://www.bankinfosecurity.com/ticketmaster-fined-17-million-for-data-security-failures-a-15369" # Discusses ICO fine and Inbenta's involvement
+    - "https://datadome.co/learning-center/magecart-attacks/" # General Magecart info citing Ticketmaster/Inbenta

@@ -9,11 +9,19 @@
   cause: Maintainer modification # As a proof of concept/experiment
   motive: Security research # Demonstrating trust vulnerability
   transitive: true
+  historical_artifacts:
+    - unix:/usr/bin/cc # Original Bell Labs Unix compiler 
+    - unix:/bin/login # The login program that was backdoored
+  current_artifacts:
+    - https://www.cs.cmu.edu/~rdriley/487/papers/Thompson_1984_ReflectionsonTrustingTrust.pdf # Paper containing technical details
+    - https://wiki.c2.com/?TheKenThompsonHack # Documentation of the backdoor technique
   insertion_phase: build automation # Demonstrated compromise of build tool (compiler binary) modifying output
   impact_type: Backdoor, Remote access (Internal Experiment) # Implemented within Bell Labs, not maliciously distributed
-  artifact_type: compiled binary
+  artifact_type: binary archive
   references:
     - https://www.cs.cmu.edu/~rdriley/487/papers/Thompson_1984_ReflectionsonTrustingTrust.pdf # Widely available PDF copy
     - https://niconiconi.neocities.org/posts/ken-thompson-really-did-launch-his-trusting-trust-trojan-attack-in-real-life/ # Blog post discussing evidence of actual implementation
+    - https://dl.acm.org/doi/10.1145/358198.358210 # Original ACM publication
   versions: # Experiment within Bell Labs, not tied to specific public distribution versions
     - Early Unix versions (Bell Labs internal)
+  clean: true

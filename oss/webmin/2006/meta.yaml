@@ -11,11 +11,20 @@
   insertion_phase: distribution # Official download mirror compromised
   impact_type: Backdoor, Remote execution, Root compromise
   references:
-
-
     - https://www.webmin.com/exploit.html # Webmin page listing exploits (mentions SourceForge issues)
+    - https://www.theregister.com/2006/08/17/webmin_exploit/ # News coverage of the incident
+    - https://isc.sans.edu/diary/Webmin+1.290+Backdoor/1614 # SANS Internet Storm Center reporting
+  historical_artifacts:
+    - https://sourceforge.net/projects/webadmin/files/webmin/1.290/webmin-1.290.tar.gz/download # Original download URL from compromised mirror
+    - http://nchc.dl.sourceforge.net/project/webadmin/webmin/1.290/webmin-1.290.tar.gz # Specific mirror URL potentially affected
+  current_artifacts:
+    - https://isc.sans.edu/diary/Webmin+1.290+Backdoor/1614 # Analysis with technical details
+    - https://www.webmin.com/exploit.html # Webmin page mentioning the backdoor
   domain: sourceforge.net
   domain_type: package host
-  artifact_type: Source archive
+  artifact_type: source archive
+  hashes:
+    - md5:4586a745fe837e1b21a1d2f56bb5a81d # Malicious webmin-1.290.tar.gz
+    - sha1:aa60916d5632e4adaac5b0fa01fb6a9b35f15cd6 # Alternative hash for compromised version
   versions:
     - 1.290 # Specific version from compromised mirror

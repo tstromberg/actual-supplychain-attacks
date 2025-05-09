@@ -17,8 +17,11 @@
     - https://www.eset.com/int/about/newsroom/press-releases/research/eset-discovers-operation-noxplayer-supply-chain-attack-infiltrates-gaming-community-in-asia/
   versions:
     - Not specific versions of NoxPlayer itself, but its update mechanism was used.
-  artifacts:
-    - Malicious updates delivered via api.bignox.com or res06.bignox.com
+  historical_artifacts:
+    - "Malicious updates delivered via BigNox's update infrastructure (e.g., api.bignox.com, res06.bignox.com) to targeted users."
+  current_artifacts:
+    - "https://securelist.com/operation-noxplayer/100644/" # Securelist (Kaspersky) analysis (Link may be dead)
+    - "https://www.eset.com/int/about/newsroom/press-releases/research/eset-discovers-operation-noxplayer-supply-chain-attack-infiltrates-gaming-community-in-asia/" # ESET Press Release (Link may be dead)
   domain: api.bignox.com # (Update server domain)
   domain_type: project host
   artifact_type: binary archive # (Malicious update packages)

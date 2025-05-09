@@ -12,14 +12,28 @@
   insertion_phase: distribution # Potentially build automation/CI-CD
   impact_type: Backdoor, Remote access, Data theft
   references:
-    - https://www.rapid7.com/blog/post/2024/05/16/cve-2024-4978-backdoored-justice-av-solutions-viewer-installer/
-    - https://www.bleepingcomputer.com/news/security/hackers-backdoor-courtroom-recording-software-from-justice-av-solutions/
+    - https://www.rapid7.com/blog/post/2024/05/23/cve-2024-4978-backdoored-justice-av-solutions-viewer-software-used-in-apparent-supply-chain-attack/ # Rapid7 technical analysis (CVE-2024-4978)
+    - https://nvd.nist.gov/vuln/detail/CVE-2024-4978
+    - https://www.cisa.gov/news-events/alerts/2024/05/29/cisa-adds-one-known-exploited-vulnerability-kev-catalog # CISA KEV entry
   versions:
     - JAVS Viewer 8.3.7 (specific build 8.3.7.250-1)
-  artifacts:
-    - JAVS Viewer Setup 8.3.7.250-1.exe
+  historical_artifacts:
+    - "JAVS Viewer Setup 8.3.7.250-1.exe downloaded from javs.com (e.g., https://www.javs.com/download/45819/ as observed by Rapid7 hosting one malicious variant)."
+  current_artifacts:
+    - "https://www.rapid7.com/blog/post/2024/05/23/cve-2024-4978-backdoored-justice-av-solutions-viewer-software-used-in-apparent-supply-chain-attack/" # Rapid7 technical analysis
+    - "https://www.virustotal.com/gui/file/543ea993454380f8152e2838d27ad78803083d953701349516c288069056f101" # JAVS Viewer Setup 8.3.7.250-1.exe (Variant CISA)
+    - "https://www.virustotal.com/gui/file/a5e24c10d595969858af422c6dff6bed5f9c6c49dc9622d694327323d8a57d72" # JAVS.Viewer8.Setup_8.3.7.250-1.exe (Variant Rapid7 Observed)
+    - "https://www.virustotal.com/gui/file/fe408e2df48237b11cb724fa51b6d5e9c74c8f5d5b2955c22962095c7ed70b2c" # JAVS.Viewer8.Setup_8.3.7.250-1.exe (Variant OSINT via Rapid7)
+    - "https://www.virustotal.com/gui/file/aace6f617ef7e2e877f3ba8fc8d82da9d9424507359bb7dc6b81c889a755535" # fffmpeg.exe (OSINT variant via Rapid7, bundled backdoor)
   domain: javs.com
   domain_type: project host
   artifact_type: binary archive
-  impacted_hashes:
-    - 543ea993454380f8152e2838d27ad78803083d953701349516c288069056f101 # JAVS Viewer Setup 8.3.7.250-1.exe
+  hashes:
+    - sha256:543ea993454380f8152e2838d27ad78803083d953701349516c288069056f101 # JAVS Viewer Setup 8.3.7.250-1.exe (Variant noted by CISA)
+    - sha256:a5e24c10d595969858af422c6dff6bed5f9c6c49dc9622d694327323d8a57d72 # JAVS.Viewer8.Setup_8.3.7.250-1.exe (Variant Rapid7 Observed)
+    - sha256:fe408e2df48237b11cb724fa51b6d5e9c74c8f5d5b2955c22962095c7ed70b2c # JAVS.Viewer8.Setup_8.3.7.250-1.exe (Variant OSINT via Rapid7)
+    - sha256:aace6f617ef7e2e877f3ba8fc8d82da9d9424507359bb7dc6b81c889a755535 # fffmpeg.exe (OSINT variant via Rapid7, bundled backdoor)
+    - sha256:f8a734d5e7a7b99b29182dddf804d5daa9d876bf39ce7a04721794367a73da51 # Chrome_installer.exe (Second stage from C2 reported by Rapid7)
+    - sha256:4f0ca76987edfe00022c8b9c48ad239229ea88532e2b7a7cd6811ae353cd1eda # firefox_updater.exe (Second stage from C2 reported by Rapid7)
+    - sha256:d8def4437bd76279ec6351b65156d670ec0fed24d904e6648de536fed1061671 # ChromeDiscovery.exe (Second stage from C2 reported by Rapid7)
+    - sha256:c65ee0f73f53b287654b6446ffe7264e0d93b24302e7f0036f5e7db3748749b9 # OneDriveStandaloneUpdater.exe (Second stage from C2 reported by Rapid7)

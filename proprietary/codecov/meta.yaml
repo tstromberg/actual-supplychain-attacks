@@ -18,6 +18,15 @@
   references:
     - https://about.codecov.io/security-update/
   commits:
-    - 373961d648b96a1402514e4e457746d67f782a83
-  impacted_hashes:
-    - 6730a44f191168573710105178477116f718333b6de1f008ff811066c424bb59 # Hash of the compromised bash uploader script (needs verification if this specific hash is the compromised one)
+    - 373961d648b96a1402514e4e457746d67f782a83 # Commit containing the malicious change to the uploader script
+
+  historical_artifacts:
+    - "https://codecov.io/bash"
+    - "https://raw.githubusercontent.com/codecov/codecov-bash/master/codecov"
+    - "https://codecov.s3.amazonaws.com/bash/codecov"
+  current_artifacts:
+    - "https://github.com/codecov/codecov-bash/blob/373961d648b96a1402514e4e457746d67f782a83/codecov"
+    - "https://about.codecov.io/security-update/compromised-bash-uploader/"
+    - "https://github.com/codecov/codecov-bash/commit/373961d648b96a1402514e4e457746d67f782a83"
+  hashes:
+    - sha256:6730a44f191168573710105178477116f718333b6de1f008ff811066c424bb59 # Hash of the compromised bash uploader script

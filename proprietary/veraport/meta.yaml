@@ -19,3 +19,8 @@
   domain: wizvera.com # (Legitimate domain, but its process was abused)
   domain_type: project host
   artifact_type: binary archive # (Malicious payloads delivered via its mechanism)
+  historical_artifacts:
+    - "VeraPort software from wizvera.com, whose plugin update mechanism was abused to distribute malware to users in South Korea during late 2020."
+  current_artifacts:
+    - "https://www.zdnet.com/article/south-korean-state-hackers-abused-browser-plugin-to-target-users/ (References Lazarus using similar mechanisms; link may be dead)"
+    - "https://blog.alyac.co.kr/3547 (Korean - details VeraPort related malware distribution; link may be dead)"

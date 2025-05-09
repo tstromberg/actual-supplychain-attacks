@@ -17,11 +17,18 @@
     - https://www.bleepingcomputer.com/news/security/microsoft-north-korean-hackers-breached-cyberlink-in-supply-chain-attack/
   versions:
     - "Specific CyberLink application installers (e.g., Promeo reported) active around Oct/Nov 2023" # Exact versions potentially numerous or withheld
-  artifacts:
-    - "CyberLink Installer" # Specific executable names varied
-    - "LambLoad" # Microsoft designation for the malicious loader
+  historical_artifacts:
+    - "https://update.cyberlink.com/Retail/Promeo/RDZCMSFY1ELY/CyberLink_Promeo_Downloader.exe" # Malicious installer URL from Microsoft report
+    - "https://update.cyberlink.com/Retail/Patch/Promeo/DL/RDZCMSFY1ELY/CyberLink_Promeo_Downloader.exe" # Malicious installer URL from Microsoft report
+  current_artifacts:
+    - "https://www.microsoft.com/en-us/security/blog/2023/11/22/diamond-sleet-supply-chain-compromise-distributes-a-modified-cyberlink-installer/" # Primary analysis by Microsoft
+    - "https://www.virustotal.com/gui/file/166d1a6ddcde4e859a89c2c825cd3c8c953a86bfa92b343de7e5bfbfb5afb8be" # Trojanized CyberLink installer (LambLoad)
+    - "https://www.virustotal.com/gui/file/089573b3a1167f387dcdad5e014a5132e998b2c89bff29bcf8b06dd497d4e63d" # Second-stage PNG payload
+    - "https://www.virustotal.com/gui/file/915c2495e03ff7408f11a2a197f23344004c533ff87db4b807cc937f80c217a1" # Decrypted PE from second-stage PNG
   domain: cyberlink.com # Official vendor domain and update infrastructure
   domain_type: project host
   artifact_type: binary archive # Software installer
-  impacted_hashes:
-    - "166d1a6ddcde4e859a89c2c825cd3c8c953a86bfa92b343de7e5bfbfb5afb8be" # SHA256 of one identified malicious installer
+  hashes:
+    - sha256:166d1a6ddcde4e859a89c2c825cd3c8c953a86bfa92b343de7e5bfbfb5afb8be # Trojanized CyberLink installer (LambLoad)
+    - sha256:089573b3a1167f387dcdad5e014a5132e998b2c89bff29bcf8b06dd497d4e63d # Second-stage PNG payload
+    - sha256:915c2495e03ff7408f11a2a197f23344004c533ff87db4b807cc937f80c217a1 # Decrypted PE from second-stage PNG

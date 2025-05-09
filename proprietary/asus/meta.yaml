@@ -17,8 +17,19 @@
     - https://www.asus.com/news/asus-response-to-the-recent-media-reports-regarding-asus-live-update-tool-attack-by-advanced-persistent-threat-apt-groups/
   versions:
     - "Multiple versions of ASUS Live Update utility distributed between June and November 2018"
-  artifacts:
-    - "setup.exe" # Name of the malicious installer for ASUS Live Update
+
   domain: asus.com # Live update servers (liveupdate01s.asus.com, liveupdate01.asus.com)
   domain_type: project host
   artifact_type: binary archive # Software update utility
+  historical_artifacts:
+    - "https://dlcdnets.asus.com/pub/ASUS/nb/Apps_for_Win10/LiveUpdate/LiveUpdate_Win10_20180115.zip"
+    - "https://dlcdnets.asus.com/pub/ASUS/nb/Apps_for_Win10/LiveUpdate/Liveupdate_13.02.03.zip"
+    - "https://liveupdate01s.asus.com/pub/ASUS/nb/Apps_for_Win10/LiveUpdate/"
+  current_artifacts:
+    - "https://github.com/VirusTotal/sample-collection-c/tree/main/Operation%20ShadowHammer"
+    - "https://securelist.com/operation-shadowhammer-technical-details/90055/"
+    - "https://www.virustotal.com/gui/file/0f49621b06f2cdaac8850c6e9581a594128d69204c18589921e1fb5b7074da30"
+  hashes:
+    - sha256:0f49621b06f2cdaac8850c6e9581a594128d69204c18589921e1fb5b7074da30 # Malicious setup.exe
+    - sha256:5855a5562d9add04ce523bfec4166c4cd252ffc398b18b2856a2faec8b1142e7 # Malicious update installer
+    - sha256:72a4bed7e48266794e07c8acc3ac4c8e6a6d0fbe6aa6eb8be3880d32e1874627 # Stage 2 payload

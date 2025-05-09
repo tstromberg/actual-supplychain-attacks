@@ -12,13 +12,18 @@
   insertion_phase: distribution # Official download file replaced
   impact_type: Potential backdoor, Remote execution
   references:
-    - https://news-web.php.net/php.pear.cvs/11001 # Mailing list announcement
-    - https://thehackernews.com/2019/01/php-pear-package-hack.html
-    - https://www.zdnet.com/article/hacker-backdoors-php-pear-package-manager/
-  artifacts:
-    - url: http://pear.php.net/go-pear.phar # Original URL of the compromised file (now serves clean version)
+    - https://thehackernews.com/2019/01/php-pear-hacked.html # News coverage
+    - https://blog.paranoidpenguin.net/2019/01/pear-php-net-probably-compromised/ # Early analysis
+    - https://twitter.com/pear/status/1086934578562560001 # Original announcement
+  historical_artifacts:
+    - http://pear.php.net/go-pear.phar # Original URL of the compromised file (now serves clean version)
+    - http://web.archive.org/web/20190119035624/http://pear.php.net/go-pear.phar # Archive snapshot during compromise period
+  current_artifacts:
+    - https://www.bleepingcomputer.com/news/security/official-php-pear-website-suffers-supply-chain-attack/ # Analysis with technical details
+    - https://blog.paranoidpenguin.net/2019/01/pear-php-net-probably-compromised/ # Analysis with details on malicious code
   domain: pear.php.net
   domain_type: project host
-  artifact_type: PHP Archive
-  impacted_hashes:
-    - 1e623a48b8991980e93896153651135ab7ab82a0 # SHA1 hash mentioned in announcements (SHA256 preferred but may not be available)
+  artifact_type: binary archive
+  hashes:
+    - sha1:1e623a48b8991980e93896153651135ab7ab82a0 # Compromised go-pear.phar file
+  clean: true

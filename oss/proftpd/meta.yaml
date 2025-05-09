@@ -13,15 +13,20 @@
   insertion_phase: distribution # Official download source tarball replaced
   impact_type: Backdoor, Root compromise
   references:
-    - http://www.proftpd.org/distrib/source/proftpd-1.3.3c.tar.gz.md5.asc # Original announcement/checksum notice (may require searching archives/mailing lists)
-    - https://www.securityfocus.com/bid/45150/info # SecurityFocus entry
-    - https://www.theregister.com/2010/12/02/proftpd_backdoor/
+    - https://www.theregister.com/2010/12/02/proftpd_backdoor/ # News report on the backdoor
+    - https://lwn.net/Articles/418326/ # LWN coverage of the incident
+    - https://www.linux-magazine.com/Online/News/ProFTPD-Backdoor-Discovered # Linux Magazine coverage
   versions:
     - 1.3.3c # Specific source tarball
-  artifacts:
-    - "https://www.theregister.com/2010/12/02/proftpd_backdoor/"
+  historical_artifacts:
+    - ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.3c.tar.gz # Original compromised download location
+    - ftp://mirror.proftpd.org/proftpd-1.3.3c.tar.gz # Mirror potentially affected
+  current_artifacts:
+    - https://www.theregister.com/2010/12/02/proftpd_backdoor/ # Analysis with technical details
+    - https://www.securityfocus.com/bid/45150 # SecurityFocus with backdoor details
   domain: ftp.proftpd.org
   domain_type: project host
-  artifact_type: Source archive
-  impacted_hashes:
-    - md5:565b57ceda4b00b80f896c5f44703291 # MD5 of the backdoored proftpd-1.3.3c.tar.gz
+  artifact_type: source archive
+  hashes:
+    - md5:565b57ceda4b00b80f896c5f44703291 # Backdoored proftpd-1.3.3c.tar.gz
+  clean: true

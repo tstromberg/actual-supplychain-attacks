@@ -19,8 +19,19 @@
     - https://www.freedownloadmanager.org/blog/fdm-vulnerability-disclosure/ # FDM's official statement (check for active link)
   versions:
     - "Specific Linux Debian packages distributed via malicious redirect from freedownloadmanager.org between 2020-2022"
-  artifacts:
-    - "freedownloadmanager.deb" # Malicious Debian package from deb.fdmpkg.org
+  historical_artifacts:
+    - "https://deb.fdmpkg.org/freedownloadmanager.deb" # Malicious Debian package
+  current_artifacts:
+    - "https://securelist.com/backdoored-free-download-manager-linux-malware/110465/" # Securelist analysis
+    - "https://www.virustotal.com/gui/file/b77f63f14d0b2bde3f4f62f4323aad87194da11d71c117a487e18ff3f2cd468d" # Malicious Debian Package
+    - "https://www.virustotal.com/gui/file/2214c7a0256f07ce7b7aab8f61ef9cbaff10a456c8b9f2a97d8f713abd660349" # crond backdoor
+    - "https://www.virustotal.com/gui/file/93358bfb6ee0caced889e94cd82f6f417965087203ca9a5fce8dc7f6e1b8a3ea" # bs backdoor
+    - "https://www.virustotal.com/gui/file/d73be6e13732d365412d71791e5eb1096c7bb13d6f7fd533d8c04392ca0b69b5" # atd uploader
+  hashes:
+    - sha256:b77f63f14d0b2bde3f4f62f4323aad87194da11d71c117a487e18ff3f2cd468d # Malicious Debian Package
+    - sha256:2214c7a0256f07ce7b7aab8f61ef9cbaff10a456c8b9f2a97d8f713abd660349 # crond backdoor
+    - sha256:93358bfb6ee0caced889e94cd82f6f417965087203ca9a5fce8dc7f6e1b8a3ea # bs backdoor
+    - sha256:d73be6e13732d365412d71791e5eb1096c7bb13d6f7fd533d8c04392ca0b69b5 # atd uploader
   domain: freedownloadmanager.org # Official website that was compromised for redirection
   domain_type: project host
   artifact_type: binary archive # Malicious .deb installer

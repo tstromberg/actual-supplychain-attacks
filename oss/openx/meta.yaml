@@ -12,13 +12,20 @@
   insertion_phase: distribution # Compromise of official download/update mechanism
   impact_type: Malware distribution, Remote execution # Via exploit kit
   references:
-    - https://blog.sucuri.net/2013/12/openx-compromise-serving-malware.html
-    - https://www.infosecurity-magazine.com/news/openx-ad-server-breach-serves-up-malware/
-    - https://thehackernews.com/2013/12/openx-ad-serving-platform-hacked-to.html
+    - https://blog.sucuri.net/2013/12/openx-compromise-serving-malware.html # Original disclosure
+    - https://www.theregister.com/2013/12/05/openx_hack_malware_serving/ # News coverage
+    - https://www.zdnet.com/article/openx-ad-software-compromised-to-serve-malware-styx-exploit-kit/ # Additional coverage
   versions:
     - "OpenX Source 2.8.10" # At least this version confirmed affected
-  artifacts:
-    - "https://blog.sucuri.net/2013/12/openx-compromise-serving-malware.html"
+  historical_artifacts:
+    - https://www.openx.org/download/openx-source-2.8.10.zip # Original download URL (inactive)
+    - https://web.archive.org/web/20131201000000*/http://www.openx.org/download/openx-source-2.8.10.zip # Archive snapshot
+  current_artifacts:
+    - https://blog.sucuri.net/2013/12/openx-compromise-serving-malware.html # Analysis with details
+    - https://www.unmaskparasites.com/2013/12/05/ad-networks-openx-source-compromised/ # Technical analysis with code snippets
   domain: openx.com
   domain_type: project host
-  artifact_type: Source archive
+  artifact_type: source archive
+  hashes:
+    - md5:3cf59a7b8996dcc52370cf918f248ee4 # Reported hash of compromised file
+  clean: true

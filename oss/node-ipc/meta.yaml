@@ -14,9 +14,9 @@
   impact_type: Data destruction, Vandalism
   impact_user_count: 1000000 # Based on weekly downloads
   references:
-    - https://github.com/RIAEvangelist/node-ipc/issues/233
     - https://snyk.io/blog/peacenotwar-protestware-node-ipc-package-vulnerability/
-    - https://www.bleepingcomputer.com/news/security/big-sabotage-nodejs-package-wipes-files-to-protest-ukraine-war/
+    - https://github.com/advisories/GHSA-97m3-w2cp-4xx6
+    - https://arstechnica.com/information-technology/2022/03/sabotage-code-added-to-popular-npm-package-wiped-files-in-russia-and-belarus/
   versions:
     - 9.2.2
     - 10.1.1
@@ -24,8 +24,19 @@
     - 11.0.0 # Specific versions containing the 'peacenotwar' module
   commits:
     - f3ff376905550597f05410771031cc67a446f662 # Example commit related to the module inclusion
-  artifacts:
-    - https://snyk.io/blog/peacenotwar-protestware-node-ipc-package-vulnerability/
+  historical_artifacts:
+    - https://registry.npmjs.org/node-ipc/-/node-ipc-9.2.2.tgz
+    - https://registry.npmjs.org/node-ipc/-/node-ipc-10.1.1.tgz
+    - https://registry.npmjs.org/node-ipc/-/node-ipc-10.1.2.tgz
+    - https://registry.npmjs.org/node-ipc/-/node-ipc-11.0.0.tgz
+  current_artifacts:
+    - https://snyk.io/blog/peacenotwar-protestware-node-ipc-package-vulnerability/ # Analysis with code samples
+    - https://github.com/RIAEvangelist/node-ipc/commit/f3ff376905550597f05410771031cc67a446f662 # Commit adding the malicious code
+    - https://socket.dev/npm/package/node-ipc/versions # Historical version information
   domain: npmjs.org
   domain_type: package host
-  artifact_type: Source archive
+  artifact_type: source archive
+  hashes:
+    - sha256:f54bb89fe21762ce2ab5fe7581bf7f347f79ec30abe3ab1175da4edc26b5f91a # node-ipc-10.1.1.tgz
+    - sha256:03190b659f9ad3c0e0bb337a958cbfa49c0bbfd8baff63d5a178c0eb6c8ea292 # node-ipc-10.1.2.tgz
+  clean: true

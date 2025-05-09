@@ -13,6 +13,12 @@
   domain: docker.io
   domain_type: container host
   artifact_type: OCI image
+  historical_artifacts:
+    - docker://docker.io/kong/kubernetes-ingress-controller:3.4.0@sha256:a00659df0771d076fc9d0baf1f2f45e81ec9f13179f499d4cd940f57afc75d43 # Malicious image
+    - https://hub.docker.com/layers/kong/kubernetes-ingress-controller/3.4.0/images/sha256-a00659df0771d076fc9d0baf1f2f45e81ec9f13179f499d4cd940f57afc75d43 # DockHub link to malicious image
+  current_artifacts:
+    - https://konghq.com/blog/product-releases/december-2024-unauthorized-kong-ingress-controller-3-4-0-build # Root cause analysis with details
+    - https://www.armosec.io/blog/kong-ingress-controller-cryptojacking/ # Technical analysis with screenshots
   references:
     - https://github.com/Kong/kubernetes-ingress-controller/security/advisories/GHSA-58mg-ww7q-xw3p # Official GitHub Advisory
     - https://konghq.com/blog/product-releases/december-2024-unauthorized-kong-ingress-controller-3-4-0-build # Official Kong Blog Post/RCA
@@ -20,5 +26,7 @@
     - https://www.armosec.io/blog/kong-ingress-controller-cryptojacking/ # Security Vendor Analysis
   versions:
     - 3.4.0 # Specific image hash compromised
-  impacted_hashes:
-    - sha256:a00659df0771d076fc9d0baf1f2f45e81ec9f13179f499d4cd940f57afc75d43 # SHA256 hash of the malicious container image
+  hashes:
+    - sha256:a00659df0771d076fc9d0baf1f2f45e81ec9f13179f499d4cd940f57afc75d43 # Malicious container image
+    - sha256:4e3bbca1ba0bf9f0d53c8b1cc07bf92d9b1d41b3f066fdf4aec7cdd8c21ca3b7 # XMRig binary hash found in malicious image
+  clean: true

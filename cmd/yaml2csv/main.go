@@ -38,7 +38,7 @@ type AttackEntry struct {
 	Domain          string   `yaml:"domain"`
 	DomainType      string   `yaml:"domain_type"`
 	ArtifactType    string   `yaml:"artifact_type"`
-	ImpactedHashes  []string `yaml:"impacted_hashes"`
+	ImpactedHashes  []string `yaml:"hashes"`
 }
 
 // csvHeaders defines the exact order and names of columns for the CSV output.
@@ -66,7 +66,7 @@ var csvHeaders = []string{
 	"domain",
 	"domain_type",
 	"artifact_type",
-	"impacted_hashes",
+	"hashes",
 }
 
 // main is the entry point of the YAML to CSV conversion utility.
@@ -233,7 +233,7 @@ func processMetaFile(filePath string) ([][]string, error) {
 				csvRow[i] = entry.DomainType
 			case "artifact_type":
 				csvRow[i] = entry.ArtifactType
-			case "impacted_hashes":
+			case "hashes":
 				csvRow[i] = strings.Join(entry.ImpactedHashes, ", ")
 			default:
 				fmt.Fprintf(os.Stderr, "Warning: Unknown header '%s' encountered while processing file %s.\\n", header, filePath)

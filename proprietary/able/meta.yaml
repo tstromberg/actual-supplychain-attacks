@@ -12,8 +12,7 @@
   insertion_phase: distribution
   impact_type: Remote access
   impact_user_count: 30000
-  references:
-    - https://blog.alyac.co.kr/3514
+  references: []
   domain: able.co.kr
   domain_type: project host
   artifact_type: binary archive

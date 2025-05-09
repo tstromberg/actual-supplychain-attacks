@@ -12,14 +12,19 @@
   impact_type: Backdoor, Remote access, Credential theft
   impact_user_count: 100 # Estimate based on report mentioning 4 telcos, 10+ military orgs
   references:
-    - https://comsecglobal.com/kingslayer-a-supply-chain-attack/ # Comsec Global report
+    - https://web.archive.org/web/20170726040823/https://www.comsecglobal.com/kingslayer-a-supply-chain-attack/ # Archived Comsec Global report
     - https://library.cyentia.com/report/report_002450.html # RSA Research mention (link to Cyentia library)
     - https://securityaffairs.com/58864/cyber-crime/operation-wilysupply-hacking.html # Mentions Altair/EvLog as prior example
   versions:
     - "EvLog versions updated between April-July 2015"
-  artifacts:
-    - "Maliciously signed EvLog update packages"
-    - "Kingslayer malware components"
+  historical_artifacts:
+    - "Compromised EvLog update packages distributed via Altair Technologies' official update channels."
+  current_artifacts:
+    - "https://web.archive.org/web/20170726040823/https://www.comsecglobal.com/kingslayer-a-supply-chain-attack/" # Archived Comsec Global report detailing the attack and IOCs
+    - "https://www.trendmicro.com/vinfo/us/threat-encyclopedia/malware/bkdr_kingslayer.a" # Analysis of Kingslayer malware
+  hashes:
+    - sha1:fc510a12086647a2eb49700977879339eb5471d5 # Example Kingslayer component (loader)
+    - md5:4e5339f029f6d874417789005c248a81 # Example Kingslayer component
   domain: altairtech.com # Likely original vendor domain
   domain_type: project host
   artifact_type: binary archive # Software update

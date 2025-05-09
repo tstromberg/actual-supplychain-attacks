@@ -15,8 +15,11 @@
   references:
     - https://blog.sucuri.net/2018/11/feedify-compromised-push-notifications-used-to-load-card-skimmer.html
     - https://www.riskiq.com/blog/labs/magecart-feedify/
-  artifacts:
-    - feedify.net/getjs/pushconfig.js # The compromised script URL
+  historical_artifacts:
+    - "https://feedify.net/getjs/pushconfig.js" # The compromised script URL
+  current_artifacts:
+    - "https://blog.sucuri.net/2018/11/feedify-compromised-push-notifications-used-to-load-card-skimmer.html" # Sucuri analysis with details
+    - "https://www.riskiq.com/blog/labs/magecart-feedify/" # RiskIQ analysis with code details
   domain: feedify.net
   domain_type: project host # (Service provider's domain)
   artifact_type: source archive # (JavaScript file)

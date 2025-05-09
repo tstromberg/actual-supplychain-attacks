@@ -15,6 +15,11 @@
   references:
     - https://www.bleepingcomputer.com/news/security/vsdc-site-compromised-again-to-distribute-password-stealing-malware/
     - https://www.kaspersky.com/blog/vsdc-site-malware/27017/
+  historical_artifacts:
+    - "Trojanized VSDC Video Editor installers downloaded from videosoftdev.com during 2018-2019."
+  current_artifacts:
+    - "https://www.bleepingcomputer.com/news/security/vsdc-site-compromised-again-to-distribute-password-stealing-malware/" # BleepingComputer report (Link may be dead)
+    - "https://www.kaspersky.com/blog/vsdc-site-malware/27017/" # Kaspersky analysis (Link may be dead)
   domain: videosoftdev.com
   domain_type: project host
   artifact_type: binary archive

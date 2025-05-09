@@ -18,10 +18,19 @@
     - https://www.zetter-zeroday.com/software-maker-3cx-was-compromised/
   versions:
     - "Specific X_TRADER installer versions available Nov 2021 - July 2022 (e.g., X_TRADER_r7.17.90p608.exe)"
-  artifacts:
-    - "X_TRADER_r7.17.90p608.exe" # Example compromised installer filename
   domain: tradingtechnologies.com
   domain_type: project host
   artifact_type: binary archive # Software installer
-  impacted_hashes:
-    - "ef4ab22e565684424b4142b1294f1f4d" # MD5 hash for one known malicious installer Setup.exe within the package
+  historical_artifacts:
+    - "https://tradingtechnologies.com/x-trader/downloads/X_TRADER_r7.17.90p608.exe"
+    - "https://www.tradingtechnologies.com/legacy-downloads/X_TRADER%20Pro%207.17.10.exe"
+    - "https://downloads.tradingtechnologies.com/trading-software/x-trader/legacy/setup.exe"
+  current_artifacts:
+    - "https://www.virustotal.com/gui/file/ef4ab22e565684424b4142b1294f1f4d"
+    - "https://github.com/sophoslabs/IoCs/blob/master/TradingTech-IoCs.csv"
+    - "https://www.mandiant.com/resources/blog/trading-in-the-dark"
+  commits:
+  hashes:
+    - md5:ef4ab22e565684424b4142b1294f1f4d # MD5 hash for one known malicious installer Setup.exe within the package
+    - sha256:88968c9f1de3c41c54a025a0f51a818c1a0b0c98e7affe0ea0aa0ad6e441fc46 # Malicious X_TRADER installer
+    - sha256:8c9395a019def2cc80a0320a1285ccc4cb1cd73ecb89886a1c03da5aaf5db0a3 # VEILEDSIGNAL backdoor

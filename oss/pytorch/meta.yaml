@@ -13,15 +13,20 @@
   insertion_phase: dependency # Build system pulled malicious dependency from PyPI
   impact_type: Data theft, Credential theft, Remote execution
   references:
-    - https://pytorch.org/blog/compromised-pypi-dependency/ # Official announcement
-    - https://www.bleepingcomputer.com/news/security/pytorch-discloses-malicious-dependency-chain-compromise-over-holidays/
-    - https://security.snyk.io/vuln/SNYK-PYTHON-TORCHTRITON-3193313 # Vulnerability database entry
+    - https://pytorch.org/blog/security-alert/
+    - https://blog.checkpoint.com/research/supply-chain-attack-on-pytorch-dependency-confusion-via-malicious-packages/
+    - https://blog.sonatype.com/pytorch-hijacked-dependency-confusion-2.0
   versions:
     - Nightly builds between 2022-12-25 and 2022-12-30
-  artifacts:
-    - url: https://pypi.org/project/torchtriton/ # Malicious package URL (now removed or replaced)
+  historical_artifacts:
+    - https://pypi.org/project/torchtriton/2.0.0.post1/
+    - https://pypi.org/simple/torchtriton/
+  current_artifacts:
+    - https://pytorch.org/blog/security-alert/ # Official advisory with technical details
+    - https://blog.checkpoint.com/research/supply-chain-attack-on-pytorch-dependency-confusion-via-malicious-packages/ # Analysis with screenshots
   domain: pypi.org
   domain_type: package host
-  artifact_type: Source archive
-  impacted_hashes:
-    - 919118939367690c239923b9748520c261503865094823459177886619378916 # SHA256 of torchtriton-2.0.0.post1.tar.gz
+  artifact_type: source archive
+  hashes:
+    - sha256:919118939367690c239923b9748520c261503865094823459177886619378916 # torchtriton-2.0.0.post1.tar.gz
+  clean: true

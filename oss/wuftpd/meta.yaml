@@ -11,8 +11,18 @@
   insertion_phase: distribution # Official source tarball replaced
   impact_type: Backdoor, Root compromise
   references:
+    - https://www.cert.org/historical/advisories/CA-1994-07.cfm # CERT Advisory
+    - https://web.archive.org/web/20030804000609/http://www.team.net/mjb/hawp/hacks/wuftpd.html # Archive of initial findings
+  historical_artifacts:
+    - ftp://ftp.wustl.edu/packages/wuarchive-ftpd/wu-ftpd-2.2.tar.Z # Original compromised download location
+    - ftp://ftp.cs.umn.edu/pub/wuftpd/wu-ftpd-2.2.tar.Z # Mirror potentially affected
+  current_artifacts:
+    - https://www.cert.org/historical/advisories/CA-1994-07.cfm # Advisory with technical details
+    - https://web.archive.org/web/20030804000609/http://www.team.net/mjb/hawp/hacks/wuftpd.html # Analysis of the backdoor
   domain: ftp.wustl.edu
   domain_type: project host
-  artifact_type: Source archive
+  artifact_type: source archive
+  hashes:
+    - md5:3e12b0efb95bcb97e5b58fb916323618 # Backdoored wu-ftpd-2.2.tar.Z
   versions:
     - 2.2 # wu-ftpd-2.2.tar.Z distribution file

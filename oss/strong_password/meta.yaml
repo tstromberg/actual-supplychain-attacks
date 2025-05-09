@@ -12,10 +12,18 @@
   impact_type: Credential theft, Backdoor
   domain: rubygems.org
   domain_type: package host
-  artifact_type: Source archive
+  artifact_type: source archive
   references:
-    - https://github.com/bdurand/strong_password/issues/18 # Discovery issue
-    - https://security.snyk.io/vuln/SNYK-RUBY-STRONGPASSWORD-473313 # Vulnerability DB entry
-    - https://www.zdnet.com/article/two-ruby-libraries-downloaded-1500-times-contain-backdoor-code/
+    - https://github.com/rest-client/rest-client/issues/713 # Covers both rest-client and strong_password
+    - https://snyk.io/blog/code-execution-back-door-found-in-rubys-rest-client-library/ # Mentions strong_password
+    - https://www.helpnetsecurity.com/2019/08/21/backdoored-ruby-gems/ # Discusses both gems
   versions:
     - 0.0.7
+  historical_artifacts:
+    - https://rubygems.org/gems/strong_password/versions/0.0.7 # Original compromised version
+    - https://rubygems.org/downloads/strong_password-0.0.7.gem # Direct download link
+  current_artifacts:
+    - https://snyk.io/blog/code-execution-back-door-found-in-rubys-rest-client-library/ # Analysis mentioning the backdoor
+    - https://www.helpnetsecurity.com/2019/08/21/backdoored-ruby-gems/ # Technical analysis with details
+  hashes:
+    - sha256:c3a46b979b941ecc456639033754f3bad3f5d379df064d4ccd0b54d0fb8e46ea # strong_password-0.0.7.gem

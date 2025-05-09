@@ -13,9 +13,17 @@
   impact_type: Backdoor, Remote execution, Site control
   impact_user_count: 360000 # Estimated active installs of affected themes/plugins
   artifact_type: source archive
+  historical_artifacts:
+    - pkg:generic/accesspress-theme?repository_url=https://accesspressthemes.com # Original download source for various compromised themes
+    - pkg:generic/accesspress-plugin?repository_url=https://accesspressthemes.com # Original download source for various compromised plugins
+  current_artifacts:
+    - https://www.wordfence.com/blog/2022/01/severe-vulnerabilities-in-accesspress-themes-and-plugins-allow-for-full-site-takeover/ # Describes backdoor behavior, IoCs (e.g., malicious file path wp-includes/vars.php)
+  hashes:
+    - sha256:0918af9a5c6060dec985b98bbf54030cd29f1701ca9fdb6abfc1e39f90e5113e # Example hash of a compromised AccessPress theme
   domain: accesspressthemes.com
   domain_type: project host
   references:
-
+    - https://www.wordfence.com/blog/2022/01/severe-vulnerabilities-in-accesspress-themes-and-plugins-allow-for-full-site-takeover/ # Technical details and IoCs
   versions:
     - Dozens of themes/plugins from AccessPress Themes/Access Keys (see references for specific lists)
+  clean: true
