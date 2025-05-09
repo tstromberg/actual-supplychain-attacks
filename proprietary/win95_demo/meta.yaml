@@ -17,7 +17,7 @@
     - https://arstechnica.com/information-technology/2010/08/the-viruses-microsoft-shipped/ # Discusses historical context
   versions:
     - "Specific batches of Microsoft software floppy disks circa 1995 (e.g., Windows 95 upgrade)"
-  artifacts:
+  historical_artifacts:
     - "Infected Microsoft floppy disks"
   domain: microsoft.com
   domain_type: project host

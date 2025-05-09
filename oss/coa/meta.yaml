@@ -39,4 +39,3 @@
   hashes:
     - sha256:cd2adb9c16e3c5373f77c4288ab017be03c3a7f8320a2506e9129a402c0c69d6 # coa 2.0.4
     - sha256:dc7a59c2d600db8f748f0a722e363527e3332a0fd7ffd7d24342a7de6125e9e0 # coa 3.1.3
-  clean: true

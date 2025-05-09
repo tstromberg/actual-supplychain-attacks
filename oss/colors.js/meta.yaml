@@ -38,4 +38,3 @@
     - d11691a1a694899d8a543f027a368426350a2969 # Initial commit with breaking changes
     - 6bc50e799061788799a73579c07683b499906d29 # Second commit with infinite loop
     - 8d817695d1e57a8011ba373d896985758850f03c # Final sabotage commit
-  clean: true

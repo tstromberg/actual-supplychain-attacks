@@ -12,19 +12,21 @@
   impact_type: Backdoor, Remote access, Credential theft
   impact_user_count: 100 # Estimate based on report mentioning 4 telcos, 10+ military orgs
   references:
-    - https://web.archive.org/web/20170726040823/https://www.comsecglobal.com/kingslayer-a-supply-chain-attack/ # Archived Comsec Global report
-    - https://library.cyentia.com/report/report_002450.html # RSA Research mention (link to Cyentia library)
-    - https://securityaffairs.com/58864/cyber-crime/operation-wilysupply-hacking.html # Mentions Altair/EvLog as prior example
+    - https://web.archive.org/web/20170726040823/https://www.comsecglobal.com/kingslayer-a-supply-chain-attack/ # Archived Comsec Global report (Primary analysis with IOCs)
+    - https://securityaffairs.com/58864/cyber-crime/operation-wilysupply-hacking.html # Contextual mention of Altair/EvLog
   versions:
     - "EvLog versions updated between April-July 2015"
   historical_artifacts:
     - "Compromised EvLog update packages distributed via Altair Technologies' official update channels."
   current_artifacts:
     - "https://web.archive.org/web/20170726040823/https://www.comsecglobal.com/kingslayer-a-supply-chain-attack/" # Archived Comsec Global report detailing the attack and IOCs
-    - "https://www.trendmicro.com/vinfo/us/threat-encyclopedia/malware/bkdr_kingslayer.a" # Analysis of Kingslayer malware
   hashes:
-    - sha1:fc510a12086647a2eb49700977879339eb5471d5 # Example Kingslayer component (loader)
-    - md5:4e5339f029f6d874417789005c248a81 # Example Kingslayer component
+    - sha256:caea901a301b9c103d90b8539819e050e57b67c6ff4d7863ad1cd549f5fdc2af # Malicious file (Comsec report)
+    - sha256:383d60bffd5dc64e38893361cb03939bc8c6d5e476dc70755eb0886947e51661 # Malicious file (Comsec report)
+    - sha256:7aa474d0d39a41768149f413c451e9208f73af4d262b6575ada31644f5699153 # Malicious file (Comsec report)
+    - sha256:15113f237b29f51c78f315db7d815c5ed1340f52b500f66979edb153515910d7 # Malicious file (Comsec report)
+    - sha256:72ccf28f4636403249d87721e802140ccae2248b810860f8c5d4f33d07363597 # Malicious file (Comsec report)
+    - sha256:4286ecd104cf0667064ad008e5ac9ffa33a0f7858bb745d533fdb30369e89dd4 # Malicious file (Comsec report)
   domain: altairtech.com # Likely original vendor domain
   domain_type: project host
   artifact_type: binary archive # Software update

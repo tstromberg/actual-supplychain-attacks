@@ -28,4 +28,3 @@
     - https://github.com/advisories/GHSA-j8qr-rvcv-crhv # GitHub Advisory with details
   hashes:
     - sha256:07f16d95f3c91dbd2ddf974d4b95d8dcec39b09b8906fa3b35e0a0da78fe8f76 # electron-native-notify 1.1.6
-  clean: true

@@ -30,4 +30,3 @@
   hashes:
     - sha256:ccbb6cd10c0b0cfb68cf7c4203c9e9b75eb28b9a69a639e2c11a69d623456fa7 # Malicious installer hash
     - md5:55a76272c2e42285ad4414e328b88e16 # Alternative hash for malicious installer
-  clean: true

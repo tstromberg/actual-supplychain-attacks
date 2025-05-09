@@ -27,8 +27,6 @@
     - "https://downloads.tradingtechnologies.com/trading-software/x-trader/legacy/setup.exe"
   current_artifacts:
     - "https://www.virustotal.com/gui/file/ef4ab22e565684424b4142b1294f1f4d"
-    - "https://github.com/sophoslabs/IoCs/blob/master/TradingTech-IoCs.csv"
-    - "https://www.mandiant.com/resources/blog/trading-in-the-dark"
   commits:
   hashes:
     - md5:ef4ab22e565684424b4142b1294f1f4d # MD5 hash for one known malicious installer Setup.exe within the package

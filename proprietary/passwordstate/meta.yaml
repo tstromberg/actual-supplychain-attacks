@@ -12,19 +12,19 @@
   impact_type: Credential theft, Data exfiltration
   impact_user_count: 1000 # Estimate; affected subset of 29k customer organizations who updated during the window
   references:
-    - https://www.csis.dk/newsroom-blog-overview/2021/moserpass/ # CSIS Group analysis
-    - https://www.bleepingcomputer.com/news/security/passwordstate-password-manager-breached-via-supply-chain-attack/
-    - https://socprime.com/blog/passwordstate-supply-chain-attack-exposes-29k-companies-to-the-risk-of-compromise/
-    - https://www.clickstudios.com.au/passwordstate-supply-chain-attack-information.html # Original vendor advisory page (may change)
+    - "https://www.csis.dk/newsroom-blog-overview/2021/moserpass/ # CSIS Group analysis (Link confirmed dead, needs alternative)"
+    - "https://www.bleepingcomputer.com/news/security/passwordstate-password-manager-breached-via-supply-chain-attack/ # (Link confirmed dead, needs alternative)"
+    - "https://socprime.com/blog/passwordstate-supply-chain-attack-exposes-29k-companies-to-the-risk-of-compromise/ # (Link confirmed dead, needs alternative)"
+    - "https://www.clickstudios.com.au/passwordstate-supply-chain-attack-information.html # Original vendor advisory page (Link confirmed dead/server error, needs alternative)"
   versions:
     - "Passwordstate In-Place Upgrades performed between Apr 20 20:33 UTC and Apr 22 00:30 UTC, 2021"
   historical_artifacts:
     - "https://passwordstate-18667.kxcdn.com/passwordstate/upgrades/Passwordstate_upgrade.zip"
     - "https://updates.clickstudios.com.au/passwordstate/upgrades/Passwordstate_upgrade.zip"
   current_artifacts:
-    - "https://www.csis.dk/newsroom-blog-overview/2021/moserpass/"
-    - "https://www.virustotal.com/gui/file/502bf5e87e1809e6b2317888fab546aa1d22389922d83bb81a35b602ed12c23e"
-    - "https://github.com/eset/malware-ioc/tree/master/moserpass"
+    - "https://www.virustotal.com/gui/file/502bf5e87e1809e6b2317888fab546aa1d22389922d83bb81a35b602ed12c23e" # Malicious Passwordstate_upgrade.zip
+    - "Original CSIS Group analysis (link dead): https://www.csis.dk/newsroom-blog-overview/2021/moserpass/"
+    - "Original ESET IoC link (link dead): https://github.com/eset/malware-ioc/tree/master/moserpass"
   domain: clickstudios.com.au # Vendor domain associated with updates
   domain_type: project host
   artifact_type: binary archive # Software update package

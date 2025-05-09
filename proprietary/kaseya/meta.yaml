@@ -15,6 +15,8 @@
   references:
     - https://www.cisa.gov/news-events/cybersecurity-advisories/aa21-201a
     - https://helpdesk.kaseya.com/hc/en-gb/articles/4403440684689-Kaseya-VSA-Security-Incident
+    - https://www.mandiant.com/resources/blog/kaseya-supply-chain-attack-what-we-know
+    - https://www.huntress.com/blog/kaseya-vsa-supply-chain-attack-what-we-know-so-far
 
   commits:
   historical_artifacts:
@@ -26,6 +28,8 @@
     - "https://thehackernews.com/2021/07/how-kaseya-vsas-1-day-exploit-was.html"
     - "https://www.virustotal.com/gui/file/d55f983c994caa160ec63a59f6b4250fe67fb3e8c43a388aec60a4a6978e9f1e"
     - "https://github.com/curated-intel/Kaseya-Breach-Repository"
+    - "https://www.mandiant.com/resources/blog/kaseya-supply-chain-attack-what-we-know"
+    - "https://www.huntress.com/blog/kaseya-vsa-supply-chain-attack-what-we-know-so-far"
   hashes:
     - sha256:d55f983c994caa160ec63a59f6b4250fe67fb3e8c43a388aec60a4a6978e9f1e # Malicious agent.exe
     - sha256:8dd620d9aeb35960bb766458c8890ede987c33d239cf730f93fe49d90ae759dd # REvil ransomware dropper

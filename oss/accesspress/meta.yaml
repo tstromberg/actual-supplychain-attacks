@@ -26,4 +26,3 @@
     - https://www.wordfence.com/blog/2022/01/severe-vulnerabilities-in-accesspress-themes-and-plugins-allow-for-full-site-takeover/ # Technical details and IoCs
   versions:
     - Dozens of themes/plugins from AccessPress Themes/Access Keys (see references for specific lists)
-  clean: true

@@ -29,4 +29,3 @@
   artifact_type: source archive
   hashes:
     - sha256:919118939367690c239923b9748520c261503865094823459177886619378916 # torchtriton-2.0.0.post1.tar.gz
-  clean: true

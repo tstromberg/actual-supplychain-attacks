@@ -28,4 +28,3 @@
   artifact_type: source archive
   hashes:
     - md5:3cf59a7b8996dcc52370cf918f248ee4 # Reported hash of compromised file
-  clean: true

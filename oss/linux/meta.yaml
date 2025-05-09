@@ -26,4 +26,3 @@
   current_artifacts:
     - https://lwn.net/Articles/57237/ # Discussion of the backdoor attempt and its code
   artifact_type: revision control system
-  clean: true

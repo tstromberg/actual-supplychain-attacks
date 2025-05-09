@@ -32,4 +32,3 @@
     - 0.3.3 # Versions confirmed affected by Komodo advisory
     - 0.3.4 # Versions confirmed affected by Komodo advisory
     # Potentially other versions built using the compromised dependency during its availability
-  clean: true

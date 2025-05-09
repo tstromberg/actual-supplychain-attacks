@@ -28,4 +28,3 @@
   artifact_type: source archive
   hashes:
     - md5:cee5fa3565412733e42a8e461a2bcb39 # Malicious phpMyAdmin-3.5.2.2-all-languages.zip
-  clean: true

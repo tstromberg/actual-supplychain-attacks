@@ -28,4 +28,3 @@
   artifact_type: source archive
   hashes:
     - md5:9537f4c5f9b959d24aad55ea0e4d9ebb # Potentially compromised phpMyAdmin-3.1.1-all-languages.zip
-  clean: true

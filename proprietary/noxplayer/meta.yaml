@@ -13,15 +13,15 @@
   impact_type: Backdoor, Remote access, Spyware
   impact_user_count: 5 # Number of known, specifically targeted victims, though infrastructure was capable of wider reach
   references:
-    - https://securelist.com/operation-noxplayer/100644/
-    - https://www.eset.com/int/about/newsroom/press-releases/research/eset-discovers-operation-noxplayer-supply-chain-attack-infiltrates-gaming-community-in-asia/
+    - "https://securelist.com/operation-noxplayer/100644/ # Original Kaspersky report (Link confirmed dead, needs alternative)"
+    - "https://www.eset.com/int/about/newsroom/press-releases/research/eset-discovers-operation-noxplayer-supply-chain-attack-infiltrates-gaming-community-in-asia/ # Original ESET press release (Link confirmed dead, needs alternative)"
   versions:
     - Not specific versions of NoxPlayer itself, but its update mechanism was used.
   historical_artifacts:
     - "Malicious updates delivered via BigNox's update infrastructure (e.g., api.bignox.com, res06.bignox.com) to targeted users."
   current_artifacts:
-    - "https://securelist.com/operation-noxplayer/100644/" # Securelist (Kaspersky) analysis (Link may be dead)
-    - "https://www.eset.com/int/about/newsroom/press-releases/research/eset-discovers-operation-noxplayer-supply-chain-attack-infiltrates-gaming-community-in-asia/" # ESET Press Release (Link may be dead)
+    - "https://securelist.com/operation-noxplayer/100644/ # Original Securelist (Kaspersky) analysis (Link confirmed dead, needs alternative or removal)"
+    - "https://www.eset.com/int/about/newsroom/press-releases/research/eset-discovers-operation-noxplayer-supply-chain-attack-infiltrates-gaming-community-in-asia/ # Original ESET Press Release (Link confirmed dead, needs alternative or removal)"
   domain: api.bignox.com # (Update server domain)
   domain_type: project host
   artifact_type: binary archive # (Malicious update packages)

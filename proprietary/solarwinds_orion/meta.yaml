@@ -31,14 +31,15 @@
     - "https://downloads.solarwinds.com/solarwinds/v3/SolarWinds-Orion-NPM-2020.2.1-2020.2.100.12219-hotfix3.msp"
   current_artifacts:
     - "https://github.com/mandiant/sunburst_countermeasures"
-    - "https://github.com/ITAYC0HEN/SUNBURST-Cracked/blob/main/md5/32519b85c0b422e4656de6e6c41878e95fd95026267daab4215ee59c107d6c77"
     - "https://www.virustotal.com/gui/file/32519b85c0b422e4656de6e6c41878e95fd95026267daab4215ee59c107d6c77"
     - "https://malware-research.org/solarwinds-sunburst-backdoor-forensic-analysis/"
     - "https://www.netresec.com/?page=Blog&month=2020-12&post=Reassembling-the-SolarWinds-Puzzle"
+    - "See CISA (AA20-352A), Mandiant, and Microsoft references for full IoC lists, including C2 domains/IPs."
   commits:
     - "a76fd16dd3bea01ef70c6a4bd693a8d7323c93ac" # Malicious code added to Orion build system
   hashes:
-    - sha256:32519b85c0b422e4656de6e6c41878e95fd95026267daab4215ee59c107d6c77 # SUNBURST backdoor DLL
-    - sha256:019085a76ba7126fff22770d71bd901c325fc68ac55aa743327984e89f4b0134 # SolarWinds-Core-v2019.4.5200-Hotfix5.msp
-    - sha256:ce77d116a074dab7a22a0fd4f2c1ab475f16eec42e1ded3c0b0aa8211fe858d6 # Sunburst backdoor, another variant
-    - md5:b91ce2fa41029f6955bff20079468448 # SolarWinds.Orion.Core.BusinessLayer.dll
+    - sha256:32519b85c0b422e4656de6e6c41878e95fd95026267daab4215ee59c107d6c77 # SolarWinds.Orion.Core.BusinessLayer.dll (SUNBURST from Orion Platform 2019.4 HF5)
+    - sha256:019085a76ba7126fff22770d71bd901c325fc68ac55aa743327984e89f4b0134 # SolarWinds.Orion.Core.BusinessLayer.dll (SUNBURST from Orion Platform 2020.2 RC2)
+    - sha256:ce77d116a074dab7a22a0fd4f2c1ab475f16eec42e1ded3c0b0aa8211fe858d6 # SolarWinds.Orion.Core.BusinessLayer.dll (SUNBURST from Orion Platform 2020.2 & 2020.2 HF1)
+    - sha256:dab758bf98d9b36fa057a66cd0284737abf89857b73ca89280267ee7caf62f3b # SolarWinds.Orion.Core.BusinessLayer.dll (SUNBURST from Orion Platform 2020.2 RC1)
+    - md5:b91ce2fa41029f6955bff20079468448 # SolarWinds.Orion.Core.BusinessLayer.dll (SUNBURST from Orion Platform 2019.4 HF5, MD5 of 32519b8... DLL)

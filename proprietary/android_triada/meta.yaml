@@ -18,9 +18,20 @@
     - https://news.drweb.com/show/?i=10451 # Dr. Web report on pre-installed Triada (2017)
   versions:
     - "Numerous budget/unbranded/counterfeit Android device models firmware"
-  artifacts:
-    - "Infected firmware images"
-    - "Compromised system libraries (e.g., binary.so within boot-framework.oat)"
+  historical_artifacts:
+    - "Embedded in firmware of counterfeit/unbranded Android devices during manufacturing."
+    - "pkg://android/com.android.system.DataStorage" # Example system package sometimes targeted
+  current_artifacts:
+    - "https://securelist.com/triada-trojan-modules-analysis/116380/#indicators-of-compromise" # Kaspersky IoCs
+    - "https://raw.githubusercontent.com/adrdotocet/ott/main/api.json" # GitHub config
+    - "https://raw.githubusercontent.com/adrdotocet2/ott/main/api.json" # GitHub config
+    - "https://raw.githubusercontent.com/adrdotocet3/ott/main/api.json" # GitHub config
+    - "https://bazaar.abuse.ch/browse.php?search=tag%3ATriada" # MalwareBazaar samples for Triada
+  hashes:
+    - md5:f468a29f836d2bba7a2b1a638c5bebf0 # Infected system framework (Kaspersky)
+    - md5:89c3475be8dba92f4ee7de0d981603c1 # Infected native library (Kaspersky)
+    - md5:fce117a9d7c8c73e5f56bda7437bdb28 # Telegram module (Kaspersky)
+    - md5:308e35fb48d98d9e466e4dfd1ba6ee73 # Older Triada version (Kaspersky)
   domain: Various Android OEMs / Unbranded Manufacturers / Firmware Integrators
   domain_type: project host # OEM / Manufacturer
   artifact_type: hardware # Shipped with device firmware

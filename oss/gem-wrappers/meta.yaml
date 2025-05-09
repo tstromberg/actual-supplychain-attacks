@@ -28,4 +28,3 @@
     - https://nakedsecurity.sophos.com/2013/02/01/rubygems-hacked-gem-wrappers/ # More details on the backdoor
   hashes:
     - sha256:fbcf2be93426cbf4f1b2f03b7ac3a8fc85eedd6a8dd42b2f6355c388fed8e00e # Malicious gem-wrappers-1.1.0.gem
-  clean: true

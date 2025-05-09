@@ -29,4 +29,3 @@
   hashes:
     - sha256:a00659df0771d076fc9d0baf1f2f45e81ec9f13179f499d4cd940f57afc75d43 # Malicious container image
     - sha256:4e3bbca1ba0bf9f0d53c8b1cc07bf92d9b1d41b3f066fdf4aec7cdd8c21ca3b7 # XMRig binary hash found in malicious image
-  clean: true

@@ -27,4 +27,3 @@
   artifact_type: source archive
   hashes:
     - sha256:a7c55ef358ba3b90def7f46fd0ad40830e0df3b6f68e32cdb8603c4ccb0cc45a # mailparser-0.1.2.tgz
-  clean: true

@@ -31,4 +31,3 @@
   hashes:
     - sha256:307d8420e51d8a237153a5ea6454422ee9360f552eb7ea8ce5f5fcf6b7d3c917 # Malicious ISO
     - md5:e71a2aad8b58605e906dbea444dc4787 # Alternative hash for malicious ISO
-  clean: true

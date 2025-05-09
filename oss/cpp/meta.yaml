@@ -10,7 +10,7 @@
   motive: Security research # Demonstrating trust vulnerability
   transitive: true
   historical_artifacts:
-    - unix:/usr/bin/cc # Original Bell Labs Unix compiler 
+    - unix:/usr/bin/cc # Original Bell Labs Unix compiler
     - unix:/bin/login # The login program that was backdoored
   current_artifacts:
     - https://www.cs.cmu.edu/~rdriley/487/papers/Thompson_1984_ReflectionsonTrustingTrust.pdf # Paper containing technical details
@@ -24,4 +24,3 @@
     - https://dl.acm.org/doi/10.1145/358198.358210 # Original ACM publication
   versions: # Experiment within Bell Labs, not tied to specific public distribution versions
     - Early Unix versions (Bell Labs internal)
-  clean: true

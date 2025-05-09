@@ -36,4 +36,3 @@
     - sha256:a9c97713c80d0ceb8f28038890af2a0d5f28a037726ed98e46cfa5e851ffec0d # flatmap-stream 0.1.1
   commits:
     - e3163361fed01384c986b9b4c18feb1fc42b8285 # Adding flatmap-stream dependency
-  clean: true

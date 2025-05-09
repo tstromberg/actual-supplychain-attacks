@@ -15,7 +15,6 @@
     - https://securelist.com/shadowpad-in-corporate-networks/79953/
     - https://www.kaspersky.com/about/press-releases/2017_shadowpad-how-attackers-hide-backdoor-in-software-used-by-hundreds-of-large-companies-around-the-world
     - https://www.cyber.gc.ca/en/alerts/software-compromised-backdoor-trojan-0
-    - https://www.netsarang.com/en/security-exploit-in-july-18-2017-build/ # Original NetSarang advisory
   versions:
     - "Xmanager Enterprise 5.0 Build 1232"
     - "Xmanager 5.0 Build 1045"
@@ -32,7 +31,7 @@
     - "https://netsarang.com/downloads/Xftp-5.0-build-1218.exe"
     - "https://netsarang.com/downloads/Xlpd-5.0-build-1220.exe"
   current_artifacts:
-    - "https://securelist.com/files/2017/08/ShadowPad_technical_description_PDF.pdf"
+    - "https://securelist.com/shadowpad-in-corporate-networks/79953/"
     - "https://www.virustotal.com/gui/file/db67eaef6a31d392a0240a92494c9058d864f3fc7be5b42767e5c978c690023c"
     - "https://github.com/malware-research/samples/tree/main/shadowpad"
   hashes:

@@ -16,7 +16,7 @@
     - https://securelist.com/backdoored-free-download-manager-linux-malware/110465/
     - https://thehackernews.com/2023/09/free-download-manager-site-compromised.html
     - https://www.bleepingcomputer.com/news/security/free-download-manager-website-hacked-to-spread-linux-malware/
-    - https://www.freedownloadmanager.org/blog/fdm-vulnerability-disclosure/ # FDM's official statement (check for active link)
+    - https://www.freedownloadmanager.org/blog/fdm-vulnerability-disclosure/ # FDM's official statement (confirms incident, provides check script)
   versions:
     - "Specific Linux Debian packages distributed via malicious redirect from freedownloadmanager.org between 2020-2022"
   historical_artifacts:

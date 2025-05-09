@@ -31,4 +31,3 @@
     - sha1:32176407013738cb03959d0945993c13373f9590 # Malicious HandBrake-1.0.7.dmg
     - sha256:013623e5e50449bbdf6943549d8224a122aa6c42bd3300a1bd2b743b01ae6793 # Legitimate HandBrake-1.0.7.dmg
     - sha1:230a3e5404b633882b799d84633206b98e80790d # Legitimate HandBrake-1.0.7.dmg
-  clean: true

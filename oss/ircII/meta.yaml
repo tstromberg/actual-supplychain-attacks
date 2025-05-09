@@ -28,4 +28,3 @@
   hashes:
     - md5:a2eadc5d2e01fceb4c5728e85a28f2dd # Backdoored ircii-2.8.2.tar.gz
     - md5:f3c149e1e239263731e0f75730121eb0 # Legitimate ircii-2.8.2.tar.gz
-  clean: true

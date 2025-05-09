@@ -24,6 +24,9 @@
     - "https://www.twilio.com/en-us/blog/incident-report-taskrouter-js-sdk-july-2020" # Official Twilio incident report
     - "https://www.theregister.com/2020/07/21/twilio_javascript_sdk_code_injection/"
     - "https://www.scworld.com/news/misconfigured-s3-exposes-twilio-users-to-magecart-attack/"
+    - "hxxps://gold[.]platinumus[.]top/track/awswrite?q=dmn # Malicious URL loaded by compromised SDK"
   domain: twiliocdn.com # Official domain hosting the SDK via S3
   domain_type: project host # CDN/Cloud storage acting as distribution
   artifact_type: source archive # JavaScript library file
+  hashes:
+    - sha384:n+W3iUCPkW2u64HjqHqOaSFKB6k4BIYw4Fy8BuxDNkrWcCvd9fwnyZKwYjkxqphy # Legitimate taskrouter.min.js v1.20 (Base64 encoded SHA384 as per Twilio advisory)

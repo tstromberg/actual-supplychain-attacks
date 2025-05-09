@@ -39,4 +39,3 @@
   hashes:
     - sha256:f54bb89fe21762ce2ab5fe7581bf7f347f79ec30abe3ab1175da4edc26b5f91a # node-ipc-10.1.1.tgz
     - sha256:03190b659f9ad3c0e0bb337a958cbfa49c0bbfd8baff63d5a178c0eb6c8ea292 # node-ipc-10.1.2.tgz
-  clean: true

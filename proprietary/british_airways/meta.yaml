@@ -14,7 +14,7 @@
   impact_user_count: 380000 # Approximate number of payment cards affected
   references:
     - https://www.riskiq.com/blog/labs/magecart-british-airways-breach/
-    - https://www.britishtrust.com/information-commissioner-statement-on-british-airways/ # (Mentions ICO investigation)
+    - https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2020/10/ico-fines-british-airways-20m-for-data-breach-affecting-more-than-400-000-customers/ # ICO fine details
   versions:
     - The specific version of Modernizr.js and related scripts served by British Airways during the incident window.
   domain: ba.com

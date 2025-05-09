@@ -25,3 +25,5 @@
   domain: ipany.co.kr # Official vendor website
   domain_type: project host
   artifact_type: binary archive
+  hashes:
+    - sha1:33a239a061f8194195125e51e43051594df3e93a # Backdoored NSIS installer for IPany VPN

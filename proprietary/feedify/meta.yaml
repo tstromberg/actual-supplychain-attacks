@@ -13,13 +13,13 @@
   impact_type: Credential theft, Data theft
   impact_user_count: 4000 # Estimated number of websites using Feedify affected
   references:
-    - https://blog.sucuri.net/2018/11/feedify-compromised-push-notifications-used-to-load-card-skimmer.html
-    - https://www.riskiq.com/blog/labs/magecart-feedify/
+    - https://web.archive.org/web/20181110000000/https://blog.sucuri.net/2018/11/feedify-compromised-push-notifications-used-to-load-card-skimmer.html # Archived Sucuri blog
+    - https://web.archive.org/web/20181120000000/https://www.riskiq.com/blog/labs/magecart-feedify/ # Archived RiskIQ blog
   historical_artifacts:
     - "https://feedify.net/getjs/pushconfig.js" # The compromised script URL
   current_artifacts:
-    - "https://blog.sucuri.net/2018/11/feedify-compromised-push-notifications-used-to-load-card-skimmer.html" # Sucuri analysis with details
-    - "https://www.riskiq.com/blog/labs/magecart-feedify/" # RiskIQ analysis with code details
+    - "https://web.archive.org/web/20181110000000/https://blog.sucuri.net/2018/11/feedify-compromised-push-notifications-used-to-load-card-skimmer.html" # Archived Sucuri analysis with details
+    - "https://web.archive.org/web/20181120000000/https://www.riskiq.com/blog/labs/magecart-feedify/" # Archived RiskIQ analysis with code details
   domain: feedify.net
   domain_type: project host # (Service provider's domain)
   artifact_type: source archive # (JavaScript file)

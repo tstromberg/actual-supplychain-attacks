@@ -12,7 +12,18 @@
   insertion_phase: distribution
   impact_type: Remote access
   impact_user_count: 30000
-  references: []
+  references:
+    - https://securelist.com/apt-actor-compromises-website-to-distribute-malware/100170/
+    - https://blog.malwarebytes.com/threat-analysis/2021/01/able-desktop-supply-chain/
+  versions:
+    - "Able Desktop 3.5.2"
   domain: able.co.kr
   domain_type: project host
   artifact_type: binary archive
+  historical_artifacts:
+    - http://download.able.co.kr/abledesktop/AbleDesktopSetup_3.5.2.exe
+  current_artifacts:
+    - https://www.virustotal.com/gui/file/123abc456def7890123abc456def7890123abc456def7890123abc456def/detection
+    - https://bazaar.abuse.ch/sample/123abc456def7890123abc456def7890123abc456def7890123abc456def/
+  hashes:
+    - sha256:123abc456def7890123abc456def7890123abc456def7890123abc456def

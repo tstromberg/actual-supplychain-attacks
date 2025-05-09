@@ -1,6 +1,6 @@
 - name: VSDC Video Editor
   title: VSDC download portal compromised
-  synopsis: The official website of VSDC Video Editor was compromised multiple times. Attackers replaced legitimate download links with trojanized versions containing banking malware.
+  synopsis: The official website of VSDC Video Editor was compromised multiple times. Attackers replaced legitimate download links with trojanized versions containing banking malware. Original source articles detailing the specifics are no longer accessible.
   start_date: 2018-11-01
   end_date: 2019-07-31
   attribution_type: Cybercriminal
@@ -12,14 +12,8 @@
   insertion_phase: distribution
   impact_type: Banking trojan
   impact_user_count: 565000
-  references:
-    - https://www.bleepingcomputer.com/news/security/vsdc-site-compromised-again-to-distribute-password-stealing-malware/
-    - https://www.kaspersky.com/blog/vsdc-site-malware/27017/
   historical_artifacts:
     - "Trojanized VSDC Video Editor installers downloaded from videosoftdev.com during 2018-2019."
-  current_artifacts:
-    - "https://www.bleepingcomputer.com/news/security/vsdc-site-compromised-again-to-distribute-password-stealing-malware/" # BleepingComputer report (Link may be dead)
-    - "https://www.kaspersky.com/blog/vsdc-site-malware/27017/" # Kaspersky analysis (Link may be dead)
   domain: videosoftdev.com
   domain_type: project host
   artifact_type: binary archive

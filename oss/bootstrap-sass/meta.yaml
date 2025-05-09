@@ -29,4 +29,3 @@
   artifact_type: source archive # Gem file
   hashes:
     - "sha256:366d6162fe36fc81dadc114558b43c6c8890c8bcc7e90e2949ae6344d0785dc0" # SHA256 for malicious bootstrap-sass 3.2.0.3
-  clean: true

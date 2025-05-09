@@ -37,4 +37,3 @@
     - sha256:6509c01d354f517ee604a2d815df3c5813f991b490683290e997b9694656b6eb # python:3.10.0rc2-slim-bullseye
     - sha256:d132c510185b61177c2183564b0e835d630561bbf052c8eb42a6be9e97c6e1e7 # python:3.9.7-slim-bullseye
     - sha256:c5623df482648cacece4f9652a0ae04b51e1cb0d4fc4eba3a312b75534cbb21a # Hash of the malicious libff.so file
-  clean: true

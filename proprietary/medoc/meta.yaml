@@ -13,7 +13,7 @@
   impact_user_count: 400000 # Estimated MeDoc customer base in Ukraine; global impact far wider
   references:
     - https://www.wired.com/story/notpetya-cyberattack-ukraine-russia-code-crashed-the-world/
-    - https://www.cisa.gov/news-events/alerts/2017/07/13/update-alert-ta17-181a-petya-ransomware
+    - https://www.us-cert.gov/ncas/alerts/TA17-181A
     - https://www.welivesecurity.com/2017/07/04/connection-telebots-past-attacks-current-medoc-situation/
   versions:
     - "Specific MeDoc update versions distributed on or around June 27, 2017" # Exact version numbers of MeDoc updates often not cited, but the update mechanism was the vector

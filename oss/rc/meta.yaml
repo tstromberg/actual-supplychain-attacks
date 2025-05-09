@@ -34,4 +34,3 @@
   hashes:
     - sha256:47e42e13c821b68a5e7a60114ac739bcb22365c41f0b5dcefa8632ce977a5f53 # rc 1.2.9
     - sha256:3bbc2a836422ea9c327bb3e7b8429b3b6a878dc25811e19869bb48e0b933c089 # rc 2.3.9
-  clean: true

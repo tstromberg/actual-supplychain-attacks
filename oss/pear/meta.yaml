@@ -26,4 +26,3 @@
   artifact_type: binary archive
   hashes:
     - sha1:1e623a48b8991980e93896153651135ab7ab82a0 # Compromised go-pear.phar file
-  clean: true

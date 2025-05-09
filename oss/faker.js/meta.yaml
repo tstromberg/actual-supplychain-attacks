@@ -33,4 +33,3 @@
   hashes:
     - sha256:5234a5f7568a0d10977eeb898318c0f6567aeb1f2fa66939735e37a81f37bc39 # faker-6.6.6.tgz
     - sha1:c05c10e95447f11b0f5c98470eacd713e9a9e497 # The "endgame" commit hash
-  clean: true

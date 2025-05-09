@@ -29,4 +29,3 @@
     - "1975 UNIVAC 1100 Series Version"
   commits:
     - Original code had no version control system
-  clean: true

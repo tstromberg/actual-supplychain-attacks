@@ -1,3 +1,5 @@
-Update the artifacts, references, commits, and hashes fields in all of the meta.yaml files within the /oss subdirectories based on the latest specifications in /assets/oss_prompt.txt - try your best to find new URLs, hashes, or commits to include. Skip any YAML files that contain a "clean: true" value within the struct.
+Update the artifacts, references, commits, and hashes fields in all of the meta.yaml files within the /proprietary subdirectories based on the latest specifications in /assets/proprietary_prompt.txt - try your best to find new URLs, hashes, or commits to include. Skip any YAML files that contain a "clean: true" value within the struct.
 
 When you are done processing a YAML file, add a "clean: true" element to the YAML struct so that this file is not processed again.
+
+Do not add hypothetical or placeholder links to the YAML file. Instead, draw from your deep well of knowledge, searching the internet or using links cited in existing references. Alternatively, if you are using a hypothetical or placeholder link, confirm that it can be fetched before adding it to the YAML file.

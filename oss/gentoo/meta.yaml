@@ -31,4 +31,3 @@
   hashes:
     - sha1:b8ed5a815dfb8c077a92e6a3a90c1ae6a88d284d # Malicious commit hash
     - sha1:2bd555a1138cb197271e8ddeec38bf4c7ae71844 # Another malicious commit hash
-  clean: true

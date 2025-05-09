@@ -28,4 +28,3 @@
   artifact_type: revision control system
   hashes:
     - sha1:a49a3636610c5f10c27f5c71072ce4cff5baffc3 # Backdoored auth2-chall.c file
-  clean: true
