@@ -1,6 +1,6 @@
-# oss-supplychain-attacks
+# actual-supplychain-attacks
 
-Data about all known supply-chain attacks against open-source projects throughout history. This only includes cases that attacked an open-source project or its official distribution mechanisms (such as source code, offical mirror, container registry).
+Data about all known supply-chain attacks against software projects throughout history. This only includes cases that attacked a known product/project or its official distribution mechanisms (such as source code, offical mirror, container registry).
 
 We do not include attacks that involved random USB keys found on the sidewalk, typo-squatting attacks within random websites, unauthorized distribution mechanisms, or other types of social engineering attacks.
 
