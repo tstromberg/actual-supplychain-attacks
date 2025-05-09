@@ -17,7 +17,6 @@
   impact_type: Credential theft
   references:
     - https://github.com/advisories/GHSA-73qr-pfmq-6rp8
-    - https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610 # While not dependency confusion, Birsan often covers related supply chain issues. More direct links preferred.
   versions:
     - 2.0.3
     - 2.0.4

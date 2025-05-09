@@ -4,7 +4,7 @@
   start_date: 2023-05-01 # Approximate timeframe malicious files started appearing for various mods/plugins
   end_date: 2023-06-08 # Approximate date of widespread discovery and public warnings
   attribution_type: Unknown # Attacker(s) compromising accounts
-  component_type: Plugin # Minecraft Server Plugin (Bukkit/Spigot etc.)
+  component_type: Game mod # Minecraft Server Plugin (Bukkit/Spigot etc.)
   lang: Java
   cause: Stolen credentials # Compromised CurseForge/BukkitDev account
   motive: Credential theft, Malware propagation

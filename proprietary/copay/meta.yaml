@@ -1,0 +1,24 @@
+- name: Copay
+  title: Event-stream dependency compromised Copay wallet
+  repo: https://github.com/bitpay/copay
+  synopsis: The Copay Bitcoin wallet was affected by the malicious event-stream NPM package. The backdoor specifically targeted Copay to steal Bitcoin from users' wallets.
+  start_date: 2018-09-09
+  end_date: 2018-11-26
+  attribution_type: Individual hacker
+  component_type: Application
+  lang: JavaScript
+  cause: Compromised dependency
+  motive: Financial gain
+  transitive: true
+  insertion_phase: dependency
+  impact_type: Cryptocurrency theft
+  impact_user_count: 1000000
+  references:
+    - https://bitpay.com/blog/statement-on-compromised-copay-resources/
+    - https://medium.com/coinmonks/the-anatomy-of-a-supply-chain-attack-on-the-javascript-ecosystem-ee650cd8740
+  versions:
+    - 5.0.2
+    - 5.1.0
+  domain: copay.io
+  domain_type: project host
+  artifact_type: binary archive

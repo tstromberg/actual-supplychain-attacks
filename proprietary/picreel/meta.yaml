@@ -1,0 +1,19 @@
+- name: Picreel (via pop-up script)
+  title: Picreel pop-up script delivered skimmer.
+  synopsis: Picreel, a service providing conversion rate optimization tools like exit pop-ups, had its JavaScript code compromised. Attackers modified the script served to Picreel's clients, injecting a credit card skimmer that affected the websites of businesses using Picreel's services.
+  start_date: 2019-01-01 # Approximate, part of broader Magecart campaigns in 2019
+  end_date: 2019-05-01 # Approximate discovery and reporting period
+  attribution_type: Cybercriminal gang # (Magecart)
+  component_type: Script # (Marketing/Analytics script)
+  lang: JavaScript
+  cause: Compromised third-party script # (Picreel's script)
+  motive: Financial gain
+  transitive: true # Picreel's customers affected
+  insertion_phase: dependency # From the perspective of websites using Picreel
+  impact_type: Credential theft, Data theft
+  references:
+    - https://medium.com/sanguine-security-labs/popular-analytics-service-picreel-hacked-to-skim-credit-cards-f88b39905502
+    - https://www.bleepingcomputer.com/news/security/picreel-conversion-platform-hacked-to-steal-credit-cards/
+  domain: picreel.com # (Service provider's domain)
+  domain_type: project host
+  artifact_type: source archive # (JavaScript file)

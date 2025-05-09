@@ -1,38 +1,66 @@
-Provide a comprehensive and deep history of supply-chain security attacks that impacted an open source project, compromising their source code or an artifact published by the open-source project (such as a release tarball, binary, or container image). Don't include typosquatting attacks or security flaws within a project, as they did not attack the open-source project itself.
+Provide a comprehensive and deep history of supply-chain security attacks that impacted commercial software projects, compromising their source code or an artifact published by the company (such as a release tarball, binary, or container image). Don't include typosquatting attacks or security flaws within a project, as they did not attack the open-source project itself.
 
 The results of your research should be in YAML format. Text should be terse to encourage scannability yet readable by information security professionals.
 
 Fields to include:
 
-* name: The name of the open-source project
+* name: The name of the product
 * title: a terse 1-sentence title of the attack, mentioning the name of the project, how the project was compromised and the downstream impact. No more than 6 words.
+
 * repo: location of the source code repository for this project (example kinds: git, cvs, subversion)
+
 * synopsis: a terse 2 to 4 sentence synopsis of the attack, does not need to repeat what is already stated in the title.
+
 * start_date: Earliest known date of attack
+
 * end_date: Last known date of attack
-* attribution_type: 1-2 word attribution of who likely attacked the project (original maintainer, new maintainer, nation-state, individual hacker, cybercriminal gang, etc)
+
+* attribution_type: 1-2 word attribution of who likely attacked the project (Author, new maintainer, nation-state, individual hacker, cybercriminal gang, etc)
+
 * component_type: 1-word description of the kind of project that was impacted (for example, library, application, game, ci/cd action, daemon)
+
 * lang: What language the supply-chain attack was performed in (c, javascript, shell, awk)
+
 * cause: 1-2 word description of the initial attack vector used to introduce the supply-chain attack (stolen credentials, exploit, maintainer sabotage, social engineering, physical access)
+
 * motive: 1-2 word likely motive for the attack, taking the end-user impact into account (example: financial gain, vandalism, espionage, unknown)
+
 * transitive: Was it a transitive attack (caused by another supply-chain attack)
+
 * insertion_phase: What was the phase of the build pipeline was the malicious code inserted into. In order, these phases are:
+
   - source: authoritative upstream source code
+
   - build automation: build scripts or instructions (for example, a Makefile that inserted the malicious instructions on the fly)
+
   - dependency: external source code dependency (compromised library)
+
   - CI/CD: compromised build environment (for example: leaked GitHub action token or build server compromise)
+
   - distribution: official source or binary distribution (for example: PyPI, website, container registry, CDN)
+
   - discovery: end-user failure to use the authoritative download location, for example, an unofficial mirror compromise or typosquatting attack
+
 * impact_type: Up to 3 words to describe the downstream impact of the inserted supply-chain attack on end-users (credential theft, denial of service, backdoor, cryptocurrency theft, remote access, data destruction, data theft, ransomware)
+
 * impact_user_count: estimated number of users impacted (be conservative). It should be an integer, and download counts should be used where possible.
+
 * references: Reference URLs to read more about the attack. Double-check that these URLs are active and real.
+
 * versions: a list of versions of the software that were compromised. For example: semantic versions or release tags
+
 * commits: a list of malicious commits (hashes preferred)
+
 * artifacts: URLs containing compromised versions of the source code, binary. For example, an NPM URL, GitHub commit, Pastebin link, or mirror containing the compromised source code or modified binaries. It's OK if these URLs are no longer valid.
+
 * domain: the most authoritative domain that users downloaded the compromised code from. If the upstream source code was compromised at GitHub, use github.com. If the compromise was only at a delivery website such as npmjs.org, pypi.org, or sourceforge.net, use that domain instead. If the attack was not distributed via internet hosts or you are not sure where the software came from, skip this field.
+
 * domain_type: code host (github), package host (npmjs, sourceforge),
+
 container host (docker), project host (sendmail.org), or other
+
 * artifact_type: what was the primary or most authoritative form of artifact that was used to deliver malicious software to end-users? for example: revision control system (git), source archive, binary archive (such as a disk image or single binary), OCI image, or tape
+
 * impacted_hashes: SHA256 hashes of artifacts (source, binary, containers) that were impacted
 
 Do not mention open-source projects that are unknown outside the context of the attack or projects that exist solely on PyPI or NPM.
@@ -40,3 +68,53 @@ Do not mention open-source projects that are unknown outside the context of the 
 The output should be a valid YAML file. If the value of a YAML key is effectively "Unknown" or empty, omit the key from the output. Omit YAML comments.
 
 Please verify that the reference sites provided are real active URLs and not hallucinations.
+
+Some example compromises we already have information about are:
+
+ Solarwinds Orion
+
+ MeDoc
+
+ CCleaner
+
+ ASUS Live Update
+
+ FreeDownloadManager
+
+ 3CX
+
+ NetSarang
+
+ Aisino
+
+ X_TRADER
+
+ CyberLink
+
+ Comm100
+
+ Passwordstate
+
+ EvLog
+
+ "Infestation
+
+ Aldus FreeHand
+
+ IBM Aptiva
+
+ Microsoft Software Media
+
+ Adups
+
+ Android/Triada
+
+ Magento Extensions
+
+ DragonFly/Energetic Bear
+
+ Twilio TaskRouter JS SDK
+
+ Inbenta
+
+Please let me know what other compromises should be in scope.

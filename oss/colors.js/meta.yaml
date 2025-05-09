@@ -4,7 +4,7 @@
   synopsis: The maintainer intentionally introduced an infinite loop and breaking changes into the popular 'colors.js' library. This act of sabotage disrupted applications depending on it, printing strange characters and causing denial of service. This was a protest act by the maintainer.
   start_date: 2022-01-07
   end_date: 2022-01-09
-  attribution_type: Original maintainer
+  attribution_type: Author
   component_type: Library
   lang: Javascript
   cause: Maintainer sabotage

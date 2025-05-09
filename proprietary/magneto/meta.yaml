@@ -1,0 +1,24 @@
+- name: Magento Extensions
+  title: Magento extensions backdoored in coordinated supply chain attack.
+  synopsis: Servers of multiple Magento extension vendors (including Tigren, Meetanshi, MGS) were compromised. Attackers injected PHP backdoors into at least 21 popular commercial extensions. The backdoors, some dormant for years but activated in 2025, allowed remote code execution on e-commerce stores using the compromised extensions.
+  start_date: 2019-01-01 # Approximate earliest date backdoors were injected into some extensions
+  end_date: 2025-04-20 # Approximate date attack/activation discovered (ongoing investigation likely)
+  attribution_type: Unknown
+  component_type: library # E-commerce platform extensions/modules
+  cause: Vendor server compromise
+  motive: Remote access # Likely for data theft (payment info, credentials) or further attacks
+  transitive: false
+  insertion_phase: distribution # Compromised vendor servers distributing infected code packages
+  impact_type: Backdoor, Remote access, Data theft (potential)
+  impact_user_count: 1000 # Estimated 500-1000 stores initially identified as affected
+  references:
+    - https://www.bleepingcomputer.com/news/security/magento-supply-chain-attack-compromises-hundreds-of-e-stores/
+    - https://sansec.io/research/magento-supply-chain-attack-vendor-extensions # Sansec research details
+    - https://gbhackers.com/hackers-exploit-21-apps-to-take-full-control/
+  versions:
+    - "Multiple versions of 21+ extensions from vendors Tigren, Meetanshi, MGS, potentially Weltpixel" # Specific list extensive, available in security reports
+  artifacts:
+    - "Compromised Magento extension packages (e.g., containing backdoored License.php)"
+  domain: Multiple vendor websites # e.g., tigren.com, meetanshi.com, magesolution.com
+  domain_type: project host
+  artifact_type: source archive # Extension code packages

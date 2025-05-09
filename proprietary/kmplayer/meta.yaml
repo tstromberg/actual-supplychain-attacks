@@ -1,0 +1,21 @@
+- name: KMPlayer
+  title: KMPlayer installer/updates distributed malware.
+  synopsis: The official KMPlayer, a freeware media player, reportedly distributed unwanted software, adware, or potentially more malicious payloads through its installer or update process in certain versions or distribution channels. Users experienced unexpected software installations and advertisements.
+  start_date: 2018-01-01 # Approximate period of increased reports, though bundling issues existed earlier
+  end_date: 2018-12-31 # Reports were prominent during this year
+  attribution_type: Adware bundlers # Or compromised distribution
+  component_type: Application
+  lang: Various # Payloads varied
+  cause: Bundled software # or compromised distribution
+  motive: Financial gain # (Adware)
+  transitive: false
+  insertion_phase: distribution
+  impact_type: Adware, Potentially Unwanted Programs (PUPs)
+  references:
+    - https://www.ghacks.net/2018/02/05/kmplayer-serves-adware/
+    - https://www.reddit.com/r/software/comments/c1x1lz/kmplayer_now_has_malwarecryptominer/
+  versions:
+    - Various versions around 2018, specific builds often tied to download sources.
+  domain: kmplayer.com # Official site, but bundling sometimes occurred via third-party download portals too.
+  domain_type: project host
+  artifact_type: binary archive

@@ -1,0 +1,24 @@
+- name: IBM Aptiva
+  title: IBM Aptiva PCs shipped pre-infected with CIH virus.
+  synopsis: In early 1999, IBM accidentally shipped several thousand Aptiva consumer PCs pre-installed with the destructive CIH (Chernobyl) file virus. The contamination occurred during manufacturing due to an infected test diskette and outdated antivirus software on a duplication server, shortly before the virus's damaging payload activation date (April 26th).
+  start_date: 1999-03-05 # Manufacturing start date for affected batch
+  end_date: 1999-03-17 # Manufacturing end date for affected batch (Disclosed April 1999)
+  attribution_type: Accidental
+  component_type: hardware # Virus pre-installed on PC hard drive
+  cause: Manufacturing error # Contamination during OS/software pre-installation
+  motive: Not applicable # Accidental
+  transitive: false
+  insertion_phase: distribution # Occurred during OEM pre-installation/manufacturing
+  impact_type: Data destruction, Hardware damage (BIOS payload)
+  impact_user_count: 5000 # "Several thousand" estimated affected PCs shipped
+  references:
+    - https://www.zdnet.com/article/ibm-says-some-aptivas-hit-by-virus-5000102000/
+    - https://en.wikipedia.org/wiki/CIH_(computer_virus)#Incidents
+    - https://www.f-secure.com/v-descs/cih.shtml # Mentions IBM Aptiva incident
+  versions:
+    - "IBM Aptiva models 240, 301, 520, 580 manufactured March 5-17, 1999"
+  artifacts:
+    - "Hard drives of affected IBM Aptiva PCs"
+  domain: ibm.com
+  domain_type: project host
+  artifact_type: hardware # Shipped with device

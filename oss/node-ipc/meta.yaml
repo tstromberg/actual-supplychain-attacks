@@ -4,7 +4,7 @@
   synopsis: The maintainer added malicious code targeting users with Russian or Belarusian IP addresses. The code attempted to recursively overwrite files with a heart emoji character, causing data destruction. This 'protestware' was embedded within the popular `node-ipc` library.
   start_date: 2022-03-07 # Approximate date malicious code first introduced
   end_date: 2022-03-16 # Date widely reported and action taken
-  attribution_type: Original maintainer
+  attribution_type: Author
   component_type: Library
   lang: Javascript
   cause: Maintainer sabotage

@@ -1,0 +1,19 @@
+- name: ViPNet Client (InfoTeCS)
+  title: ViPNet updates mimicked to deploy backdoor.
+  synopsis: A sophisticated backdoor was distributed disguised as updates for ViPNet, a secure networking software suite by InfoTeCS used in Russia. Attackers crafted update archives that, when processed by the ViPNet update service component, would execute a malicious loader and deploy a versatile backdoor.
+  start_date: 2025-04-01 # Approximate time of discovery of campaign activity (April 2025)
+  end_date: 2025-04-22 # Ongoing investigation as of report
+  attribution_type: APT group # (Implied by sophistication)
+  component_type: Application # (Secure networking client)
+  lang: C++ # (Backdoor components)
+  cause: Compromised update package # (Exploiting update mechanism logic)
+  motive: Espionage
+  transitive: false
+  insertion_phase: distribution # (Malicious archives mimicking updates)
+  impact_type: Backdoor, Data theft, Remote access
+  references:
+    - https://securelist.com/new-backdoor-mimics-security-software-update/116246/
+  versions:
+    - ViPNet Client versions susceptible to this update package manipulation
+  domain: N/A # (Malicious archives likely distributed via targeted means, not necessarily from official servers)
+  artifact_type: binary archive # (LZH update archives)

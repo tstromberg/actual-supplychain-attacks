@@ -1,0 +1,27 @@
+- name: CCleaner
+  title: CCleaner distributed with multi-stage backdoor.
+  synopsis: Attackers compromised the build environment of Piriform (later acquired by Avast), inserting a backdoor into official versions of CCleaner. The first stage collected system information from millions, while a second, highly targeted stage delivered further payloads to select organizations.
+  start_date: 2017-03-12 # Approximate date initial compromise or malware installation on Piriform's network
+  end_date: 2017-09-12 # Date clean version 5.34 was released (infected version 5.33 released Aug 15, discovered Sept 13)
+  attribution_type: Nation-state
+  component_type: application # System utility
+  cause: Build system compromise
+  motive: Espionage
+  transitive: false
+  insertion_phase: CI/CD # Malicious code injected during build process
+  impact_type: Backdoor, Data theft, Remote access (targeted second stage)
+  impact_user_count: 2270000 # Users who downloaded the backdoored first-stage version
+  references:
+    - https://blog.avast.com/ccleaner-incident-report-now-and-then-avast
+    - https://blogs.cisco.com/talos/ccleaner-c2-goes-down
+    - https://www.talosintelligence.com/reports/TALOS-2017-0481 # For one of the vulnerabilities exploited by second stage
+  versions:
+    - "CCleaner version 5.33.6162"
+    - "CCleaner Cloud version 1.07.3191"
+  artifacts:
+    - "CCleaner.exe" # The compromised executable
+  domain: piriform.com # Original software vendor domain (downloads.piriform.com)
+  domain_type: project host
+  artifact_type: binary archive # Installer
+  impacted_hashes:
+    - 1a4a5123d7b2c534cb3e3168f7032cf9ebf38b9a2a97226d0fdb7933cf6030ff

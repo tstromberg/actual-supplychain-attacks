@@ -12,9 +12,8 @@
   insertion_phase: distribution # Official FTP site compromised
   impact_type: Backdoor, Remote execution
   references:
-    - http://www.attrition.org/mirror/attrition/1999/01/21/ircII-client-security.patch.html # Analysis/patch
-    - https://seclists.org/bugtraq/1999/Jan/183 # Bugtraq discovery post
-    - https://dl.acm.org/doi/10.1145/357779.357789 # Academic paper mentioning the incident (Section 3.1)
+    - https://dl.acm.org/doi/10.1145/357779.357789 # Academic paper mentioning the incident (Section 3.1) - Access may be restricted
+    - https://www.cert.org/historical/advisories/CA-1999-01.cfm # CERT Advisory CA-1999-01 (covers this incident)
   versions:
     - 2.8.2 # Specific source tarball
   domain: ftp.irc.org

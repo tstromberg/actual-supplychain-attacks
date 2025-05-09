@@ -4,7 +4,7 @@
   start_date: 2018-06-01 # Approximate start of compromise
   end_date: 2018-06-12 # Date issue publicly acknowledged/addressed
   attribution_type: Cybercriminal gang
-  component_type: Application # Hosting Control Panel
+  component_type: Daemon # Hosting Control Panel
   lang: Shell # Malicious code in update scripts
   cause: Server compromise # Build/update infrastructure
   motive: Credential theft, Remote access
@@ -14,8 +14,6 @@
   domain_type: project host
   artifact_type: Source archive
   references:
-    - https://web.archive.org/web/20180617164849/https://forum.vestacp.com/viewtopic.php?f=10&t=17478 (Archived forum announcement)
-    - https://www.zdnet.com/article/vestacp-zero-day-and-server-breach-disclosed/
-    - https://blog.sucuri.net/2018/06/vesta-control-panel-compromise.html
+    - https://www.welivesecurity.com/2018/10/18/new-linux-chachaddos-malware-distributed-servers-vestacp-installed/
   versions:
     - All versions receiving updates during the compromise window

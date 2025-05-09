@@ -1,0 +1,21 @@
+- name: eWON (HMS Networks)
+  title: eWON VPN software installer distributed Havex.
+  synopsis: Belgian ICS vendor eWON (later acquired by HMS Networks), which provides remote connectivity solutions like VPN software for industrial equipment, was targeted by the DragonFly campaign. Legitimate software installers for their products (e.g., eCatcher VPN client) available on their website were compromised to include the Havex RAT.
+  start_date: 2013-01-01 # Approximate start of wider Havex campaign
+  end_date: 2014-06-01 # Public disclosure and remediation period
+  attribution_type: Nation-state # (DragonFly/Energetic Bear)
+  component_type: Application # (VPN client/remote connectivity software)
+  lang: C++ # (Havex RAT)
+  cause: Website compromise # (Vendor website)
+  motive: Espionage, Network reconnaissance
+  transitive: false
+  insertion_phase: distribution
+  impact_type: Backdoor, Data theft, Remote access
+  references:
+    - https://threatpost.com/motives-behind-havex-ics-malware-campaign-remain-a-mystery/107046/
+    - https://www.symantec.com/connect/blogs/dragonfly-western-energy-companies-under-sabotage-threat # (General Dragonfly campaign)
+  versions:
+    - Specific software installers for products like eCatcher during the compromise window.
+  domain: ewon.biz # (Official vendor website at the time)
+  domain_type: project host
+  artifact_type: binary archive

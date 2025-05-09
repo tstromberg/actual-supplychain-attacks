@@ -1,0 +1,28 @@
+- name: Solarwinds Orion
+  title: SolarWinds Orion updates delivered widespread backdoors.
+  synopsis: Attackers compromised SolarWinds' software build system, inserting a backdoor (Sunburst) into legitimate updates for its Orion IT management platform. This allowed widespread espionage against government and enterprise networks. A secondary backdoor (Supernova) was also deployed.
+  start_date: 2019-09-04 # Attackers first accessed SolarWinds' network
+  end_date: 2020-12-14 # FireEye publicly disclosed the attack
+  attribution_type: Nation-state
+  lang: "C#"
+  component_type: application # IT Management Platform
+  cause: Build system compromise
+  motive: Espionage, Data theft
+  transitive: false
+  insertion_phase: CI/CD # Malicious code injected during build/packaging
+  impact_type: Backdoor, Remote access, Data theft
+  impact_user_count: 18000 # Estimated organizations that installed the trojanized updates
+  references:
+    - https://www.cisa.gov/solarwinds
+    - https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromise.html
+    - https://www.microsoft.com/en-us/security/blog/2020/12/18/analyzing-solorigate-the-compromised-dll-file-that-started-a-sophisticated-cyberattack/
+  versions:
+    - "Orion Platform 2019.4 HF5 (version 2019.4.5200.9083)"
+    - "Orion Platform 2020.2 RC1 (version 2020.2.100.12219)"
+    - "Orion Platform 2020.2 RC2 (version 2020.2.5200.12394)"
+    - "Orion Platform 2020.2 HF1 (version 2020.2.5300.12432)"
+  artifacts:
+    - "SolarWinds.Orion.Core.BusinessLayer.dll" # Maliciously modified DLL
+  domain: solarwinds.com
+  domain_type: project host
+  artifact_type: binary archive # Software update packages

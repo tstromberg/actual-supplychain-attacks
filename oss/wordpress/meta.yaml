@@ -4,17 +4,13 @@
   start_date: 2007-02-21 # Approximate date compromised package was available
   end_date: 2007-02-22 # Approximate date discovered/removed/replaced with 2.1.2
   attribution_type: Unknown # Attacker(s) who breached wordpress.org server
-  component_type: Application # Content Management System (CMS)
+  component_type: Daemon # Content Management System (CMS)
   lang: PHP
   cause: Server compromise # wordpress.org download server hacked
   motive: Remote access # RCE backdoor
   insertion_phase: distribution # Official download package modified on server
   impact_type: Backdoor, Remote execution
   references:
-    - https://web.archive.org/web/20070225030412/http://wordpress.org/development/2007/02/wordpress-212/ # Archived official WP 2.1.2 announcement discussing the 2.1.1 compromise
-    - https://lwn.net/Articles/223717/ # LWN.net coverage of the incident
-    - https://www.zdnet.com/article/wordpress-download-contains-backdoor-code/ # ZDNet coverage
-    - https://wordpress.org/news/2009/01/wordpress-2-1-1-security/ # Later official post referencing the 2.1.1/2.1.2 security event
   domain: wordpress.org
   domain_type: project host
   artifact_type: Source archive

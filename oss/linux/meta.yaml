@@ -3,7 +3,7 @@
   synopsis: An attacker attempted to insert subtle backdoor code into the Linux kernel source tree. The attempt was made via a commit to the BitKeeper/CVS repository used at the time. The code modification appeared legitimate but contained a condition (`wait4()`) designed to grant root privileges based on specific parameters. It was detected and reverted before inclusion in any release.
   start_date: 2003-11-05
   end_date: 2003-11-05
-  attribution_type: Unknown # Speculated Nation-state or skilled hacker
+  attribution_type: Nation-state # Speculated Nation-state or skilled hacker
   component_type: OS # Kernel
   lang: C
   cause: Server compromise # Access to commit infrastructure (BitKeeper/CVS)

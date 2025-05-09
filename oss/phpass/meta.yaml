@@ -1,0 +1,25 @@
+- name: phpass (Hautelook fork on GitHub / Packagist)
+  title: hautelook/phpass library hijacked via GitHub org.
+  synopsis: The GitHub organization 'hautelook', which maintained a popular fork of the phpass PHP password hashing library, was deleted. An attacker later registered the 'hautelook' organization name and created a repository named 'phpass' with the same URL as the original. This new repository contained a malicious version of phpass designed to steal AWS credentials by exfiltrating environment variables. Packagist, which mirrored the original GitHub repository, then began serving this malicious version to users who updated the dependency.
+  start_date: 2022-05-19 # Attacker registered 'hautelook' and uploaded malicious code
+  end_date: 2022-05-24 # Malicious package identified and removed/mitigated by Packagist
+  attribution_type: Individual hacker # (Claimed as 'research' by same individual as 'ctx' incident)
+  component_type: Library
+  lang: PHP
+  cause: Account takeover # (GitHub organization/repo name reuse)
+  motive: Credential theft # (Targeting AWS keys)
+  transitive: false # Direct compromise of this specific fork's distribution path
+  insertion_phase: source # (Malicious code uploaded to a recreated 'trusted' source location)
+  impact_type: Credential theft, Data theft
+  impact_user_count: 2500000 # Total historical downloads of phpass via Packagist, indicating potential reach
+  references:
+    - https://www.concretecms.org/about/project-news/security/supply-chain-hack-phpass-repo-jacking
+    - https://thehackernews.com/2022/05/pypi-package-ctx-and-php-library-phpass.html
+    - https://cybersecuritynews.com/attackers-compromised-pypi-package/
+  versions:
+    - Versions of hautelook/phpass pulled from Packagist between May 19-24, 2022
+  artifacts:
+    - Malicious hautelook/phpass versions on Packagist originating from the hijacked GitHub repo.
+  domain: packagist.org # (Distribution via Packagist, sourced from GitHub)
+  domain_type: package host
+  artifact_type: source archive

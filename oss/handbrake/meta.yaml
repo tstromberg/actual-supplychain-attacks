@@ -12,9 +12,7 @@
   insertion_phase: distribution # Compromise of official download mirror
   impact_type: Remote access, Credential theft
   references:
-    - https://web.archive.org/web/20170507020635/https://forum.handbrake.fr/viewtopic.php?f=33&t=36361 (Original forum post, archived)
     - https://arstechnica.com/information-technology/2017/05/handbrake-download-server-hacked-to-distribute-mac-malware/
-    - https://www.intego.com/mac-security-blog/handbrake-downloads-infected-with-new-proton-rat-variant/
   versions:
     - 1.0.7 # Specific Mac DMG file
   domain: download.handbrake.fr

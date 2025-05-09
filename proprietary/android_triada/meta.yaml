@@ -1,0 +1,26 @@
+- name: Android/Triada
+  title: Android firmware shipped with sophisticated Triada trojan.
+  synopsis: The complex, modular Triada trojan was repeatedly found pre-installed deep within the firmware (sometimes infecting core Android processes like Zygote or system libraries) of numerous, often budget or counterfeit, Android devices. This likely occurred via supply chain compromise during manufacturing or firmware integration, granting attackers persistent, high-privilege access for credential theft, app modification, financial fraud, and further malware delivery.
+  start_date: 2016-01-01 # Approximate date Triada first discovered; pre-installation campaigns ongoing since then
+  end_date: Ongoing # New variants and affected devices periodically discovered
+  attribution_type: Cybercriminal group # Sophisticated, financially motivated actors
+  component_type: firmware # OS component / System library
+  cause: Manufacturing compromise # Embedded during firmware building/flashing process
+  motive: Financial gain, Credential theft, Account takeover
+  transitive: false
+  insertion_phase: CI/CD # Or manufacturing/distribution stage for firmware
+  impact_type: Backdoor, Rootkit, Data theft, Credential theft, Fraud
+  impact_user_count: 1000000 # Estimated millions affected globally over multiple campaigns/years
+  references:
+    - https://securelist.com/triada-trojan-modules-analysis/116380/ # Kaspersky analysis (2025)
+    - https://source.android.com/docs/security/reports/Google_Android_Security_2018_Report_Final.pdf # Google mentioning Triada pre-installs (2018 report)
+    - https://thehackernews.com/2025/04/triada-malware-preloaded-on-counterfeit.html # Recent reporting (2025)
+    - https://news.drweb.com/show/?i=10451 # Dr. Web report on pre-installed Triada (2017)
+  versions:
+    - "Numerous budget/unbranded/counterfeit Android device models firmware"
+  artifacts:
+    - "Infected firmware images"
+    - "Compromised system libraries (e.g., binary.so within boot-framework.oat)"
+  domain: Various Android OEMs / Unbranded Manufacturers / Firmware Integrators
+  domain_type: project host # OEM / Manufacturer
+  artifact_type: hardware # Shipped with device firmware

@@ -16,13 +16,11 @@
   references:
     - https://github.com/advisories/GHSA-pjwm-rvh2-c87w
     - https://github.com/faisalman/ua-parser-js/issues/536 # Maintainer confirming hijack
-    - https://www.bleepingcomputer.com/news/security/popular-npm-library-ua-parser-js-hijacked-to-install-malware/
   versions:
     - 0.7.29
     - 0.8.0
     - 1.0.0
   artifacts:
-    - "https://www.bleepingcomputer.com/news/security/popular-npm-library-ua-parser-js-hijacked-to-install-malware/"
   domain: npmjs.org
   domain_type: package host
   artifact_type: Source archive

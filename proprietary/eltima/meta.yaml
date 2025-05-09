@@ -1,0 +1,23 @@
+- name: Eltima Elmedia Player/Folx
+  title: Eltima installers bundled Proton RAT.
+  synopsis: Download servers for Eltima Software were compromised, leading to their Elmedia Player and Folx applications being bundled with the Proton Remote Access Trojan (RAT) for macOS.
+  start_date: 2017-10-19 # Discovered, likely active before
+  end_date: 2017-10-20 # Public notification
+  attribution_type: Cybercriminal gang
+  component_type: Application
+  lang: Swift # Proton RAT
+  cause: Server compromise
+  motive: Financial gain, Data theft
+  transitive: false
+  insertion_phase: distribution
+  impact_type: Backdoor, Remote access, Credential theft
+  references:
+    - https://www.bleepingcomputer.com/news/apple/eltima-website-hacked-to-spread-proton-rat-with-popular-video-player-app/
+    - https://www.welivesecurity.com/2017/10/21/osxproton-supply-chain-attack-elmedia-player-folx/
+    - https://blog.eltima.com/security-breach-eltima-Oct-2017/
+  versions:
+    - Elmedia Player (builds distributed on Oct 19th, 2017)
+    - Folx (builds distributed on Oct 19th, 2017)
+  domain: mac.eltima.com
+  domain_type: project host
+  artifact_type: binary archive

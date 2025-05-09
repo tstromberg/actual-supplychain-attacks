@@ -1,0 +1,27 @@
+- name: X_TRADER
+  title: Trading Technologies X_TRADER software delivered backdoor.
+  synopsis: A compromised installer for the retired X_TRADER financial software, available on Trading Technologies' official website and signed with their certificate, contained the VEILEDSIGNAL backdoor. It infected a 3CX employee, initiating a cascading supply chain attack, and reportedly impacted other energy and financial sector organizations.
+  start_date: 2021-11-01 # Approximate date compromised signed installer became available
+  end_date: 2022-07-26 # Approximate date compromised installer download window ended
+  attribution_type: Nation-state
+  component_type: application # Financial trading software
+  cause: Website compromise # Malicious installer hosted on official site
+  motive: Financial gain # Used to gain foothold for further operations
+  transitive: false # This was the first stage in the cascading 3CX attack
+  insertion_phase: distribution # Compromised installer on official website
+  impact_type: Backdoor, Remote access # Enabled credential theft and lateral movement
+  impact_user_count: 97 # Reported number of downloads of the compromised package
+  references:
+    - https://cloud.google.com/blog/topics/threat-intelligence/3cx-software-supply-chain-compromise # Mandiant report detailing the link
+    - https://www.securityweek.com/cascading-supply-chain-attack-3cx-hacked-after-employee-downloaded-trojanized-app/
+    - https://www.cybersecuritydive.com/news/3cx-x-trader-symantec-supply-chain/648414/
+    - https://www.zetter-zeroday.com/software-maker-3cx-was-compromised/
+  versions:
+    - "Specific X_TRADER installer versions available Nov 2021 - July 2022 (e.g., X_TRADER_r7.17.90p608.exe)"
+  artifacts:
+    - "X_TRADER_r7.17.90p608.exe" # Example compromised installer filename
+  domain: tradingtechnologies.com
+  domain_type: project host
+  artifact_type: binary archive # Software installer
+  impacted_hashes:
+    - "ef4ab22e565684424b4142b1294f1f4d" # MD5 hash for one known malicious installer Setup.exe within the package

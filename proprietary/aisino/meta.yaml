@@ -1,0 +1,24 @@
+- name: Aisino
+  title: Chinese tax software installed GoldenSpy backdoor.
+  synopsis: "Intelligent Tax software, produced by Aisino Corporation and required by some Chinese banks for companies operating in China, was found to install the GoldenSpy backdoor. This malware provided extensive remote access and control capabilities, including command execution and data exfiltration, with a delayed installation to evade detection."
+  start_date: 2020-04-01 # Approximate start of the GoldenSpy campaign via Aisino software (earlier related GoldenHelper from 2018)
+  end_date: 2020-06-28 # Approximate date an uninstaller for GoldenSpy was pushed after public disclosure
+  attribution_type: Nation-state
+  component_type: application # Tax software
+  cause: Vendor compromise # Or complicity, embedded in official software
+  motive: Espionage, Data theft
+  transitive: false
+  insertion_phase: source # Malware embedded within the legitimate, required tax software installer
+  impact_type: Backdoor
+  impact_user_count: 1000 # Estimate, targeted foreign companies operating in China
+  references:
+    - https://www.zdnet.com/article/chinese-bank-forced-western-companies-to-install-malware-laced-tax-software/
+    - https://attack.mitre.org/software/S0493/
+  versions:
+    - "Multiple versions of Aisino Intelligent Tax software containing GoldenSpy module, active in 2020"
+  artifacts:
+    - "PluginManager.exe" # Part of the tax software that could initiate GoldenSpy download
+    - "svm.exe / svmm.exe" # GoldenSpy executables
+  domain: i-xinnuo.com # Aisino's software domain (initial download point)
+  domain_type: project host
+  artifact_type: binary archive # Installer for tax software

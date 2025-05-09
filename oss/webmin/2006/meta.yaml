@@ -4,15 +4,15 @@
   start_date: 2006-08-10 # Approximate date malicious version appeared
   end_date: 2006-08-13 # Approximate date discovered/mitigated
   attribution_type: Individual hacker
-  component_type: Application # System administration tool
+  component_type: Daemon # System administration tool
   lang: Perl # Backdoor script was Perl
   cause: Server compromise # SourceForge mirror network
   motive: Remote access # Root command execution
   insertion_phase: distribution # Official download mirror compromised
   impact_type: Backdoor, Remote execution, Root compromise
   references:
-    - https://www.securityfocus.com/bid/19474/info # SecurityFocus entry
-    - https://seclists.org/fulldisclosure/2006/Aug/167 # Public disclosure / analysis
+
+
     - https://www.webmin.com/exploit.html # Webmin page listing exploits (mentions SourceForge issues)
   domain: sourceforge.net
   domain_type: package host

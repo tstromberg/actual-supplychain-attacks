@@ -1,0 +1,24 @@
+- name: "Infestation: Survivor Stories (fka The War Z)"
+  title: Infestation game executable backdoored via supply chain.
+  synopsis: Linked to the ShadowHammer/BARIUM APT group (also involved in the ASUS attack), the executable for the online game Infestation Survivor Stories (formerly The War Z) was reportedly recompiled with malicious code sometime before 2019. This supply chain compromise likely aimed to collect system information from players.
+  start_date: Unknown # Occurred sometime during the game's active development/patching lifecycle potentially up to 2018/2019
+  end_date: Unknown # Discovery reported 2019, actual end date of distribution unclear
+  attribution_type: Nation-state
+  component_type: game
+  cause: Build system compromise # Implied by recompilation of executable
+  motive: Espionage # Data collection (system info, MAC addresses)
+  transitive: false
+  insertion_phase: CI/CD # Malicious code injected during build process
+  impact_type: Data theft
+  impact_user_count: Unknown # Dependent on timing within game's lifecycle
+  references:
+    - https://www.bankinfosecurity.com/shadowhammer-spreads-across-online-gaming-supply-chain-a-12409 # Discusses BARIUM targeting gaming suppliers
+    - https://www.kaspersky.com/blog/shadowhammer-teaser/25763/ # Kaspersky initial ShadowHammer post
+    - https://www.reddit.com/r/pcgaming/comments/bh22hd/infestation_survivor_stories_backdoored_with/ # Cites Kaspersky research linking the game
+  versions:
+    - "Unknown specific game executable versions/patches"
+  artifacts:
+    - "Compromised game executable (e.g., Infestation.exe)"
+  domain: Unknown # Likely distributed via Steam or original publisher website
+  domain_type: package host # Or project host
+  artifact_type: binary archive # Game client/patch

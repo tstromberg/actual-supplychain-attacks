@@ -1,0 +1,24 @@
+- name: NoxPlayer
+  title: NoxPlayer updates distributed targeted malware.
+  synopsis: BigNox, the company behind NoxPlayer (an Android emulator for PC/Mac), had its update mechanism compromised. Attackers delivered tailored malware payloads to specific users, primarily in Asian countries, without compromising the NoxPlayer software itself initially. The attackers gained access to BigNox's update infrastructure to deliver these malicious updates.
+  start_date: 2020-09-01 # Approximate start of observed malicious activity
+  end_date: 2021-01-25 # Public disclosure of the campaign
+  attribution_type: Nation-state # or state-sponsored
+  component_type: Application # (Android emulator)
+  lang: C++ # (Various payloads)
+  cause: Update infrastructure compromise
+  motive: Espionage, Targeted surveillance
+  transitive: false
+  insertion_phase: distribution # (Hijacked update delivery)
+  impact_type: Backdoor, Remote access, Spyware
+  impact_user_count: 5 # Number of known, specifically targeted victims, though infrastructure was capable of wider reach
+  references:
+    - https://securelist.com/operation-noxplayer/100644/
+    - https://www.eset.com/int/about/newsroom/press-releases/research/eset-discovers-operation-noxplayer-supply-chain-attack-infiltrates-gaming-community-in-asia/
+  versions:
+    - Not specific versions of NoxPlayer itself, but its update mechanism was used.
+  artifacts:
+    - Malicious updates delivered via api.bignox.com or res06.bignox.com
+  domain: api.bignox.com # (Update server domain)
+  domain_type: project host
+  artifact_type: binary archive # (Malicious update packages)

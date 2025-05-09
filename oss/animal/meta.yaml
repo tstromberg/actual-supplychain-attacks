@@ -2,8 +2,7 @@
   title: Animal Trojan / Virus
   start_date: 1975-01-01
   end_date: 1976-01-01
-  attribution_type: maintainer
-  attribution: John Walker
+  attribution_type: Author
   component_type: Game
   lang: Assembly
   motive: lulz

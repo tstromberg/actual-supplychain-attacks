@@ -1,0 +1,19 @@
+- name: Able Desktop
+  title: Able Desktop installer distributed malware
+  synopsis: Attackers compromised the website of Able Desktop, a Korean software company, to distribute a malicious version of their software. The trojanized installer contained a remote access backdoor.
+  start_date: 2020-11-01
+  end_date: 2020-12-31
+  attribution_type: Nation-state
+  component_type: Application
+  lang: C++
+  cause: Website compromise
+  motive: Espionage
+  transitive: false
+  insertion_phase: distribution
+  impact_type: Remote access
+  impact_user_count: 30000
+  references:
+    - https://blog.alyac.co.kr/3514
+  domain: able.co.kr
+  domain_type: project host
+  artifact_type: binary archive

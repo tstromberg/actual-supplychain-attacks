@@ -1,0 +1,22 @@
+- name: MeDoc
+  title: MeDoc updates distributed NotPetya ransomware.
+  synopsis: The update mechanism for MeDoc, a popular Ukrainian accounting software, was compromised. Attackers used it to distribute the NotPetya malware, which initially masqueraded as ransomware but functioned primarily as a destructive wiper, causing global disruption.
+  start_date: 2017-04-01 # Approximate date backdoor was first installed on MeDoc servers (some evidence suggests April 2017)
+  end_date: 2017-06-27 # Date of the main NotPetya outbreak via MeDoc
+  attribution_type: Nation-state
+  component_type: application # Accounting software
+  cause: build server compromise
+  motive: Data destruction, Disruption, Espionage (initial backdoor)
+  transitive: false
+  insertion_phase: distribution # Malicious payload pushed via software update server
+  impact_type: Ransomware (wiper), Data destruction, Denial of service
+  impact_user_count: 400000 # Estimated MeDoc customer base in Ukraine; global impact far wider
+  references:
+    - https://www.wired.com/story/notpetya-cyberattack-ukraine-russia-code-crashed-the-world/
+    - https://www.cisa.gov/news-events/alerts/2017/07/13/update-alert-ta17-181a-petya-ransomware
+    - https://www.welivesecurity.com/2017/07/04/connection-telebots-past-attacks-current-medoc-situation/
+  versions:
+    - "Specific MeDoc update versions distributed on or around June 27, 2017" # Exact version numbers of MeDoc updates often not cited, but the update mechanism was the vector
+  domain: medoc.ua # Original software vendor domain
+  domain_type: project host
+  artifact_type: binary archive # Software update

@@ -1,0 +1,28 @@
+- name: Comm100
+  title: Comm100 chat installer delivered backdoor malware.
+  synopsis: Attackers compromised the official website of Comm100 (customer engagement software vendor) to distribute a trojanized version of their Windows Desktop Agent installer. The installer, signed with a valid Comm100 certificate, contained a JavaScript backdoor leading to potential remote shell access and further malware deployment.
+  start_date: 2022-09-27 # Approximate date malicious installer was available
+  end_date: 2022-09-29 # Date malicious installer was removed after detection
+  attribution_type: Nation-state
+  component_type: application # Customer service chat client
+  cause: Website compromise # Official download replaced with malicious version
+  motive: Espionage, Initial access
+  transitive: false
+  insertion_phase: distribution # Compromised installer available on vendor website
+  impact_type: Backdoor, Remote access
+  impact_user_count: 1000 # Estimate; potentially affected subset of 15k customers across various sectors
+  references:
+    - https://www.crowdstrike.com/blog/crowdstrike-detects-supply-chain-attack-targeting-comm100-customers/
+    - https://www.cyber.gc.ca/en/alerts-advisories/supply-chain-compromise-impacting-comm100-live-chat-software # Canadian Cyber Centre Alert
+    - https://therecord.media/report-commercial-chat-provider-hijacked-to-spread-malware-in-supply-chain-attack
+    - https://socradar.io/comm100-installer-abused-in-supply-chain-attack-to-distribute-malware/
+  versions:
+    - "Comm100LiveChat-Setup-win.exe versions 10.0.7, 10.0.8" # Specific affected versions
+  artifacts:
+    - "Comm100LiveChat-Setup-win.exe" # Malicious installer filename
+  domain: comm100.com # Official vendor website
+  domain_type: project host
+  artifact_type: binary archive # Software installer
+  impacted_hashes:
+    - "6f0fae95f5637710d1464b42ba49f9533443181262f78805d3ff13bea3b8fd45" # SHA256 for version 10.0.7
+    - "ac5c0823d623a7999f0db345611084e0a494770c3d6dd5feeba4199deee82b86" # SHA256 for version 10.0.8

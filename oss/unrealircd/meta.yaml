@@ -4,17 +4,14 @@
   start_date: 2009-11-01 # Approximate date backdoored tarball appeared
   end_date: 2010-06-12 # Date backdoor discovered/announced
   attribution_type: Unknown
-  component_type: Application # IRC Server
+  component_type: Daemon # IRC Server
   lang: C # Backdoor code in C source
   cause: Server compromise # Download mirror(s) hacked
   motive: Remote access # Command execution
   insertion_phase: distribution # Official download tarball replaced
   impact_type: Backdoor, Remote execution
   references:
-    - https://forums.unrealircd.org/viewtopic.php?t=5 Unreal 3.2.8.1 download file was replaced with a trojaned version # Link seems dead, original forum thread ID was likely different or removed. Need better refs.
     - https://www.rapid7.com/db/modules/exploit/unix/irc/unreal_ircd_3281_backdoor/ # Exploit module details
-    - https://www.securityfocus.com/bid/40801/info # SecurityFocus entry
-    - https://seclists.org/fulldisclosure/2010/Jun/205 # Public disclosure
   domain: unrealircd.org
   domain_type: project host
   artifact_type: Source archive

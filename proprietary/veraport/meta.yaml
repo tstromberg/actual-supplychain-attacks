@@ -1,0 +1,21 @@
+- name: VeraPort (WIZVERA)
+  title: VeraPort plugin pushed malware South Korea.
+  synopsis: VeraPort, an integrated installation program by WIZVERA, commonly used in South Korea for secure access to government and financial websites, was abused. Its browser plugin mechanism was compromised or leveraged to prompt users to install malware, sometimes signed with stolen digital certificates, effectively turning a trusted security tool into a malware distribution vector.
+  start_date: 2020-11-01 # Approximate period of reported abuse
+  end_date: 2020-12-31 # Approximate period of reported abuse
+  attribution_type: Cybercriminal gang # or Nation-state
+  component_type: Application # (Security/Plugin Management Software)
+  lang: Various # (Payloads varied)
+  cause: Compromised update/plugin mechanism # or exploitation of its trust
+  motive: Espionage, Data theft, Financial gain
+  transitive: false
+  insertion_phase: distribution # (via the trusted VeraPort plugin/process)
+  impact_type: Backdoor, Credential theft, Malware deployment
+  references:
+    - https://www.zdnet.com/article/south-korean-state-hackers-abused-browser-plugin-to-target-users/ (References Lazarus using similar mechanisms)
+    - https://blog.alyac.co.kr/3547 (Korean - details VeraPort related malware distribution)
+  versions:
+    - Various versions active during the compromise period
+  domain: wizvera.com # (Legitimate domain, but its process was abused)
+  domain_type: project host
+  artifact_type: binary archive # (Malicious payloads delivered via its mechanism)

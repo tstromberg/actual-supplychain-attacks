@@ -4,7 +4,7 @@
   start_date: 2002-09-28 # Date compromised files likely appeared on FTP server
   end_date: 2002-10-06 # Date compromise discovered and files replaced
   attribution_type: Unknown # Attacker(s) who breached ftp.sendmail.org
-  component_type: Application # Mail Transfer Agent
+  component_type: Daemon # Mail Transfer Agent
   lang: C # Trojan inserted into C source or build process
   cause: Server compromise # Official FTP distribution server hacked
   motive: Remote access # Backdoor via IRC connection/shell

@@ -1,0 +1,30 @@
+- name: 3CX
+  title: 3CX app updates delivered multi-stage malware.
+  synopsis: A sophisticated supply chain attack compromised 3CX's build process, inserting malware into signed Desktop App updates for Windows and macOS. This was a cascading attack, as 3CX itself was breached via an employee downloading different trojanized software (X_TRADER). The malware aimed to steal data and deploy further payloads.
+  start_date: 2022-12-07 # Approximate date C2 infrastructure was activated/testing began
+  end_date: 2023-03-30 # Public disclosure and remediation efforts underway
+  attribution_type: Nation-state
+  component_type: application # VoIP Softphone Client
+  cause: Build system compromise # Initial vector to 3CX was via other compromised software (X_TRADER) downloaded by an employee
+  motive: Espionage # Potentially financial gain for later stages
+  transitive: true # The compromise of 3CX was due to another supply chain attack (X_TRADER software)
+  insertion_phase: CI/CD # Malicious code injected into 3CX Desktop App during build/packaging
+  impact_type: Backdoor, Data theft, Remote access
+  lang: C
+  impact_user_count: 600000 # Number of business customers using 3CX software globally (potential reach)
+  references:
+    - https://www.mandiant.com/resources/blog/3cx-software-supply-chain-compromise
+    - https://www.volexity.com/blog/2023/03/30/3cx-supply-chain-compromise-leads-to-iconic-incident/
+  versions:
+    - "Windows: 18.12.407, 18.12.416"
+    - "macOS: 18.11.1213, 18.12.402, 18.12.407, 18.12.416"
+  artifacts:
+    - "3CXDesktopApp.exe" # Windows installer/executable
+    - "3CXDesktopApp.dmg" # macOS installer
+    - "ffmpeg.dll" # Compromised DLL on Windows
+    - "libffmpeg.dylib" # Compromised dylib on macOS
+  domain: 3cx.com # Official distribution domain
+  domain_type: project host
+  artifact_type: binary archive # Software update/installer
+  impacted_hashes:
+    - 53a44c2396d15c3a03723fa5e5db54cafd527b9eceb8f99aeffcf6f8c609e5f4

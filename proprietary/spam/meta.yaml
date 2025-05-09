@@ -1,0 +1,26 @@
+- name: spam
+  title: spam PyPI package compromised via phishing.
+  synopsis: Similar to the 'exotel' incident during the same phishing campaign ("JuiceLedger"), the maintainer account for a PyPI package named 'spam' was compromised. Malicious versions (2.0.2, 4.0.2) were uploaded, designed to download and execute infostealer malware upon installation.
+  start_date: 2022-08-01 # Approximate start of campaign/compromise window
+  end_date: 2022-08-31 # Approximate discovery/remediation window
+  attribution_type: Threat Actor # (JuiceLedger)
+  component_type: Library
+  lang: Python # Malicious code added to package
+  cause: Phishing, Stolen credentials
+  motive: Credential theft, Data theft
+  transitive: false
+  insertion_phase: distribution # Malicious version uploaded to package host
+  impact_type: Infostealer, Credential theft
+  impact_user_count: 200000 # Approximate total downloads for the package historically, indicating potential reach
+  references:
+    - https://checkmarx.com/blog/first-known-phishing-attack-against-pypi-users/
+    - https://www.sentinelone.com/labs/pypi-phishing-campaign-juiceledger-threat-actor-pivots-from-fake-apps-to-supply-chain-attacks/
+    - https://www.itpro.com/security/phishing/368899/pypi-packages-succumb-to-mailchimp-phishing-scam
+  versions:
+    - 2.0.2
+    - 4.0.2
+  artifacts:
+    - https://pypi.org/project/spam/ # Base URL, compromised versions removed
+  domain: pypi.org
+  domain_type: package host
+  artifact_type: source archive

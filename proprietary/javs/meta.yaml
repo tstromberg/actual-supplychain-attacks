@@ -1,0 +1,25 @@
+- name: Justice AV Solutions (JAVS) Viewer
+  title: JAVS Viewer installer distributed backdoor.
+  synopsis: A specific version of JAVS Viewer software, used in courtroom audio-visual recording, was compromised. The official installer available for download from the company's website contained a backdoor, allowing attackers potential full control over affected systems.
+  start_date: 2024-02-01 # Approximate time malicious installer was available
+  end_date: 2024-05-10 # Discovery and public alert
+  attribution_type: Unknown
+  component_type: Application
+  lang: C++ # Likely, for core malware components GateDoor/RustDoor
+  cause: Compromised installer # or build process
+  motive: Espionage, Remote access
+  transitive: false
+  insertion_phase: distribution # Potentially build automation/CI-CD
+  impact_type: Backdoor, Remote access, Data theft
+  references:
+    - https://www.rapid7.com/blog/post/2024/05/16/cve-2024-4978-backdoored-justice-av-solutions-viewer-installer/
+    - https://www.bleepingcomputer.com/news/security/hackers-backdoor-courtroom-recording-software-from-justice-av-solutions/
+  versions:
+    - JAVS Viewer 8.3.7 (specific build 8.3.7.250-1)
+  artifacts:
+    - JAVS Viewer Setup 8.3.7.250-1.exe
+  domain: javs.com
+  domain_type: project host
+  artifact_type: binary archive
+  impacted_hashes:
+    - 543ea993454380f8152e2838d27ad78803083d953701349516c288069056f101 # JAVS Viewer Setup 8.3.7.250-1.exe

@@ -1,0 +1,20 @@
+- name: Kaseya VSA
+  title: Kaseya VSA distributed REvil ransomware
+  synopsis: Attackers exploited vulnerabilities in Kaseya VSA to distribute REvil ransomware through the software's auto-update functionality. The attack affected thousands of businesses worldwide.
+  start_date: 2021-07-02
+  end_date: 2021-07-05
+  attribution_type: Cybercriminal gang
+  component_type: Application
+  lang: C#
+  cause: Exploit
+  motive: Financial gain
+  transitive: false
+  insertion_phase: CI/CD
+  impact_type: Ransomware
+  impact_user_count: 1500
+  references:
+    - https://www.cisa.gov/news-events/cybersecurity-advisories/aa21-201a
+    - https://helpdesk.kaseya.com/hc/en-gb/articles/4403440684689-Kaseya-VSA-Security-Incident
+  domain: kaseya.com
+  domain_type: project host
+  artifact_type: binary archive

@@ -17,7 +17,5 @@
   domain_type: project host
   references:
 
-    - https://www.wordfence.com/blog/2022/01/backdoor-found-in-accesspress-themes-plugins/
-
   versions:
     - Dozens of themes/plugins from AccessPress Themes/Access Keys (see references for specific lists)

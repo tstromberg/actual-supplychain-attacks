@@ -4,7 +4,7 @@
   start_date: 2019-04-17 # Approximate date backdoor first appeared in build (v1.890)
   end_date: 2019-08-17 # Date publicly disclosed at Def Con / fixed (v1.930)
   attribution_type: Unknown
-  component_type: Application # System administration tool
+  component_type: Daemon # System administration tool
   lang: Perl
   cause: Server compromise # Build infrastructure compromised
   motive: Remote access # Root command execution

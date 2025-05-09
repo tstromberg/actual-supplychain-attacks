@@ -1,0 +1,24 @@
+- name: ASUS Live Update
+  title: ASUS Live Update delivered targeted backdoors.
+  synopsis: Attackers compromised ASUS's Live Update servers and used stolen digital certificates to distribute trojanized versions of the utility. The malware was designed to install further backdoors on a specific list of machines identified by their MAC addresses.
+  start_date: 2018-06-01 # Approximate start of distribution of malicious updates
+  end_date: 2018-11-01 # Approximate end of distribution; publicly disclosed March 2019
+  attribution_type: Nation-state
+  component_type: application # System utility (software update tool)
+  cause: Update server compromise, Stolen certificates
+  motive: Espionage (highly targeted)
+  transitive: false
+  insertion_phase: distribution # Malicious updates distributed via official ASUS servers
+  impact_type: Backdoor, Remote access
+  impact_user_count: 57000 # Kaspersky customers who received the trojanized update; broader infection over 1 million, but targeted payload for ~600 MACs
+  references:
+    - https://securelist.com/operation-shadowhammer/89992/
+    - https://www.vice.com/en/article/pan9wn/hackers-hijacked-asus-software-updates-to-install-backdoors-on-thousands-of-computers
+    - https://www.asus.com/news/asus-response-to-the-recent-media-reports-regarding-asus-live-update-tool-attack-by-advanced-persistent-threat-apt-groups/
+  versions:
+    - "Multiple versions of ASUS Live Update utility distributed between June and November 2018"
+  artifacts:
+    - "setup.exe" # Name of the malicious installer for ASUS Live Update
+  domain: asus.com # Live update servers (liveupdate01s.asus.com, liveupdate01.asus.com)
+  domain_type: project host
+  artifact_type: binary archive # Software update utility

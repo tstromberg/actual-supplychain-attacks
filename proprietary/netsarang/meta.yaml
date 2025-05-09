@@ -1,0 +1,29 @@
+- name: NetSarang
+  title: NetSarang server tools shipped with ShadowPad backdoor.
+  synopsis: Legitimate updates for NetSarang's popular server management software (Xmanager, Xshell, etc.) were compromised to include the ShadowPad backdoor. This allowed attackers to potentially control and exfiltrate data from infected systems in highly sensitive organizations worldwide. The backdoor was discovered after being active for a short period.
+  start_date: 2017-07-18 # Date compromised builds were made available
+  end_date: 2017-08-04 # Date NetSarang was notified and removed compromised software
+  attribution_type: Nation-state
+  component_type: application # Server management utilities
+  cause: Build system compromise # Or compromised update mechanism
+  motive: Espionage
+  transitive: false
+  insertion_phase: CI/CD # Malicious code injected into official builds
+  impact_type: Backdoor
+  impact_user_count: 10000 # Estimated, affected hundreds of organizations globally including in sensitive sectors
+  references:
+    - https://securelist.com/shadowpad-in-corporate-networks/79953/
+    - https://www.kaspersky.com/about/press-releases/2017_shadowpad-how-attackers-hide-backdoor-in-software-used-by-hundreds-of-large-companies-around-the-world
+    - https://www.cyber.gc.ca/en/alerts/software-compromised-backdoor-trojan-0
+    - https://www.netsarang.com/en/security-exploit-in-july-18-2017-build/ # Original NetSarang advisory
+  versions:
+    - "Xmanager Enterprise 5.0 Build 1232"
+    - "Xmanager 5.0 Build 1045"
+    - "Xshell 5.0 Build 1322"
+    - "Xftp 5.0 Build 1218"
+    - "Xlpd 5.0 Build 1220"
+  artifacts:
+    - "nssock2.dll" # Maliciously modified library within the software
+  domain: netsarang.com
+  domain_type: project host
+  artifact_type: binary archive # Software update/installer

@@ -1,0 +1,21 @@
+- name: MESA Imaging (Acquired by Heptagon, then ams OSRAM)
+  title: MESA Imaging camera software distributed Havex.
+  synopsis: MESA Imaging, a Swiss developer of 3D Time-of-Flight (ToF) cameras and related software used in industrial applications, was another vendor whose website was compromised by the DragonFly group. Software installers for their camera products were trojanized with the Havex RAT, enabling espionage on systems using their specialized imaging equipment.
+  start_date: 2013-01-01 # Approximate start of wider Havex campaign
+  end_date: 2014-06-01 # Public disclosure and remediation period
+  attribution_type: Nation-state # (DragonFly/Energetic Bear)
+  component_type: Application # (Industrial camera software/SDK)
+  lang: C++ # (Havex RAT)
+  cause: Website compromise # (Vendor website)
+  motive: Espionage, Data theft
+  transitive: false
+  insertion_phase: distribution
+  impact_type: Backdoor, Data theft, Remote access
+  references:
+    - https://www.f-secure.com/documents/996508/1030745/Threat_Intelligence_Report_Havex_an_Energetic_Bear_Targets_ICS_SCADA.pdf
+    - https://en.wikipedia.org/wiki/Havex # (Mentions MESA Imaging)
+  versions:
+    - Specific software installers available during the compromise period.
+  domain: mesa-imaging.ch # (Official vendor website at the time)
+  domain_type: project host
+  artifact_type: binary archive

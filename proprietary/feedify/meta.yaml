@@ -1,0 +1,22 @@
+- name: Feedify
+  title: Feedify push notification script compromised.
+  synopsis: Feedify, a push notification service provider, had its JavaScript library compromised. Attackers injected malicious code into the script served to Feedify's customers. This skimmer code was then loaded on the websites of numerous businesses using Feedify, attempting to steal payment card details from their end-users.
+  start_date: 2018-09-01 # Approximate start of malicious activity
+  end_date: 2018-11-01 # Approximate discovery and remediation period
+  attribution_type: Cybercriminal gang # (Magecart)
+  component_type: Script # (Push notification service script)
+  lang: JavaScript
+  cause: Compromised third-party script # (Feedify's script itself was compromised)
+  motive: Financial gain
+  transitive: true # Feedify's customers were affected due to Feedify's compromise
+  insertion_phase: dependency # From the perspective of websites using Feedify
+  impact_type: Credential theft, Data theft
+  impact_user_count: 4000 # Estimated number of websites using Feedify affected
+  references:
+    - https://blog.sucuri.net/2018/11/feedify-compromised-push-notifications-used-to-load-card-skimmer.html
+    - https://www.riskiq.com/blog/labs/magecart-feedify/
+  artifacts:
+    - feedify.net/getjs/pushconfig.js # The compromised script URL
+  domain: feedify.net
+  domain_type: project host # (Service provider's domain)
+  artifact_type: source archive # (JavaScript file)

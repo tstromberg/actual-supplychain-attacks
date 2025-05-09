@@ -4,7 +4,7 @@
   synopsis: Similar to 'colors.js', the maintainer intentionally corrupted the 'faker.js' library. This act of sabotage involved force-pushing breaking changes and effectively deleting the package content, causing disruption for dependent applications. This was also a protest act by the same maintainer.
   start_date: 2022-01-04 # Approximate date of sabotage
   end_date: 2022-01-09 # When broader issue became known along with colors.js
-  attribution_type: Original maintainer
+  attribution_type: Author
   component_type: Library
   lang: Javascript
   cause: Maintainer sabotage

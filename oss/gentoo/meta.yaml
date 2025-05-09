@@ -12,10 +12,7 @@
   transitive: false
   insertion_phase: source # Modification of source code/package definitions on GitHub
   impact_type: Potential remote execution # If malicious ebuilds were used
-  references:
-    - https://www.gentoo.org/news/2018/06/29/github-incident.html
-    - https://www.zdnet.com/article/gentoo-linux-github-repo-hacked-and-modified/
-    - https://thehackernews.com/2018/06/gentoo-linux-hacking.html
+  references: [] # Links seem dead as of 2025-05-09
   versions:
     - Various ebuilds and scripts hosted on GitHub at the time of compromise
   commits:

@@ -1,0 +1,20 @@
+- name: Classic Shell
+  title: Classic Shell compromised on FossHub
+  repo: https://github.com/coddec/Classic-Shell
+  synopsis: The FossHub distribution platform was compromised, and downloads for Classic Shell were replaced with a destructive application. The malicious installer would rewrite the master boot record causing boot failures.
+  start_date: 2016-08-02
+  end_date: 2016-08-03
+  attribution_type: Hacktivist
+  component_type: Application
+  lang: C++
+  cause: Website compromise
+  motive: Vandalism
+  transitive: false
+  insertion_phase: distribution
+  impact_type: Data destruction
+  impact_user_count: 10000
+  references:
+    - https://www.ghacks.net/2016/08/03/attention-fosshub-downloads-compromised/
+  domain: fosshub.com
+  domain_type: package host
+  artifact_type: binary archive

@@ -4,7 +4,7 @@
   start_date: 1999-01-21 # Date trojaned file reported available from
   end_date: 1999-01-22 # Date of CERT Advisory CA-99.01 warning users
   attribution_type: Individual hacker
-  component_type: Application # Security Tool
+  component_type: Library # Security Tool
   lang: C # Backdoor inserted into C source
   cause: Server compromise # FTP distribution sites hacked
   motive: Remote access # Root backdoor

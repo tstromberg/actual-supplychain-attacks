@@ -1,10 +1,10 @@
 - name: reviewdog/action-setup
   title: reviewdog/action-setup GitHub Action compromise leaks secrets
   synopsis: Attackers compromised a contributor's Personal Access Token (PAT), traced back to an earlier leak from the SpotBugs project, which granted write access. They maliciously updated the `v1` tag of the official `reviewdog/action-setup` GitHub Action to point to malicious code (`f0d342d`). For approximately 2 hours, workflows using `@v1` executed this code, which dumped secrets (like GITHUB_TOKEN) from the runner environment into publicly accessible workflow logs. This incident was a precursor, enabling the compromise of the `tj-actions/changed-files` action.
-  start_date: 2025-03-11T18:42:00Z # Compromise window start UTC
-  end_date: 2025-03-11T20:31:00Z # Compromise window end UTC
-  attribution_type: Unknown # Actor behind the initial token compromises
-  component_type: Library # CI/CD Component (GitHub Action)
+  start_date: 2025-03-11
+  end_date: 2025-03-17
+  attribution_type: Nation-state # Actor behind the initial token compromises
+  component_type: CI/CD plugin # CI/CD Component (GitHub Action)
   lang: Shell # Malicious payload likely involved shell commands/scripts
   cause: Stolen credentials # Leaked contributor PAT token via upstream compromise
   motive: Credential theft # Exfiltrating secrets from CI/CD pipelines
@@ -19,6 +19,7 @@
     - https://github.com/reviewdog/reviewdog/security/advisories/GHSA-qmg3-hpqr-gqvc # Official GitHub Advisory
     - https://nvd.nist.gov/vuln/detail/CVE-2025-30154 # NVD Entry
     - https://www.cisa.gov/news-events/alerts/2025/03/18/supply-chain-compromise-third-party-tj-actionschanged-files-cve-2025-30066-and-reviewdogaction # CISA Alert covering both incidents
+    - https://nvd.nist.gov/vuln/detail/CVE-2025-30066 # NVD Entry for tj-actions/changed-files CVE
     - https://www.wiz.io/blog/new-github-action-supply-chain-attack-reviewdog-action-setup # Wiz Research Blog Post
     - https://www.stepsecurity.io/blog/reviewdog-github-actions-are-compromised # StepSecurity Blog Post
     - https://github.com/reviewdog/reviewdog/issues/2079 # Maintainer discussion/response

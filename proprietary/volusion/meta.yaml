@@ -1,0 +1,22 @@
+- name: Volusion (via Google Cloud Storage script)
+  title: Volusion e-commerce sites skimmed via script.
+  synopsis: Thousands of e-commerce websites hosted on the Volusion platform were compromised when a malicious JavaScript file, hosted on a Google Cloud Storage bucket used by Volusion for serving JavaScript to its customers, was modified. This script skimmed credit card information from shoppers on these sites.
+  start_date: 2019-10-07 # Approximate date of compromise
+  end_date: 2019-10-09 # Approximate period of active skimming reported
+  attribution_type: Cybercriminal gang # (Magecart)
+  component_type: Script # (Platform-provided JavaScript)
+  lang: JavaScript
+  cause: Cloud storage compromise # (Compromised GCS bucket)
+  motive: Financial gain
+  transitive: true # Volusion customers affected due to compromise of Volusion's infrastructure
+  insertion_phase: distribution # via Volusion's GCS-hosted script
+  impact_type: Credential theft, Data theft
+  impact_user_count: 6500 # Estimated number of Volusion stores initially reported as affected
+  references:
+    - https://www.zdnet.com/article/thousands-of-online-shops-compromised-via-volusion-serverside-hack/
+    - https://blog.trendmicro.com/trendlabs-security-intelligence/volusion-platform-compromised-by-magecart-attackers-to-skim-credit-card-details/
+  artifacts:
+    - //storage.googleapis.com/volusionapi/resources/volusion.js # Example of the path to the compromised script
+  domain: storage.googleapis.com # (Infrastructure used by Volusion)
+  domain_type: CDN host # (Effectively, for script delivery)
+  artifact_type: source archive # (JavaScript file)

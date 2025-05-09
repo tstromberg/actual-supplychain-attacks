@@ -1,0 +1,28 @@
+- name: Aldus FreeHand
+  title: Aldus FreeHand disk shipped with MacMag virus.
+  synopsis: Master copies of a promotional/training disk for Aldus FreeHand, a commercial graphics program, were infected with the MacMag virus by a contractor before duplication. Aldus unknowingly distributed thousands of infected disks, notably via Macworld magazine, marking an early commercial software supply chain compromise.
+  start_date: 1988-01-01 # Approximate time infection of Aldus masters occurred
+  end_date: 1988-03-02 # Date virus payload activated/incident became widely known, leading to recall
+  attribution_type: Individual hacker # Commissioned by Richard Brandow (MacMag publisher, Aldus contractor)
+  component_type: application # Graphics software (Demo/Training Disk)
+  cause: Insider threat # Contractor deliberately infected master disks
+  motive: Vandalism / Publicity # Stated goal was highlighting piracy, but acted like vandalism/publicity stunt
+  transitive: false
+  insertion_phase: distribution # Master disk duplication stage compromised
+  impact_type: Nuisance # Displayed message; bugs caused crashes/minor data loss for some
+  impact_user_count: 5000 # Estimate based on recalled Aldus disks and Macworld distribution (~350k infected Macs total estimated)
+  references:
+    - https://en.wikipedia.org/wiki/MacMag
+    - https://www.techmonitor.ai/technology/the_virus_program_that_caused_aldus_to_recall_thousands_of_copies_of_freehand/
+    - http://all.net/books/virus/SCVirusBook.pdf # References the Aldus incident
+    - https://www.latimes.com/archives/la-xpm-1988-10-21-fi-4552-story.html # Mentions Aldus FreeHand virus incident
+  versions:
+    - "Aldus FreeHand promotional/training disks distributed around Feb/March 1988"
+  artifacts:
+    - "Infected Aldus FreeHand floppy disks"
+    - "'New Apple Products' HyperCard stack (original virus carrier)"
+  domain: Aldus Corporation # Vendor whose product distribution was compromised
+  domain_type: project host
+  artifact_type: floppy disk # Primary distribution media
+
+-
