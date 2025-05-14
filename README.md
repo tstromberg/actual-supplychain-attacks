@@ -1,4 +1,4 @@
-# actual-supplychain-attacks
+# supplychain-attack-data
 
 This repository contains comprehensive data about actual software supply-chain attacks throughout history.
 
