@@ -1,5 +1,6 @@
 - name: exotel
   title: exotel PyPI package compromised via phishing.
+  repo: https://github.com/exotel/exotel-python
   synopsis: The PyPI account for the 'exotel' package maintainer was compromised via a phishing campaign ("JuiceLedger"). Attackers then uploaded a malicious version (0.1.6) containing code to download and execute an infostealer malware payload on users' systems during installation.
   start_date: 2022-08-01 # Approximate start of campaign/compromise window
   end_date: 2022-08-31 # Approximate discovery/remediation window

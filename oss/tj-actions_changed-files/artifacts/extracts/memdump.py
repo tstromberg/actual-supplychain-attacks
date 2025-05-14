@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-...
+
+# based on https://davidebove.com/blog/?p=1620
+
+import sys
+import os
+import re
 
 def get_pid():
     # https://stackoverflow.com/questions/2703640/process-list-on-linux-via-python

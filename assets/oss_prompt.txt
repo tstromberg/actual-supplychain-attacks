@@ -6,13 +6,13 @@ Fields to include:
 
 * name: The name of the open-source project
 * title: a terse 1-sentence title of the attack, mentioning the name of the project, how the project was compromised and the downstream impact. No more than 6 words.
-* repo: location of the source code repository for this project (example kinds: git, cvs, subversion)
+* repo: location of the current source code repository for this project. This is almost always a revision control system. For example: git, cvs, subversion, bitkeeper). In most cases this would be a GitHub URL.
 * synopsis: a terse 2 to 4 sentence synopsis of the attack, does not need to repeat what is already stated in the title.
 * start_date: Earliest known date of attack
 * end_date: Last known date of attack
 * attribution_type: 1-2 word attribution of who likely attacked the project (Author, new maintainer, nation-state, individual hacker, cybercriminal gang, etc)
 * component_type: 1-word description of the kind of project that was impacted (for example, library, application, game, ci/cd action, daemon)
-* lang: What language the supply-chain attack was performed in (c, javascript, shell, awk)
+* lang: What language the supply-chain attack was performed or implemented in (c, javascript, shell, awk)
 * cause: 1-2 word description of the initial attack vector used to introduce the supply-chain attack (stolen credentials, exploit, maintainer sabotage, social engineering, physical access)
 * motive: 1-2 word likely motive for the attack, taking the end-user impact into account (example: financial gain, vandalism, espionage, unknown)
 * transitive: Was it a transitive attack (caused by another supply-chain attack)

@@ -1,5 +1,6 @@
 - name: When Dungeons Arise
   title: When Dungeons Arise mod compromised with Fracturiser malware
+  repo: https://github.com/Aureljz/When-Dungeons-Arise
   synopsis: A developer account with publishing rights for the popular 'When Dungeons Arise' Minecraft mod on CurseForge was compromised. Attackers uploaded a malicious JAR file disguised as a legitimate update. This file contained the 'Fracturiser' malware, designed to steal credentials (Discord, Microsoft, Minecraft) and spread to other JAR files on the user's system.
   start_date: 2023-05-01 # Approximate timeframe malicious files started appearing for various mods
   end_date: 2023-06-08 # Approximate date of widespread discovery and public warnings

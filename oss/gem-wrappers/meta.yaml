@@ -1,5 +1,6 @@
 - name: gem-wrappers
   title: gem-wrappers gem backdoored during RubyGems.org platform compromise
+  repo: https://github.com/rvm/gem-wrappers
   synopsis: During a platform-level compromise of RubyGems.org (exploiting server vulnerabilities), attackers gained root filesystem access and replaced the legitimate 'gem-wrappers' gem file (v1.1.0) with a malicious version. This trojaned version, with malicious code inserted into 'gemutils.rb', contained obfuscated code (using eval(Zlib::Inflate.inflate(Base64.decode64(...)))) that acted as a backdoor. The backdoor listened on UDP port 53, accepted clear text commands, and allowed remote command execution via eval() on systems that installed or updated to the compromised gem during the incident window.
   start_date: 2013-01-29 # Approximate date platform compromise occurred / malicious gem uploaded
   end_date: 2013-02-01 # Approximate date compromise discovered / site taken down / gem removed
