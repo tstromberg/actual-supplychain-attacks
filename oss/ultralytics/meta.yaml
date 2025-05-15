@@ -7,7 +7,7 @@
   attribution_type: Unknown
   component_type: Library # AI/ML Computer Vision
   lang: Python # Package is Python; payload was a binary cryptominer
-  cause: CI/CD Exploit # GitHub Actions workflow vulnerability exploited
+  cause: GitHub Actions vulnerability # GitHub Actions workflow vulnerability exploited
   motive: Financial gain # Cryptomining
   insertion_phase: CI/CD # Malicious code injected during build/publish pipeline, artifact uploaded to PyPI
   impact_type: Resource hijacking, Cryptomining

@@ -28,5 +28,5 @@
     - sha256:72ccf28f4636403249d87721e802140ccae2248b810860f8c5d4f33d07363597 # Malicious file (Comsec report)
     - sha256:4286ecd104cf0667064ad008e5ac9ffa33a0f7858bb745d533fdb30369e89dd4 # Malicious file (Comsec report)
   domain: altairtech.com # Likely original vendor domain
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive # Software update

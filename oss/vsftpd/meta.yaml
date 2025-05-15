@@ -15,7 +15,7 @@
     - https://www.rapid7.com/db/modules/exploit/unix/ftp/vsftpd_234_backdoor/ # Exploit module details
     - https://www.computerworld.com/article/2518230/vsftpd-developer-confirms-backdoor-in-version-2-3-4.html # News report
   domain: security.appspot.com
-  domain_type: project host
+  domain_type: project download host
   artifact_type: source archive
   versions:
     - 2.3.4 # Specific source tarball vsftpd-2.3.4.tar.gz

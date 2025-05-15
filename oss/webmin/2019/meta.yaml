@@ -15,7 +15,7 @@
     - https://www.webmin.com/exploit.html # Official explanation
     - https://nvd.nist.gov/vuln/detail/CVE-2019-15107 # Related CVE
   domain: webmin.com
-  domain_type: project host
+  domain_type: project download host
   artifact_type: source archive
   historical_artifacts:
     - https://sourceforge.net/projects/webadmin/files/webmin/1.920/webmin-1.920.tar.gz/download # Compromised release

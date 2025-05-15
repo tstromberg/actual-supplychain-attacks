@@ -26,7 +26,7 @@
     - "Original CSIS Group analysis (link dead): https://www.csis.dk/newsroom-blog-overview/2021/moserpass/"
     - "Original ESET IoC link (link dead): https://github.com/eset/malware-ioc/tree/master/moserpass"
   domain: clickstudios.com.au # Vendor domain associated with updates
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive # Software update package
   hashes:
     - sha256:502bf5e87e1809e6b2317888fab546aa1d22389922d83bb81a35b602ed12c23e # Malicious Passwordstate_upgrade.zip

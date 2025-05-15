@@ -33,5 +33,5 @@
     - sha256:93358bfb6ee0caced889e94cd82f6f417965087203ca9a5fce8dc7f6e1b8a3ea # bs backdoor
     - sha256:d73be6e13732d365412d71791e5eb1096c7bb13d6f7fd533d8c04392ca0b69b5 # atd uploader
   domain: freedownloadmanager.org # Official website that was compromised for redirection
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive # Malicious .deb installer

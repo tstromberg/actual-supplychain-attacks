@@ -26,7 +26,7 @@
     - "https://www.virustotal.com/gui/file/fe408e2df48237b11cb724fa51b6d5e9c74c8f5d5b2955c22962095c7ed70b2c" # JAVS.Viewer8.Setup_8.3.7.250-1.exe (Variant OSINT via Rapid7)
     - "https://www.virustotal.com/gui/file/aace6f617ef7e2e877f3ba8fc8d82da9d9424507359bb7dc6b81c889a755535" # fffmpeg.exe (OSINT variant via Rapid7, bundled backdoor)
   domain: javs.com
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive
   hashes:
     - sha256:543ea993454380f8152e2838d27ad78803083d953701349516c288069056f101 # JAVS Viewer Setup 8.3.7.250-1.exe (Variant noted by CISA)

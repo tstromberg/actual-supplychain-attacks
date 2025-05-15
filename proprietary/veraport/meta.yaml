@@ -16,7 +16,7 @@
   versions:
     - Various versions active during the compromise period
   domain: wizvera.com # (Legitimate domain, but its process was abused)
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive # (Malicious payloads delivered via its mechanism)
   historical_artifacts:
     - "VeraPort software from wizvera.com, whose plugin update mechanism was abused to distribute malware to users in South Korea during late 2020."

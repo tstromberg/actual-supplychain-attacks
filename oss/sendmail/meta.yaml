@@ -16,7 +16,7 @@
     - https://web.archive.org/web/20210515121835/https://www.securityfocus.com/bid/5921/info # Archived SecurityFocus BID 5921
     - https://nvd.nist.gov/vuln/detail/CVE-1999-0661 # CVE grouping historical distribution compromises, lists Sendmail 8.12.6
   domain: ftp.sendmail.org
-  domain_type: project host
+  domain_type: project download host
   artifact_type: source archive
   historical_artifacts:
     - ftp://ftp.sendmail.org/pub/sendmail/sendmail.8.12.6.tar.gz # Compromised tarball

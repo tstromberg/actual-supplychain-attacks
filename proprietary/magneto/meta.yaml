@@ -29,5 +29,5 @@
     - sha256:e8edc2b931eb5b24a6fdc705add5685ab88e268d7c5179cb42c235a8192b10c1 # Backdoored License.php
     - md5:c8ed5ee17d5c95dbe8a9c3c73dc7043c # Backdoored MGS extension file
   domain: Multiple vendor websites # e.g., tigren.com, meetanshi.com, magesolution.com
-  domain_type: project host
+  domain_type: project download host
   artifact_type: source archive # Extension code packages

@@ -23,7 +23,7 @@
     - "https://www.eset.com/us/about/newsroom/press-releases/eset-discovers-new-china-aligned-apt-group-plushdaemon-and-its-supply-chain-attack-on-south-korean-vpn-service/" # ESET Press Release
     - "https://www.welivesecurity.com/en/eset-research/plushdaemon-china-aligned-group-backdoors-south-korean-vpn/" # ESET full technical report (original link from meta.yaml)
   domain: ipany.co.kr # Official vendor website
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive
   hashes:
     - sha1:33a239a061f8194195125e51e43051594df3e93a # Backdoored NSIS installer for IPany VPN

@@ -18,7 +18,7 @@
   versions:
     - "Specific MeDoc update versions distributed on or around June 27, 2017" # Exact version numbers of MeDoc updates often not cited, but the update mechanism was the vector
   domain: medoc.ua # Original software vendor domain
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive
   historical_artifacts:
     - "MeDoc software updates distributed via medoc.ua's update server (e.g., upd.me-doc.com.ua) around June 27, 2017."

@@ -19,7 +19,7 @@
   versions:
     - "Specific customized JavaScript provided by Inbenta to Ticketmaster, active Feb-June 2018"
   domain: Inbenta Technologies # Vendor whose supplied script was compromised
-  domain_type: project host # Service provider
+  domain_type: project download host # Service provider
   artifact_type: source archive # JavaScript file/service
   historical_artifacts:
     - "A customized JavaScript file provided by Inbenta to Ticketmaster, which was compromised and served on Ticketmaster's payment pages between February and June 2018."

@@ -17,7 +17,7 @@
   versions:
     - Various versions around 2018, specific builds often tied to download sources.
   domain: kmplayer.com # Official site, but bundling sometimes occurred via third-party download portals too.
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive
   historical_artifacts:
     - "KMPlayer installers downloaded from kmplayer.com or various third-party download sites around 2018, reported to bundle adware or PUPs."

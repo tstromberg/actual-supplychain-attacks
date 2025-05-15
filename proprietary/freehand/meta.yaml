@@ -27,7 +27,7 @@
     - "http://all.net/books/virus/SCVirusBook.pdf" # Mentions the Aldus incident in context of early viruses
     - "https://www.latimes.com/archives/la-xpm-1988-10-21-fi-4552-story.html" # Contemporary news report mentioning the incident
   domain: Aldus Corporation # Vendor whose product distribution was compromised
-  domain_type: project host
+  domain_type: project download host
   artifact_type: floppy disk # Primary distribution media
 
 -

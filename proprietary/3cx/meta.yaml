@@ -20,7 +20,7 @@
     - "Windows: 18.12.407, 18.12.416"
     - "macOS: 18.11.1213, 18.12.402, 18.12.407, 18.12.416"
   domain: 3cx.com # Official distribution domain
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive # Software update/installer
   historical_artifacts:
     - "https://downloads.3cx.com/downloads/3CXDesktopApp-18.12.407.msi"

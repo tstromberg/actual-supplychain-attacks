@@ -23,7 +23,7 @@
     - "Orion Platform 2020.2 HF1 (version 2020.2.5300.12432)"
 
   domain: solarwinds.com
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive # Software update packages
   historical_artifacts:
     - "https://downloads.solarwinds.com/solarwinds/v3/SolarWinds-Core-v2019.4.5200-Hotfix5.msp"

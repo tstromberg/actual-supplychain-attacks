@@ -11,7 +11,7 @@
   motive: Espionage # Credential harvesting
   transitive: true
   domain: codecov.io
-  domain_type: project host
+  domain_type: project download host
   artifact_type: source code
   insertion_phase: CI/CD # Compromise of the build/distribution process for the uploader script
   impact_type: Credential theft, Data theft

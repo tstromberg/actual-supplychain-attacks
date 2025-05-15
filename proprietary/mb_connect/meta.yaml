@@ -18,7 +18,7 @@
   versions:
     - Specific software installers available for download from their website during the compromise period.
   domain: mbconnectline.com # (Official vendor website)
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive
   historical_artifacts:
     - "Trojanized MB Connect Line software installer (e.g., for mbCHECK, mbCONF), downloaded from mbconnectline.com during 2013-2014."

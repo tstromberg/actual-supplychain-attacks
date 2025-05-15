@@ -19,7 +19,7 @@
     - "CCleaner version 5.33.6162"
     - "CCleaner Cloud version 1.07.3191"
   domain: piriform.com # Original software vendor domain (downloads.piriform.com)
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive # Installer
   historical_artifacts:
     - "https://download.piriform.com/ccsetup533.exe"

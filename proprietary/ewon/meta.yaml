@@ -19,7 +19,7 @@
   versions:
     - Specific software installers for products like eCatcher during the compromise window.
   domain: ewon.biz # (Official vendor website at the time)
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive
   historical_artifacts:
     - "Trojanized eWON eCatcher VPN client installer, downloaded from ewon.biz during 2013-2014."

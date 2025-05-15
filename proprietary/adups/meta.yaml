@@ -18,7 +18,7 @@
   versions:
     - "Adups FOTA client versions ~5.0.x - 5.3.x on various Android devices (e.g., BLU R1 HD, others)"
   domain: Various Android OEMs # e.g., BLU Products, potentially Huawei, ZTE (though they denied use in US models)
-  domain_type: project host # OEM level integration
+  domain_type: project download host # OEM level integration
   artifact_type: hardware # Shipped with device firmware
   historical_artifacts:
     - "http://www.adups.com/download/fota-client-5.0.1.apk"

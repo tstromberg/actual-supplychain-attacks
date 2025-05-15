@@ -22,8 +22,8 @@
   current_artifacts:
     - https://objective-see.org/blog/blog_0x11.html # Analysis with technical details and screenshots
     - https://www.welivesecurity.com/2016/08/30/osxkeydnap-spreads-via-signed-transmission-application/ # Additional analysis with IOCs
-  domain: transmissionbt.com 
-  domain_type: project host
+  domain: transmissionbt.com
+  domain_type: project download host
   artifact_type: binary archive
   hashes:
     - sha256:f06ac9609c3a8b00a7586840e990153460f8de9526e91a1a6ab733c850d5c83f # Malicious Transmission-2.92.dmg

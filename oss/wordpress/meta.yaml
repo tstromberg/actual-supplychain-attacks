@@ -21,7 +21,7 @@
     - https://blog.sucuri.net/2017/01/website-backdoor-wp-php-info.html # Analysis of similar backdoor technique
     - https://wpvulndb.com/vulnerabilities/6231 # WPScan Vulnerability Database entry
   domain: wordpress.org
-  domain_type: project host
+  domain_type: project download host
   artifact_type: source archive
   hashes:
     - md5:9b2e021b99f71846a99db1f3975e108d # Compromised wordpress-2.1.1.zip

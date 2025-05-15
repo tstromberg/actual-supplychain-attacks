@@ -23,5 +23,5 @@
     - "https://securelist.com/operation-noxplayer/100644/ # Original Securelist (Kaspersky) analysis (Link confirmed dead, needs alternative or removal)"
     - "https://www.eset.com/int/about/newsroom/press-releases/research/eset-discovers-operation-noxplayer-supply-chain-attack-infiltrates-gaming-community-in-asia/ # Original ESET Press Release (Link confirmed dead, needs alternative or removal)"
   domain: api.bignox.com # (Update server domain)
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive # (Malicious update packages)

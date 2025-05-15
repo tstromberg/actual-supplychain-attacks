@@ -19,7 +19,7 @@
     - "Multiple versions of ASUS Live Update utility distributed between June and November 2018"
 
   domain: asus.com # Live update servers (liveupdate01s.asus.com, liveupdate01.asus.com)
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive # Software update utility
   historical_artifacts:
     - "https://dlcdnets.asus.com/pub/ASUS/nb/Apps_for_Win10/LiveUpdate/LiveUpdate_Win10_20180115.zip"

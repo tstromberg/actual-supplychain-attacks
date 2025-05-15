@@ -18,7 +18,7 @@
   versions:
     - "Able Desktop 3.5.2"
   domain: able.co.kr
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive
   historical_artifacts:
     - http://download.able.co.kr/abledesktop/AbleDesktopSetup_3.5.2.exe

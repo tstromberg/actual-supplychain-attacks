@@ -24,7 +24,7 @@
     - https://blog.sucuri.net/2013/12/openx-compromise-serving-malware.html # Analysis with details
     - https://www.unmaskparasites.com/2013/12/05/ad-networks-openx-source-compromised/ # Technical analysis with code snippets
   domain: openx.com
-  domain_type: project host
+  domain_type: project download host
   artifact_type: source archive
   hashes:
     - md5:3cf59a7b8996dcc52370cf918f248ee4 # Reported hash of compromised file

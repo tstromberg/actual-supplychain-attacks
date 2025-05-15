@@ -18,7 +18,7 @@
   versions:
     - The specific version of Modernizr.js and related scripts served by British Airways during the incident window.
   domain: ba.com
-  domain_type: project host
+  domain_type: project download host
   artifact_type: source archive # (JavaScript file)
   historical_artifacts:
     - "https://www.britishairways.com/scripts/modernizr.js" # The compromised Modernizr script path (speculative, based on common practice)

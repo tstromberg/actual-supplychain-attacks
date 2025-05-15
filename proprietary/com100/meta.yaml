@@ -19,7 +19,7 @@
   versions:
     - "Comm100LiveChat-Setup-win.exe versions 10.0.7, 10.0.8" # Specific affected versions
   domain: comm100.com # Official vendor website
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive # Software installer
   historical_artifacts:
     - "https://s1.comm100.com/livechat/electron/10.0.7/Comm100LiveChat-Setup-win.exe" # Malicious installer v10.0.7

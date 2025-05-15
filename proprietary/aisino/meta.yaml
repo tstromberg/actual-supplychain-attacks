@@ -19,7 +19,7 @@
   versions:
     - "Multiple versions of Aisino Intelligent Tax software containing GoldenSpy module, active in 2020"
   domain: i-xinnuo.com # Aisino's software domain (initial download point)
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive # Installer for tax software
   historical_artifacts:
     - http://download.i-xinnuo.com/products/IntelligentTaxSetup.exe

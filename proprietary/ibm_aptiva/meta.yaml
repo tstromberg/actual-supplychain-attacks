@@ -30,5 +30,5 @@
     - sha256:5f778e1f90c67968a95874380a19198f7a0a860f9521935096c6bf46905f79a9 # CIH v1.2 (W95.CIH.1003)
     - sha256:c8b72931950b2006a96878e0a39728f725db5d4e8e62e6df2a292ae096721a89 # CIH v1.4 (W95.CIH.1019)
   domain: ibm.com
-  domain_type: project host
+  domain_type: project download host
   artifact_type: hardware # Shipped with device

@@ -19,7 +19,7 @@
     - Elmedia Player (builds distributed on Oct 19th, 2017)
     - Folx (builds distributed on Oct 19th, 2017)
   domain: mac.eltima.com
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive
   historical_artifacts:
     - "https://mac.eltima.com/download/elmedia-player.dmg" # Compromised on Oct 19-20, 2017

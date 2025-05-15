@@ -21,7 +21,7 @@
     - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2075 # CVE with technical details
     - https://www.rapid7.com/db/modules/exploit/unix/irc/unreal_ircd_3281_backdoor/ # Exploit code for research
   domain: unrealircd.org
-  domain_type: project host
+  domain_type: project download host
   artifact_type: source archive
   versions:
     - 3.2.8.1 # Specific source tarball Unreal3.2.8.1.tar.gz

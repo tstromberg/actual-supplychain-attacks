@@ -20,7 +20,7 @@
     - 5.0.2
     - 5.1.0
   domain: copay.io
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive
   commits:
     - 470d7c7395001440f0187550297cf083d52c43a6 # Commit in event-stream that added flatmap-stream dependency

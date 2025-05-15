@@ -20,5 +20,5 @@
   historical_artifacts:
     - "Infected Microsoft floppy disks"
   domain: microsoft.com
-  domain_type: project host
+  domain_type: project download host
   artifact_type: floppy disk

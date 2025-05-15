@@ -26,7 +26,7 @@
     - "https://www.virustotal.com/gui/file/089573b3a1167f387dcdad5e014a5132e998b2c89bff29bcf8b06dd497d4e63d" # Second-stage PNG payload
     - "https://www.virustotal.com/gui/file/915c2495e03ff7408f11a2a197f23344004c533ff87db4b807cc937f80c217a1" # Decrypted PE from second-stage PNG
   domain: cyberlink.com # Official vendor domain and update infrastructure
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive # Software installer
   hashes:
     - sha256:166d1a6ddcde4e859a89c2c825cd3c8c953a86bfa92b343de7e5bfbfb5afb8be # Trojanized CyberLink installer (LambLoad)

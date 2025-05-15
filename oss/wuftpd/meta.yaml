@@ -20,7 +20,7 @@
     - https://www.cert.org/historical/advisories/CA-1994-07.cfm # Advisory with technical details
     - https://web.archive.org/web/20030804000609/http://www.team.net/mjb/hawp/hacks/wuftpd.html # Analysis of the backdoor
   domain: ftp.wustl.edu
-  domain_type: project host
+  domain_type: project download host
   artifact_type: source archive
   hashes:
     - md5:3e12b0efb95bcb97e5b58fb916323618 # Backdoored wu-ftpd-2.2.tar.Z

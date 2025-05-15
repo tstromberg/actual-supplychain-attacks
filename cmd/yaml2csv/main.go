@@ -83,7 +83,7 @@ func main() {
 func processYAMLFiles(dir string) ([][]string, error) {
 	var allRows [][]string
 	headers := []string{
-		"name", "title", "repo", "synopsis", "start_date", "end_date",
+		"name", "title", "repo", "synopsis", "year", "start_date", "end_date",
 		"attribution_type", "component_type", "lang", "cause", "motive",
 		"transitive", "insertion_phase", "impact_type", "impact_user_count",
 		"references", "versions", "commits", "historical_artifacts", "current_artifacts",
@@ -156,6 +156,8 @@ func getFieldValue(entry AttackEntry, field string, originalData []byte) string 
 		return entry.Repo
 	case "synopsis":
 		return entry.Synopsis
+	case "year":
+		return entry.StartDate[0:4]
 	case "start_date":
 		return entry.StartDate
 	case "end_date":

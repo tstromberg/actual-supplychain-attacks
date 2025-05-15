@@ -19,7 +19,7 @@
   versions:
     - "Specific X_TRADER installer versions available Nov 2021 - July 2022 (e.g., X_TRADER_r7.17.90p608.exe)"
   domain: tradingtechnologies.com
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive # Software installer
   historical_artifacts:
     - "https://tradingtechnologies.com/x-trader/downloads/X_TRADER_r7.17.90p608.exe"

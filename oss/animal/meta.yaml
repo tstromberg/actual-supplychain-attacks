@@ -14,7 +14,7 @@
   impact_type: replication # Self-copying functionality
   impact_user_count: 25 # Estimated number of UNIVAC 1100 series systems affected
   domain: fourmilab.ch
-  domain_type: project host
+  domain_type: project download host
   references:
     - https://www.fourmilab.ch/documents/univac/animal.html
     - https://www.fourmilab.ch/documents/univac/animalsrc.html

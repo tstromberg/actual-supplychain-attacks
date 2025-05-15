@@ -24,7 +24,7 @@
     - https://objective-see.org/blog/blog_0x1D.html # Analysis with screenshots and details
     - https://www.cybereason.com/blog/labs-proton-b-what-this-mac-malware-actually-does # Technical analysis of the Proton malware
   domain: download.handbrake.fr
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive
   hashes:
     - sha256:0935a43ca90c6c419a49e4f8f1d75e68cd70cb90b79306ce0cc7af2716aaa377 # Malicious HandBrake-1.0.7.dmg

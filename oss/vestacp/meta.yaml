@@ -11,7 +11,7 @@
   insertion_phase: distribution # Compromise of update mechanism/packages
   impact_type: Credential theft, Remote execution, Backdoor
   domain: vestacp.com
-  domain_type: project host
+  domain_type: project download host
   artifact_type: source archive
   references:
     - https://www.welivesecurity.com/2018/10/18/new-linux-chachaddos-malware-distributed-servers-vestacp-installed/

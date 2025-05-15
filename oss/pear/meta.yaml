@@ -22,7 +22,7 @@
     - https://www.bleepingcomputer.com/news/security/official-php-pear-website-suffers-supply-chain-attack/ # Analysis with technical details
     - https://blog.paranoidpenguin.net/2019/01/pear-php-net-probably-compromised/ # Analysis with details on malicious code
   domain: pear.php.net
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive
   hashes:
     - sha1:1e623a48b8991980e93896153651135ab7ab82a0 # Compromised go-pear.phar file

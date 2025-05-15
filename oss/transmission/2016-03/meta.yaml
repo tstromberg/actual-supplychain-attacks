@@ -25,7 +25,7 @@
     - https://securelist.com/osxkeranger-ransomware-infecting-transmission-users/74214/ # Kaspersky analysis with screenshots
     - https://www.welivesecurity.com/2016/03/07/new-mac-ransomware-appears-keranger-spread-via-transmission-app/ # Additional technical details
   domain: transmissionbt.com
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive
   hashes:
     - sha256:7552f29459368037868f5b7cf09884080831079276a4647682a8aac86e0b95e7 # Malicious Transmission-2.90.dmg

@@ -22,7 +22,7 @@
     - "Xftp 5.0 Build 1218"
     - "Xlpd 5.0 Build 1220"
   domain: netsarang.com
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive # Software update/installer
   historical_artifacts:
     - "https://netsarang.com/downloads/Xmanager-enterprise-5.0-build-1232.exe"

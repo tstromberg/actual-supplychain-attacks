@@ -21,7 +21,7 @@
   hashes:
     - sha256:0918af9a5c6060dec985b98bbf54030cd29f1701ca9fdb6abfc1e39f90e5113e # Example hash of a compromised AccessPress theme
   domain: accesspressthemes.com
-  domain_type: project host
+  domain_type: project download host
   references:
     - https://www.wordfence.com/blog/2022/01/severe-vulnerabilities-in-accesspress-themes-and-plugins-allow-for-full-site-takeover/ # Technical details and IoCs
   versions:

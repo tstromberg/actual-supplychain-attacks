@@ -23,5 +23,5 @@
     - "https://securelist.com/operation-shadowhammer/89083/" # Kaspersky report on ShadowHammer, which mentions gaming industry targets
     - "https://www.bankinfosecurity.com/shadowhammer-spreads-across-online-gaming-supply-chain-a-12409" # Discusses ShadowHammer targeting gaming suppliers
   domain: Unknown # Likely distributed via Steam or original publisher website
-  domain_type: package host # Or project host
+  domain_type: package host # Or project download host
   artifact_type: binary archive # Game client/patch

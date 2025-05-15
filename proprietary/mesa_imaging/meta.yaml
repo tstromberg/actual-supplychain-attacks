@@ -19,7 +19,7 @@
   versions:
     - Specific software installers available during the compromise period.
   domain: mesa-imaging.ch # (Official vendor website at the time)
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive
   historical_artifacts:
     - "Trojanized MESA Imaging camera software installers (e.g., for SR4000 series cameras), downloaded from mesa-imaging.ch during 2013-2014."

@@ -33,5 +33,5 @@
     - md5:fce117a9d7c8c73e5f56bda7437bdb28 # Telegram module (Kaspersky)
     - md5:308e35fb48d98d9e466e4dfd1ba6ee73 # Older Triada version (Kaspersky)
   domain: Various Android OEMs / Unbranded Manufacturers / Firmware Integrators
-  domain_type: project host # OEM / Manufacturer
+  domain_type: project download host # OEM / Manufacturer
   artifact_type: hardware # Shipped with device firmware

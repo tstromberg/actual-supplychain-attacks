@@ -24,7 +24,7 @@
     - https://web.archive.org/web/20140720105610/http://www.cert.org/advisories/CA-1999-01.html # Advisory with technical details
     - https://attrition.org/security/advisory/fedcirc/1999/fedcirc.99.01.txt # Advisory with backdoor technical details
   domain: ftp.win.tue.nl
-  domain_type: project host
+  domain_type: project download host
   artifact_type: source archive
   hashes:
     - md5:3a95175a092f1753a0591bf501ff9d39 # Trojaned tcp_wrappers_7.6.tar.gz (from advisory)

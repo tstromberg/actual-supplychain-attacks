@@ -15,5 +15,5 @@
   historical_artifacts:
     - "Trojanized VSDC Video Editor installers downloaded from videosoftdev.com during 2018-2019."
   domain: videosoftdev.com
-  domain_type: project host
+  domain_type: project download host
   artifact_type: binary archive
