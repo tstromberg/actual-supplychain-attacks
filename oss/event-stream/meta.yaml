@@ -4,14 +4,14 @@
   synopsis: The 'event-stream' npm package maintainership was transferred via social engineering to an attacker who then added 'flatmap-stream@0.1.1' as a dependency in 'event-stream@3.3.6'. This new dependency contained obfuscated, malicious code specifically designed to steal cryptocurrency (Bitcoin, Bitcoin Cash) from users of the Copay Dash wallet application by exfiltrating wallet data and private keys if balances exceeded certain thresholds.
   start_date: 2018-09-09
   end_date: 2018-11-26
-  attribution_type: Individual hacker
+  attribution_type: New Maintainer
   component_type: Library
   lang: javascript
-  cause: Social engineering
-  motive: Financial gain
+  cause: Sabotage
+  motive: Financial Gain
   transitive: true
   insertion_phase: dependency
-  impact_type: Cryptocurrency theft, Credential theft
+  impact_type: Financial Exploitation
   impact_user_count: 8000000
   references:
     - https://github.com/dominictarr/event-stream/issues/116 # Original GitHub issue reporting the exploit

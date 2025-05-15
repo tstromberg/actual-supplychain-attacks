@@ -7,14 +7,14 @@
   attribution_type: Author
   component_type: Library
   lang: Javascript
-  cause: Maintainer sabotage
-  motive: Protest
+  cause: Sabotage
+  motive: Disruption/Protest
   transitive: false
   domain: npmjs.org
   domain_type: package host
   artifact_type: source archive
   insertion_phase: source
-  impact_type: Vandalism, Data destruction # Deleted package content
+  impact_type: Service Disruption/Data Destruction # Deleted package content
   impact_user_count: 2800000 # Based on weekly downloads around the time
   references:
     - https://github.com/faker-js/faker/issues/1046

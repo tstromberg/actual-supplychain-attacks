@@ -3,17 +3,17 @@
   repo: https://github.com/calvinwyoung/electron-native-notify
   synopsis: The 'electron-native-notify' package was compromised to include malicious code. This code opened a reverse shell back to the attacker's server. It was used as a dependency in other applications, such as the Agama cryptocurrency wallet, leading to transitive compromises.
   start_date: 2018-08-01 # Approximate date malicious version appeared
-  attribution_type: Unknown
+  attribution_type: Individual Hacker
   component_type: Library
   lang: Javascript
-  cause: Unknown # Likely maintainer account compromise
-  motive: Remote access # Potentially financial gain via crypto theft
+  cause: Compromised Account/Credentials
+  motive: Unauthorized Access/Control # Potentially financial gain via crypto theft
   transitive: true # Impacted Agama wallet
   domain: npmjs.org
   domain_type: package host
   artifact_type: source archive
   insertion_phase: distribution
-  impact_type: Backdoor, Remote access
+  impact_type: Backdoor/Remote Code Execution
   references:
     - https://github.com/advisories/GHSA-j8qr-rvcv-crhv # GitHub Advisory
     - https://blog.npmjs.org/post/185397814280/plot-to-steal-cryptocurrency-foiled-by-the-npm # NPM Blog Post

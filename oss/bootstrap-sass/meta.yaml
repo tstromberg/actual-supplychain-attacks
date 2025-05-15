@@ -4,14 +4,14 @@
   synopsis: A popular Ruby gem, bootstrap-sass, had a malicious version (3.2.0.3) published on RubyGems.org after a likely maintainer account compromise. The backdoor allowed remote command execution on Rails applications in production environments.
   start_date: 2019-03-26 # Malicious version 3.2.0.3 published
   end_date: 2019-03-26 # Malicious version removed same day; clean 3.2.0.4 published 2019-04-03
-  attribution_type: Unknown
+  attribution_type: Individual Hacker
   component_type: Library
   lang: Ruby
-  cause: Stolen credentials # Suspected maintainer account compromise
-  motive: Remote access
+  cause: Compromised Account/Credentials # Suspected maintainer account compromise
+  motive: Unauthorized Access/Control
   transitive: false
   insertion_phase: distribution # Malicious package uploaded to RubyGems.org
-  impact_type: Backdoor, Remote access
+  impact_type: Backdoor/Remote Code Execution
   impact_user_count: 1477 # Reported downloads of the malicious version 3.2.0.3
   references:
     - https://github.com/twbs/bootstrap-sass/issues/1195 # GitHub issue reported by Derek Barnes

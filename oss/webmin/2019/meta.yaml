@@ -3,13 +3,13 @@
   synopsis: The build infrastructure used to create official Webmin releases was compromised. Attackers modified source code (`useradmin/password_change.cgi`) to insert a backdoor allowing unauthenticated remote code execution via the password change form. This affected multiple official releases over several months.
   start_date: 2019-04-17 # Approximate date backdoor first appeared in build (v1.890)
   end_date: 2019-08-17 # Date publicly disclosed at Def Con / fixed (v1.930)
-  attribution_type: Unknown
+  attribution_type: Individual Hacker
   component_type: Daemon # System administration tool
   lang: Perl
-  cause: Server compromise # Build infrastructure compromised
-  motive: Remote access # Root command execution
+  cause: Compromised Infrastructure # Build infrastructure compromised
+  motive: Unauthorized Access/Control # Root command execution
   insertion_phase: source # Build process modified source code
-  impact_type: Backdoor, Remote execution, Root compromise
+  impact_type: Backdoor/Remote Code Execution
   references:
     - https://pentest.com.tr/exploits/DEFCON-Webmin-1920-Unauthenticated-Remote-Command-Execution.html # Discovery disclosure
     - https://www.webmin.com/exploit.html # Official explanation

@@ -1,0 +1,46 @@
+name: lottie-player
+title: lottie-player compromised via token, crypto theft.
+repo: https://github.com/LottieFiles/lottie-player
+synopsis: >-
+  The lottie-player npm package was compromised when attackers gained access to a
+  developer's access token. They published three malicious versions (2.0.5, 2.0.6,
+  2.0.7) that prompted users to connect their Web3 wallets, enabling theft of
+  cryptocurrency assets. The compromised versions were distributed via CDNs,
+  affecting users who hadn't pinned specific versions.
+start_date: "2024-10-30"
+end_date: "2024-10-30"
+attribution_type: Individual Hacker
+component_type: Library
+lang: javascript
+cause: Stalen Credentials
+motive: Financial gain
+transitive: false
+insertion_phase: distribution
+impact_type: Financial Exploitation
+impact_user_count: 94000 # Weekly downloads, actual impact likely lower but significant
+versions:
+  - 2.0.5
+  - 2.0.6
+  - 2.0.7
+references:
+  - https://www.wiz.io/blog/lottie-player-supply-chain-attack
+  - https://www.sonatype.com/blog/lottie-player-compromised-in-supply-chain-attack-all-you-need-to-know
+  - https://www.reversinglabs.com/blog/differential-analysis-raises-red-flags-over-lottiefiles/lottie-player
+  - https://github.com/LottieFiles/lottie-player/issues/593
+  - https://lottiefiles.com/blog/lottiefiles-updates/incident-report-unauthorized-versions-of-lottie-player-npm-package
+historical_artifacts:
+  - "https://unpkg.com/@lottiefiles/lottie-player@2.0.5/dist/lottie-player.js" # Example, version specific
+  - "https://cdn.jsdelivr.net/npm/@lottiefiles/lottie-player@2.0.5/dist/lottie-player.min.js" # Example, version specific
+  - "https://registry.npmjs.org/@lottiefiles/lottie-player/-/lottie-player-2.0.5.tgz" # Example, version specific
+current_artifacts:
+  # ReversingLabs article shows SHA1 hashes, implies they have samples.
+  # Sonatype mentions sonatype-2024-011914, implying they have it.
+  # It is likely that diffs or samples might appear on services like diffend.io or socket.dev in the future.
+  - "https://www.reversinglabs.com/blog/differential-analysis-raises-red-flags-over-lottiefiles/lottie-player" # Contains SHA1 hashes
+domain: npmjs.com
+domain_type: package host
+artifact_type: source archive
+hashes:
+  - sha1:446996c35a4188647361733b4c7175b2aeea9611 # @lottiefiles/lottie-player 2.0.5
+  - sha1:5bbd2290a7de5a4736fdafe171f5b6eae6abc27e # @lottiefiles/lottie-player 2.0.6
+  - sha1:846f2efc0212317b5e44690234995ba7e269dee3 # @lottiefiles/lottie-player 2.0.7

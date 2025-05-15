@@ -7,8 +7,8 @@
   attribution_type: Individual hacker
   component_type: Library
   lang: Javascript
-  cause: Stolen credentials
-  motive: Credential theft
+  cause: Compromised Account/Credentials
+  motive: Credential Theft
   transitive: false
   historical_artifacts:
     - https://registry.npmjs.org/ctx/-/ctx-0.1.2.tgz
@@ -19,7 +19,7 @@
   domain_type: package host
   artifact_type: source archive
   insertion_phase: distribution
-  impact_type: Credential theft
+  impact_type: Data Exfiltration
   references:
     - https://thehackernews.com/2022/05/pypi-package-ctx-and-php-library-phpass.html # News report covering ctx and phpass
   versions:

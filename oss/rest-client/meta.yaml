@@ -4,14 +4,14 @@
   synopsis: A maintainer's RubyGems.org account was compromised due to a reused password. Attackers then published malicious versions of the rest-client gem containing a backdoor. This backdoor exfiltrated environment variables and could execute arbitrary remote commands.
   start_date: 2019-08-14
   end_date: 2019-08-19
-  attribution_type: Individual hacker
+  attribution_type: Individual Hacker
   component_type: Library
   lang: ruby
-  cause: Stolen credentials
-  motive: Financial gain
+  cause: Compromised Account/Credentials
+  motive: Financial Gain
   transitive: false
   insertion_phase: distribution
-  impact_type: Credential theft, Remote access
+  impact_type: Data Exfiltration
   impact_user_count: 2450
   references:
     - https://github.com/rest-client/rest-client/issues/713

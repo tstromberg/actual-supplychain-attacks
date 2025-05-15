@@ -4,14 +4,14 @@
   synopsis: The main FTP server distributing the ProFTPD source code (`ftp.proftpd.org`) was compromised. Attackers replaced the legitimate source code tarball for ProFTPD version 1.3.3c with a modified version containing a backdoor. Compiling and running this version would allow attackers remote root access.
   start_date: 2010-11-28
   end_date: 2010-12-01 # Approximate discovery/replacement window
-  attribution_type: Individual hacker
+  attribution_type: Individual Hacker
   component_type: Application # FTP Server
   lang: C # Backdoor inserted into C source
-  cause: Server compromise # Official FTP distribution server hacked
-  motive: Remote access # Root backdoor
+  cause: Compromised Infrastructure # Official FTP distribution server hacked
+  motive: Unauthorized Access/Control # Root backdoor
   transitive: false
   insertion_phase: distribution # Official download source tarball replaced
-  impact_type: Backdoor, Root compromise
+  impact_type: Backdoor/Remote Code Execution
   references:
     - https://www.theregister.com/2010/12/02/proftpd_backdoor/ # News report on the backdoor
     - https://lwn.net/Articles/418326/ # LWN coverage of the incident

@@ -3,14 +3,14 @@
   synopsis: The website of AccessPress Themes (also known as Access Keys), a vendor of numerous popular WordPress themes and plugins, was compromised. Attackers injected a backdoor into the downloadable zip files of dozens of their themes and plugins hosted on their site. This backdoor allowed attackers full control over websites that installed or updated these compromised extensions.
   start_date: 2021-09-01 # Approximate start of compromise
   end_date: 2022-01-17 # Date publicly disclosed by researchers
-  attribution_type: Unknown
+  attribution_type: Individual Hacker
   component_type: Library # WordPress Themes/Plugins
   lang: PHP
-  cause: Server compromise # Vendor website hacked
-  motive: Remote access # Site control, further attacks
+  cause: Compromised Infrastructure # Vendor website hacked
+  motive: Unauthorized Access/Control # Site control, further attacks
   transitive: false
   insertion_phase: distribution # Vendor's distribution zips compromised
-  impact_type: Backdoor, Remote execution, Site control
+  impact_type: Backdoor/Remote Code Execution
   impact_user_count: 360000 # Estimated active installs of affected themes/plugins
   artifact_type: source archive
   historical_artifacts:

@@ -3,13 +3,13 @@
   synopsis: The official distribution tarball for UnrealIRCd version 3.2.8.1 was replaced with a backdoored version on official download mirrors. The backdoor was hidden within the source code and allowed anyone to execute arbitrary commands with the privileges of the user running the IRC daemon by sending a specific AB;/COMMAND sequence to the server.
   start_date: 2009-11-01 # Approximate date backdoored tarball appeared
   end_date: 2010-06-12 # Date backdoor discovered/announced
-  attribution_type: Unknown
+  attribution_type: Individual Hacker
   component_type: Daemon # IRC Server
   lang: C # Backdoor code in C source
-  cause: Server compromise # Download mirror(s) hacked
-  motive: Remote access # Command execution
+  cause: Compromised Infrastructure # Download mirror(s) hacked
+  motive: Unauthorized Access/Control # Command execution
   insertion_phase: distribution # Official download tarball replaced
-  impact_type: Backdoor, Remote execution
+  impact_type: Backdoor/Remote Code Execution
   references:
     - https://www.rapid7.com/db/modules/exploit/unix/irc/unreal_ircd_3281_backdoor/ # Exploit module details
     - https://lwn.net/Articles/392201/ # Initial report

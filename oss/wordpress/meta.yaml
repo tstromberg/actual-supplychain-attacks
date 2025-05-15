@@ -3,13 +3,13 @@
   synopsis: Shortly after its release, the official WordPress 2.1.1 download package (`.zip`) hosted on wordpress.org was compromised by attackers who gained access to a web server. Obfuscated malicious PHP code was injected into core files (`wp-includes/vars.php` and possibly `wp-includes/theme.php`), creating a backdoor. This backdoor allowed remote attackers to pass arbitrary PHP code via specific request parameters (like `ix` or `iz`) for execution on the server, effectively granting them control over sites that installed the compromised package. The WordPress team detected the compromise quickly, removed the malicious package, and released version 2.1.2 with fixes and additional security hardening.
   start_date: 2007-02-21 # Approximate date compromised package was available
   end_date: 2007-02-22 # Approximate date discovered/removed/replaced with 2.1.2
-  attribution_type: Unknown # Attacker(s) who breached wordpress.org server
+  attribution_type: Individual Hacker # Attacker(s) who breached wordpress.org server
   component_type: Daemon # Content Management System (CMS)
   lang: PHP
-  cause: Server compromise # wordpress.org download server hacked
-  motive: Remote access # RCE backdoor
+  cause: Compromised Infrastructure # wordpress.org download server hacked
+  motive: Unauthorized Access/Control # RCE backdoor
   insertion_phase: distribution # Official download package modified on server
-  impact_type: Backdoor, Remote execution
+  impact_type: Backdoor/Remote Code Execution
   references:
     - https://wordpress.org/news/2007/03/upgrade-to-wordpress-212/ # Official announcement
     - https://threatpost.com/wordpress-fixes-security-issues-in-core-engine-021622/21404/ # News coverage

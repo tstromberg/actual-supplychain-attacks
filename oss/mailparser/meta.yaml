@@ -4,14 +4,14 @@
   synopsis: Maintainer's NPM account for `mailparser` compromised. Malicious version 0.1.2 published to NPM, attempted to download and execute OS-specific binary from external server. Package removed within an hour; <100 downloads.
   start_date: 2019-03-12 # Malicious version 0.1.2 published
   end_date: 2019-03-12 # Malicious version removed
-  attribution_type: Individual hacker # Actor who compromised NPM account
+  attribution_type: Individual Hacker # Actor who compromised NPM account
   component_type: Library
   lang: Javascript
-  cause: Stolen credentials # Maintainer NPM account compromised
-  motive: Remote execution # Execution of downloaded payload
+  cause: Compromised Account/Credentials # Maintainer NPM account compromised
+  motive: Unauthorized Access/Control # Execution of downloaded payload
   transitive: false
   insertion_phase: distribution # Malicious version published to NPM
-  impact_type: Backdoor, Remote execution # Via downloaded binary
+  impact_type: Backdoor/Remote Code Execution # Via downloaded binary
   impact_user_count: 100 # Estimated "less than 100" downloads
   references:
     - https://security.snyk.io/vuln/npm:mailparser:20190312 # Snyk Advisory with technical details

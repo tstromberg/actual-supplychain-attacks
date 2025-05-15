@@ -7,8 +7,8 @@
   attribution_type: Individual hacker
   component_type: Library
   lang: Javascript
-  cause: Stolen credentials
-  motive: Credential theft
+  cause: Compromised Account/Credentials
+  motive: Credential Theft
   transitive: false
   historical_artifacts:
     - https://registry.npmjs.org/coa/-/coa-2.0.3.tgz
@@ -24,7 +24,7 @@
   domain_type: package host
   artifact_type: source archive
   insertion_phase: distribution
-  impact_type: Credential theft
+  impact_type: Data Exfiltration
   references:
     - https://github.com/advisories/GHSA-73qr-pfmq-6rp8 # GitHub Advisory for coa
     - https://github.com/veged/coa/issues/99 # GitHub issue discussing the compromise

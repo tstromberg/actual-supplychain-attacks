@@ -6,12 +6,12 @@
   attribution_type: Author
   component_type: Game
   lang: Assembly # UNIVAC 1100 Assembly
-  motive: Demonstration # Early proof-of-concept
+  motive: Experimentation/Notoriety # Early proof-of-concept
   transitive: false
-  cause: maintainer sabotage # Intentional design
+  cause: Sabotage # Intentional design
   artifact_type: source archive
   insertion_phase: source
-  impact_type: replication # Self-copying functionality
+  impact_type: Benign/Proof of Concept # Self-copying functionality
   impact_user_count: 25 # Estimated number of UNIVAC 1100 series systems affected
   domain: fourmilab.ch
   domain_type: project download host

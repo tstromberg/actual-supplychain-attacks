@@ -3,13 +3,13 @@
   synopsis: The FTP server hosting the official vsftpd source code tarballs was compromised. For a brief period, the download for vsftpd version 2.3.4 was replaced with a version containing a backdoor. This backdoor opened a listening shell on TCP port 6200 when a username ending in ':)' was used to log in.
   start_date: 2011-07-03 # Approximate date/time of compromise
   end_date: 2011-07-03 # Discovered and removed very quickly
-  attribution_type: Individual hacker
+  attribution_type: Individual Hacker
   component_type: Daemon # FTP Server
   lang: C # Backdoor code in C source
-  cause: Server compromise # Master distribution site hacked
-  motive: Remote access # Listening shell
+  cause: Compromised Infrastructure # Master distribution site hacked
+  motive: Unauthorized Access/Control # Listening shell
   insertion_phase: distribution # Official download source tarball replaced
-  impact_type: Backdoor, Remote execution
+  impact_type: Backdoor/Remote Code Execution
   references:
     - https://scarybeastsecurity.blogspot.com/2011/07/alert-vsftpd-download-backdoored.html # Author\'s blog post
     - https://www.rapid7.com/db/modules/exploit/unix/ftp/vsftpd_234_backdoor/ # Exploit module details

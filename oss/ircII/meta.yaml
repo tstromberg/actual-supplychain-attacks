@@ -3,14 +3,14 @@
   synopsis: The official FTP server (ftp.irc.org) hosting the ircII source code was compromised. The `ircii-2.8.2.tar.gz` distribution was modified; specifically, the file `ircd/s_bsd.c` had a backdoor inserted. This backdoor connected to IP 198.168.253.139 on TCP port 30000 and attempted to start an interactive shell (`/bin/sh -i`), allowing remote access with the privileges of the user running ircII.
   start_date: 1998-10-22 # Approximate date compromised tarball appeared
   end_date: 1999-01-21 # Date backdoor was publicly discovered
-  attribution_type: Individual hacker
+  attribution_type: Individual Hacker
   component_type: Application
   lang: C # Backdoor code inserted into C source
-  cause: Server compromise # FTP server hacked
-  motive: Remote access
+  cause: Compromised Infrastructure # FTP server hacked
+  motive: Unauthorized Access/Control
   transitive: false
   insertion_phase: distribution # Official FTP site compromised
-  impact_type: Backdoor, Remote execution
+  impact_type: Backdoor/Remote Code Execution
   references:
     - https://www.cert.org/historical/advisories/CA-1999-01.cfm # CERT Advisory CA-1999-01 (covers this incident)
     - https://web.archive.org/web/20091027105544/http://geocrawler.com/archives/3/55/1998/10/0/2177558/ # Mailing list post during discovery

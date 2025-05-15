@@ -4,11 +4,11 @@
   synopsis: The FossHub distribution platform was compromised, and downloads for Classic Shell were replaced with a destructive application. The malicious installer would rewrite the master boot record causing boot failures.
   start_date: 2016-08-02
   end_date: 2016-08-03
-  attribution_type: Hacktivist
+  attribution_type: Individual Hacker
   component_type: Application
   lang: C++
-  cause: Website compromise
-  motive: Vandalism
+  cause: Compromised Infrastructure
+  motive: Disruption/Protest
   transitive: false
   historical_artifacts:
     - https://www.fosshub.com/Classic-Shell.html # Original distribution site (compromised version)
@@ -16,7 +16,7 @@
     - https://www.bleepingcomputer.com/news/security/classicshell-and-fosshub-hacked-mbr-wiper-installed-instead-of-app/ # Analysis with MBR wiper details
     - https://github.com/hfiref0x/Misc/tree/master/FossHub%20Malware%20Aug%202016 # Sample of the malicious code
   insertion_phase: distribution
-  impact_type: Data destruction
+  impact_type: Service Disruption/Data Destruction
   impact_user_count: 10000
   references:
     - https://www.ghacks.net/2016/08/03/attention-fosshub-downloads-compromised/

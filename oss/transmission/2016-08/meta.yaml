@@ -4,14 +4,14 @@
   synopsis: Months after the KeRanger incident, Transmission's website was compromised again. This time, the legitimate macOS installer for version 2.92 was replaced with a malicious version containing the OSX/Keydnap backdoor. Keydnap aimed to steal keychain credentials and establish persistent remote access.
   start_date: 2016-08-28 # Approximate date malicious file appeared
   end_date: 2016-08-30 # Approximate date discovered/removed
-  attribution_type: Cybercriminal gang
+  attribution_type: Cybercriminal Gang
   component_type: Application
   lang: Binary # Backdoor embedded in DMG
-  cause: Server compromise # Website/download server hacked again
-  motive: Credential theft, Remote access
+  cause: Compromised Infrastructure # Website/download server hacked again
+  motive: Credential Theft # Credential theft, Remote access
   transitive: false
   insertion_phase: distribution # Official download file replaced
-  impact_type: Credential theft, Backdoor, Remote access
+  impact_type: Data Exfiltration # Credential theft, Backdoor, Remote access
   references:
     - https://objective-see.org/blog/blog_0x11.html # Patrick Wardle's analysis of Transmission 2.92 compromise with Keydnap
   versions:

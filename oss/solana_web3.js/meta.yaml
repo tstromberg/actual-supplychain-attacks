@@ -3,13 +3,13 @@
   synopsis: Attackers compromised an NPM publish-access account, reportedly via spear-phishing a maintainer. They published malicious versions (1.95.6, 1.95.7) of the widely used `@solana/web3.js` package to NPM. The injected code captured private keys handled by dependent applications (especially bots or backend systems) and exfiltrated them to an attacker's server (`sol-rpc.xyz`), enabling cryptocurrency theft estimated around $160k USD.
   start_date: 2024-12-02 # Malicious versions published UTC
   end_date: 2024-12-03 # Malicious versions removed (~5 hour window)
-  attribution_type: Individual hacker # Or group
+  attribution_type: Cybercriminal Gang # Or group
   component_type: Library # Blockchain SDK
   lang: Javascript
-  cause: Stolen credentials # Phishing attack
-  motive: Financial gain # Cryptocurrency theft
+  cause: Compromised Account/Credentials # Phishing attack
+  motive: Financial Gain # Cryptocurrency theft
   insertion_phase: distribution # Malicious versions published to NPM
-  impact_type: Credential theft, Cryptocurrency theft
+  impact_type: Financial Exploitation # Credential theft, Cryptocurrency theft
   impact_user_count: 400000 # Approximate weekly downloads; actual impacted count lower due to short window
   domain: npmjs.org
   domain_type: package host

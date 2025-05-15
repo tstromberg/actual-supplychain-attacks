@@ -4,14 +4,14 @@
   synopsis: An attacker gained control of Gentoo's GitHub organization administrator account (reportedly 'risacher' via password guessing). The attacker modified content, including ebuilds for 'portage' and 'musl-dev' in the main Gentoo ebuild repository, replacing them with malicious versions designed to execute 'rm -rf /' which would attempt to remove all files from users' systems. Access was quickly regained and changes reverted.
   start_date: 2018-06-28
   end_date: 2018-06-28
-  attribution_type: Individual hacker
+  attribution_type: Individual Hacker
   component_type: Distribution # Linux Distribution infrastructure/packages
   lang: Shell # Ebuilds are shell scripts
-  cause: Stolen credentials # Password guessed via insecure practices
-  motive: Unknown # Vandalism or attempted deeper compromise
+  cause: Compromised Account/Credentials # Password guessed via insecure practices
+  motive: Disruption/Protest # Vandalism or attempted deeper compromise
   transitive: false
   insertion_phase: source # Modification of source code/package definitions on GitHub
-  impact_type: Data destruction, Potential remote execution # Malicious ebuilds attempted 'rm -rf /'
+  impact_type: Service Disruption/Data Destruction # Malicious ebuilds attempted 'rm -rf /'
   references:
     - https://arstechnica.com/information-technology/2018/06/gentoo-linux-github-organization-hacked-and-defaced/ # Ars Technica article
   versions:

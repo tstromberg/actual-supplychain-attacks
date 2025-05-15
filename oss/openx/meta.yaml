@@ -3,14 +3,14 @@
   synopsis: The infrastructure serving downloads and updates for the OpenX Source ad server software was compromised. Attackers modified official software packages to include malicious code. This code redirected website visitors viewing ads served by compromised OpenX servers to the Styx exploit kit, infecting end-users.
   start_date: 2013-08-01 # Approximate start, active through Nov/Dec
   end_date: 2013-12-06 # Public disclosure and cleanup period
-  attribution_type: Cybercriminal gang # Likely financially motivated group
+  attribution_type: Cybercriminal Gang # Likely financially motivated group
   component_type: Application # Ad Server
   lang: PHP # Malicious code inserted into PHP application
-  cause: Server compromise # Download/update infrastructure breached
-  motive: Financial gain # Exploit kit distribution
+  cause: Compromised Infrastructure # Download/update infrastructure breached
+  motive: Financial Gain # Exploit kit distribution
   transitive: false
   insertion_phase: distribution # Compromise of official download/update mechanism
-  impact_type: Malware distribution, Remote execution # Via exploit kit
+  impact_type: Unauthorized System Modification/Malware Propagation # Via exploit kit
   references:
     - https://blog.sucuri.net/2013/12/openx-compromise-serving-malware.html # Original disclosure
     - https://www.theregister.com/2013/12/05/openx_hack_malware_serving/ # News coverage

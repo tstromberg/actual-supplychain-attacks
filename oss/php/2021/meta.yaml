@@ -4,14 +4,14 @@
   synopsis: Attackers compromised the self-hosted `git.php.net` server. They pushed two malicious commits directly to the php-src repository ('main' branch). These commits attempted to insert a backdoor enabling remote code execution, disguised as typo fixes. The commits were detected quickly and did not impact any released version. PHP migrated to GitHub afterwards.
   start_date: 2021-03-28
   end_date: 2021-03-28
-  attribution_type: Unknown # Claimed to be Zerodium, but unconfirmed
+  attribution_type: Individual Hacker # Claimed to be Zerodium, but unconfirmed
   component_type: Library # Language runtime
   lang: C
-  cause: Server compromise # Git server credentials/access compromised
-  motive: Espionage # Remote code execution backdoor
+  cause: Compromised Infrastructure # Git server credentials/access compromised
+  motive: Espionage/Strategic Advantage # Remote code execution backdoor
   transitive: false
   insertion_phase: source # Direct commit to authoritative repository
-  impact_type: Potential backdoor, Remote execution # If released
+  impact_type: Benign/Proof of Concept # If released
   references:
     - https://news-web.php.net/php.internals/113838 # Official announcement
     - https://www.bleepingcomputer.com/news/security/phps-git-server-hacked-to-add-backdoors-to-php-source-code/

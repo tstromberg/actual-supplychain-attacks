@@ -6,11 +6,11 @@
   attribution_type: Nation-state # Speculated Nation-state or skilled hacker
   component_type: OS # Kernel
   lang: C
-  cause: Server compromise # Access to commit infrastructure (BitKeeper/CVS)
-  motive: Espionage # Hidden root access
+  cause: Compromised Infrastructure # Access to commit infrastructure (BitKeeper/CVS)
+  motive: Espionage/Strategic Advantage # Hidden root access
   transitive: false
   insertion_phase: source # Attempted modification of authoritative source code
-  impact_type: Potential root compromise # If it hadn't been caught
+  impact_type: Benign/Proof of Concept # If it hadn't been caught
   references:
     - https://lwn.net/Articles/57237/
     - http://phrack.org/issues/62/4.html#article

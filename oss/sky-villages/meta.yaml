@@ -3,13 +3,13 @@
   synopsis: The CurseForge account associated with the 'Sky Villages' Minecraft mod was compromised. Attackers uploaded a malicious JAR file appearing as a legitimate update for the mod. This file contained the 'Fracturiser' malware, which steals various credentials and attempts to infect other JAR files on the victim's computer.
   start_date: 2023-05-01 # Approximate timeframe malicious files started appearing for various mods
   end_date: 2023-06-08 # Approximate date of widespread discovery and public warnings
-  attribution_type: Unknown # Attacker(s) compromising accounts
+  attribution_type: Cybercriminal Gang # Attacker(s) compromising accounts
   component_type: Game mod # Minecraft Java Edition Mod
   lang: Java
-  cause: Stolen credentials # Compromised CurseForge/BukkitDev account
-  motive: Credential theft, Malware propagation
+  cause: Compromised Account/Credentials # Compromised CurseForge/BukkitDev account
+  motive: Credential Theft # Credential theft, Malware propagation
   insertion_phase: distribution # Malicious JAR uploaded to official mod platform
-  impact_type: Credential theft, Data theft, Malware infection
+  impact_type: Data Exfiltration # Credential theft, Data theft, Malware infection
   domain: curseforge.com
   domain_type: package host
   artifact_type: binary archive

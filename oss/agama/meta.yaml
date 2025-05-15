@@ -4,14 +4,14 @@
   synopsis: The Agama cryptocurrency wallet application inadvertently included a compromised version of the `electron-native-notify` NPM package (v1.1.6) as a dependency in its builds. This resulted in official Agama wallet releases containing a backdoor (reverse shell) inherited from the dependency, potentially allowing attackers remote access and theft of wallet seeds or private keys.
   start_date: 2018-08-01 # Approximate date malicious dependency published/included in Agama builds
   end_date: 2018-08-13 # Date Komodo Platform issued warnings and advised updates
-  attribution_type: Unknown # Same attribution as the electron-native-notify compromise
+  attribution_type: Compromised Dependency # Same attribution as the electron-native-notify compromise
   component_type: Application # Cryptocurrency Wallet
   lang: Javascript # Wallet primarily JS/Electron; backdoor was JS
-  cause: Dependency compromise # Malicious electron-native-notify included
+  cause: Malicious Dependency # Malicious electron-native-notify included
   motive: Financial gain # Cryptocurrency theft
   transitive: true
   insertion_phase: dependency # Compromised dependency pulled during application build
-  impact_type: Backdoor, Remote access, Credential theft # Wallet seeds/keys
+  impact_type: Backdoor/Remote Code Execution # Wallet seeds/keys
   artifact_type: binary archive
   historical_artifacts:
     - pkg:github/KomodoPlatform/Agama@v0.3.3

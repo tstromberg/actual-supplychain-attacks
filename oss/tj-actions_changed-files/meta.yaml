@@ -4,14 +4,14 @@
   synopsis: A maintainer's personal access token (PAT) with repository write access was leaked from a compromised development environment. This potentially allowed attackers to modify the code of several `tj-actions`, including `changed-files`, used in GitHub Actions workflows. Such modifications could exfiltrate secrets or execute malicious code within users\' CI/CD pipelines.
   start_date: 2025-03-14
   end_date: 2025-03-15
-  attribution_type: Nation-state
+  attribution_type: Individual Hacker
   component_type: Library # CI/CD Component (GitHub Action)
   lang: Shell
-  cause: Stolen credentials # Leaked maintainer PAT token
-  motive: Credential theft, Remote execution # Potential impact on user workflows
+  cause: Compromised GHA # Leaked maintainer PAT token
+  motive: Credential Theft # Potential impact on user workflows
   transitive: false
   insertion_phase: CI/CD # Compromise impacting action code/runtime via leaked token
-  impact_type: Credential theft, Remote execution # Potential impact
+  impact_type: Data Exfiltration # Potential impact
   commits:
     - 0e58ed8671d6b60d0890c21b07f8835ace038e67 # Malicious commit containing backdoor code
   historical_artifacts:

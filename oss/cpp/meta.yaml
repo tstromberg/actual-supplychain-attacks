@@ -6,8 +6,8 @@
   attribution_type: Author
   component_type: Compiler
   lang: C / Assembly # Language of Unix tools
-  cause: Maintainer modification # As a proof of concept/experiment
-  motive: Security research # Demonstrating trust vulnerability
+  cause: Sabotage # As a proof of concept/experiment
+  motive: Experimentation/Notoriety # Demonstrating trust vulnerability
   transitive: true
   historical_artifacts:
     - unix:/usr/bin/cc # Original Bell Labs Unix compiler
@@ -16,7 +16,7 @@
     - https://www.cs.cmu.edu/~rdriley/487/papers/Thompson_1984_ReflectionsonTrustingTrust.pdf # Paper containing technical details
     - https://wiki.c2.com/?TheKenThompsonHack # Documentation of the backdoor technique
   insertion_phase: build automation # Demonstrated compromise of build tool (compiler binary) modifying output
-  impact_type: Backdoor, Remote access (Internal Experiment) # Implemented within Bell Labs, not maliciously distributed
+  impact_type: Benign/Proof of Concept # Implemented within Bell Labs, not maliciously distributed
   artifact_type: binary archive
   references:
     - https://www.cs.cmu.edu/~rdriley/487/papers/Thompson_1984_ReflectionsonTrustingTrust.pdf # Widely available PDF copy

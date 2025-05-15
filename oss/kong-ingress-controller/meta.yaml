@@ -4,13 +4,13 @@
   synopsis: An attacker compromised a Kong DockerHub Personal Access Token (PAT), likely via a CI/CD pipeline exploit ("Pwn Request" targeting an old branch). Using this token, they uploaded a malicious version of the official Kong Ingress Controller container image (v3.4.0) directly to DockerHub. This malicious image contained an XMRig cryptominer configured to mine Monero using the resources of clusters that pulled and ran the compromised image.
   start_date: 2024-12-23 # Approximate date malicious image uploaded to DockerHub
   end_date: 2025-01-02 # Date malicious image removed from DockerHub by Kong
-  attribution_type: Unknown
+  attribution_type: Individual Hacker
   component_type: Application # Kubernetes Ingress Controller
   lang: Binary # Cryptominer payload
-  cause: Stolen credentials # Leaked/exploited CI/CD token (PAT)
-  motive: Financial gain # Cryptomining
+  cause: Compromised Account/Credentials # Leaked/exploited CI/CD token (PAT)
+  motive: Financial Gain # Cryptomining
   insertion_phase: CI/CD # Compromised token allowed push to distribution platform (DockerHub)
-  impact_type: Resource hijacking, Cryptomining
+  impact_type: Financial Exploitation
   domain: docker.io
   domain_type: container host
   artifact_type: OCI image

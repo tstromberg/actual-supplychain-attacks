@@ -7,8 +7,8 @@
   attribution_type: Author
   component_type: Library
   lang: Javascript
-  cause: Maintainer sabotage
-  motive: Protest
+  cause: Sabotage
+  motive: Disruption/Protest
   transitive: false
   historical_artifacts:
     - https://registry.npmjs.org/colors/-/colors-1.4.1.tgz
@@ -20,13 +20,12 @@
   domain: npmjs.org
   domain_type: package host
   artifact_type: source archive
-  hashes:
     - sha256:5bc0d3d47b85c20241bfb5a014f9c670db195b1341ee3f91c69b2243e6b7711c # colors-1.4.1.tgz
     - sha256:764ff5d6f472e97de7196747741b9c4bc51186e9bf57690f4e68311df1ecfe92 # colors-1.4.2.tgz
     - sha256:c4175e9eecf0fb963b99e2d51a6f16bc8daf68c74378481a99092c8bb49c0b28 # colors-1.4.44-liberty-2.tgz
   insertion_phase: source
-  impact_type: Denial of service, Vandalism
-  impact_user_count: 20000000 # Based on weekly downloads around the time
+  impact_type: Service Disruption/Data Destruction
+  impact_user_count: 2000000 # Based on weekly downloads around the time
   references:
     - https://github.com/Marak/colors.js/issues/285
     - https://www.bleepingcomputer.com/news/security/dev-corrupts-npm-libs-colors-and-faker-breaking-thousands-of-apps/

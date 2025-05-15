@@ -4,14 +4,14 @@
   synopsis: The 'rc' configuration loader NPM package was compromised indirectly. Attackers gained control of the 'coa' package (a dependency) and published malicious versions. When 'rc' was updated to use these compromised 'coa' versions, 'rc' itself began distributing password-stealing malware transitively.
   start_date: 2021-11-04 # Date coa compromise impacted rc
   end_date: 2021-11-05 # Malicious versions removed
-  attribution_type: Individual hacker # Same actor as coa compromise
+  attribution_type: Compromised Dependency # Same actor as coa compromise
   component_type: Library
   lang: Javascript
-  cause: Dependency compromise # Malicious coa dependency added
-  motive: Credential theft
+  cause: Malicious Dependency # Malicious coa dependency added
+  motive: Credential Theft
   transitive: true
   insertion_phase: dependency # Malicious dependency specified
-  impact_type: Credential theft
+  impact_type: Data Exfiltration
   impact_user_count: 10000000 # Based on weekly downloads of rc
   references:
     - https://therecord.media/malware-found-in-coa-and-rc-two-npm-packages-with-23m-weekly-downloads/

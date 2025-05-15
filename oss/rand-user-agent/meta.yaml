@@ -4,14 +4,14 @@
   synopsis: Attackers compromised the NPM account of the maintainer and published malicious versions of the rand-user-agent package. The compromised versions contained obfuscated code that installed a Remote Access Trojan (RAT), which established a connection to a command-and-control server. The malware could execute arbitrary commands, upload files from victims' machines, and modify the PATH environment variable to hijack Python execution.
   start_date: 2025-05-05
   end_date: 2025-05-05
-  attribution_type: Unknown
+  attribution_type: Individual Hacker
   component_type: Library
   lang: JavaScript
-  cause: Stolen credentials
-  motive: Remote access
+  cause: Compromised Account/Credentials
+  motive: Unauthorized Access/Control
   transitive: false
   insertion_phase: distribution
-  impact_type: Remote execution
+  impact_type: Backdoor/Remote Code Execution
   impact_user_count: 45000
   references:
     - https://www.aikido.dev/blog/catching-a-rat-remote-access-trojian-rand-user-agent-supply-chain-compromise

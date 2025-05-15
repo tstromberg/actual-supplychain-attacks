@@ -3,14 +3,14 @@
   synopsis: An official HandBrake download mirror server (download.handbrake.fr) hosting the macOS version was compromised. The HandBrake-1.0.7.dmg file was replaced with a malicious version containing the Proton Remote Access Trojan (RAT). Users downloading the Mac version from this mirror were infected.
   start_date: 2017-05-02 # Approximate start of compromise window
   end_date: 2017-05-06
-  attribution_type: Individual hacker # Or group distributing Proton RAT
+  attribution_type: Cybercriminal Gang # Or group distributing Proton RAT
   component_type: Application
   lang: Binary # Malware was embedded in DMG
-  cause: Server compromise # Mirror server hacked
-  motive: Credential theft # Proton RAT capabilities
+  cause: Compromised Infrastructure # Mirror server hacked
+  motive: Credential Theft # Proton RAT capabilities
   transitive: false
   insertion_phase: distribution # Compromise of official download mirror
-  impact_type: Remote access, Credential theft
+  impact_type: Data Exfiltration
   references:
     - https://arstechnica.com/information-technology/2017/05/handbrake-download-server-hacked-to-distribute-mac-malware/ # Ars Technica article
     - https://securelist.com/proton-mac-os-x-rat/79960/ # Securelist (Kaspersky) analysis of Proton RAT, mentions HandBrake compromise

@@ -3,13 +3,13 @@
   synopsis: Attackers compromised infrastructure related to the Vesta Control Panel, allowing them to inject malicious code into update scripts or packages delivered to users. The malicious code executed commands, collected server passwords (including VestaCP admin and FTP passwords), and sent the stolen data to the attackers' server.
   start_date: 2018-06-01 # Approximate start of compromise
   end_date: 2018-06-12 # Date issue publicly acknowledged/addressed
-  attribution_type: Cybercriminal gang
+  attribution_type: Cybercriminal Gang
   component_type: Daemon # Hosting Control Panel
   lang: Shell # Malicious code in update scripts
-  cause: Server compromise # Build/update infrastructure
-  motive: Credential theft, Remote access
+  cause: Compromised Infrastructure # Build/update infrastructure
+  motive: Credential Theft # Credential theft, Remote access
   insertion_phase: distribution # Compromise of update mechanism/packages
-  impact_type: Credential theft, Remote execution, Backdoor
+  impact_type: Data Exfiltration # Credential theft, Remote execution, Backdoor
   domain: vestacp.com
   domain_type: project download host
   artifact_type: source archive

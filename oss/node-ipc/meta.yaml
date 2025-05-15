@@ -7,11 +7,11 @@
   attribution_type: Author
   component_type: Library
   lang: Javascript
-  cause: Maintainer sabotage
-  motive: Protest # Geopolitical protest
+  cause: Sabotage
+  motive: Disruption/Protest # Geopolitical protest
   transitive: false
   insertion_phase: source
-  impact_type: Data destruction, Vandalism
+  impact_type: Service Disruption/Data Destruction
   impact_user_count: 1000000 # Based on weekly downloads
   references:
     - https://snyk.io/blog/peacenotwar-protestware-node-ipc-package-vulnerability/
