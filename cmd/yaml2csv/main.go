@@ -6,8 +6,10 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"sort"
 	"strconv"
 	"strings"
+	"time"
 
 	"gopkg.in/yaml.v3"
 )
@@ -50,11 +52,6 @@ type AttackEntry struct {
 }
 
 func main() {
-	// Configure logging to stderr
-	log.SetPrefix("")
-	log.SetFlags(0)
-	log.SetOutput(os.Stderr)
-
 	// Get search directory from args or use current directory
 	rootDir := "."
 	if len(os.Args) > 1 {
@@ -68,30 +65,17 @@ func main() {
 
 	log.Printf("Info: Searching for meta.yaml files in: %s", absRootDir)
 
-	// Process YAML files and generate CSV data
-	writer := csv.NewWriter(os.Stdout)
-	defer writer.Flush()
+	// Collect all entries from all meta.yaml files
+	var allEntries []AttackEntry
+	count := 0
 
-	// Write headers to CSV
-	if err := writer.Write(csvHeaders); err != nil {
-		log.Fatalf("Error: Failed to write CSV headers: %v", err)
-	}
-
-	// Walk directory tree searching for meta.yaml files
-	processCount := 0
 	err = filepath.WalkDir(absRootDir, func(path string, d fs.DirEntry, err error) error {
-		if err != nil {
-			log.Printf("Warning: Error accessing path %q: %v. Skipping.", path, err)
-			return nil
-		}
-
-		if d.IsDir() || d.Name() != "meta.yaml" {
+		if err != nil || d.IsDir() || d.Name() != "meta.yaml" {
 			return nil
 		}
 
 		log.Printf("Info: Processing file: %s", path)
-		
-		// Read and parse YAML file
+
 		data, err := os.ReadFile(path)
 		if err != nil {
 			log.Printf("Warning: Could not read %s: %v. Skipping.", path, err)
@@ -100,97 +84,124 @@ func main() {
 
 		var entries []AttackEntry
 		if err := yaml.Unmarshal(data, &entries); err != nil {
-			log.Printf("Warning: Could not process %s: %v. Skipping.", path, err)
+			log.Printf("Warning: Could not parse %s: %v. Skipping.", path, err)
 			return nil
 		}
 
-		// Convert entries to CSV rows and write directly
-		for _, entry := range entries {
-			row := make([]string, len(csvHeaders))
-			
-			// Extract values for each field
-			for i, header := range csvHeaders {
-				switch header {
-				case "name":
-					row[i] = entry.Name
-				case "title":
-					row[i] = entry.Title
-				case "repo":
-					row[i] = entry.Repo
-				case "synopsis":
-					row[i] = entry.Synopsis
-				case "year":
-					if len(entry.StartDate) >= 4 {
-						row[i] = entry.StartDate[0:4]
-					} else {
-						row[i] = ""
-					}
-				case "start_date":
-					row[i] = entry.StartDate
-				case "end_date":
-					row[i] = entry.EndDate
-				case "attribution_type":
-					row[i] = entry.AttributionType
-				case "component_type":
-					row[i] = entry.ComponentType
-				case "lang":
-					row[i] = entry.Lang
-				case "cause":
-					row[i] = entry.Cause
-				case "motive":
-					row[i] = entry.Motive
-				case "transitive":
-					row[i] = strconv.FormatBool(entry.Transitive)
-				case "insertion_phase":
-					row[i] = entry.InsertionPhase
-				case "impact_type":
-					row[i] = entry.ImpactType
-				case "impact_user_count":
-					// Only output non-zero values or explicit zeros
-					if entry.ImpactUserCount != 0 || strings.Contains(string(data), "impact_user_count:") {
-						row[i] = strconv.Itoa(entry.ImpactUserCount)
-					}
-				case "references":
-					row[i] = strings.Join(entry.References, ", ")
-				case "versions":
-					row[i] = strings.Join(entry.Versions, ", ")
-				case "commits":
-					row[i] = strings.Join(entry.Commits, ", ")
-				case "historical_artifacts":
-					row[i] = strings.Join(entry.HistoricalArtifacts, ", ")
-				case "current_artifacts":
-					row[i] = strings.Join(entry.CurrentArtifacts, ", ")
-				case "domain":
-					row[i] = entry.Domain
-				case "domain_type":
-					row[i] = entry.DomainType
-				case "artifact_type":
-					row[i] = entry.ArtifactType
-				case "hashes":
-					row[i] = strings.Join(entry.Hashes, ", ")
-				}
-			}
-			
-			// Write row directly to CSV
-			if err := writer.Write(row); err != nil {
-				log.Printf("Warning: Error writing row: %v", err)
-				continue
-			}
-			
-			processCount++
-		}
-		
+		allEntries = append(allEntries, entries...)
+		count += len(entries)
 		return nil
 	})
-
 	if err != nil {
 		log.Fatalf("Error: Failed walking directory: %v", err)
 	}
 
-	if processCount == 0 {
+	if count == 0 {
 		log.Println("Info: No meta.yaml files found or successfully processed.")
 		return
 	}
 
-	log.Println("Info: CSV generation complete.")
+	// Sort entries by start_date
+	sort.Slice(allEntries, func(i, j int) bool {
+		// Empty dates go last
+		if allEntries[i].StartDate == "" {
+			return false
+		}
+		if allEntries[j].StartDate == "" {
+			return true
+		}
+
+		// Try parsing as dates first
+		date1, err1 := time.Parse("2006-01-02", allEntries[i].StartDate)
+		date2, err2 := time.Parse("2006-01-02", allEntries[j].StartDate)
+		if err1 == nil && err2 == nil {
+			return date1.Before(date2)
+		}
+
+		// Fall back to string comparison
+		return allEntries[i].StartDate < allEntries[j].StartDate
+	})
+
+	// Write sorted entries to CSV
+	writer := csv.NewWriter(os.Stdout)
+	defer writer.Flush()
+
+	if err := writer.Write(csvHeaders); err != nil {
+		log.Fatalf("Error: Failed to write CSV headers: %v", err)
+	}
+
+	for _, entry := range allEntries {
+		row := entryToRow(entry)
+		if err := writer.Write(row); err != nil {
+			log.Printf("Warning: Error writing row: %v", err)
+		}
+	}
+
+	log.Printf("Info: CSV generation complete. Processed %d entries.", count)
+}
+
+// entryToRow converts an AttackEntry to a CSV row
+func entryToRow(entry AttackEntry) []string {
+	row := make([]string, len(csvHeaders))
+
+	for i, header := range csvHeaders {
+		switch header {
+		case "name":
+			row[i] = entry.Name
+		case "title":
+			row[i] = entry.Title
+		case "repo":
+			row[i] = entry.Repo
+		case "synopsis":
+			row[i] = entry.Synopsis
+		case "year":
+			if len(entry.StartDate) >= 4 {
+				row[i] = entry.StartDate[0:4]
+			}
+		case "start_date":
+			row[i] = entry.StartDate
+		case "end_date":
+			row[i] = entry.EndDate
+		case "attribution_type":
+			row[i] = entry.AttributionType
+		case "component_type":
+			row[i] = entry.ComponentType
+		case "lang":
+			row[i] = entry.Lang
+		case "cause":
+			row[i] = entry.Cause
+		case "motive":
+			row[i] = entry.Motive
+		case "transitive":
+			row[i] = strconv.FormatBool(entry.Transitive)
+		case "insertion_phase":
+			row[i] = entry.InsertionPhase
+		case "impact_type":
+			row[i] = entry.ImpactType
+		case "impact_user_count":
+			if entry.ImpactUserCount != 0 {
+				row[i] = strconv.Itoa(entry.ImpactUserCount)
+			}
+		case "references":
+			row[i] = strings.Join(entry.References, ", ")
+		case "versions":
+			row[i] = strings.Join(entry.Versions, ", ")
+		case "commits":
+			row[i] = strings.Join(entry.Commits, ", ")
+		case "historical_artifacts":
+			row[i] = strings.Join(entry.HistoricalArtifacts, ", ")
+		case "current_artifacts":
+			row[i] = strings.Join(entry.CurrentArtifacts, ", ")
+		case "domain":
+			row[i] = entry.Domain
+		case "domain_type":
+			row[i] = entry.DomainType
+		case "artifact_type":
+			row[i] = entry.ArtifactType
+		case "hashes":
+			row[i] = strings.Join(entry.Hashes, ", ")
+		}
+	}
+
+	return row
 }
