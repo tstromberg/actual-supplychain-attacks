@@ -4,7 +4,7 @@
   synopsis: Attacker compromised maintainer credentials for the 'coa' command-line argument parser library. Malicious versions were published containing password-stealing malware targeting Windows systems. This impacted downstream projects like 'rc'.
   start_date: 2021-11-04
   end_date: 2021-11-04
-  attribution_type: Individual hacker
+  attribution_type: Individual Hacker
   component_type: Library
   lang: Javascript
   cause: Compromised Account/Credentials

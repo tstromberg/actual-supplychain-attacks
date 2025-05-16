@@ -4,7 +4,7 @@
   synopsis: Attacker gained access to the maintainer's account for 'ctx', a utility library. They published a malicious version designed to steal environment variables and `.npmrc` credentials upon installation. The malicious code was hidden in a test file.
   start_date: 2022-05-18 # Approximately when the malicious version was published
   end_date: 2022-05-18 # Malicious version quickly removed
-  attribution_type: Individual hacker
+  attribution_type: Individual Hacker
   component_type: Library
   lang: Javascript
   cause: Compromised Account/Credentials

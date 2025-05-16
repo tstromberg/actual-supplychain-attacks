@@ -1,30 +1,38 @@
 - name: openssh
-  title: OpenSSH CVS source code backdoor attempt discovered
-  synopsis: Malicious code attempting to create a backdoor was discovered in the OpenBSD CVS repository, affecting OpenSSH code. The backdoor would trigger during challenge-response authentication, potentially allowing remote access. It was inserted by a core developer, allegedly under duress (FBI coercion claim, later doubted). The code was found and removed before any vulnerable release.
-  start_date: 2002-08-31 # Approximate date of insertion
-  end_date: 2002-09-01 # Date of discovery/revert
-  attribution_type: Individual Hacker # Potentially coerced
-  component_type: Application # Foundational security tool
+  title: Trojan Horse in OpenSSH Distribution Files
+  synopsis: Malicious code was discovered in OpenSSH distribution files on the official OpenBSD FTP server. The trojan was inserted into the source code archives and would activate during compilation, connecting to a remote server on IRC port 6667 and allowing arbitrary command execution. The backdoor was discovered quickly and the compromised files were replaced with clean versions before widespread damage could occur.
+  start_date: 2002-07-30 # Approximate date of insertion
+  end_date: 2002-08-01 # Date of discovery/removal
+  attribution_type: Unknown # No public attribution
+  component_type: Application # Security/cryptography software
   lang: C
-  cause: Sabotage # Motivation disputed (coercion vs internal)
-  motive: Espionage/Strategic Advantage # Remote access
+  cause: Sabotage # Intentional insertion of malicious code
+  motive: Unauthorized Access/Control # Command execution backdoor
   transitive: false
-  insertion_phase: source # Direct commit to CVS repository
-  impact_type: Benign/Proof of Concept # If released
+  insertion_phase: distribution # Inserted into distribution files
+  impact_type: Limited # Quick detection limited impact
   references:
-    - https://marc.info/?l=openbsd-security-announce&m=103302809430059&w=2 # Original OpenBSD announcement
-    - https://www.theregister.com/2002/09/03/trojan_horse_discovered_in_openssh/ # News report of the incident
-    - https://lwn.net/Articles/9571/ # LWN coverage of the incident
+    - https://www.openssh.com/txt/trojan.adv
+    - https://undeadly.org/cgi?action=article&sid=20020801122759
+    - https://www.itworldcanada.com/article/trojan-horse-found-in-openssh/25256
+    - https://www.cert.org/advisories/CA-2002-24.html
+    - https://www.mavetju.org/unix/openssh-trojan.php
+    - https://slashdot.org/comments.pl?sid=37188&cid=3991288
   historical_artifacts:
-    - cvs://anoncvs.openbsd.org/src/usr.bin/ssh/auth2-chall.c#revision=1.100 # CVS revision with backdoor
-    - ftp://ftp.openbsd.org/pub/OpenBSD/OpenSSH/openssh-3.4p1.tar.gz # Source distribution that could have included the backdoor
+    - ftp://ftp.openbsd.org/pub/OpenBSD/OpenSSH/openssh-3.4p1.tar.gz # Trojaned distribution file
+    - ftp://ftp.openbsd.org/pub/OpenBSD/OpenSSH/openssh-3.4.tgz # Trojaned distribution file
+    - ftp://ftp.openbsd.org/pub/OpenBSD/OpenSSH/openssh-3.2.2p1.tar.gz # Trojaned distribution file
   current_artifacts:
-    - https://marc.info/?l=openbsd-security-announce&m=103302809430059&w=2 # Analysis with code excerpt
-    - https://www.securityfocus.com/news/625 # Security Focus article with technical details
+    - http://www.mavetju.org/~edwin/bf-test.c # Preserved copy of the malicious file
+    - http://www.mavetju.org/~edwin/bf-output.sh # Generated shell script
   commits:
-    - "Revision 1.100 of ssh/auth2-chall.c" # Location of the backdoored code
-  domain: openbsd.org
-  domain_type: code host
-  artifact_type: revision control system
+    - None # The attack was on distribution files, not repository commits
+  domain: openssh.com
+  domain_type: code distribution
+  artifact_type: tar archive
+  versions:
+    - 3.2.2p1
+    - 3.4p1
+    - 3.4
   hashes:
-    - sha1:a49a3636610c5f10c27f5c71072ce4cff5baffc3 # Backdoored auth2-chall.c file
+    - 3ac9bc346d736b4a51d676faa2a08a57 # MD5 of trojaned openssh-3.4p1.tar.gz

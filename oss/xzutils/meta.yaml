@@ -6,7 +6,7 @@
   attribution_type: Nation-state # Suspected due to sophistication/patience
   component_type: Library # Compression utility/library
   lang: Shell # Build script modifications (m4/autoconf)
-  cause: Sabotage # Maintainer access takeover
+  cause: Social Engineering # Maintainer access takeover
   motive: Espionage/Strategic Advantage # Remote access to sshd
   insertion_phase: build automation # Malicious code injected during configure/build stage
   impact_type: Backdoor/Remote Code Execution # Potential RCE via sshd compromise
