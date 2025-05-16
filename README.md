@@ -2,14 +2,13 @@
 
 This repository contains comprehensive data about actual software supply-chain attacks throughout history.
 
-This repository only includes cases where an open-source project or commercial product distributed compromised software knowingly or accidentally.
+This repository only includes cases where an open-source project or commercial product distributed compromised software knowingly or accidentally. We do also include edge cases, such as when an open-source project has shut-down and an attacker later takes over their accounts.
 
-We do not include drive-by attacks that had no involvement with an open-source project or commercial product, such as:
+We do not include drive-by attacks that had no involvement with a project or its regular distribution channels, such as:
 
 - Random USB keys found on a sidewalk
 - Typosquatting attacks
-- Malware uploaded to random websites
-- Social-engineering attacks that did not involve the project/product
+- Malware uploaded to random websites unrelated to the project
 
 ## OSS Pwn Count
 
