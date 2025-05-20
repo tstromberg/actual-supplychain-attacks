@@ -11,6 +11,12 @@ This repository only includes cases where an open-source project or commercial p
 - Projectsonly known in the context of delivering malware (for example, a project created solely to demonstrate an attack)
 - Typosquatting attacks
 
+## Data
+
+- Each incident has a YAML file associated to it that you may edit
+- Data is also compiled into a `oss_summary.csv` and `proprietary_summary.csv` file for importing into spreadsheet software, this data can be refreshed using `make`
+- OSS data is also periodically published into a Google Sheet for easy access: https://docs.google.com/spreadsheets/d/1C3SipbHjaOKVjxjKb85ICq68mgttI_un7p6XZ3xYNUc/edit?gid=1052022989#gid=1052022989
+
 ## OSS Pwn Count
 
 * 56 OSS projects
