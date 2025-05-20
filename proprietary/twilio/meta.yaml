@@ -10,7 +10,6 @@
   transitive: false
   insertion_phase: distribution # Compromised file hosted on official CDN/S3 location
   impact_type: Malvertising, Skimming (potential) # Injected code associated with these activities
-  impact_user_count: Unknown # Affected websites integrating the specific SDK version during the window
   references:
     - https://www.twilio.com/en-us/blog/incident-report-taskrouter-js-sdk-july-2020 # Official Twilio report
     - https://www.theregister.com/2020/07/21/twilio_javascript_sdk_code_injection/

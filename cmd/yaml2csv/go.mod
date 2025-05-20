@@ -1,4 +1,4 @@
-module github.com/tstromberg/supplychain-attacks/cmd/yaml2csv
+module github.com/tstromberg/supplychain-attack-data/cmd/yaml2csv
 
 go 1.23.4
 

@@ -1,7 +1,7 @@
 - name: AccessPress Themes (WordPress Ecosystem)
   title: AccessPress Themes/Plugins backdoored via vendor site compromise
   synopsis: The website of AccessPress Themes (also known as Access Keys), a vendor of numerous popular WordPress themes and plugins, was compromised. Attackers injected a backdoor into the downloadable zip files of dozens of their themes and plugins hosted on their site. This backdoor allowed attackers full control over websites that installed or updated these compromised extensions.
-  start_date: 2021-09-01 # Approximate start of compromise
+  start_date: 2021-09-02 # Approximate start of compromise
   end_date: 2022-01-17 # Date publicly disclosed by researchers
   attribution_type: Individual Hacker
   component_type: Library # WordPress Themes/Plugins
@@ -16,13 +16,17 @@
   historical_artifacts:
     - pkg:generic/accesspress-theme?repository_url=https://accesspressthemes.com # Original download source for various compromised themes
     - pkg:generic/accesspress-plugin?repository_url=https://accesspressthemes.com # Original download source for various compromised plugins
-  current_artifacts:
-    - https://www.wordfence.com/blog/2022/01/severe-vulnerabilities-in-accesspress-themes-and-plugins-allow-for-full-site-takeover/ # Describes backdoor behavior, IoCs (e.g., malicious file path wp-includes/vars.php)
   hashes:
     - sha256:0918af9a5c6060dec985b98bbf54030cd29f1701ca9fdb6abfc1e39f90e5113e # Example hash of a compromised AccessPress theme
+  artifacts:
+    - https://jetpack.com/resources/backdoor-found-in-themes-and-plugins-from-accesspress-themes/
+    - https://blog.sucuri.net/2022/01/accesspress-themes-hit-with-targeted-supply-chain-attack.html
   domain: accesspressthemes.com
   domain_type: project download host
   references:
-    - https://www.wordfence.com/blog/2022/01/severe-vulnerabilities-in-accesspress-themes-and-plugins-allow-for-full-site-takeover/ # Technical details and IoCs
+    - https://jetpack.com/resources/backdoor-found-in-themes-and-plugins-from-accesspress-themes/
+    - https://www.bleepingcomputer.com/news/security/over-90-wordpress-themes-plugins-backdoored-in-supply-chain-attack/
+    - https://its.ny.gov/2022-012
+    - https://blog.sucuri.net/2022/01/accesspress-themes-hit-with-targeted-supply-chain-attack.html
   versions:
     - Dozens of themes/plugins from AccessPress Themes/Access Keys (see references for specific lists)

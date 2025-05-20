@@ -74,7 +74,7 @@ func main() {
 			return nil
 		}
 
-		log.Printf("Info: Processing file: %s", path)
+		// log.Printf("Info: Processing file: %s", path)
 
 		data, err := os.ReadFile(path)
 		if err != nil {

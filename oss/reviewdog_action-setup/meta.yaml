@@ -9,7 +9,7 @@
   cause: Compromised GHA # Leaked contributor PAT token via upstream compromise
   motive: Credential Theft # Exfiltrating secrets from CI/CD pipelines
   transitive: False
-  insertion_phase: source # Official Git tag maliciously updated
+  insertion_phase: CI/CD # Official Git tag maliciously updated
   impact_type: Data Exfiltration # Secrets dumped to logs
   impact_user_count: 1500 # Estimated repositories potentially affected during the window
   domain: github.com

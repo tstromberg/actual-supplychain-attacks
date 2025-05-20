@@ -1,21 +1,22 @@
 # supplychain-attack-data
 
-This repository contains comprehensive data about actual software supply-chain attacks throughout history.
+Welcome to the most comprehensive dataset on software supply-chain attacks in the world!
 
-This repository only includes cases where an open-source project or commercial product distributed compromised software knowingly or accidentally. We do also include edge cases, such as when an open-source project has shut-down and an attacker later takes over their accounts.
+## Incident Criteria
 
-We do not include drive-by attacks that had no involvement with a project or its regular distribution channels, such as:
+This repository only includes cases where an open-source project or commercial product distributed malware knowingly or unknowingly. We also include edge cases, such as when an open-source project has shut down and an attacker later takes over its online presence.
 
+- Malware uploaded to a random website with no relationship to the project or product
 - Random USB keys found on a sidewalk
+- Projectsonly known in the context of delivering malware (for example, a project created solely to demonstrate an attack)
 - Typosquatting attacks
-- Malware uploaded to random websites unrelated to the project
 
 ## OSS Pwn Count
 
 * 56 OSS projects
 * 59 incidents
 
-To the best of my knowledge, this data is complete, but if you know of any cases where a software supply-chain attack impacted a known open-source project, please open an issue.
+To the best of my knowledge, this data is complete, but if you know of any cases where an open-source project distributed malware, please open an issue.
 
 ![OSS supply-chain compromises over time](assets/chart.png)
 ![OSS supply-chain compromises: insertion point](assets/where.png)
@@ -24,9 +25,9 @@ To the best of my knowledge, this data is complete, but if you know of any cases
 
 ## Proprietary Pwn Count
 
-* 42 products & incidents
+* 45 products & incidents
 
-Note: Available data on commercial software supply-chain attacks is limited, as attacks on commercial tools often go unannounced. This number is almost certainly a severe undercount.
+Note: Available data is limited as many commercial attacks go unreported.
 
 ## PR's welcome!
 

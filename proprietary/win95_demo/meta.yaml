@@ -10,7 +10,6 @@
   transitive: false
   insertion_phase: distribution # Physical media duplication stage
   impact_type: Nuisance # Audible clicking sound payload
-  impact_user_count: Unknown # Potentially widespread given Form prevalence & MS distribution scale
   references:
     - https://grahamcluley.com/ibm-shipping-malware-infected-usb-sticks/ # References the Microsoft/Form incident via comment/context
     - https://www.independent.co.uk/news/business/microsoft-ships-disks-infected-with-computer-virus-1575886.html # Contemporary news report (paywalled/snippet viewable)

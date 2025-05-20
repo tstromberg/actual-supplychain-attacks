@@ -13,6 +13,9 @@
   impact_user_count: 57000 # Kaspersky customers who received the trojanized update; broader infection over 1 million, but targeted payload for ~600 MACs
   references:
     - https://securelist.com/operation-shadowhammer/89992/
+    - https://securelist.com/operation-shadowhammer-a-high-profile-supply-chain-attack/90380/
+    - https://mauronz.github.io/shadowhammer-backdoor/
+    - https://www.vice.com/en/article/hackers-hijacked-asus-software-updates-to-install-backdoors-on-thousands-of-computers/
     - https://www.vice.com/en/article/pan9wn/hackers-hijacked-asus-software-updates-to-install-backdoors-on-thousands-of-computers
     - https://www.asus.com/news/asus-response-to-the-recent-media-reports-regarding-asus-live-update-tool-attack-by-advanced-persistent-threat-apt-groups/
   versions:

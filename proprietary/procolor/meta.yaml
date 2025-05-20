@@ -1,0 +1,43 @@
+- name: ProColor
+  title: ProColor printer drivers contained malware
+  synopsis: ProColor, a UV printer manufacturer, distributed official drivers and software that contained malware through its website and USB drives provided with printers. The malware (XRedRAT backdoor, SnipVex clipboard bitcoin stealer, and Floxif file infector) affected multiple printer models, allowing file infections, cryptocurrency theft, and potential remote access to infected systems.
+  start_date: 2024-11-01
+  end_date: 2025-05-08
+  attribution_type: Unknown
+  component_type: driver
+  lang: multiple
+  cause: compromised distribution
+  motive: financial gain
+  transitive: true
+  insertion_phase: distribution
+  impact_type: backdoor
+  impact_user_count: 1000
+  domain: procolor.com
+  domain_type: product host
+  artifact_type: binary archive
+  references:
+    - https://www.howtogeek.com/procolored-malware-infected-drivers/
+    - https://www.hackster.io/news/the-maker-s-toolbox-procolored-v11-pro-dto-uv-printer-review-680d491e17e3
+    - https://www.gdatasoftware.com/blog/2025/05/38200-printer-infected-software-downloads
+    - https://www.reddit.com/r/computerviruses/comments/1kbkmgq/viruses_included_in_product_im_reviewing/
+    - https://www.neowin.net/news/this-printer-company-served-you-malware-for-months-and-dismissed-it-as-false-positives/
+  versions:
+    - v11 Pro DTO
+    - F8
+    - F13 Pro
+    - V6
+    - V11 Pro
+    - VF13 Pro
+  current_artifacts:
+    - https://mega.nz/folder/TNAWTDKL#zR5Atn68a807Qn17FjXFxA
+    - https://mega.nz/folder/zBgEiY4K#veoSD-6LgC12yZdqs1G_Ow
+    - https://mega.nz/folder/3MBG0Rra#eebBaK_Fu6bJs3ZBIhUFiQ
+    - https://mega.nz/folder/yEBVBbwY#0qxlY0S_DXosumSxP38nVg
+    - https://mega.nz/folder/zM413Jbb#crz2GQgj2EFAut4vxfS8Ag
+    - https://mega.nz/folder/eMxjWAgT#r1YEU0KYupfcoBKQQrenSQ
+  hashes:
+    - sha256:531d08606455898408672d88513b8a1ac284fdf1fe011019770801b7b46d5434 # PrintExp.exe with XRedRAT backdoor
+    - sha256:39df537aaefb0aa31019d053a61fabf93ba5f8f3934ad0d543cde6db1e8b35d1 # SnipVex virus
+    - sha256:84ef938a63641cf95a87ceaeb3b4893eb720fb5b42a5f42021c29ba11bda0f39 # Infected PrintExp archive
+    - sha256:b14c855ad7600ac9fda2c46b290acac1342d0e08dc1a95901504d8c5aa206606 # Infected NWReceive.exe
+    - sha256:81de4cedda6109eacc9a3903a30e3a11622668ce6af533f94beadad052f591fb # Infected epson-l800_drv_x64.exe

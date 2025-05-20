@@ -1,16 +1,13 @@
 - name: "Infestation: Survivor Stories (fka The War Z)"
-  title: Infestation game executable backdoored via supply chain.
-  synopsis: Linked to the ShadowHammer/BARIUM APT group (also involved in the ASUS attack), the executable for the online game Infestation Survivor Stories (formerly The War Z) was reportedly recompiled with malicious code sometime before 2019. This supply chain compromise likely aimed to collect system information from players.
-  start_date: Unknown # Occurred sometime during the game's active development/patching lifecycle potentially up to 2018/2019
-  end_date: Unknown # Discovery reported 2019, actual end date of distribution unclear
+  title: "Infestation: Survivor Stories game executable backdoored via supply chain"
+  synopsis: "Linked to the ShadowHammer/BARIUM APT group (also involved in the ASUS attack), the executable for the online game Infestation: Survivor Stories (formerly The War Z) was reportedly recompiled with malicious code sometime between June and November 2018. This supply chain compromise aimed to surgically target users by their MAC addresses to collect system information. The compromised executables were signed with legitimate digital certificates."
   attribution_type: Nation-state
   component_type: game
-  cause: Build system compromise # Implied by recompilation of executable
-  motive: Espionage # Data collection (system info, MAC addresses)
+  cause: "Build system compromise (Attackers had access to source code or injected malware during compilation. Leaked source code and vulnerable production servers also implicated.)"
+  motive: Espionage # Data collection (system info, MAC addresses, username, hostname, IP, Windows version, CPU architecture)
   transitive: false
-  insertion_phase: CI/CD # Malicious code injected during build process
+  insertion_phase: CI/CD # Malicious code injected during build process, executables signed with legitimate certificates.
   impact_type: Data theft
-  impact_user_count: Unknown # Dependent on timing within game's lifecycle
   references:
     - https://www.bankinfosecurity.com/shadowhammer-spreads-across-online-gaming-supply-chain-a-12409 # Discusses BARIUM targeting gaming suppliers
     - https://securelist.com/operation-shadowhammer/89083/ # Kaspersky full report on ShadowHammer
@@ -18,10 +15,14 @@
   versions:
     - "Unknown specific game executable versions/patches"
   historical_artifacts:
-    - "Compromised game executables (e.g., Infestation.exe) distributed via official game patches or downloads, potentially through platforms like Steam or direct publisher websites, prior to 2019."
+    - "Compromised game executables (e.g., Infestation.exe) distributed via official game patches or downloads, potentially through platforms like Steam or direct publisher websites, between June and November 2018."
   current_artifacts:
     - "https://securelist.com/operation-shadowhammer/89083/" # Kaspersky report on ShadowHammer, which mentions gaming industry targets
     - "https://www.bankinfosecurity.com/shadowhammer-spreads-across-online-gaming-supply-chain-a-12409" # Discusses ShadowHammer targeting gaming suppliers
-  domain: Unknown # Likely distributed via Steam or original publisher website
+  domain: "Electronics Extreme (Thailand-based author)" # Likely distributed via Steam or original publisher website
   domain_type: package host # Or project download host
   artifact_type: binary archive # Game client/patch
+  date_occurred: "Between June and November 2018"
+  actor_country: China # BARIUM APT group (linked to Winnti)
+  target_country: Global # Users identified by MAC addresses; Kaspersky telemetry showed various affected countries.
+  actor_name: "BARIUM (APT17, Axiom, Deputy Dog, Winnti group)"
