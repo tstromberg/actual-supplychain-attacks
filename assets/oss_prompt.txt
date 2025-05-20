@@ -18,7 +18,7 @@ Fields to include:
 * transitive: Was it a transitive attack (caused by another supply-chain attack)
 * insertion_phase: What was the phase of the build pipeline was the malicious code inserted into. In order, these phases are:
   - source: authoritative upstream source code
-  - build automation: build scripts or instructions (for example, a Makefile that inserted the malicious instructions on the fly)
+  - build script (Makefile): build scripts or instructions (for example, a Makefile that inserted the malicious instructions on the fly)
   - dependency: external source code dependency (compromised library)
   - CI/CD: compromised build environment (for example: leaked GitHub action token or build server compromise)
   - distribution: official source or binary distribution (for example: PyPI, website, container registry, CDN)

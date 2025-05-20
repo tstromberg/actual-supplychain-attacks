@@ -15,7 +15,7 @@
   current_artifacts:
     - https://www.cs.cmu.edu/~rdriley/487/papers/Thompson_1984_ReflectionsonTrustingTrust.pdf # Paper containing technical details
     - https://wiki.c2.com/?TheKenThompsonHack # Documentation of the backdoor technique
-  insertion_phase: build automation # Demonstrated compromise of build tool (compiler binary) modifying output
+  insertion_phase: source
   impact_type: Benign/Proof of Concept # Implemented within Bell Labs, not maliciously distributed
   artifact_type: binary archive
   references:
