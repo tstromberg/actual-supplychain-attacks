@@ -6,7 +6,7 @@
   attribution_type: Individual Hacker # Actor behind the initial token compromises
   component_type: CI/CD plugin # CI/CD Component (GitHub Action)
   lang: Shell # Malicious payload likely involved shell commands/scripts
-  cause: Compromised GHA # Leaked contributor PAT token via upstream compromise
+  cause: Compromised Account/Credentials # Leaked contributor PAT token via upstream compromise
   motive: Credential Theft # Exfiltrating secrets from CI/CD pipelines
   transitive: False
   insertion_phase: CI/CD # Official Git tag maliciously updated
